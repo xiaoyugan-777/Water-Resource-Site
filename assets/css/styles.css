@@ -201,14 +201,14 @@ a {
   font-weight: 500;
 }
 
-.nav-group a[href="./support.html"] {
+.nav-group a[href$="support.html"] {
   background: #222b29;
   border-radius: 4px;
   padding: 10px 16px;
   position: relative;
 }
 
-.nav-group a[href="./support.html"]::after {
+.nav-group a[href$="support.html"]::after {
   content: "♥";
   color: #db4967;
   margin-left: 12px;
