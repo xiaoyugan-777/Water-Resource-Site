@@ -193,7 +193,7 @@ The footer is currently customized to:
 
 Copyright text:
 
-- `© 2025 Oleson Ecological Economics Lab, UH Manoa`
+- `© 2026 Oleson Ecological Economics Lab, UH Manoa`
 
 ## GitHub Workflow
 
