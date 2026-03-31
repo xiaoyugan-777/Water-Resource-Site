@@ -23,7 +23,7 @@ Use this section to record what was completed each week.
 - Replaced the homepage hero image with the project image
 - Updated the footer contact information and organization labels
 
-### Week of [YYYY-MM-DD]
+### Week 2
 
 - Worked on:
 - Updated:
@@ -180,16 +180,6 @@ http://localhost:8000
 - Make sure you are inside the correct project folder
 - If `python3` does not work, Python may not be installed
 - If the browser shows an old version, refresh the page
-
-## Edit the Site
-
-- Homepage content: `index.html`
-- Shared styling: `assets/css/styles.css`
-- Shared menu behavior: `assets/js/main.js`
-- Subpages: `pages/`
-- Homepage image: `assets/images/partners-tool-demo.png`
-
-After editing, refresh the browser to see the changes.
 
 ## Footer / Contact
 
