@@ -96,54 +96,50 @@ Each section is styled as a simple single-column table so it can later be expand
 
 ## Tutorial: How to Open and View This Website
 
-This project is a static website. That means there is no app to install and no coding knowledge is required just to view it.
+This project is a static website. That means there is nothing to install just to view it.
 
-There are two easy ways to open it.
+If someone has no coding experience, use the steps below.
 
-### Method 1: Open the Homepage File Directly
+### Easiest Way: Download ZIP from GitHub and Open It
 
-This is the easiest method for someone who just wants to quickly look at the site.
+1. Open the GitHub repository in a browser:
+   [Water-Resource-Site](https://github.com/xiaoyugan-777/Water-Resource-Site)
+2. Click the green `Code` button.
+3. Click `Download ZIP`.
+4. Wait for the ZIP file to finish downloading.
+5. Find the ZIP file in the `Downloads` folder.
+6. Double-click the ZIP file to unzip it.
+7. Open the unzipped folder named something like `Water-Resource-Site-main`.
+8. Find the file named `index.html`.
+9. Double-click `index.html`.
+10. The website should open in the browser.
 
-1. Download or clone the repository to your computer.
-2. Open the project folder.
-3. Find the file named `index.html`.
-4. Double-click `index.html`.
-5. The website should open in your default browser.
+### Better Way: Open It with a Local Server
 
-On macOS, you can also open it from Terminal with:
+This method is better because navigation and images usually behave more reliably.
 
-```bash
-open index.html
-```
-
-### Method 2: Run a Simple Local Server
-
-This is the recommended method because page links and assets usually behave more reliably this way.
-
-1. Open Terminal.
-2. Move into the project folder:
-
-```bash
-cd Water-Resource-Site
-```
-
-3. Start a local server:
+1. Download the project using the ZIP steps above.
+2. Open the unzipped project folder.
+3. Open Terminal.
+4. Type `cd ` and then drag the project folder into the Terminal window.
+5. Press `Enter`.
+6. Run:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-4. Open a browser and go to:
+7. Open a browser and go to:
 
 ```text
 http://localhost:8000
 ```
 
-5. You should now see the homepage.
+8. You should now see the homepage.
 
-### If Someone Else Wants to View the Site
+### For People Who Already Know Git
 
-If another person has the repository link, they can do:
+They can also use:
 
 ```bash
 git clone https://github.com/xiaoyugan-777/Water-Resource-Site.git
@@ -159,10 +155,10 @@ http://localhost:8000
 
 ### If the Website Does Not Open
 
+- Make sure the file you open is `index.html`
 - Make sure you are inside the correct project folder
-- Make sure `index.html` exists
-- If `python3` does not work, check whether Python is installed
-- If a browser page is blank, refresh it once
+- If `python3` does not work, Python may not be installed
+- If the browser shows an old version, refresh the page
 
 ## Edit the Site
 
@@ -178,7 +174,7 @@ After editing, refresh the browser to see the changes.
 
 Use this section to record what was completed each week.
 
-### Week of 2025-03-24
+### Week 1
 
 - Worked on: established the website template
 - Updated: replaced several buttons and labels with project-specific information
