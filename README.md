@@ -10,6 +10,29 @@ This project is a customized site based on the visual style of the Nature-based 
 - a `Tool` navigation page
 - a customized contact/footer section for UH Manoa / Oleson Lab
 
+## Weekly Progress
+
+Use this section to record what was completed each week.
+
+### Week 1
+
+- Worked on: established the website template
+- Updated: replaced several buttons and labels with project-specific information
+- Updated: updated the Contact section
+- Updated: added the Partners dropdown menu
+- Updated: built and updated the Partners page
+- Updated: replaced the homepage hero image
+- Fixed:
+- Next step:
+
+### Week of [YYYY-MM-DD]
+
+- Worked on:
+- Updated:
+- Fixed:
+- Next step:
+
+
 ## Tech Stack
 
 - HTML
@@ -169,28 +192,6 @@ http://localhost:8000
 - Homepage image: `assets/images/partners-tool-demo.png`
 
 After editing, refresh the browser to see the changes.
-
-## Weekly Progress
-
-Use this section to record what was completed each week.
-
-### Week 1
-
-- Worked on: established the website template
-- Updated: replaced several buttons and labels with project-specific information
-- Updated: updated the Contact section
-- Updated: added the Partners dropdown menu
-- Updated: built and updated the Partners page
-- Updated: replaced the homepage hero image
-- Fixed:
-- Next step:
-
-### Week of [YYYY-MM-DD]
-
-- Worked on:
-- Updated:
-- Fixed:
-- Next step:
 
 ## Footer / Contact
 
