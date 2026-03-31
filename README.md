@@ -16,14 +16,12 @@ Use this section to record what was completed each week.
 
 ### Week 1
 
-- Worked on: established the website template
-- Updated: replaced several buttons and labels with project-specific information
-- Updated: updated the Contact section
-- Updated: added the Partners dropdown menu
-- Updated: built and updated the Partners page
-- Updated: replaced the homepage hero image
-- Fixed:
-- Next step:
+- Built the website template and shared multi-page layout
+- Customized navigation labels and project-specific buttons
+- Added the `Partners` dropdown menu and section-based navigation
+- Built and formatted the `Partners` page content
+- Replaced the homepage hero image with the project image
+- Updated the footer contact information and organization labels
 
 ### Week of [YYYY-MM-DD]
 
