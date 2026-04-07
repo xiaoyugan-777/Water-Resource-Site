@@ -25,10 +25,11 @@ Use this section to record what was completed each week.
 
 ### Week 2
 
-- Worked on:
-- Updated:
-- Fixed:
-- Next step:
+- Built a frontend prototype for the `Tool` page with chatbot-style interaction
+- Added a clickable flood map module to the homepage for future data overlays
+- Expanded the homepage layout to support a wider interactive map section
+- Refined the map styling to better match the site’s visual language
+- Polished the shared footer styling and applied it consistently across pages
 
 
 ## Tech Stack
