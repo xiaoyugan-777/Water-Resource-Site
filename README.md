@@ -31,6 +31,24 @@ Use this section to record what was completed each week.
 - Refined the map styling to better match the site’s visual language
 - Polished the shared footer styling and applied it consistently across pages
 
+### Week 3
+
+- Added a first-visit homepage persona modal with role-based cards and a manual reopen entry in the navigation
+- Built the new `Evaluate` page and connected the `Researcher / evaluator` persona flow to it
+- Added the upper `Evaluate` hero section, action buttons, and program metric cards
+- Built the `Evaluation Toolkit — 8 Steps` section and connected the page flow to it
+- Created a separate `Case Studies` page and updated navigation links to point to it
+- Built the case studies layout with left-side filters and a right-side results/map area
+
+### Week 4
+
+- Connected the case studies filters to real data from `Oahu_public_data.xlsx`
+- Grouped and normalized `FieldName`, `AnswerType`, `DataType`, and `Definition` values for cleaner browsing
+- Added interactive case study result rendering and a first map integration on the `Case Studies` page
+- Reworked the `Evaluate` page into a step-based flow with a `Ready?` transition, Step 1 intake form, and generated Step 1 summary
+- Redesigned the `Partners` page into a single-page scroll experience with summary sections, restored partner lists, and a right sidebar newsletter block
+- Refined typography, spacing, cards, and shared styling to better align the `Partners` and `Evaluate` pages
+
 
 ## Tech Stack
 
