@@ -8,11 +8,102 @@ const floodUpdated = document.querySelector("[data-flood-updated]");
 const floodSummary = document.querySelector("[data-flood-summary]");
 const floodDetailOne = document.querySelector("[data-flood-detail-one]");
 const floodDetailTwo = document.querySelector("[data-flood-detail-two]");
+const personaModal = document.querySelector("[data-persona-modal]");
+const personaCards = document.querySelectorAll("[data-persona-key]");
+const personaCloseButtons = document.querySelectorAll("[data-persona-close]");
+const personaConfirmButton = document.querySelector("[data-persona-confirm]");
+const personaOpenButtons = document.querySelectorAll("[data-open-persona-modal]");
+
+const personaRoutes = {
+  community: "",
+  researcher: "./pages/evaluate.html",
+  government: "",
+  funder: "",
+  student: "",
+  browsing: "",
+};
+
+let selectedPersona = "";
 
 if (menuButton && nav) {
   menuButton.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("is-open");
     menuButton.setAttribute("aria-expanded", String(isOpen));
+  });
+}
+
+function closePersonaModal() {
+  if (!personaModal) {
+    return;
+  }
+
+  personaModal.hidden = true;
+  document.body.classList.remove("persona-modal-open");
+  window.localStorage.setItem("personaModalDismissed", "true");
+}
+
+function openPersonaModal() {
+  if (!personaModal) {
+    return;
+  }
+
+  personaModal.hidden = false;
+  document.body.classList.add("persona-modal-open");
+}
+
+if (personaModal && personaCards.length && personaConfirmButton) {
+  const hasDismissedModal = window.localStorage.getItem("personaModalDismissed") === "true";
+
+  if (!hasDismissedModal) {
+    openPersonaModal();
+  }
+
+  personaOpenButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      openPersonaModal();
+    });
+  });
+
+  personaCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      selectedPersona = card.dataset.personaKey || "";
+      const route = personaRoutes[selectedPersona];
+
+      personaCards.forEach((item) => {
+        item.classList.toggle("is-selected", item === card);
+      });
+
+      personaConfirmButton.disabled = !selectedPersona;
+
+      if (route) {
+        window.location.href = route;
+      }
+    });
+  });
+
+  personaCloseButtons.forEach((button) => {
+    button.addEventListener("click", closePersonaModal);
+  });
+
+  personaConfirmButton.addEventListener("click", () => {
+    if (!selectedPersona) {
+      return;
+    }
+
+    const route = personaRoutes[selectedPersona];
+
+    if (route) {
+      window.location.href = route;
+      return;
+    }
+
+    closePersonaModal();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !personaModal.hidden) {
+      closePersonaModal();
+    }
   });
 }
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nature-based Solutions Initiative | CIROH-NbS InEvalTool</title>
+    <title>Nature-based Solutions Initiative | Home</title>
     <meta
       name="description"
       content="Replica of the Nature-based Solutions Initiative CIROH-NbS InEvalTool page."
@@ -17,6 +17,63 @@
     />
   </head>
   <body>
+    <div class="persona-modal" data-persona-modal hidden>
+      <div class="persona-modal-backdrop" data-persona-close></div>
+      <section
+        class="persona-modal-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="persona-modal-title"
+        aria-describedby="persona-modal-description"
+      >
+        <p class="persona-modal-kicker">Welcome to the toolkit</p>
+        <h2 id="persona-modal-title">Who are you here as?</h2>
+        <p id="persona-modal-description" class="persona-modal-intro">
+          We'll highlight the most relevant resources for you.
+        </p>
+
+        <div class="persona-grid">
+          <button class="persona-card" type="button" data-persona-key="community">
+            <span class="persona-card-icon" aria-hidden="true">CI</span>
+            <strong>Community / implementor</strong>
+            <span>I run or plan NbS projects on the ground.</span>
+          </button>
+          <button class="persona-card" type="button" data-persona-key="researcher">
+            <span class="persona-card-icon" aria-hidden="true">RE</span>
+            <strong>Researcher / evaluator</strong>
+            <span>I study or assess NbS performance.</span>
+          </button>
+          <button class="persona-card" type="button" data-persona-key="government">
+            <span class="persona-card-icon" aria-hidden="true">GP</span>
+            <strong>Government / planner</strong>
+            <span>I set policy or allocate funding for NbS.</span>
+          </button>
+          <button class="persona-card" type="button" data-persona-key="funder">
+            <span class="persona-card-icon" aria-hidden="true">FP</span>
+            <strong>Funder / partner</strong>
+            <span>I fund or partner on NbS programs.</span>
+          </button>
+          <button class="persona-card" type="button" data-persona-key="student">
+            <span class="persona-card-icon" aria-hidden="true">SL</span>
+            <strong>Student / learner</strong>
+            <span>I want to learn about NbS evaluation.</span>
+          </button>
+          <button class="persona-card" type="button" data-persona-key="browsing">
+            <span class="persona-card-icon" aria-hidden="true">JB</span>
+            <strong>Just browsing</strong>
+            <span>I'm exploring what's here.</span>
+          </button>
+        </div>
+
+        <div class="persona-modal-actions">
+          <button class="persona-skip" type="button" data-persona-close>Skip for now</button>
+          <button class="persona-confirm" type="button" data-persona-confirm disabled>
+            Show me what's relevant
+          </button>
+        </div>
+      </section>
+    </div>
+
     <div class="page-shell">
       <header class="site-header">
         <div class="header-top">
@@ -49,6 +106,10 @@
                 <a href="./pages/about.html">About</a>
                 <a href="./pages/join-us.html">Join Us</a>
                 <a href="./pages/tool.html">Tool</a>
+                <a href="./pages/evaluate.html">Evaluate</a>
+                <button class="persona-nav-trigger" type="button" data-open-persona-modal>
+                  Explore by Role
+                </button>
                 <a href="./pages/support.html">Support</a>
               </div>
               <div class="search-shell search-shell-inline" aria-label="Search">
@@ -58,7 +119,7 @@
             </div>
             <div class="nav-group nav-group-secondary">
               <a href="./pages/bibliography.html">Bibliography</a>
-              <a href="./pages/case-study-platform.html">Case Study Platform</a>
+              <a href="./pages/case-studies.html">Case Study Platform</a>
               <a href="./pages/knowledge-hub.html">Knowledge Hub</a>
               <a href="./pages/evidence-tool.html">CIROH-NbS InEvalTool</a>
               <a href="./pages/nbs-guidelines.html">NbS Guidelines</a>
