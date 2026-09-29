@@ -31,3 +31,7 @@
 .hx-dark-ocean .hx-label{color:#214c58;font:600 14px system-ui,sans-serif;text-shadow:0 1px 3px #f4fff3,0 0 5px #f4fff3}
 .hx-dark-ocean .hx-canvas .leaflet-overlay-pane path{filter:drop-shadow(0 2px 3px #03182e35)}
 .hx-land{background:#d5e4d7;border-color:#89bdcb}
+
+.hx-region-swatch{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:8px;opacity:.7}.hx-results button[aria-pressed="true"]{border-color:#245460}.hx-legend [data-region-legend] span{margin:7px 0}
+
+.hx-research{margin-top:24px;border-top:1px solid #ccdcd9;padding-top:20px}.hx-research h3{font-size:17px;margin:0 0 8px}.hx-research p{font-size:12px;line-height:1.6}.hx-research input[type="search"]{display:block;width:100%;min-height:0;margin-top:8px;padding:10px;border:1px solid #bfd0cf;border-radius:5px;background:white;font:inherit;color:#233f43}.hx-research select{max-width:100%;text-overflow:ellipsis}.hx-field-note{color:#697d7f;font-size:11px!important}.hx-field-card{background:#fff;border:1px solid #d4e0dc;border-radius:5px;margin:7px 0;padding:9px}.hx-field-card summary{font-size:12px;font-weight:600;overflow-wrap:anywhere;cursor:pointer}.hx-field-card p{overflow-wrap:anywhere}.hx-field-card strong{font-weight:600}[data-field-count]{font-weight:600}.hx-research [data-more-fields][hidden]{display:none}
