@@ -15,7 +15,8 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
-  </head>
+  <link rel="stylesheet" href="./assets/css/hawaii-explorer.css?v=6">
+</head>
   <body>
     <div class="persona-modal" data-persona-modal hidden>
       <div class="persona-modal-backdrop" data-persona-close></div>
@@ -177,46 +178,7 @@
           </aside>
         </div>
 
-        <section class="map-section map-section-wide" aria-labelledby="flood-map-title">
-          <div class="map-section-head">
-            <div>
-              <p class="map-kicker">Flood Watch</p>
-              <h2 id="flood-map-title">Interactive flood conditions map</h2>
-            </div>
-            <p class="map-note">Prototype view inspired by Watch Duty’s simplified map experience. Flood statuses below use placeholder data for now.</p>
-          </div>
-
-          <div class="flood-map-shell">
-            <div class="flood-map-stage" aria-label="Flood conditions map">
-              <div class="map-watermark">Hawaii flood overview</div>
-              <div id="flood-map-canvas" class="flood-map-canvas"></div>
-            </div>
-
-            <aside class="flood-panel" aria-live="polite">
-              <div class="flood-panel-head">
-                <p class="map-kicker">Selected area</p>
-                <span class="flood-level-pill" data-flood-level>Moderate</span>
-              </div>
-              <h3 data-flood-location>Oahu</h3>
-              <p class="flood-status" data-flood-status>Urban flooding advisory</p>
-              <p class="flood-updated" data-flood-updated>Updated 45 min ago</p>
-              <p class="flood-summary" data-flood-summary>
-                Localized street flooding is affecting lower-lying neighborhoods and drainage corridors after repeated rainfall.
-              </p>
-              <dl class="flood-detail-list">
-                <div>
-                  <dt>Impacts</dt>
-                  <dd data-flood-detail-one>ponding on roads, clogged drainage, short-duration closures.</dd>
-                </div>
-                <div>
-                  <dt>Suggested response</dt>
-                  <dd data-flood-detail-two>monitor rainfall totals and check tide timing before field visits.</dd>
-                </div>
-              </dl>
-              <p class="flood-panel-foot">Replace these placeholder records with your incoming flood feed later. The interaction pattern can stay the same.</p>
-            </aside>
-          </div>
-        </section>
+        <section class="hx" data-hawaii-explorer="overview" aria-label="Hawaiian Islands explorer"></section>
       </main>
 
       <footer class="site-footer">
@@ -249,5 +211,6 @@
       crossorigin=""
     ></script>
     <script src="./assets/js/main.js"></script>
-  </body>
+  <script src="./assets/js/hawaii-explorer.js?v=7"></script>
+</body>
 </html>

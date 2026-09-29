@@ -1,0 +1,33 @@
+.hx{margin:28px 0 44px;border:1px solid #ccdcd9;border-radius:14px;overflow:hidden;background:#fff;color:#233f43;box-shadow:0 12px 35px #1f566b10}.hx *{box-sizing:border-box}.hx-header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 26px;background:#173f48;color:white}.hx-eyebrow{font-size:10px;letter-spacing:1.8px;font-weight:700;margin:0 0 10px}.hx-header h2{font-size:24px;margin:5px 0 0;color:white}.hx button,.hx select{font:inherit}.hx button{cursor:pointer}.hx-header button{background:#ffffff12;border:1px solid #ffffff60;color:#fff;border-radius:6px;padding:10px 14px}.hx-body{display:grid;grid-template-columns:270px minmax(0,1fr)}.hx-sidebar{padding:24px;background:#fcfcf8;max-height:650px;overflow:auto;border-right:1px solid #ccdcd9}.hx-sidebar label{display:block;font-size:13px;font-weight:600;margin-bottom:18px}.hx-sidebar select{display:block;width:100%;padding:10px 8px;margin-top:7px;background:white;border:1px solid #bfd0cf;border-radius:5px;color:#23454b}.hx-check{display:flex!important;align-items:center;gap:9px}.hx-check input{accent-color:#167c9c}.hx-sidebar button{border:1px solid #ccdcd9;background:white;padding:9px 12px;border-radius:5px;color:#245460}.hx-detail{border-top:1px solid #dbe3df;margin-top:24px;padding-top:22px}.hx-detail h3{font-size:24px;margin:0 0 10px}.hx-detail p,.hx-detail dl,.hx-disclaimer{font-size:12px;line-height:1.7}.hx-detail dt{color:#617879;margin-top:12px}.hx-detail dd{margin:3px 0;font-weight:600}.hx-badge{display:inline-block;padding:5px 8px;background:#e4efed;border-radius:4px;font-size:11px}.hx-results{border-top:1px solid #dbe3df;margin-top:20px;padding-top:18px;font-size:12px}.hx-results button{display:block;width:100%;text-align:left;margin-top:8px}.hx-results small{display:block;color:#62797c;margin-top:4px}.hx-disclaimer{color:#6c7f80;margin-top:18px;font-size:11px}.hx-stage{position:relative;min-height:650px;isolation:isolate;background:#8fc8df}.hx-canvas{height:100%;min-height:650px;z-index:0;background:radial-gradient(ellipse at 35% 25%,#b8e2e9 0%,#8ac8df 55%,#68aecf 100%)}.hx-canvas .leaflet-overlay-pane path{filter:drop-shadow(0 2px 3px #315e6350)}.hx-label{text-align:center;white-space:nowrap;color:#2e5654;font:bold 13px Georgia,serif;text-shadow:0 1px 3px #fff,0 0 6px #fff}.hx-ocean{position:absolute;bottom:100px;left:30%;letter-spacing:4px;font-size:11px;color:#306d8d;pointer-events:none;font-style:italic}.hx-legend{position:absolute;bottom:32px;right:18px;padding:14px 18px;background:#fffffff0;border:1px solid #ffffff;border-radius:8px;box-shadow:0 3px 15px #2c607220;font-size:11px;pointer-events:none}.hx-legend strong,.hx-legend span,.hx-legend small{display:block;margin:5px 0}.hx-legend i{display:inline-block;width:12px;height:12px;margin-right:8px;vertical-align:middle}.hx-land{background:#c4d8b3;border:1px solid #367d83}.hx-dot{background:#177a9b;border:2px solid white;border-radius:50%}.hx-legend small{color:#698082;font-size:9px}.hx-error{position:absolute;top:20px;left:20px;background:#fff;padding:15px}.hx-collapsed .hx-sidebar{display:none}.hx-collapsed .hx-body{grid-template-columns:1fr}.hx button:focus-visible,.hx select:focus-visible{outline:3px solid #f0bc60;outline-offset:3px}@media(max-width:760px){.hx-body{grid-template-columns:1fr}.hx-sidebar{max-height:330px;border-right:0}.hx-stage,.hx-canvas{min-height:480px}.hx-header{padding:18px}.hx-header h2{font-size:19px}.hx-legend{right:10px;bottom:28px}.hx-ocean{left:12%;bottom:175px}}
+
+.hx-header button{width:auto;flex:0 0 auto;min-height:0;height:auto}.hx-check input[type="checkbox"]{appearance:auto;width:16px;height:16px;min-width:16px;margin:0;padding:0;box-shadow:none}.hx-sidebar button{min-height:0;height:auto}.hx-check{justify-content:flex-start}.hx-label{pointer-events:none}
+
+.hx-actions{display:flex;gap:10px;align-items:center;flex-shrink:0}
+.hx-header [data-expand]{background:#e2f0ec;color:#174650;border-color:#e2f0ec;font-weight:600}
+.hx-dialog{position:fixed;inset:0;width:100vw;max-width:none;height:100dvh;max-height:none;margin:0;padding:0;border:0;background:#173f48;overflow:hidden}
+.hx-dialog::backdrop{background:#173f48}
+.hx.hx-expanded{width:100%;height:100%;margin:0;border:0;border-radius:0;display:flex;flex-direction:column;box-shadow:none}
+.hx-expanded .hx-header{flex:0 0 auto;padding:18px 26px}
+.hx-expanded .hx-body{flex:1;min-height:0;grid-template-columns:310px minmax(0,1fr)}
+.hx-expanded.hx-collapsed .hx-body{grid-template-columns:1fr}
+.hx-expanded .hx-sidebar{max-height:none;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+.hx-expanded .hx-stage,.hx-expanded .hx-canvas{height:100%;min-height:0}
+@media(max-width:760px){.hx-header{flex-wrap:wrap}.hx-actions{flex-wrap:wrap}.hx-expanded .hx-header{padding:12px 16px}.hx-expanded .hx-header h2{font-size:17px}.hx-expanded .hx-body{grid-template-columns:minmax(150px,35%) minmax(0,1fr)}.hx-expanded .hx-sidebar{padding:12px}.hx-expanded .hx-legend{max-width:180px;padding:8px;font-size:10px}.hx-expanded .hx-ocean{display:none}}
+
+/* Satellite view: natural land detail, deep ocean, readable floating labels. */
+.hx-dark-ocean .hx-canvas{background:radial-gradient(ellipse at 30% 20%,#135b8c 0%,#07365e 50%,#031d3b 100%)}
+.hx-satellite .hx-canvas .leaflet-overlay-pane path{filter:none}
+.hx-dark-ocean .hx-label{color:#fff;font:600 14px system-ui,sans-serif;text-shadow:0 1px 3px #001326,0 0 5px #001326}
+.hx-dark-ocean .hx-ocean{color:#c5e9ffb0;text-shadow:0 1px 3px #052a49}
+.hx-canvas .hx-place-label{background:#092e48d9;border:1px solid #ffffff50;border-radius:5px;padding:4px 8px;color:white;font:500 12px system-ui,sans-serif;box-shadow:0 2px 8px #001b3a44}
+.hx-canvas .hx-place-label:before{border-right-color:#092e48d9}
+.hx-sidebar label.hx-check{min-height:0;height:auto;padding:0;margin:0 0 15px;line-height:1.5}
+.hx-dot{background:#19a9db}
+
+.hx-satellite .leaflet-tile-pane{filter:brightness(1.15) saturate(1.25)}
+
+/* Simplified cartography: flat land and a quiet blue ocean. */
+.hx-dark-ocean .hx-canvas{background:radial-gradient(ellipse at 35% 25%,#185e88 0%,#0d416d 55%,#092e53 100%)}
+.hx-dark-ocean .hx-label{color:#214c58;font:600 14px system-ui,sans-serif;text-shadow:0 1px 3px #f4fff3,0 0 5px #f4fff3}
+.hx-dark-ocean .hx-canvas .leaflet-overlay-pane path{filter:drop-shadow(0 2px 3px #03182e35)}
+.hx-land{background:#d5e4d7;border-color:#89bdcb}
