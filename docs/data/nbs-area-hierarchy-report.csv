@@ -1,0 +1,40 @@
+area_name,match_status,area_id,island,island_id,parent_island_id,hierarchy_note,has_geometry
+statewide,matched_hierarchy_incomplete,area_001,Multiple,,,missing parent_island_id,false
+"East Maui, including Waikamoi",matched,area_002,Maui,island_maui,island_maui,,true
+"Limahuli Valley, Hāʻena",matched,area_003,Kauaʻi,island_kauai,island_kauai,,true
+Papahānaumokuākea region,matched,area_004,Northwestern Hawaiian Islands,island_northwestern_hawaiian_islands,island_northwestern_hawaiian_islands,,true
+Heʻeia ahupuaʻa,matched,area_005,Oʻahu,island_oahu,island_oahu,,true
+"Puʻu Waʻawaʻa, North Kona",matched,area_006,Hawaiʻi Island,island_hawaii,island_hawaii,,true
+primarily the north shore; comparative Indigenous land-trust examples elsewhere,matched,area_007,Kauaʻi,island_kauai,island_kauai,,false
+Waiʻanae Kai Forest Reserve,matched,area_008,Oʻahu,island_oahu,island_oahu,,true
+multiple forest sites,matched_hierarchy_incomplete,area_009,Multiple,,,missing parent_island_id,false
+multiple urban sites including Kānewai and Kalauao/Kaʻōnohi,matched,area_010,Oʻahu,island_oahu,island_oahu,,false
+Hakalau Forest National Wildlife Refuge,matched,area_011,Hawaiʻi Island,island_hawaii,island_hawaii,,true
+ʻUlupalakua Ranch / Puʻu Makua,matched,area_012,Maui,island_maui,island_maui,,false
+"Heʻeia Fishpond, Kāneʻohe Bay",matched,area_013,Oʻahu,island_oahu,island_oahu,,false
+Kumaipo fire area,matched,area_014,Hawaiʻi Island,island_hawaii,island_hawaii,,false
+"Kaʻūpūlehu Preserve, North Kona",matched,area_015,Hawaiʻi Island,island_hawaii,island_hawaii,,true
+"Kanakaleonui Bird Corridor, Mauna Kea region",matched,area_016,Hawaiʻi Island,island_hawaii,island_hawaii,,false
+main Hawaiian Islands and Northwestern Hawaiian Islands,matched_hierarchy_incomplete,area_017,Multiple,,,missing parent_island_id,false
+linked to the Hawaiʻi-based longline fishery,matched,area_018,Pelagic North Pacific,region_pelagic_north_pacific,region_pelagic_north_pacific,,false
+five loko iʻa sites in the Hilo/Keaukaha area,matched,area_019,Hawaiʻi Island,island_hawaii,island_hawaii,,false
+Kāneʻohe Bay (Moku o Loʻe),matched,area_020,Oʻahu,island_oahu,island_oahu,,true
+Koʻolau watershed and Pearl Harbor aquifer,matched,area_021,Oʻahu,island_oahu,island_oahu,,false
+Koʻolau and Waiʻanae watersheds / Pearl Harbor aquifer,matched,area_022,Oʻahu,island_oahu,island_oahu,,false
+11 MLCDs plus the Moku o Loʻe marine refuge,matched_hierarchy_incomplete,area_023,Multiple,,,missing parent_island_id,true
+Hālawa Valley,matched,area_024,Molokaʻi,island_molokai,island_molokai,,true
+"Pōhakuloa, Hawaiʻi Volcanoes National Park, and Puʻu Makaʻala",matched,area_025,Hawaiʻi Island,island_hawaii,island_hawaii,,true
+Mahanaloa Gulch,matched,area_026,Kauaʻi,island_kauai,island_kauai,,false
+Kohala watershed and Pelekane Bay,matched,area_027,Hawaiʻi Island,island_hawaii,island_hawaii,,false
+Keālia Pond National Wildlife Refuge,matched,area_028,Maui,island_maui,island_maui,,true
+Kaʻūpūlehu dryland forest,matched,area_029,Hawaiʻi Island,island_hawaii,island_hawaii,,true
+all major islands,matched,area_030,Hawaiian archipelago,island_hawaiian_archipelago,island_hawaiian_archipelago,,false
+ʻUlupalakua Ranch,matched,area_031,Maui,island_maui,island_maui,,false
+"Hawaiʻi, Palau, and Pacific Northwest/Alaska examples",matched_hierarchy_incomplete,area_032,Multiple,,,missing parent_island_id,false
+Hawaiʻi Volcanoes National Park,matched,area_033,Hawaiʻi Island,island_hawaii,island_hawaii,,true
+Waiʻoli Valley,matched,area_034,Kauaʻi,island_kauai,island_kauai,,true
+Kona,matched,area_035,Hawaiʻi Island,island_hawaii,island_hawaii,,true
+Lāʻie / BYU–Hawaiʻi campus case,matched,area_036,Oʻahu,island_oahu,island_oahu,,true
+three dryland plant communities,matched,area_037,Hawaiʻi Island,island_hawaii,island_hawaii,,false
+Kaʻāmola ahupuaʻa,matched,area_038,Molokaʻi,island_molokai,island_molokai,,true
+13 exclosures across a rainfall gradient,matched,area_039,Hawaiʻi Island,island_hawaii,island_hawaii,,false
