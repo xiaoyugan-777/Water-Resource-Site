@@ -15,7 +15,7 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
-  <link rel="stylesheet" href="../assets/css/hawaii-explorer.css?v=9">
+  <link rel="stylesheet" href="../assets/css/hawaii-explorer.css?v=35">
 </head>
   <body>
     <div class="page-shell">
@@ -79,59 +79,10 @@
               <p class="evaluate-kicker">Case Studies</p>
               <h1>Search and browse NbS case studies</h1>
               <p>
-                Explore colored place boundaries, view regional census data, and browse the research data dictionary using the filters alongside the map.
+                Explore Hawaiʻi nature-based solutions research by island, project area, NbS type, and ecosystem.
               </p>
             </div>
-
-            <section class="hx" data-hawaii-explorer="cases" aria-label="Case study map explorer"></section>
-<details><summary>Explore the research data dictionary · 294 field definitions</summary>
-            <div class="evaluate-cases-layout">
-              <aside class="evaluate-filters" aria-label="Case study filters">
-                <p class="evaluate-filters-title">Filters</p>
-
-                <details class="evaluate-filter-group">
-                  <summary>FieldName</summary>
-                  <div class="evaluate-filter-options" data-filter-group="FieldName"></div>
-                </details>
-
-                <details class="evaluate-filter-group">
-                  <summary>AnswerType</summary>
-                  <div class="evaluate-filter-options" data-filter-group="AnswerType"></div>
-                </details>
-
-                <details class="evaluate-filter-group">
-                  <summary>DataType</summary>
-                  <div class="evaluate-filter-options" data-filter-group="DataType"></div>
-                </details>
-
-                <details class="evaluate-filter-group">
-                  <summary>Question</summary>
-                  <div class="evaluate-filter-options" data-filter-group="Question"></div>
-                </details>
-
-                <details class="evaluate-filter-group">
-                  <summary>Definition</summary>
-                  <div class="evaluate-filter-options" data-filter-group="Definition"></div>
-                </details>
-              </aside>
-
-              <div class="evaluate-cases-main">
-                <div class="evaluate-case-results">
-                  <div class="evaluate-active-filter" data-active-filter hidden></div>
-                  <div class="evaluate-case-results-head">
-                    <p class="evaluate-case-label">Results</p>
-                    <span data-case-results-summary>Select a filter on the left to inspect matching fields.</span>
-                  </div>
-                  <div class="evaluate-case-placeholder-list" data-case-results>
-                    <article class="evaluate-case-placeholder-card">
-                      <strong>Filter-driven results</strong>
-                      <p>Click a group like <span class="evaluate-inline-code">Org</span> under <span class="evaluate-inline-code">FieldName</span> to show all matching fields with their Definition, Question, DataType, and AnswerType.</p>
-                    </article>
-                  </div>
-                </div>
-              </div>
-            </div>
-</details>
+            <section class="hx hx-cases" data-case-study-explorer aria-label="Hawaiʻi NbS case study explorer"></section>
           </div>
         </section>
       </main>
@@ -160,16 +111,12 @@
       </footer>
     </div>
 
-    <script src="../assets/js/case-studies-data.js"></script>
-    <script src="../assets/js/case-studies-records.js"></script>
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
-    <script src="../assets/js/case-studies.js"></script>
     <script src="../assets/js/main.js"></script>
-  <script src="../assets/js/hawaii-explorer.js?v=9"></script>
-<script src="../assets/js/case-study-explorer.js?v=2"></script>
-</body>
+  <script src="../assets/js/case-study-explorer.js?v=32"></script>
+  </body>
 </html>
