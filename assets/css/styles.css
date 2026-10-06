@@ -1404,8 +1404,11 @@ a {
 .flood-map-stage .leaflet-container {
   width: 100%;
   height: 100%;
-  background: #f2efe7;
-  filter: grayscale(0.2) sepia(0.1) saturate(0.82) contrast(1.03) brightness(1.07);
+  background:
+    radial-gradient(circle at 14% 14%, rgba(112, 146, 89, 0.15), transparent 26%),
+    radial-gradient(circle at 83% 15%, rgba(99, 144, 150, 0.16), transparent 24%),
+    linear-gradient(180deg, #263326, #1f2d22);
+  filter: saturate(1.04) contrast(1.02) brightness(1.02);
 }
 
 .flood-map-stage .leaflet-control-zoom {
@@ -1433,6 +1436,10 @@ a {
 
 .flood-map-stage .leaflet-tile-pane {
   opacity: 0.94;
+}
+
+.flood-map-stage .leaflet-image-layer.flood-map-basemap {
+  image-rendering: auto;
 }
 
 .flood-map-tooltip {
@@ -1494,6 +1501,11 @@ a {
   color: #d9ecb9;
 }
 
+.flood-level-pill[data-level="None"] {
+  background: rgba(148, 163, 184, 0.22);
+  color: #e2e8f0;
+}
+
 .flood-panel h3 {
   margin: 0;
   font-size: 34px;
@@ -1552,6 +1564,12 @@ a {
 .flood-detail-list dd {
   color: rgba(244, 244, 242, 0.9);
   line-height: 1.5;
+}
+
+.map-popup {
+  font-size: 14px;
+  line-height: 1.45;
+  color: #0f172a;
 }
 
 .newsletter-main {

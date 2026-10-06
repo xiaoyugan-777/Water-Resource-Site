@@ -1,0 +1,26 @@
+[
+  {
+    "geoid": "06075010100",
+    "population": 12450,
+    "rent": 2890,
+    "riskScore": 24,
+    "caseCount": 9,
+    "description": "Stable district with lower incident volume and relatively strong housing retention."
+  },
+  {
+    "geoid": "06075010200",
+    "population": 18120,
+    "rent": 3420,
+    "riskScore": 58,
+    "caseCount": 21,
+    "description": "Dense mixed-use area with moderate market pressure and recurring service demand."
+  },
+  {
+    "geoid": "06075010300",
+    "population": 15480,
+    "rent": 3175,
+    "riskScore": 86,
+    "caseCount": 34,
+    "description": "Higher risk cluster with elevated case load, cost pressure, and concentrated vulnerability indicators."
+  }
+]

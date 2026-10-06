@@ -1,0 +1,66 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="980" fill="#F1F5F9"/>
+  <rect x="64" y="52" width="1472" height="876" rx="36" fill="#F8FAFC"/>
+  <text x="100" y="112" fill="#0369A1" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="4">INTERACTIVE MAP</text>
+  <text x="100" y="164" fill="#0F172A" font-family="Arial, sans-serif" font-size="46" font-weight="700">Data-Driven Risk Map</text>
+  <text x="100" y="204" fill="#475569" font-family="Arial, sans-serif" font-size="22">GeoJSON boundaries joined with business metrics. Hover highlights a region, click opens a popup and sidebar details.</text>
+
+  <rect x="100" y="248" width="930" height="620" rx="28" fill="white" stroke="#CBD5E1"/>
+  <rect x="100" y="248" width="930" height="86" rx="28" fill="white"/>
+  <text x="138" y="300" fill="#0F172A" font-family="Arial, sans-serif" font-size="28" font-weight="700">Map View</text>
+  <text x="138" y="330" fill="#64748B" font-family="Arial, sans-serif" font-size="18">Risk score drives the region color scale from light to dark.</text>
+  <line x1="100" y1="334" x2="1030" y2="334" stroke="#E2E8F0"/>
+
+  <rect x="130" y="370" width="870" height="460" rx="20" fill="#DCEFFD"/>
+  <path d="M180 730C285 626 402 697 505 601C603 510 745 550 815 470C886 389 949 418 1000 440V830H130V785C145 768 162 746 180 730Z" fill="#C7E6FA"/>
+  <path d="M140 430C192 394 235 430 280 402C326 373 384 365 430 392C478 421 556 390 614 414C669 436 715 413 780 438C840 461 891 454 959 402L1000 370V540C943 516 886 509 815 590C745 670 603 630 505 721C402 817 285 746 180 850L130 830V470L140 430Z" fill="#B6DCF7"/>
+
+  <rect x="260" y="430" width="250" height="160" fill="#DBEAFE" stroke="white" stroke-width="8"/>
+  <rect x="510" y="430" width="250" height="160" fill="#7DD3FC" stroke="white" stroke-width="8"/>
+  <rect x="260" y="590" width="250" height="160" fill="#075985" stroke="#0F172A" stroke-width="8"/>
+  <rect x="510" y="590" width="250" height="160" fill="#CBD5E1" stroke="white" stroke-width="8"/>
+
+  <text x="330" y="518" fill="#0F172A" font-family="Arial, sans-serif" font-size="28" font-weight="700">North Harbor</text>
+  <text x="585" y="518" fill="#0F172A" font-family="Arial, sans-serif" font-size="28" font-weight="700">Civic Market</text>
+  <text x="312" y="678" fill="white" font-family="Arial, sans-serif" font-size="28" font-weight="700">Mission Gateway</text>
+  <text x="575" y="678" fill="#334155" font-family="Arial, sans-serif" font-size="28" font-weight="700">South Creek</text>
+
+  <rect x="555" y="520" width="220" height="96" rx="18" fill="white" stroke="#CBD5E1"/>
+  <text x="579" y="558" fill="#0F172A" font-family="Arial, sans-serif" font-size="24" font-weight="700">Mission Gateway</text>
+  <text x="579" y="590" fill="#475569" font-family="Arial, sans-serif" font-size="21">Risk Score: 86</text>
+
+  <rect x="1070" y="248" width="430" height="620" rx="28" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="1108" y="300" fill="#0F172A" font-family="Arial, sans-serif" font-size="28" font-weight="700">Region Data</text>
+  <text x="1108" y="330" fill="#64748B" font-family="Arial, sans-serif" font-size="18">Full business details for the selected area.</text>
+
+  <rect x="1108" y="362" width="354" height="452" rx="24" fill="white" stroke="#E2E8F0"/>
+  <text x="1140" y="414" fill="#0F172A" font-family="Arial, sans-serif" font-size="30" font-weight="700">Mission Gateway</text>
+  <text x="1140" y="446" fill="#64748B" font-family="Arial, sans-serif" font-size="18">GEOID: 06075010300</text>
+
+  <rect x="1140" y="484" width="150" height="110" rx="18" fill="#F8FAFC"/>
+  <text x="1162" y="520" fill="#64748B" font-family="Arial, sans-serif" font-size="18">Risk Score</text>
+  <text x="1162" y="566" fill="#0F172A" font-family="Arial, sans-serif" font-size="40" font-weight="700">86</text>
+
+  <rect x="1312" y="484" width="150" height="110" rx="18" fill="#F8FAFC"/>
+  <text x="1334" y="520" fill="#64748B" font-family="Arial, sans-serif" font-size="18">Population</text>
+  <text x="1334" y="566" fill="#0F172A" font-family="Arial, sans-serif" font-size="30" font-weight="700">15,480</text>
+
+  <rect x="1140" y="612" width="150" height="110" rx="18" fill="#F8FAFC"/>
+  <text x="1162" y="648" fill="#64748B" font-family="Arial, sans-serif" font-size="18">Median Rent</text>
+  <text x="1162" y="694" fill="#0F172A" font-family="Arial, sans-serif" font-size="30" font-weight="700">$3,175</text>
+
+  <rect x="1312" y="612" width="150" height="110" rx="18" fill="#F8FAFC"/>
+  <text x="1334" y="648" fill="#64748B" font-family="Arial, sans-serif" font-size="18">Case Count</text>
+  <text x="1334" y="694" fill="#0F172A" font-family="Arial, sans-serif" font-size="40" font-weight="700">34</text>
+
+  <rect x="1140" y="742" width="322" height="112" rx="18" fill="#E0F2FE"/>
+  <text x="1162" y="778" fill="#0C4A6E" font-family="Arial, sans-serif" font-size="18" font-weight="700">Description</text>
+  <text x="1162" y="812" fill="#082F49" font-family="Arial, sans-serif" font-size="18">Higher risk cluster with elevated case load, cost</text>
+  <text x="1162" y="838" fill="#082F49" font-family="Arial, sans-serif" font-size="18">pressure, and concentrated vulnerability indicators.</text>
+
+  <rect x="804" y="770" width="168" height="26" rx="13" fill="white" opacity="0.9"/>
+  <circle cx="826" cy="783" r="8" fill="#DBEAFE"/>
+  <text x="844" y="789" fill="#334155" font-family="Arial, sans-serif" font-size="15">Low risk</text>
+  <circle cx="915" cy="783" r="8" fill="#075985"/>
+  <text x="933" y="789" fill="#334155" font-family="Arial, sans-serif" font-size="15">High risk</text>
+</svg>

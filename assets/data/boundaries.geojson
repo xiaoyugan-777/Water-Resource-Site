@@ -1,0 +1,81 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "GEOID": "06075010100",
+        "NAME": "North Harbor"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-122.445, 37.79],
+            [-122.425, 37.79],
+            [-122.425, 37.805],
+            [-122.445, 37.805],
+            [-122.445, 37.79]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "GEOID": "06075010200",
+        "NAME": "Civic Market"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-122.425, 37.79],
+            [-122.405, 37.79],
+            [-122.405, 37.805],
+            [-122.425, 37.805],
+            [-122.425, 37.79]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "GEOID": "06075010300",
+        "NAME": "Mission Gateway"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-122.445, 37.775],
+            [-122.425, 37.775],
+            [-122.425, 37.79],
+            [-122.445, 37.79],
+            [-122.445, 37.775]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "GEOID": "06075010400",
+        "NAME": "South Creek"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-122.425, 37.775],
+            [-122.405, 37.775],
+            [-122.405, 37.79],
+            [-122.425, 37.79],
+            [-122.425, 37.775]
+          ]
+        ]
+      }
+    }
+  ]
+}
