@@ -34,6 +34,7 @@
     "geo_kahoolawe",
     "geo_maui",
     "geo_hawaii_island",
+    "geo_nwhi",
   ];
   const HAWAII_BOUNDS = [
     [18.75, -160.5],
@@ -43,6 +44,7 @@
   // disambiguate from the state, but in island lists the bare name reads better.
   const GEO_DISPLAY_NAMES = {
     geo_hawaii_island: "Hawaiʻi Island (Big Island)",
+    geo_nwhi: "Northwestern Region",
   };
   const geoDisplayName = (geoID, fallback) =>
     GEO_DISPLAY_NAMES[geoID] || fallback || geoID;
@@ -165,7 +167,10 @@
     }
     const bounds = L.latLngBounds([]);
     islandIDs.forEach((islandID) => {
-      const feature = state.islandFeatureByGeo.get(islandID);
+      const unit = state.geoUnitById.get(islandID);
+      const feature = unit?.geo_unit_type === "region"
+        ? state.regionFeatureByGeo.get(islandID)
+        : state.islandFeatureByGeo.get(islandID);
       if (feature) bounds.extend(L.geoJSON(feature).getBounds());
     });
     if (bounds.isValid()) {
@@ -283,11 +288,12 @@
 
   function regionStyle(selected = false) {
     return {
-      color: selected ? "#ffd09b" : "#f2a38d",
-      weight: selected ? 3 : 1.8,
-      fillColor: "#d94801",
-      fillOpacity: selected ? 0.26 : 0.12,
+      color: selected ? "#ffb35c" : "#f2a38d",
+      weight: selected ? 6 : 1.8,
+      fillColor: selected ? "#f0783e" : "#d94801",
+      fillOpacity: selected ? 0.42 : 0.12,
       dashArray: "6 4",
+      className: selected ? "hx-island-selected" : "",
     };
   }
 
@@ -354,10 +360,12 @@
   }
 
   function drawRegionFeature(feature, geoID) {
-    const label = state.geoUnitById.get(geoID)?.geo_unit_name || geoID;
+    const label = geoDisplayName(geoID, state.geoUnitById.get(geoID)?.geo_unit_name);
+    const isSelected = () =>
+      appliedFilters.islands.includes(geoID) || (focus?.type === "geo" && focus.id === geoID);
     const layer = L.geoJSON(feature, {
       pane: "caseRegions",
-      style: regionStyle(focus?.type === "geo" && focus.id === geoID),
+      style: regionStyle(isSelected()),
     });
     layer.bindTooltip(label);
     layer.on("click", (event) => {
@@ -366,7 +374,7 @@
     });
     layer.on("mouseover", () => layer.setStyle(regionStyle(true)));
     layer.on("mouseout", () =>
-      layer.setStyle(regionStyle(focus?.type === "geo" && focus.id === geoID)),
+      layer.setStyle(regionStyle(isSelected())),
     );
     layer.addTo(regionGroup);
   }
@@ -440,15 +448,37 @@
     // Keep explicitly filtered islands visible and highlighted, including
     // combinations that currently return no papers.
     appliedFilters.islands.forEach((geoID) => {
-      const feature = state.islandFeatureByGeo.get(geoID);
-      if (!feature) return;
-      drawn.add(`geo:${geoID}`);
-      drawIslandFeature(feature, geoID);
+      const unit = state.geoUnitById.get(geoID);
+      if (unit?.geo_unit_type === "region") {
+        const feature = state.regionFeatureByGeo.get(geoID);
+        if (!feature) return;
+        drawn.add(`geo:${geoID}`);
+        drawRegionFeature(feature, geoID);
+      } else {
+        const feature = state.islandFeatureByGeo.get(geoID);
+        if (!feature) return;
+        drawn.add(`geo:${geoID}`);
+        drawIslandFeature(feature, geoID);
+      }
     });
+    // When islands are filtered, only draw rows matching the filter — not
+    // other rows of the same paper (e.g. paper 22's "All islands" row
+    // should not light up Kauaʻi when filtering by Northwestern Region).
+    const rowMatchesIslandFilter = (row) => {
+      if (!appliedFilters.islands.length) return true;
+      const covers = new Set();
+      if (row.geo_unit_id) {
+        covers.add(row.geo_unit_id);
+        (state.membersByGroup.get(row.geo_unit_id) || []).forEach((m) => covers.add(m));
+      }
+      return appliedFilters.islands.some((id) => covers.has(id));
+    };
     state.papers.forEach((paper) => {
       const pid = String(paper.paper_id);
       if (!filteredIDs.has(pid)) return;
-      (state.rowsByPaper.get(pid) || []).forEach((row) => drawRow(row, drawn));
+      (state.rowsByPaper.get(pid) || []).forEach((row) => {
+        if (rowMatchesIslandFilter(row)) drawRow(row, drawn);
+      });
     });
     // Second pass: sampling points, grouped by coordinate so shared
     // locations get one marker whose popup lists every paper there.
@@ -457,6 +487,7 @@
       const pid = String(paper.paper_id);
       if (!filteredIDs.has(pid)) return;
       (state.rowsByPaper.get(pid) || []).forEach((row) => {
+        if (!rowMatchesIslandFilter(row)) return;
         const lat = parseFloat(row.latitude);
         const lng = parseFloat(row.longitude);
         if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
