@@ -3,6 +3,7 @@
   if (!root) return;
 
   const scriptURL = document.currentScript.src;
+  const logoURL = new URL("../images/oleson-lab-logo.png", scriptURL).href;
   const dataURLs = {
     coast: new URL("../data/hawaii-coast.geojson", scriptURL),
     areas: new URL("../data/nbs-areas.geojson", scriptURL),
@@ -62,7 +63,7 @@
     </header>
     <div class="hx-case-layout">
       <aside class="hx-case-nav" aria-label="Map regions">
-        <div class="hx-case-brand"><span class="hx-case-mark" aria-hidden="true">NbS</span></div>
+        <div class="hx-case-brand"><img class="hx-case-logo" src="${logoURL}" alt="" /></div>
         <p class="hx-case-nav-kicker">HAWAIʻI</p>
         <h2>Case Study<br>Explorer</h2>
         <p class="hx-case-nav-copy">Nature-based solutions research across the Hawaiian archipelago.</p>
@@ -269,29 +270,29 @@
 
   function islandStyle(selected = false) {
     return {
-      color: selected ? "#ffb35c" : "#f2a38d",
-      weight: selected ? 6 : 4.5,
-      fillColor: selected ? "#f0783e" : "#d95f28",
-      fillOpacity: selected ? 0.42 : 0.08,
+      color: selected ? "#b9f5ff" : "#46d8ff",
+      weight: selected ? 5.5 : 3.5,
+      fillColor: selected ? "#27c8e8" : "#0d8aa8",
+      fillOpacity: selected ? 0.32 : 0.06,
       className: selected ? "hx-island-selected" : "",
     };
   }
 
   function areaStyle(selected = false) {
     return {
-      color: selected ? "#ffd09b" : "#f06b35",
+      color: selected ? "#d4faff" : "#38d6e8",
       weight: selected ? 3 : 1.8,
-      fillColor: selected ? "#ff8a4b" : "#d94801",
-      fillOpacity: selected ? 0.5 : 0.3,
+      fillColor: selected ? "#39d7ef" : "#087e9b",
+      fillOpacity: selected ? 0.42 : 0.24,
     };
   }
 
   function regionStyle(selected = false) {
     return {
-      color: selected ? "#ffb35c" : "#f2a38d",
-      weight: selected ? 6 : 1.8,
-      fillColor: selected ? "#f0783e" : "#d94801",
-      fillOpacity: selected ? 0.42 : 0.12,
+      color: selected ? "#b9f5ff" : "#5bdcf5",
+      weight: selected ? 5 : 1.8,
+      fillColor: selected ? "#27c8e8" : "#087e9b",
+      fillOpacity: selected ? 0.3 : 0.1,
       dashArray: "6 4",
       className: selected ? "hx-island-selected" : "",
     };
@@ -332,10 +333,10 @@
   // Hover style for areas: unmistakable highlight so users see it's interactive.
   function areaHoverStyle() {
     return {
-      color: "#ff8c42",
+      color: "#d9fbff",
       weight: 4,
-      fillColor: "#ffb703",
-      fillOpacity: 0.55,
+      fillColor: "#41dff5",
+      fillOpacity: 0.46,
     };
   }
 

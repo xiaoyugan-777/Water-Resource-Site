@@ -1,0 +1,11 @@
+<svg width="920" height="720" viewBox="0 0 920 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="#B7E978" stroke-width="1.1" opacity=".32">
+    <path d="M123 139L225 92L341 118L412 78L531 126L653 98L814 162L786 258L831 342L738 409L694 530L562 555L477 641L356 575L250 609L179 511L76 472L110 358L57 266L123 139Z"/>
+    <path d="M225 92L276 213L341 118M276 213L412 78M276 213L392 294L531 126M392 294L250 609M392 294L562 555M392 294L653 98M392 294L738 409M179 511L392 294M786 258L392 294"/>
+  </g>
+  <g fill="#D8ECD4" opacity=".5" font-family="monospace" font-size="9" letter-spacing="1.5">
+    <text x="612" y="187">WATERSHED 06</text>
+    <text x="470" y="505">RIDGE / STREAM</text>
+    <text x="214" y="393">MAUKA → MAKAI</text>
+  </g>
+</svg>

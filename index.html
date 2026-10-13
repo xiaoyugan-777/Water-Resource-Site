@@ -3,206 +3,218 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nature-based Solutions Initiative | Home</title>
+    <title>From ʻĀina to Impact | Nature-Based Solutions Initiative</title>
     <meta
       name="description"
-      content="Replica of the Nature-based Solutions Initiative CIROH-NbS InEvalTool page."
+      content="Explore how nature-based solutions reduce flood risk, restore ecosystems, and strengthen communities across Hawaiʻi."
     />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=21" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
-  <link rel="stylesheet" href="./assets/css/hawaii-explorer.css?v=10">
+  <link rel="stylesheet" href="./assets/css/hawaii-explorer.css?v=42">
 </head>
-  <body>
-    <div class="persona-modal" data-persona-modal hidden>
-      <div class="persona-modal-backdrop" data-persona-close></div>
-      <section
-        class="persona-modal-panel"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="persona-modal-title"
-        aria-describedby="persona-modal-description"
-      >
-        <p class="persona-modal-kicker">Welcome to the toolkit</p>
-        <h2 id="persona-modal-title">Who are you here as?</h2>
-        <p id="persona-modal-description" class="persona-modal-intro">
-          We'll highlight the most relevant resources for you.
-        </p>
-
-        <div class="persona-grid">
-          <button class="persona-card" type="button" data-persona-key="community">
-            <span class="persona-card-icon" aria-hidden="true">CI</span>
-            <strong>Community / implementor</strong>
-            <span>I run or plan NbS projects on the ground.</span>
-          </button>
-          <button class="persona-card" type="button" data-persona-key="researcher">
-            <span class="persona-card-icon" aria-hidden="true">RE</span>
-            <strong>Researcher / evaluator</strong>
-            <span>I study or assess NbS performance.</span>
-          </button>
-          <button class="persona-card" type="button" data-persona-key="government">
-            <span class="persona-card-icon" aria-hidden="true">GP</span>
-            <strong>Government / planner</strong>
-            <span>I set policy or allocate funding for NbS.</span>
-          </button>
-          <button class="persona-card" type="button" data-persona-key="funder">
-            <span class="persona-card-icon" aria-hidden="true">FP</span>
-            <strong>Funder / partner</strong>
-            <span>I fund or partner on NbS programs.</span>
-          </button>
-          <button class="persona-card" type="button" data-persona-key="student">
-            <span class="persona-card-icon" aria-hidden="true">SL</span>
-            <strong>Student / learner</strong>
-            <span>I want to learn about NbS evaluation.</span>
-          </button>
-          <button class="persona-card" type="button" data-persona-key="browsing">
-            <span class="persona-card-icon" aria-hidden="true">JB</span>
-            <strong>Just browsing</strong>
-            <span>I'm exploring what's here.</span>
-          </button>
-        </div>
-
-        <div class="persona-modal-actions">
-          <button class="persona-skip" type="button" data-persona-close>Skip for now</button>
-          <button class="persona-confirm" type="button" data-persona-confirm disabled>
-            Show me what's relevant
-          </button>
-        </div>
-      </section>
-    </div>
-
+  <body class="landing-home">
     <div class="page-shell">
-      <header class="site-header">
-        <div class="header-top">
-          <a class="brand-mark" href="./index.html" aria-label="Nature-based Solutions Initiative home">
-            <span class="brand-ring"></span>
-            <span class="brand-text">
-              <strong>Nature-based Solutions</strong>
-              <span>Initiative</span>
-            </span>
-          </a>
-          <div class="header-controls">
-            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">
-              Menu
-            </button>
-            <div class="search-shell" aria-label="Search">
-              <div class="search-input"></div>
-              <div class="search-icon" aria-hidden="true"></div>
+      <header class="landing-header">
+        <a class="landing-brand" href="./index.html" aria-label="Nature-based Solutions Initiative home">
+          <img class="brand-logo-image landing-brand-logo" src="./assets/images/oleson-lab-logo.png" alt="" />
+          <span class="landing-brand-name">
+            <strong>Hawaiʻi NbS Hub</strong>
+            <span>Oleson Lab · University of Hawaiʻi</span>
+          </span>
+        </a>
+
+        <button
+          class="explore-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="explore-menu"
+          data-explore-toggle
+        >
+          Explore <span aria-hidden="true">⌄</span>
+        </button>
+
+        <nav id="explore-menu" class="explore-menu" aria-label="Explore" data-explore-menu hidden>
+          <p class="explore-menu-label">Explore the initiative</p>
+          <a href="./index.html">Home <span aria-hidden="true">01</span></a>
+          <a href="./pages/evaluate.html">InEvalTool <span aria-hidden="true">02</span></a>
+          <a href="./pages/case-studies.html">Case Study Explorer <span aria-hidden="true">03</span></a>
+          <a href="#hawaii-explorer">Explore Hawaiʻi <span aria-hidden="true">04</span></a>
+          <div class="explore-partners">
+            <div class="explore-partners-row">
+              <a href="./pages/research.html">Partners</a>
+              <button
+                type="button"
+                aria-expanded="false"
+                aria-controls="partners-submenu"
+                aria-label="Show partner categories"
+                data-partners-toggle
+              >+</button>
+            </div>
+            <div id="partners-submenu" class="partners-submenu" data-partners-submenu hidden>
+              <a href="./pages/research.html#strategic-partners-list">Strategic partners</a>
+              <a href="./pages/research.html#technical-partners-list">Technical partners</a>
+              <a href="./pages/research.html#aina-group-list">ʻĀina group</a>
             </div>
           </div>
-        </div>
-        <div class="header-main">
-          <nav id="nav" class="nav-grid" aria-label="Primary">
-            <div class="nav-row nav-row-primary">
-              <div class="nav-group">
-                <div class="nav-item has-dropdown"><a href="./pages/research.html">Partners</a><div class="dropdown-menu"><a href="./pages/research.html#strategic-partners">Strategic partners</a><a href="./pages/research.html#technical-partners">Technical partners</a><a href="./pages/research.html#aina-group">aina group</a></div></div>
-                <a href="./pages/outputs.html">Outputs</a>
-                <a href="./pages/education.html">Education</a>
-                <a href="./pages/team.html">Team</a>
-                <a href="./pages/news.html">News</a>
-                <a href="./pages/about.html">About</a>
-                <a href="./pages/join-us.html">Join Us</a>
-                <a href="./pages/tool.html">Tool</a>
-                <a href="./pages/evaluate.html">Evaluate</a>
-                <button class="persona-nav-trigger" type="button" data-open-persona-modal>
-                  Explore by Role
-                </button>
-                <a href="./pages/support.html">Support</a>
-              </div>
-              <div class="search-shell search-shell-inline" aria-label="Search">
-                <div class="search-input"></div>
-                <div class="search-icon" aria-hidden="true"></div>
-              </div>
-            </div>
-            <div class="nav-group nav-group-secondary">
-              <a href="./pages/bibliography.html">Bibliography</a>
-              <a href="./pages/case-studies.html">Case Study Platform</a>
-              <a href="./pages/knowledge-hub.html">Knowledge Hub</a>
-              <a href="./pages/evidence-tool.html">CIROH-NbS InEvalTool</a>
-              <a href="./pages/nbs-guidelines.html">NbS Guidelines</a>
-              <a href="./pages/conferences.html">Conferences</a>
-            </div>
-          </nav>
-        </div>
+        </nav>
       </header>
 
-      <main class="content">
-        <div class="content-grid">
-          <section class="main-column">
-            <section class="article-header">
-              <h1>CIROH-NbS InEvalTool</h1>
-              <div class="meta-row">
-                <p>this is a demo version for CIROH NBS toolkit</p>
-                <div class="meta-side">
-                  <span>Demo version</span>
-                  <div class="share-links" aria-label="Share">
-                    <a href="https://facebook.com/" aria-label="Facebook">f</a>
-                    <a href="https://www.linkedin.com/" aria-label="LinkedIn">in</a>
-                  </div>
-                </div>
-              </div>
-            </section>
+      <main class="landing-main">
+        <section class="landing-hero" aria-labelledby="landing-title">
+          <div class="hero-map" aria-hidden="true"></div>
+          <div class="hero-contours" aria-hidden="true"></div>
+          <div class="hero-boundary" aria-hidden="true"></div>
+          <span class="hero-coordinate hero-coordinate-n" aria-hidden="true">21.4386° N</span>
+          <span class="hero-coordinate hero-coordinate-w" aria-hidden="true">157.9812° W</span>
 
-            <figure class="hero-card">
-              <img
-                src="./assets/images/partners-tool-demo.png"
-                alt="CIROH-NbS InEvalTool collaboration diagram"
-              />
-            </figure>
+          <div class="landing-hero-content">
+            <p class="landing-kicker">CIROH / University of Hawaiʻi at Mānoa</p>
+          <h1 id="landing-title" class="landing-title-wide">Nature-Based<br />Solutions in Hawaiʻi</h1>
+            <p class="landing-summary">
+              Discover research case studies, explore assessment tools, and access resources to
+              support sustainable environmental decisions.
+            </p>
+            <div class="landing-actions">
+              <a class="landing-button landing-button-primary" href="./pages/evaluate.html#evaluation-intake">
+                Start an evaluation <span aria-hidden="true">↗</span>
+              </a>
+              <a class="landing-button landing-button-secondary" href="./pages/case-studies.html">
+                Explore Hawaiʻi research <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
 
-          </section>
-
-          <aside class="sidebar-column">
-            <section class="newsletter newsletter-main">
-              <div class="section-heading">
-                <h2>Join the NbS community</h2>
-                <p>Stay in the loop with our work, projects and opportunities by signing up for our newsletter.</p>
-              </div>
-              <form class="signup-form">
-                <p class="privacy-copy">
-                  By entering your email address and clicking the 'Sign up' button you agree to our
-                  <a href="./pages/privacy-policy.html">Privacy policy</a>.
-                </p>
-                <div class="signup-stack">
-                  <input id="email" name="email" type="email" placeholder="Your email address" />
-                  <button type="submit">Sign Up</button>
-                </div>
-                <label class="honeypot" for="human-check">Leave this field empty if you're human:</label>
-                <input class="honeypot" id="human-check" name="human-check" type="text" />
-              </form>
-            </section>
+          <aside class="geo-card" aria-label="Program focus">
+            <p>Program focus <span aria-hidden="true"></span></p>
+            <strong>Hawaiʻi · Mauka to Makai</strong>
+            <span>Community flood resilience</span>
+            <small>Featured view · Oʻahu</small>
           </aside>
-        </div>
 
-        <section class="hx" data-hawaii-explorer="overview" aria-label="Hawaiian Islands explorer"></section>
+          <div class="landing-hero-footer">
+            <p class="hero-partners-label">A collaborative project by</p>
+            <div class="hero-partners" aria-label="Project partners">
+              <div class="hero-partner">
+                <img class="hero-partner-logo hero-partner-logo-uh" src="./assets/images/uh-manoa-logo.jpg" alt="University of Hawaiʻi at Mānoa" />
+                <span><strong>University of Hawaiʻi</strong><small>at Mānoa</small></span>
+              </div>
+              <div class="hero-partner">
+                <img class="hero-partner-logo" src="./assets/images/oleson-lab-logo.png" alt="Oleson Lab" />
+                <span><strong>Oleson Lab</strong><small>Ecological Economics</small></span>
+              </div>
+              <div class="hero-partner">
+                <img class="hero-partner-logo hero-partner-logo-ciroh" src="./assets/images/ciroh-logo.png" alt="CIROH" />
+                <span><strong>CIROH</strong><small>Water research consortium</small></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="our-work" class="landing-story" aria-labelledby="story-title">
+          <div class="landing-story-intro">
+            <p class="landing-section-kicker">02 / From restoration to resilience</p>
+            <h2 id="story-title">Across ʻāina,<br />we build flood resilience.</h2>
+            <p class="landing-story-summary">
+              Our team works from mauka to makai—restoring ecosystems, reducing flood risk,
+              and strengthening communities across Hawaiʻi.
+            </p>
+
+            <div class="mauka-makai" aria-label="Our work from mauka to makai">
+              <div class="mauka-makai-head">
+                <strong>Mauka</strong>
+                <span aria-hidden="true">→</span>
+                <strong>Makai</strong>
+              </div>
+              <ul>
+                <li>Forests</li>
+                <li>Streams</li>
+                <li>Cultural landscapes</li>
+                <li>Coasts</li>
+              </ul>
+            </div>
+
+            <div class="landing-story-actions">
+              <a class="landing-button landing-button-primary" href="./pages/case-studies.html">
+                Explore our work <span aria-hidden="true">↗</span>
+              </a>
+              <a class="landing-story-link" href="./pages/evaluate.html#evaluation-steps">
+                See how we evaluate <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <ol class="landing-story-steps">
+            <li>
+              <span>01</span>
+              <div>
+                <h3>Restore across ʻāina</h3>
+                <p>Forest and stream restoration, loʻi kalo, loko iʻa, rain gardens, and coastal protection.</p>
+              </div>
+            </li>
+            <li>
+              <span>02</span>
+              <div>
+                <h3>Strengthen communities</h3>
+                <p>Reduce flood surge, runoff, and erosion while improving water quality, safety, and ecosystem health.</p>
+              </div>
+            </li>
+            <li>
+              <span>03</span>
+              <div>
+                <h3>Build the evidence</h3>
+                <p>Connect restoration to measurable outcomes through modelling, systems mapping, monitoring, and community research.</p>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section id="hawaii-explorer" class="hx" data-hawaii-explorer="overview" aria-label="Hawaiian Islands explorer"></section>
+
+        <section class="landing-contact-page" aria-labelledby="community-heading">
+          <div class="landing-contact-main">
+            <div class="landing-contact-copy">
+              <p class="landing-section-kicker">Stay connected</p>
+              <h2 id="community-heading">Join the NbS<br />community.</h2>
+              <p>Follow new tools, Hawaiʻi research, project updates, and opportunities to take part.</p>
+            </div>
+
+            <form class="landing-contact-form">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.org" required />
+              <button type="submit">Sign up <span aria-hidden="true">↗</span></button>
+              <p>By signing up, you agree to our <a href="./pages/privacy-policy.html">privacy policy</a>.</p>
+            </form>
+          </div>
+
+          <footer class="landing-contact-footer">
+            <a class="landing-footer-brand" href="./index.html" aria-label="Nature-Based Solutions Initiative home">
+              <img class="brand-logo-image landing-brand-logo" src="./assets/images/oleson-lab-logo.png" alt="" />
+              <span class="landing-footer-brand-copy">
+                <strong>Hawaiʻi NbS Hub</strong>
+                <span>Oleson Lab · University of Hawaiʻi</span>
+              </span>
+            </a>
+
+            <div class="landing-footer-contact">
+              <p>Oleson Lab · NREM, UH Mānoa · Honolulu, Hawaiʻi</p>
+              <a href="mailto:koleson@hawaii.edu">koleson@hawaii.edu</a>
+            </div>
+
+            <nav class="landing-footer-links" aria-label="Footer">
+              <a href="./pages/about.html">About</a>
+              <a href="./pages/privacy-policy.html">Privacy</a>
+              <a href="https://www.linkedin.com/">LinkedIn</a>
+            </nav>
+
+            <p class="landing-footer-copyright">© 2026 Oleson Ecological Economics Lab</p>
+          </footer>
+        </section>
       </main>
-
-      <footer class="site-footer">
-        <section class="contact-block">
-          <p class="eyebrow">Contact</p>
-          <address>Oleson Lab<br />Department of Natural Resources and Environmental Management at UH Manoa<br />1910 East-West Rd Room 101<br />Honolulu, HI 96822</address>
-          <p>Email: <a href="mailto:koleson@hawaii.edu">koleson@hawaii.edu</a></p>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/">LinkedIn</a>
-            <a href="https://bsky.app/">Bluesky</a>
-            <a href="https://www.youtube.com/">YouTube</a>
-          </div>
-        </section>
-
-        <section class="footer-bottom">
-          <div class="footer-links">
-            <a href="./pages/about.html">About</a> / <a href="./pages/privacy-policy.html">Privacy Policy</a>
-          </div>
-          <div class="logo-strip" aria-hidden="true"><div class="logo-box">UH Manoa</div><div class="logo-box">Department of Natural Resources and Environmental Management</div><div class="logo-box">Oleson Ecological Economics Lab</div></div>
-          <p class="copyright">
-            © 2026 Oleson Ecological Economics Lab, UH Manoa
-          </p>
-        </section>
-      </footer>
     </div>
 
     <script
@@ -210,7 +222,7 @@
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
-    <script src="./assets/js/main.js"></script>
-  <script src="./assets/js/hawaii-explorer.js?v=10"></script>
+    <script src="./assets/js/main.js?v=11"></script>
+  <script src="./assets/js/hawaii-explorer.js?v=11"></script>
 </body>
 </html>
