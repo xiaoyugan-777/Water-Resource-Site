@@ -186,6 +186,10 @@
     openIntakeButton.addEventListener("click", openIntake);
   }
 
+  if (window.location.hash === "#evaluation-intake") {
+    openIntake();
+  }
+
   const restored = restoreDraft();
   if (restored && restored.projectName) {
     if (intakeSection) {

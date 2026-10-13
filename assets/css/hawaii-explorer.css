@@ -159,3 +159,419 @@
 .hx-cases .hx-sidebar label{font-size:11px}.hx-cases .hx-sidebar select{font-size:14px}.hx-case-hint,.hx-cases .hx-disclaimer{font-size:11px}
 .hx-cases .hx-case-results-head h3{font-size:20px}.hx-cases .hx-paper-card h4{font-size:15px;line-height:1.45}.hx-cases .hx-paper-meta{font-size:11px}.hx-cases .hx-paper-card dl{font-size:12px;line-height:1.6}
 .hx-cases .hx-legend{max-width:270px;padding:17px 19px;font-size:14px;line-height:1.45}.hx-cases .hx-legend strong{font-size:12px;margin-bottom:11px}.hx-cases .hx-legend span{margin:7px 0}.hx-cases .hx-legend i{width:15px;height:15px;margin-right:10px}.hx-cases .hx-legend small{font-size:12px;line-height:1.5}
+
+/* Match the site-wide forest theme without changing the case-study dashboard. */
+.hx:not(.hx-cases){margin:0;border-color:#17472f;border-radius:0;background:#071d12;color:#e8eee5;box-shadow:none}
+.hx:not(.hx-cases) .hx-header{background:#0a2b1b;color:#f2f4eb;border-bottom:1px solid #ffffff18}
+.hx:not(.hx-cases) .hx-header h2{color:#f2f4eb}
+.hx:not(.hx-cases) .hx-eyebrow{color:#b7e978}
+.hx:not(.hx-cases) .hx-header button{border-color:#ffffff35;background:#ffffff08;color:#f2f4eb}
+.hx:not(.hx-cases) .hx-header [data-expand]{border-color:#b7e978;background:#b7e978;color:#07170e}
+.hx:not(.hx-cases) .hx-sidebar{border-color:#17472f;background:#081f14;color:#e8eee5;scrollbar-color:#42694f #081f14}
+.hx:not(.hx-cases) .hx-sidebar select,
+.hx:not(.hx-cases) .hx-sidebar button,
+.hx:not(.hx-cases) .hx-research input[type="search"],
+.hx:not(.hx-cases) .hx-field-card{border-color:#ffffff25;background:#0c2a1b;color:#f2f4eb}
+.hx:not(.hx-cases) .hx-detail,
+.hx:not(.hx-cases) .hx-results,
+.hx:not(.hx-cases) .hx-research{border-color:#ffffff18}
+.hx:not(.hx-cases) .hx-detail dt,
+.hx:not(.hx-cases) .hx-results small,
+.hx:not(.hx-cases) .hx-disclaimer,
+.hx:not(.hx-cases) .hx-field-note{color:#9eb4a1}
+.hx:not(.hx-cases) .hx-badge{background:#b7e9781f;color:#dff3c5}
+.hx:not(.hx-cases) .hx-legend{border-color:#ffffff22;background:#061c11e8;color:#e8eee5}
+.hx:not(.hx-cases) .hx-legend small{color:#9eb4a1}
+.hx:not(.hx-cases) .hx-expand-btn,
+.hx:not(.hx-cases) .hx-fullscreen-exit{background:#b7e978;color:#07170e}
+
+.hx-cases{--case-orange:#b7e978}
+.hx-cases .hx-case-nav-kicker,
+.hx-cases .hx-case-panel-head .hx-eyebrow,
+.hx-cases .hx-case-panel .hx-detail .hx-eyebrow,
+.hx-cases .hx-paper-meta,
+.hx-cases .hx-paper-meta a{color:#b7e978}
+.hx-cases .hx-case-apply,
+.hx-cases .hx-case-panel .hx-detail .hx-download-csv{border-color:#b7e978!important;background:#b7e978!important;color:#07170e!important}
+.hx-cases .hx-case-apply:hover,
+.hx-cases .hx-case-apply.is-pending,
+.hx-cases .hx-case-panel .hx-detail .hx-download-csv:hover{border-color:#c7f190!important;background:#c7f190!important;color:#07170e!important}
+.hx-cases .hx-island-options button.is-active,
+.hx-cases .hx-multi-options button.is-active{border-color:#b7e978;background:#b7e978;color:#07170e;box-shadow:0 5px 13px #00000055,0 0 0 1px #b7e97855}
+.hx-cases .hx-island-options button:hover,
+.hx-cases .hx-multi-options button:hover,
+.hx-cases .hx-case-reset:hover,
+.hx-cases .hx-case-panel .hx-detail button:hover{border-color:#b7e978}
+
+/* Cinematic geospatial interface — visual treatment only. */
+.hx {
+  --geo-cyan: #46d8ff;
+  --geo-cyan-soft: #9aeeff;
+  --geo-panel: #10161c;
+  --geo-panel-deep: #090e13;
+  --geo-line: rgba(107, 220, 244, 0.2);
+}
+
+.hx .leaflet-container {
+  background: #07131d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+.hx .leaflet-tile-pane {
+  filter: none;
+}
+
+.hx .leaflet-overlay-pane path {
+  filter: drop-shadow(0 0 2px rgba(70, 216, 255, 0.9)) drop-shadow(0 0 7px rgba(70, 216, 255, 0.3));
+}
+
+.hx .leaflet-control-zoom,
+.hx .leaflet-control-scale-line {
+  border-color: rgba(120, 225, 247, 0.24) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.38) !important;
+}
+
+.hx .leaflet-control-zoom a {
+  border-color: rgba(120, 225, 247, 0.16) !important;
+  background: rgba(9, 14, 19, 0.92) !important;
+  color: #d9f8ff !important;
+}
+
+.hx .leaflet-control-zoom a:hover,
+.hx .leaflet-control-zoom a:focus {
+  background: #17303c !important;
+  color: var(--geo-cyan) !important;
+}
+
+.hx .leaflet-control-attribution,
+.hx .leaflet-control-scale-line {
+  background: rgba(7, 13, 18, 0.82) !important;
+  color: #7f969f !important;
+  backdrop-filter: blur(10px);
+}
+
+.hx .leaflet-control-attribution a {
+  color: #a7dcea !important;
+}
+
+.hx .leaflet-tooltip,
+.hx .leaflet-popup-content-wrapper,
+.hx .leaflet-popup-tip {
+  border-color: rgba(70, 216, 255, 0.28) !important;
+  background: rgba(10, 17, 22, 0.95) !important;
+  color: #eefbff !important;
+}
+
+.hx:not(.hx-cases) {
+  overflow: hidden;
+  border: 1px solid rgba(70, 216, 255, 0.23);
+  border-radius: 14px;
+  background: var(--geo-panel-deep);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34), inset 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.hx:not(.hx-cases) .hx-header {
+  padding: 17px 21px;
+  border-color: var(--geo-line);
+  background: linear-gradient(90deg, #0a1015 0%, #111a20 100%);
+}
+
+.hx:not(.hx-cases) .hx-eyebrow {
+  color: var(--geo-cyan);
+}
+
+.hx:not(.hx-cases) .hx-header button {
+  border-color: rgba(70, 216, 255, 0.32);
+  border-radius: 4px;
+  background: #111b21;
+  color: #dff9ff;
+}
+
+.hx:not(.hx-cases) .hx-header [data-expand] {
+  border-color: var(--geo-cyan);
+  background: var(--geo-cyan);
+  color: #061116;
+}
+
+.hx:not(.hx-cases) .hx-body {
+  grid-template-columns: minmax(270px, 305px) minmax(0, 1fr);
+}
+
+.hx:not(.hx-cases) .hx-sidebar {
+  border-color: var(--geo-line);
+  background: linear-gradient(180deg, #10171c 0%, #0a1015 100%);
+  color: #e8f4f6;
+  scrollbar-color: #365963 #0a1015;
+}
+
+.hx:not(.hx-cases) .hx-sidebar select,
+.hx:not(.hx-cases) .hx-sidebar button,
+.hx:not(.hx-cases) .hx-research input[type="search"],
+.hx:not(.hx-cases) .hx-field-card {
+  border-color: rgba(114, 213, 235, 0.2);
+  border-radius: 3px;
+  background: #090f14;
+  color: #e9f8fb;
+}
+
+.hx:not(.hx-cases) .hx-check input {
+  accent-color: var(--geo-cyan);
+}
+
+.hx:not(.hx-cases) .hx-stage,
+.hx:not(.hx-cases) .hx-canvas {
+  background: #07131d;
+}
+
+.hx:not(.hx-cases) .hx-legend {
+  border: 1px solid rgba(70, 216, 255, 0.22);
+  border-radius: 4px;
+  background: rgba(8, 14, 19, 0.88);
+  color: #eefbff;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(12px);
+}
+
+.hx:not(.hx-cases) .hx-land {
+  border: 2px solid var(--geo-cyan);
+  background: rgba(70, 216, 255, 0.12);
+}
+
+.hx:not(.hx-cases) .hx-label {
+  color: #effcff;
+  text-shadow: 0 1px 4px #00131f, 0 0 10px #00131f;
+}
+
+.hx:not(.hx-cases) .hx-canvas .hx-place-label {
+  border-color: rgba(70, 216, 255, 0.42);
+  border-radius: 3px;
+  background: rgba(7, 20, 27, 0.9);
+  color: #eafaff;
+}
+
+/* Landing Page 3: the explorer is one complete viewport. */
+.landing-home #hawaii-explorer {
+  display: flex;
+  width: 100%;
+  height: 100svh;
+  min-height: 680px;
+  margin: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+  flex-direction: column;
+  scroll-margin-top: 0;
+  scroll-snap-align: start;
+}
+
+.landing-home #hawaii-explorer .hx-header {
+  flex: 0 0 auto;
+}
+
+.landing-home #hawaii-explorer .hx-body {
+  min-height: 0;
+  flex: 1;
+}
+
+.landing-home #hawaii-explorer .hx-sidebar {
+  max-height: none;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.landing-home #hawaii-explorer .hx-stage,
+.landing-home #hawaii-explorer .hx-canvas {
+  height: 100%;
+  min-height: 0;
+}
+
+.hx-cases {
+  --case-orange: var(--geo-cyan);
+  --case-ink: #090e13;
+  --case-panel: #11171c;
+  overflow: hidden;
+  border: 1px solid rgba(70, 216, 255, 0.2);
+  border-radius: 14px;
+  background: var(--geo-panel-deep);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.38), inset 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.hx-cases .hx-fullscreen-bar {
+  border-color: var(--geo-line);
+  background: linear-gradient(90deg, #090e13, #121b21);
+}
+
+.hx-cases .hx-fullscreen-bar .hx-eyebrow,
+.hx-cases .hx-case-nav-kicker,
+.hx-cases .hx-case-panel-head .hx-eyebrow,
+.hx-cases .hx-case-panel .hx-detail .hx-eyebrow,
+.hx-cases .hx-paper-meta,
+.hx-cases .hx-paper-meta a {
+  color: var(--geo-cyan);
+}
+
+.hx-cases .hx-expand-btn,
+.hx-cases .hx-fullscreen-exit,
+.hx-cases .hx-case-apply,
+.hx-cases .hx-case-panel .hx-detail .hx-download-csv {
+  border-color: var(--geo-cyan) !important;
+  background: var(--geo-cyan) !important;
+  color: #061116 !important;
+}
+
+.hx-cases .hx-case-nav {
+  border-color: var(--geo-line);
+  background: linear-gradient(180deg, #080d12, #0d1419);
+}
+
+.hx-case-mark {
+  border-color: var(--geo-cyan);
+  color: #e8fbff;
+  box-shadow: inset 0 0 0 5px #090e13, inset 0 0 0 6px rgba(70, 216, 255, 0.42), 0 0 24px rgba(70, 216, 255, 0.12);
+}
+
+.hx-case-logo {
+  display: block;
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.38));
+}
+
+.hx-case-nav nav button:hover,
+.hx-case-nav nav button.is-active {
+  border-color: var(--geo-cyan);
+  background: linear-gradient(90deg, rgba(70, 216, 255, 0.1), transparent);
+}
+
+.hx-case-nav nav button.is-active span {
+  color: var(--geo-cyan);
+}
+
+.hx-cases .hx-stage,
+.hx-cases .hx-canvas {
+  background: #07131d;
+}
+
+.hx-cases .hx-map-summary {
+  border-bottom: 1px solid rgba(70, 216, 255, 0.12);
+  background: linear-gradient(90deg, rgba(7, 13, 18, 0.94), rgba(7, 13, 18, 0.7) 74%, transparent);
+  color: #a8c0c7;
+  backdrop-filter: blur(8px);
+}
+
+.hx-cases .hx-sidebar {
+  border-color: var(--geo-line);
+  background: linear-gradient(180deg, #11171c 0%, #0b1116 100%);
+}
+
+.hx-case-tabs {
+  border-color: var(--geo-line);
+  background: #0a1015;
+}
+
+.hx-case-tabs button:hover,
+.hx-case-tabs button.is-active {
+  border-bottom-color: var(--geo-cyan);
+  background: rgba(70, 216, 255, 0.05);
+}
+
+.hx-cases .hx-island-options button,
+.hx-cases .hx-multi-options button,
+.hx-case-reset {
+  border-color: rgba(107, 220, 244, 0.18) !important;
+  border-radius: 3px !important;
+  background: #090f14 !important;
+  color: #bdcdd2 !important;
+  box-shadow: none;
+}
+
+.hx-cases .hx-island-options button:hover,
+.hx-cases .hx-multi-options button:hover,
+.hx-cases .hx-island-options button.is-active,
+.hx-cases .hx-multi-options button.is-active {
+  border-color: var(--geo-cyan) !important;
+  background: rgba(70, 216, 255, 0.12) !important;
+  color: #effcff !important;
+  box-shadow: 0 0 0 1px rgba(70, 216, 255, 0.12), 0 0 18px rgba(70, 216, 255, 0.08);
+}
+
+.hx-cases .hx-legend {
+  border-color: rgba(70, 216, 255, 0.23);
+  border-radius: 4px;
+  background: rgba(8, 14, 19, 0.88);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(12px);
+}
+
+.hx-case-island-key {
+  border-color: var(--geo-cyan);
+  background: rgba(70, 216, 255, 0.08);
+}
+
+.hx-case-area-key {
+  border-color: #38d6e8;
+  background: rgba(56, 214, 232, 0.3);
+}
+
+.hx-case-region-key {
+  border-color: var(--geo-cyan);
+  background: rgba(70, 216, 255, 0.08);
+}
+
+.hx-cases .hx-island-selected {
+  filter: drop-shadow(0 0 4px rgba(185, 245, 255, 0.95)) drop-shadow(0 0 12px rgba(70, 216, 255, 0.62));
+}
+
+@media (max-width: 760px) {
+  .hx:not(.hx-cases) .hx-body {
+    grid-template-columns: 1fr;
+  }
+
+  .hx-cases .hx-fullscreen-bar {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px 20px;
+  }
+
+  .hx-case-logo {
+    width: 46px;
+    height: 46px;
+  }
+
+  .hx-cases .hx-expand-btn,
+  .hx-cases .hx-fullscreen-exit {
+    width: 100% !important;
+    max-width: none;
+  }
+
+  .hx-cases .hx-legend {
+    max-width: 220px;
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+
+  .hx-cases .hx-legend small {
+    font-size: 10px;
+  }
+
+  .landing-home #hawaii-explorer {
+    min-height: 100svh;
+  }
+
+  .landing-home #hawaii-explorer .hx-body {
+    display: grid;
+    grid-template-rows: minmax(220px, 35%) minmax(0, 65%);
+  }
+
+  .landing-home #hawaii-explorer .hx-sidebar {
+    max-height: none;
+    border-bottom: 1px solid var(--geo-line);
+  }
+
+  .landing-home #hawaii-explorer .hx-stage,
+  .landing-home #hawaii-explorer .hx-canvas {
+    min-height: 0;
+  }
+}

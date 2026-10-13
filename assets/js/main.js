@@ -15,6 +15,10 @@ const personaCards = document.querySelectorAll("[data-persona-key]");
 const personaCloseButtons = document.querySelectorAll("[data-persona-close]");
 const personaConfirmButton = document.querySelector("[data-persona-confirm]");
 const personaOpenButtons = document.querySelectorAll("[data-open-persona-modal]");
+const exploreToggle = document.querySelector("[data-explore-toggle]");
+const exploreMenu = document.querySelector("[data-explore-menu]");
+const partnersToggle = document.querySelector("[data-partners-toggle]");
+const partnersSubmenu = document.querySelector("[data-partners-submenu]");
 
 const personaRoutes = {
   community: "",
@@ -31,6 +35,61 @@ if (menuButton && nav) {
   menuButton.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("is-open");
     menuButton.setAttribute("aria-expanded", String(isOpen));
+  });
+}
+
+function closeExploreMenu() {
+  if (!exploreToggle || !exploreMenu) {
+    return;
+  }
+
+  exploreMenu.hidden = true;
+  exploreToggle.setAttribute("aria-expanded", "false");
+
+  if (partnersToggle && partnersSubmenu) {
+    partnersSubmenu.hidden = true;
+    partnersToggle.setAttribute("aria-expanded", "false");
+  }
+}
+
+if (exploreToggle && exploreMenu) {
+  exploreToggle.addEventListener("click", () => {
+    const willOpen = exploreMenu.hidden;
+    exploreMenu.hidden = !willOpen;
+    exploreToggle.setAttribute("aria-expanded", String(willOpen));
+  });
+
+  exploreMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeExploreMenu);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (
+      !exploreMenu.hidden &&
+      !exploreMenu.contains(event.target) &&
+      !exploreToggle.contains(event.target)
+    ) {
+      closeExploreMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !exploreMenu.hidden) {
+      closeExploreMenu();
+      exploreToggle.focus();
+    }
+  });
+}
+
+if (partnersToggle && partnersSubmenu) {
+  partnersToggle.addEventListener("click", () => {
+    const willOpen = partnersSubmenu.hidden;
+    partnersSubmenu.hidden = !willOpen;
+    partnersToggle.setAttribute("aria-expanded", String(willOpen));
+    partnersToggle.setAttribute(
+      "aria-label",
+      willOpen ? "Hide partner categories" : "Show partner categories",
+    );
   });
 }
 

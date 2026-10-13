@@ -240,8 +240,15 @@ Repository:
 
 GitHub will then provide a public Pages URL.
 
+## Original design references
+
+The original CIROH-NbS collaboration poster is preserved in the repository as a design and content reference, even though it is no longer displayed as the homepage hero:
+
+[View the original poster at full size](./assets/images/partners-tool-demo.png)
+
+![Original CIROH-NbS collaboration poster](./assets/images/partners-tool-demo.png)
+
 ## Notes
 
-- The homepage hero image is stored locally in `assets/images/partners-tool-demo.png`.
 - The site is fully static and does not require Node.js or npm.
 - Several pages are still placeholders and can be filled with final content later.

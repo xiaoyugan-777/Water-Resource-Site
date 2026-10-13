@@ -3,7 +3,7 @@ const script = document.currentScript.src;
 const dataURL = new URL('../data/hawaii-coast.geojson', script);
 const regionURL = new URL('../data/hawaii-place-regions.geojson', script);
 const regionKeys={'Honolulu':'Urban Honolulu','Kāneʻohe':'Kaneohe','Waimānalo':'Waimanalo'};
-const regionColors={'Honolulu':'#7975d9','Kāneʻohe':'#e49b4b','Waimānalo':'#32a997'};
+const regionColors={'Honolulu':'#46d8ff','Kāneʻohe':'#45e0ba','Waimānalo':'#b7e978'};
 const names = {Kauai:'Kauaʻi',Niihau:'Niʻihau',Oahu:'Oʻahu',Molokai:'Molokaʻi',Maui:'Maui',Lanai:'Lānaʻi',kahoolawe:'Kahoʻolawe',Hawaii:'Hawaiʻi'};
 const places = [{name:'Honolulu',coords:[21.3069,-157.8583],topic:'Urban watershed',text:'Urban watershed and coastal resilience case cluster'}, {name:'Kāneʻohe',coords:[21.4097,-157.7989],topic:'Restoration',text:'Community stewardship and ecological restoration activity'}, {name:'Waimānalo',coords:[21.3347,-157.7003],topic:'Monitoring',text:'Place-based monitoring and cultural landscape efforts'}];
 for(const root of document.querySelectorAll('[data-hawaii-explorer]')) {
@@ -26,7 +26,7 @@ const terrain=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/
 function coastStyle(feature){
  const imagery=basemap.value==='satellite';
  const selected=island.value && feature?.properties.isle===island.value;
- return {...style,color:imagery?(selected?'#ff683f':'#efb6a9'):basemap.value==='terrain'?'#367d83':'#89bdcb',weight:boundaries.checked?(imagery?(selected?3:2):1.2):0,fillColor:basemap.value==='coast'?'#d5e4d7':style.fillColor,fillOpacity:imagery?0:basemap.value==='terrain'?0.12:1};
+ return {...style,color:imagery?(selected?'#b9f5ff':'#46d8ff'):basemap.value==='terrain'?'#249ab5':'#67dff4',weight:boundaries.checked?(imagery?(selected?3.4:2.1):1.2):0,fillColor:basemap.value==='coast'?'#173947':style.fillColor,fillOpacity:imagery?0:basemap.value==='terrain'?0.12:1};
 }
 function changeBasemap(){
  map.removeLayer(terrain);map.removeLayer(satellite);
@@ -103,6 +103,6 @@ dialog.addEventListener('close',()=>{
 });
 new ResizeObserver(()=>map.invalidateSize({pan:true,animate:false})).observe($('.hx-stage'));
 
-Promise.all([dataURL,regionURL].map(url=>fetch(url).then(r=>{if(!r.ok)throw Error('Unable to load boundaries');return r.json();}))).then(([data,regions])=>{regionFeatures=regions.features;features=data.features.filter(f=>f.properties.water===0);geo=L.geoJSON(null,{style,onEachFeature:(f,l)=>{l.bindTooltip(names[f.properties.isle]);l.on({click:()=>selectIsland(f.properties.isle),mouseover:()=>l.setStyle({color:'#ff683f',fillColor:'#f5b8a5',fillOpacity:basemap.value==='coast'?1:0.12,weight:boundaries.checked?3:0}),mouseout:()=>geo.setStyle(coastStyle)});}}).addTo(map);if(cases)island.value='Oahu';update();}).catch(()=>{$('.hx-error').hidden=false;$('.hx-error').textContent='Island boundaries could not load. Please reload to retry.';});
+Promise.all([dataURL,regionURL].map(url=>fetch(url).then(r=>{if(!r.ok)throw Error('Unable to load boundaries');return r.json();}))).then(([data,regions])=>{regionFeatures=regions.features;features=data.features.filter(f=>f.properties.water===0);geo=L.geoJSON(null,{style,onEachFeature:(f,l)=>{l.bindTooltip(names[f.properties.isle]);l.on({click:()=>selectIsland(f.properties.isle),mouseover:()=>l.setStyle({color:'#b9f5ff',fillColor:'#46d8ff',fillOpacity:basemap.value==='coast'?0.28:0.12,weight:boundaries.checked?3.4:0}),mouseout:()=>geo.setStyle(coastStyle)});}}).addTo(map);if(cases)island.value='Oahu';update();}).catch(()=>{$('.hx-error').hidden=false;$('.hx-error').textContent='Island boundaries could not load. Please reload to retry.';});
 }
 })();
