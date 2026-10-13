@@ -5817,6 +5817,98 @@ body,
   }
 }
 
+/* Page 2 mobile: copy fills one screen; selector and map fill the next. */
+@media (max-width: 620px) {
+  .landing-home .landing-story-reference {
+    display: block;
+    min-height: auto;
+    overflow: clip;
+    padding: 0;
+  }
+
+  .landing-home .landing-story-reference .impact-explorer {
+    display: block;
+    min-height: 0;
+  }
+
+  .landing-story-reference .impact-copy {
+    display: grid;
+    min-height: 100svh;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    align-content: center;
+    padding: 68px 20px 46px;
+  }
+
+  .landing-story-reference .impact-copy .landing-story-intro {
+    padding-bottom: 28px;
+  }
+
+  .landing-home .landing-story-reference h2 {
+    font-size: clamp(32px, 9vw, 40px);
+  }
+
+  .landing-story-reference .impact-copy .landing-story-summary {
+    max-width: 36rem;
+    font-size: 15px;
+  }
+
+  .landing-story-reference .impact-copy .landing-story-prompt {
+    margin-top: 20px;
+    padding-top: 18px;
+  }
+
+  .landing-story-reference .impact-copy .impact-next-copy,
+  .landing-story-reference .impact-copy .impact-next a {
+    width: 100%;
+    grid-column: 1;
+    padding: 20px 0;
+  }
+
+  .landing-story-reference .impact-map-system {
+    display: flex;
+    min-height: 100svh;
+    flex-direction: column;
+    gap: 18px;
+    padding: 34px 20px 24px;
+    border-top: 1px solid rgba(154, 207, 201, .25);
+  }
+
+  .landing-story-reference .impact-map-system .impact-selector {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px 8px;
+    align-self: auto;
+    padding: 0 0 16px;
+    border-right: 0;
+  }
+
+  .landing-story-reference .impact-map-system .impact-group-label {
+    grid-column: 1 / -1;
+    padding-left: 6px;
+  }
+
+  .landing-story-reference .impact-map-system .impact-group-label-makai {
+    margin-top: 8px;
+  }
+
+  .landing-story-reference .impact-map-system .impact-selector button {
+    min-height: 38px;
+  }
+
+  .landing-story-reference .impact-visual {
+    flex: 1;
+    width: 100%;
+    min-height: 300px;
+  }
+
+  .landing-story-reference .impact-visual .impact-landscape {
+    height: calc(100svh - 356px);
+    min-height: 300px;
+  }
+}
+
 /* Inner pages: the landing-page identity with every existing route visible. */
 .page-shell > .site-header {
   display: flex;
