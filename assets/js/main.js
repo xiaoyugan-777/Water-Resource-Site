@@ -19,6 +19,49 @@ const exploreToggle = document.querySelector("[data-explore-toggle]");
 const exploreMenu = document.querySelector("[data-explore-menu]");
 const partnersToggle = document.querySelector("[data-partners-toggle]");
 const partnersSubmenu = document.querySelector("[data-partners-submenu]");
+const impactExplorer = document.querySelector("[data-impact-explorer]");
+const landingContactForm = document.querySelector(".landing-contact-form");
+
+landingContactForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const status = landingContactForm.querySelector(".landing-contact-status");
+  status.hidden = false;
+  status.textContent = "Online submissions are not available yet. Please email koleson@hawaii.edu.";
+});
+
+if (impactExplorer) {
+  const impactInfo = impactExplorer.querySelector(".impact-info");
+  const interventions = {
+    forest: ["Forest restoration", "Restoring native forests may improve watershed function and habitat.", "Water retention, reduced runoff, and improved water quality.", "Habitat, cultural connections, and community stewardship."],
+    stream: ["Stream restoration", "Reconnecting and caring for streams can support water flow and aquatic life.", "Improved channel function and reduced erosion.", "Aquatic habitat, access, and community stewardship."],
+    agroforestry: ["Agroforestry", "Integrating trees and crops can support healthy soils and productive landscapes.", "Greater infiltration and reduced surface runoff.", "Food systems, habitat, and place-based livelihoods."],
+    fencing: ["Ungulate fencing", "Protecting restoration areas from feral ungulates can help native vegetation recover.", "Less soil disturbance and sediment movement.", "Native habitat and long-term restoration success."],
+    loi: ["Loʻi kalo restoration", "Restoring loʻi kalo can reconnect water, food cultivation, and cultural practice.", "Water storage, flow management, and sediment retention.", "Cultural knowledge, food systems, and community connection to ʻāina."],
+    rain: ["Rain gardens", "Planted rain gardens can capture runoff close to where rain falls.", "Runoff reduction, infiltration, and water filtration.", "Greener public spaces and local stewardship."],
+    loko: ["Loko iʻa restoration", "Restoring Hawaiian fishponds can renew coastal habitat and cultural food systems.", "Coastal water exchange and water quality.", "Aquatic habitat, cultural practice, and food resilience."],
+    coast: ["Coastal restoration", "Restoring coastal ecosystems may help shorelines respond to changing conditions.", "Potential wave attenuation and reduced coastal flooding.", "Coastal habitat, access, and community resilience."],
+  };
+
+  impactExplorer.querySelectorAll("[data-impact]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const key = button.dataset.impact;
+      const content = interventions[key];
+      if (!content) return;
+      impactExplorer.querySelectorAll("[data-impact]").forEach((item) => {
+        item.setAttribute("aria-pressed", String(item.dataset.impact === key));
+      });
+      impactExplorer.querySelector("[data-impact-title]").textContent = content[0];
+      impactExplorer.querySelector("[data-impact-description]").textContent = content[1];
+      impactExplorer.querySelector("[data-impact-hydrology]").textContent = content[2];
+      impactExplorer.querySelector("[data-impact-social]").textContent = content[3];
+      impactInfo.hidden = false;
+    });
+  });
+  impactExplorer.querySelector("[data-impact-close]")?.addEventListener("click", () => {
+    impactInfo.hidden = true;
+    impactExplorer.querySelectorAll("[data-impact]").forEach((item) => item.setAttribute("aria-pressed", "false"));
+  });
+}
 
 const personaRoutes = {
   community: "",
