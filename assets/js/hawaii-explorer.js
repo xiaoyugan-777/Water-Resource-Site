@@ -117,6 +117,6 @@ dialog.addEventListener('close',()=>{
 });
 new ResizeObserver(()=>map.invalidateSize({pan:true,animate:false})).observe($('.hx-stage'));
 
-Promise.all([dataURL,regionURL].map(fetchJSONWithRetry)).then(([data,regions])=>{regionFeatures=regions.features;features=data.features.filter(f=>f.properties.water===0);geo=L.geoJSON(null,{style,onEachFeature:(f,l)=>{l.bindTooltip(names[f.properties.isle]);l.on({click:()=>selectIsland(f.properties.isle),mouseover:()=>l.setStyle({color:'#b9f5ff',fillColor:'#46d8ff',fillOpacity:basemap.value==='coast'?0.28:0.12,weight:boundaries.checked?3.4:0}),mouseout:()=>geo.setStyle(coastStyle)});}}).addTo(map);if(cases)island.value='Oahu';update();}).catch(()=>{$('.hx-error').hidden=false;$('.hx-error').textContent='Island boundaries could not load. Please reload to retry.';});
+Promise.all([dataURL,regionURL].map(url=>fetchJSONWithRetry(url))).then(([data,regions])=>{regionFeatures=regions.features;features=data.features.filter(f=>f.properties.water===0);geo=L.geoJSON(null,{style,onEachFeature:(f,l)=>{l.bindTooltip(names[f.properties.isle]);l.on({click:()=>selectIsland(f.properties.isle),mouseover:()=>l.setStyle({color:'#b9f5ff',fillColor:'#46d8ff',fillOpacity:basemap.value==='coast'?0.28:0.12,weight:boundaries.checked?3.4:0}),mouseout:()=>geo.setStyle(coastStyle)});}}).addTo(map);if(cases)island.value='Oahu';update();}).catch(()=>{$('.hx-error').hidden=false;$('.hx-error').textContent='Island boundaries could not load. Please reload to retry.';});
 }
 })();
