@@ -1,7 +1,6 @@
 (() => {
-const script = document.currentScript.src;
-const dataURL = new URL('../data/hawaii-coast.geojson', script);
-const regionURL = new URL('../data/hawaii-place-regions.geojson', script);
+const dataURL = new URL('/assets/data/hawaii-coast.geojson?v=2', window.location.origin);
+const regionURL = new URL('/assets/data/hawaii-place-regions.geojson?v=2', window.location.origin);
 async function fetchJSONWithRetry(url, attempts=3){
  let lastError;
  for(let attempt=0;attempt<attempts;attempt+=1){
