@@ -5370,41 +5370,68 @@ body,
   }
 
   .landing-contact-main {
-    gap: 44px;
-    padding: 88px 20px 70px;
+    gap: 28px;
+    padding: 54px 20px 38px;
   }
 
   .landing-contact-copy h2 {
-    font-size: clamp(54px, 16vw, 70px);
+    font-size: clamp(42px, 12vw, 52px);
+    line-height: .94;
   }
 
   .landing-contact-copy h2 br {
-    display: block;
+    display: none;
+  }
+
+  .landing-contact-copy .landing-section-kicker {
+    margin-bottom: 18px;
   }
 
   .landing-contact-copy > p:last-child {
-    margin-top: 26px;
-    font-size: 16px;
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.45;
   }
 
   .landing-contact-form {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 10px;
   }
 
   .landing-contact-field-full,
-  .landing-contact-form label,
   .landing-contact-form > p {
-    grid-column: 1;
+    grid-column: 1 / -1;
+  }
+
+  .landing-contact-form label {
+    font-size: 11px;
+  }
+
+  .landing-contact-form input,
+  .landing-contact-form textarea {
+    min-height: 46px;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .landing-contact-form textarea {
+    min-height: 88px;
   }
 
   .landing-contact-form button {
     width: 100%;
+    min-height: 52px;
   }
 
   .landing-contact-footer {
     grid-template-columns: 1fr;
-    gap: 25px;
-    padding: 32px 20px 28px;
+    gap: 18px;
+    padding: 22px 20px 20px;
+  }
+
+  .landing-contact-footer .landing-brand-logo {
+    width: 46px;
+    height: 46px;
   }
 
   .landing-contact-footer .landing-footer-links {
@@ -5421,7 +5448,12 @@ body,
   }
 
   .landing-footer-links {
+    gap: 12px 18px;
     justify-content: flex-start;
+  }
+
+  .landing-footer-links a {
+    font-size: 11px;
   }
 }
 
