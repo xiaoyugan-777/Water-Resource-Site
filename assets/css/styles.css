@@ -795,6 +795,168 @@
   }
 }
 
+/* Compact topic navigation between the hero and the Mauka-to-Makai story. */
+.landing-topics {
+  display: grid;
+  min-height: 50svh;
+  gap: clamp(18px, 2.6vh, 28px);
+  align-content: center;
+  padding: clamp(28px, 4vh, 48px) clamp(24px, 4vw, 64px);
+  border-block: 1px solid var(--landing-line);
+  background: #071a17;
+}
+
+.landing-topics-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.landing-topics-heading .landing-section-kicker {
+  margin-bottom: 8px;
+  color: #7fdccf;
+}
+
+.landing-topics h2 {
+  margin: 0;
+  font-size: clamp(27px, 3vw, 43px);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+.landing-topics-heading > p {
+  max-width: 340px;
+  margin: 0 0 3px;
+  color: var(--landing-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.topic-card {
+  --topic-color: #124c42;
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: clamp(136px, 17vh, 174px);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: clamp(16px, 1.6vw, 24px);
+  background: var(--topic-color);
+  color: #f5faf3;
+  text-decoration: none;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.topic-card:nth-child(2) { --topic-color: #34533e; }
+.topic-card:nth-child(3) { --topic-color: #175766; }
+.topic-card:nth-child(4) { --topic-color: #38515c; }
+.topic-card:nth-child(5) { --topic-color: #57613a; }
+.topic-card:nth-child(6) { --topic-color: #56543c; }
+.topic-card:nth-child(7) { --topic-color: #31565b; }
+.topic-card:nth-child(8) { --topic-color: #4d4c61; }
+
+.topic-card:hover,
+.topic-card:focus-visible {
+  z-index: 1;
+  transform: translateY(-3px);
+  filter: brightness(1.18);
+}
+
+.topic-card:focus-visible {
+  outline: 3px solid #b7e978;
+  outline-offset: 3px;
+}
+
+.topic-number {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.topic-card strong {
+  max-width: 90%;
+  font-size: clamp(18px, 1.55vw, 25px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.topic-description {
+  max-width: 88%;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.topic-arrow {
+  position: absolute;
+  right: 16px;
+  bottom: 13px;
+  font-size: 23px;
+  line-height: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .topic-description {
+    position: absolute;
+    right: 36px;
+    bottom: 16px;
+    left: clamp(16px, 1.6vw, 24px);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .topic-card:hover .topic-description,
+  .topic-card:focus-visible .topic-description {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .topic-card:hover strong,
+  .topic-card:focus-visible strong {
+    transform: translateY(-42px);
+  }
+
+  .topic-card strong { transition: transform 180ms ease; }
+}
+
+@media (max-width: 900px) {
+  .landing-topics { min-height: 0; }
+  .topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .landing-topics {
+    gap: 18px;
+    padding: 32px 20px 36px;
+  }
+
+  .landing-topics-heading { display: block; }
+  .landing-topics-heading > p { display: none; }
+  .landing-topics h2 { font-size: clamp(25px, 7vw, 34px); }
+  .topic-grid { gap: 8px; }
+  .topic-card {
+    min-height: 106px;
+    padding: 12px;
+  }
+  .topic-number { font-size: 8px; }
+  .topic-card strong { font-size: clamp(14px, 3.8vw, 18px); }
+  .topic-description { max-width: calc(100% - 18px); font-size: 10px; line-height: 1.2; }
+  .topic-arrow { right: 9px; bottom: 8px; font-size: 17px; }
+}
+
 /* Section 2 reference composition: satellite-backed Mauka-to-Makai explorer. */
 .landing-home .landing-story-reference {
   grid-template-rows: auto auto minmax(335px, 1fr) 82px;
