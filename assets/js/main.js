@@ -16,11 +16,48 @@ const personaCloseButtons = document.querySelectorAll("[data-persona-close]");
 const personaConfirmButton = document.querySelector("[data-persona-confirm]");
 const personaOpenButtons = document.querySelectorAll("[data-open-persona-modal]");
 const exploreToggle = document.querySelector("[data-explore-toggle]");
+try {
+  document.documentElement.dataset.landingTheme = window.localStorage.getItem("landingTheme") === "light" ? "light" : "dark";
+} catch (_) {
+  document.documentElement.dataset.landingTheme ||= "dark";
+}
+
+let landingThemeToggle = document.querySelector("[data-landing-theme-toggle]");
+if (!landingThemeToggle) {
+  const themeHost = document.querySelector(".header-controls, .island-map-nav nav");
+  if (themeHost) {
+    landingThemeToggle = document.createElement("button");
+    landingThemeToggle.type = "button";
+    landingThemeToggle.className = "site-theme-toggle";
+    landingThemeToggle.setAttribute("data-landing-theme-toggle", "");
+    landingThemeToggle.innerHTML = '<span class="landing-theme-icon" aria-hidden="true"></span><span data-landing-theme-label></span>';
+    themeHost.prepend(landingThemeToggle);
+  }
+}
 const exploreMenu = document.querySelector("[data-explore-menu]");
 const partnersToggle = document.querySelector("[data-partners-toggle]");
 const partnersSubmenu = document.querySelector("[data-partners-submenu]");
 const impactExplorer = document.querySelector("[data-impact-explorer]");
 const landingContactForm = document.querySelector(".landing-contact-form");
+
+if (landingThemeToggle) {
+  const label = landingThemeToggle.querySelector("[data-landing-theme-label]");
+  const icon = landingThemeToggle.querySelector(".landing-theme-icon");
+  const syncThemeToggle = () => {
+    const isLight = document.documentElement.dataset.landingTheme === "light";
+    landingThemeToggle.setAttribute("aria-pressed", String(isLight));
+    landingThemeToggle.setAttribute("aria-label", `Switch to ${isLight ? "dark" : "light"} mode`);
+    label.textContent = isLight ? "Dark mode" : "Light mode";
+    icon.textContent = isLight ? "☾" : "☀";
+  };
+  syncThemeToggle();
+  landingThemeToggle.addEventListener("click", () => {
+    const next = document.documentElement.dataset.landingTheme === "light" ? "dark" : "light";
+    document.documentElement.dataset.landingTheme = next;
+    try { window.localStorage.setItem("landingTheme", next); } catch (_) {}
+    syncThemeToggle();
+  });
+}
 
 landingContactForm?.addEventListener("submit", (event) => {
   event.preventDefault();

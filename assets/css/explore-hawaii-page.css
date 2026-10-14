@@ -1,0 +1,108 @@
+.island-map-page {
+  margin: 0;
+  background: #081115;
+  color: #f2f4eb;
+}
+
+.island-map-nav {
+  display: flex;
+  min-height: 84px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px clamp(20px, 4vw, 64px);
+  border-bottom: 1px solid rgba(154, 207, 201, .2);
+}
+
+.island-map-brand,
+.island-map-nav nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.island-map-brand,
+.island-map-nav nav a {
+  color: #f2f4eb;
+  text-decoration: none;
+}
+
+.island-map-brand {
+  font-weight: 700;
+}
+
+.island-map-brand img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
+.island-map-nav nav {
+  gap: clamp(12px, 2vw, 30px);
+  font-size: 14px;
+}
+
+.island-map-nav a:hover,
+.island-map-nav a:focus-visible {
+  color: #a7ead1;
+}
+
+.island-map-page main {
+  padding: clamp(34px, 5vh, 70px) clamp(20px, 4vw, 64px) 70px;
+}
+
+.island-map-intro {
+  max-width: 820px;
+  margin-bottom: 30px;
+}
+
+.island-map-kicker {
+  margin: 0 0 12px;
+  color: #a7ead1;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.island-map-intro h1 {
+  margin: 0;
+  font-size: clamp(30px, 2.7vw, 42px);
+  line-height: 1.08;
+  letter-spacing: -.045em;
+}
+
+.island-map-intro > p:last-child {
+  max-width: 680px;
+  margin: 16px 0 0;
+  color: #abbcc4;
+  font-size: clamp(16px, 1.35vw, 20px);
+  line-height: 1.58;
+}
+
+.island-map-page .hx {
+  margin: 0;
+  border-color: rgba(154, 207, 201, .25);
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+@media (max-width: 620px) {
+  .island-map-nav {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .island-map-page main {
+    padding-bottom: 40px;
+  }
+
+  .island-map-intro h1 {
+    font-size: clamp(28px, 7vw, 34px);
+  }
+
+  .island-map-intro > p:last-child {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}

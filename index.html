@@ -31,14 +31,13 @@
     />
     <meta name="twitter:image" content="https://hawaii-nbs-hub.vercel.app/assets/images/nbs-hawaii-open-graph.jpg" />
     <meta name="twitter:image:alt" content="Nature-Based Solutions in Hawaiʻi overlooking a mountain-to-sea landscape" />
-    <link rel="stylesheet" href="./assets/css/styles.css?v=45" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
-  <link rel="stylesheet" href="./assets/css/hawaii-explorer.css?v=42">
+    <link rel="stylesheet" href="./assets/css/styles.css?v=62" />
+    <link rel="stylesheet" href="./assets/css/landing-light.css?v=14" />
+    <script>
+      try {
+        if (localStorage.getItem('landingTheme') === 'light') document.documentElement.dataset.landingTheme = 'light';
+      } catch (_) {}
+    </script>
 </head>
   <body class="landing-home">
     <div class="page-shell">
@@ -51,22 +50,27 @@
           </span>
         </a>
 
-        <button
-          class="explore-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="explore-menu"
-          data-explore-toggle
-        >
-          Explore <span aria-hidden="true">⌄</span>
-        </button>
+        <div class="landing-header-actions">
+          <button class="landing-theme-toggle" type="button" data-landing-theme-toggle aria-pressed="false" aria-label="Switch to light mode">
+            <span class="landing-theme-icon" aria-hidden="true">☀</span><span data-landing-theme-label>Light mode</span>
+          </button>
+          <button
+            class="explore-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="explore-menu"
+            data-explore-toggle
+          >
+            Explore <span aria-hidden="true">⌄</span>
+          </button>
+        </div>
 
         <nav id="explore-menu" class="explore-menu" aria-label="Explore" data-explore-menu hidden>
           <p class="explore-menu-label">Explore the initiative</p>
           <a href="./index.html">Home <span aria-hidden="true">01</span></a>
           <a href="./pages/evaluate.html">InEvalTool <span aria-hidden="true">02</span></a>
           <a href="./pages/case-studies.html">Case Study Explorer <span aria-hidden="true">03</span></a>
-          <a href="#hawaii-explorer">Explore Hawaiʻi <span aria-hidden="true">04</span></a>
+          <a href="./pages/explore-hawaii.html">Explore Hawaiʻi <span aria-hidden="true">04</span></a>
           <div class="explore-partners">
             <div class="explore-partners-row">
               <a href="./pages/research.html">Partners</a>
@@ -110,13 +114,6 @@
             </div>
           </div>
 
-          <aside class="geo-card" aria-label="Program focus">
-            <p>Program focus <span aria-hidden="true"></span></p>
-            <strong>Hawaiʻi · Mauka to Makai</strong>
-            <span>Community flood resilience</span>
-            <small>Featured view · Oʻahu</small>
-          </aside>
-
           <div class="landing-hero-footer">
             <p class="hero-partners-label">A collaborative project by</p>
             <div class="hero-partners" aria-label="Project partners">
@@ -133,13 +130,13 @@
                 <span><strong>CIROH</strong><small>Water research consortium</small></span>
               </div>
             </div>
+            <a class="hero-scroll-link" href="#topics">Scroll down <svg aria-hidden="true" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 3L12 11L22 3M2 12L12 20L22 12M2 21L12 29L22 21" stroke="currentColor" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter" /></svg></a>
           </div>
         </section>
 
         <section id="topics" class="landing-topics" aria-labelledby="topics-heading">
           <div class="landing-topics-heading">
             <div>
-              <p class="landing-section-kicker">Explore by topic</p>
               <h2 id="topics-heading">Find your path through NbS.</h2>
             </div>
             <p>Research, tools, and resources for Hawaiʻi's landscapes and communities.</p>
@@ -147,7 +144,7 @@
           <nav class="topic-grid" aria-label="Nature-based solutions topics">
             <a class="topic-card" href="#our-work"><span class="topic-number">01 / CONNECT</span><strong>Integration</strong><span class="topic-description">Connect ecological, social, and water outcomes.</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
             <a class="topic-card" href="./pages/research.html"><span class="topic-number">02 / COLLABORATE</span><strong>Governance</strong><span class="topic-description">Explore partners and place-based decision making.</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
-            <a class="topic-card" href="#hawaii-explorer"><span class="topic-number">03 / EXPLORE</span><strong>Mapping NbS Opportunities</strong><span class="topic-description">Locate islands, places, and potential approaches.</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
+            <a class="topic-card" href="./pages/explore-hawaii.html"><span class="topic-number">03 / EXPLORE</span><strong>Mapping NbS Opportunities</strong><span class="topic-description">Locate islands, places, and potential approaches.</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
             <a class="topic-card" href="./pages/evaluate.html"><span class="topic-number">04 / MEASURE</span><strong>Monitoring NbS Outcomes</strong><span class="topic-description">Assess benefits and track outcomes over time.</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
             <a class="topic-card" href="./pages/case-studies.html"><span class="topic-number">05 / LEARN</span><strong>Case Studies</strong><span class="topic-description">Discover Hawaiʻi projects and research examples.</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
             <a class="topic-card" href="./pages/support.html"><span class="topic-number">06 / SUPPORT</span><strong>Funding Programmes</strong><span class="topic-description">Find pathways for project support and funding.</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
@@ -160,32 +157,26 @@
           <div class="impact-explorer" data-impact-explorer>
           <div class="impact-copy">
           <div class="landing-story-intro">
-            <h2 id="story-title">Nature-based solutions<br />create value.<br /><span>How do we measure it?</span></h2>
+            <p class="landing-section-kicker">Mauka to Makai</p>
+            <h2 id="story-title">Explore a<br />connected<br /><span>landscape.</span></h2>
             <p class="landing-story-summary">
-              From mountains to sea, nature-based solutions can reduce risk and support ecosystems and communities. We study how to measure those benefits.
+              Follow the path from mountain watersheds to the coast. Select an intervention to see where it fits.
             </p>
-            <div class="landing-story-prompt">
-              <span>Explore the Mauka-to-Makai system</span>
-            </div>
           </div>
-          <div class="impact-next">
-            <span class="impact-next-copy"><small>The next question</small><strong>How can we evaluate these outcomes in practice?</strong></span>
-            <a href="#hawaii-explorer"><span aria-hidden="true">→</span><span>Explore assessment approaches<br />and real-world examples.</span></a>
-          </div>
-          </div>
-          <div class="impact-map-system">
             <div class="impact-selector" aria-label="Nature-based interventions">
               <p class="impact-group-label">Mauka <small>Mountains</small></p>
-              <button type="button" data-impact="forest" aria-pressed="false"><span aria-hidden="true">♧</span>Forest restoration<i aria-hidden="true">›</i></button>
-              <button type="button" data-impact="stream" aria-pressed="false"><span aria-hidden="true">≋</span>Stream restoration<i aria-hidden="true">›</i></button>
-              <button type="button" data-impact="agroforestry" aria-pressed="false"><span aria-hidden="true">♧</span>Agroforestry<i aria-hidden="true">›</i></button>
-              <button type="button" data-impact="fencing" aria-pressed="false"><span aria-hidden="true">♙</span>Ungulate fencing<i aria-hidden="true">›</i></button>
+              <button type="button" data-impact="forest" aria-pressed="false"><span aria-hidden="true">01</span>Forest restoration<i aria-hidden="true">↗</i></button>
+              <button type="button" data-impact="stream" aria-pressed="false"><span aria-hidden="true">02</span>Stream restoration<i aria-hidden="true">↗</i></button>
+              <button type="button" data-impact="agroforestry" aria-pressed="false"><span aria-hidden="true">03</span>Agroforestry<i aria-hidden="true">↗</i></button>
+              <button type="button" data-impact="fencing" aria-pressed="false"><span aria-hidden="true">04</span>Ungulate fencing<i aria-hidden="true">↗</i></button>
               <p class="impact-group-label impact-group-label-makai">Makai <small>Coast</small></p>
-              <button type="button" data-impact="loi" aria-pressed="false"><span aria-hidden="true">♧</span>Loʻi kalo restoration<i aria-hidden="true">›</i></button>
-              <button type="button" data-impact="rain" aria-pressed="false"><span aria-hidden="true">♢</span>Rain gardens<i aria-hidden="true">›</i></button>
-              <button type="button" data-impact="loko" aria-pressed="false"><span aria-hidden="true">◇</span>Loko iʻa restoration<i aria-hidden="true">›</i></button>
-              <button type="button" data-impact="coast" aria-pressed="false"><span aria-hidden="true">≋</span>Coastal restoration<i aria-hidden="true">›</i></button>
+              <button type="button" data-impact="loi" aria-pressed="false"><span aria-hidden="true">05</span>Loʻi kalo restoration<i aria-hidden="true">↗</i></button>
+              <button type="button" data-impact="rain" aria-pressed="false"><span aria-hidden="true">06</span>Rain gardens<i aria-hidden="true">↗</i></button>
+              <button type="button" data-impact="loko" aria-pressed="false"><span aria-hidden="true">07</span>Loko iʻa restoration<i aria-hidden="true">↗</i></button>
+              <button type="button" data-impact="coast" aria-pressed="false"><span aria-hidden="true">08</span>Coastal restoration<i aria-hidden="true">↗</i></button>
             </div>
+          </div>
+          <div class="impact-map-system">
           <div class="impact-visual">
             <div class="impact-landscape" role="group" aria-label="Conceptual mountain-to-sea landscape with illustrative selectable intervention locations">
               <div class="impact-direction"><span>Mauka</span><span aria-hidden="true">→</span><span>Makai</span></div>
@@ -219,7 +210,47 @@
           </div>
         </section>
 
-        <section id="hawaii-explorer" class="hx" data-hawaii-explorer="overview" aria-label="Hawaiian Islands explorer"></section>
+        <section class="landing-assessment-page" aria-labelledby="assessment-heading">
+          <header class="landing-assessment-intro">
+            <div class="landing-assessment-copy">
+              <h2 id="assessment-heading">Nature-based solutions<br />create value.<br /><span>How do we measure it?</span></h2>
+              <p class="landing-assessment-summary">From mountains to sea, nature-based solutions can reduce risk and support ecosystems and communities. This hub helps turn their potential benefits into questions we can explore, evaluate, and use.</p>
+            </div>
+          </header>
+          <div class="landing-assessment-questions">
+              <article class="landing-assessment-question">
+                <span class="landing-assessment-number">01 / The challenge</span>
+                <h3>What is the problem?</h3>
+                <p>Water, ecosystems, and communities are connected. Decisions are harder when we cannot see how risks and benefits move across that whole landscape.</p>
+              </article>
+              <article class="landing-assessment-question">
+                <span class="landing-assessment-number">02 / The approach</span>
+                <h3>Why nature-based solutions?</h3>
+                <p>Restoring and working with natural systems may address more than one challenge at once. The question is where an approach fits—and what it can realistically deliver.</p>
+              </article>
+              <article class="landing-assessment-question">
+                <span class="landing-assessment-number">03 / The value</span>
+                <h3>What counts as value?</h3>
+                <p>Flood reduction is only part of the picture. Ecological health, cultural connections, and community well-being also matter when judging outcomes.</p>
+              </article>
+              <article class="landing-assessment-question">
+                <span class="landing-assessment-number">04 / The evidence</span>
+                <h3>How can we evaluate it?</h3>
+                <p>We bring together indicators, research, and local context to examine what changes, for whom, and with what degree of confidence.</p>
+              </article>
+              <article class="landing-assessment-question">
+                <span class="landing-assessment-number">05 / The hub</span>
+                <h3>How does it work?</h3>
+                <p>Explore places and interventions, then connect them to case studies, assessment approaches, and practical guidance.</p>
+              </article>
+              <article class="landing-assessment-question">
+                <span class="landing-assessment-number">06 / The decision</span>
+                <h3>What can we do with the results?</h3>
+                <p>Use the evidence to ask better questions about planning, investment, stewardship, and long-term monitoring.</p>
+                <a class="landing-assessment-link" href="./pages/explore-hawaii.html"><span aria-hidden="true">→</span><span>Explore the Hawaiian Islands</span></a>
+              </article>
+          </div>
+        </section>
 
         <section class="landing-contact-page" aria-labelledby="community-heading">
           <div class="landing-contact-main">
@@ -260,13 +291,6 @@
       </main>
     </div>
 
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
-    <script src="./assets/js/main.js?v=14"></script>
-    <script src="./assets/js/hawaii-map-data.js?v=1"></script>
-    <script src="./assets/js/hawaii-explorer.js?v=15"></script>
+    <script src="./assets/js/main.js?v=16"></script>
 </body>
 </html>

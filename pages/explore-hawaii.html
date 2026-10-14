@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Hawaiʻi | Hawaiʻi NbS Hub</title>
+    <meta name="description" content="Explore Hawaiian Islands, place regions, and nature-based solutions themes on an interactive map." />
+    <link rel="stylesheet" href="../assets/css/styles.css?v=64" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="../assets/css/hawaii-explorer.css?v=42" />
+    <link rel="stylesheet" href="../assets/css/explore-hawaii-page.css?v=1" />
+  </head>
+  <body class="island-map-page">
+    <header class="island-map-nav">
+      <a class="island-map-brand" href="../index.html" aria-label="Hawaiʻi NbS Hub home">
+        <img src="../assets/images/oleson-lab-logo.png" alt="" />
+        <span>Hawaiʻi NbS Hub</span>
+      </a>
+      <nav aria-label="Page navigation">
+        <a href="../index.html">Home</a>
+        <a href="./case-studies.html">Case Studies</a>
+      </nav>
+    </header>
+    <main>
+      <section class="island-map-intro" aria-labelledby="island-map-title">
+        <p class="island-map-kicker">Explore Hawaiʻi</p>
+        <h1 id="island-map-title">A map of islands, places, and possibilities.</h1>
+        <p>Explore official island boundaries and place regions. The example themes are illustrative, not verified project coverage.</p>
+      </section>
+      <section class="hx" data-hawaii-explorer="overview" aria-label="Hawaiian Islands explorer"></section>
+    </main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../assets/js/hawaii-explorer.js?v=15"></script>
+    <script src="../assets/js/main.js?v=2"></script>
+  </body>
+</html>

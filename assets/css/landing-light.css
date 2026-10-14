@@ -1,0 +1,555 @@
+/* Landing-only light palette. The standalone tools and maps keep their own themes. */
+.landing-header-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 34px);
+  margin-left: auto;
+}
+
+.landing-header-actions .explore-toggle {
+  margin-left: 0;
+}
+
+.landing-theme-toggle {
+  display: inline-flex;
+  width: auto;
+  min-height: 40px;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--landing-ink);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.landing-theme-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.landing-theme-toggle:hover,
+.landing-theme-toggle:focus-visible {
+  color: var(--landing-accent);
+  outline: none;
+}
+
+.landing-theme-toggle:focus-visible {
+  box-shadow: 0 2px currentColor;
+}
+
+@media (max-width: 620px) {
+  .landing-header-actions { gap: 15px; }
+  .landing-theme-toggle { font-size: 0; }
+  .landing-theme-icon { font-size: 21px; }
+}
+
+html[data-landing-theme="light"] .landing-home {
+  --landing-bg: #deddd6;
+  --landing-ink: #2b332e;
+  --landing-muted: #5a655c;
+  --landing-accent: #496652;
+  --landing-line: rgba(65, 78, 66, .22);
+  color-scheme: light;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-header {
+  background: rgba(12, 29, 25, .38);
+  backdrop-filter: none;
+  --landing-ink: #f5f4ed;
+  --landing-muted: #e1e6dc;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-brand-name strong,
+html[data-landing-theme="light"] .landing-home .landing-footer-brand-copy strong {
+  color: #2b332e;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-header .landing-brand-name strong {
+  color: #f5f4ed;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-brand-name > span {
+  color: #5a655c;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-header .landing-brand-name > span {
+  color: #e1e6dc;
+}
+
+html[data-landing-theme="light"] .landing-home .explore-menu {
+  border-color: #c7cbc0;
+  background: rgba(235, 235, 227, .98);
+  box-shadow: 0 24px 55px rgba(28, 61, 50, .15);
+}
+
+html[data-landing-theme="light"] .landing-home .explore-menu > a,
+html[data-landing-theme="light"] .landing-home .explore-partners-row {
+  border-top-color: #d9e4df;
+}
+
+html[data-landing-theme="light"] .landing-home .explore-menu > a span,
+html[data-landing-theme="light"] .landing-home .partners-submenu a {
+  color: #526962;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-hero {
+  background: #deddd6;
+}
+
+html[data-landing-theme="light"] .landing-home .hero-map {
+  background-image:
+    linear-gradient(90deg, rgba(222, 221, 214, .97) 0%, rgba(222, 221, 214, .88) 25%, rgba(222, 221, 214, .48) 43%, transparent 62%),
+    linear-gradient(0deg, rgba(222, 221, 214, .52), transparent 12%),
+    url("../images/hero-oahu-landsat.jpg");
+  background-position: center, center, 68% center;
+  background-size: cover;
+  filter: saturate(1.05) contrast(1.06);
+  transform: none;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-hero::after {
+  background: none;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-summary,
+html[data-landing-theme="light"] .landing-home .hero-partners-label,
+html[data-landing-theme="light"] .landing-home .hero-partner small {
+  color: #5a655c;
+}
+
+html[data-landing-theme="light"] .landing-home .hero-coordinate {
+  color: rgba(27, 76, 68, .53);
+}
+
+html[data-landing-theme="light"] .landing-home .landing-button-primary {
+  color: #fff;
+  border-color: #3d5848;
+  background: #3d5848;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-button-primary:hover,
+html[data-landing-theme="light"] .landing-home .landing-button-primary:focus-visible {
+  background: #2c4536;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-button-secondary {
+  color: #3d5848;
+  border-color: #7a8a77;
+  background: rgba(235, 235, 227, .8);
+}
+
+html[data-landing-theme="light"] .landing-home .landing-button-secondary:hover,
+html[data-landing-theme="light"] .landing-home .landing-button-secondary:focus-visible {
+  color: #fff;
+  border-color: #3d5848;
+  background: #3d5848;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-topics {
+  border-block-color: #c7cbc0;
+  background: #d8d9d1;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-topics-heading .landing-section-kicker {
+  color: #496652;
+}
+
+html[data-landing-theme="light"] .landing-home .topic-card {
+  color: #2b332e;
+}
+
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(1) { --topic-color: #d1dbd0; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(2) { --topic-color: #d9dccb; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(3) { --topic-color: #cbdad5; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(4) { --topic-color: #d0d8d5; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(5) { --topic-color: #ded8ca; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(6) { --topic-color: #dad5cc; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(7) { --topic-color: #cdd7d0; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(8) { --topic-color: #d8d3d2; }
+
+html[data-landing-theme="light"] .landing-home .topic-number,
+html[data-landing-theme="light"] .landing-home .topic-description {
+  color: #526157;
+}
+
+html[data-landing-theme="light"] .landing-home .topic-card:hover,
+html[data-landing-theme="light"] .landing-home .topic-card:focus-visible {
+  filter: brightness(.96);
+}
+
+html[data-landing-theme="light"] .landing-home .landing-story-reference {
+  color: #2b332e;
+  border-color: #c7cbc0;
+  background: #deddd6;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-story-reference .landing-section-kicker,
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-group-label {
+  color: #496652;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-story-reference h2 span {
+  color: #728477;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-story-reference .landing-story-summary,
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-group-label small {
+  color: #5a655c;
+}
+
+html[data-landing-theme="light"] .landing-home .impact-copy,
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-group-label-makai {
+  border-color: #c7cbc0;
+}
+
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button {
+  color: #2b332e;
+  border-color: rgba(73, 102, 82, .15);
+}
+
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(1) { background: #d1dbd0; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(2) { background: #d6ddcf; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(3) { background: #d9dccb; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(4) { background: #dedccc; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(5) { background: #cbdad5; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(6) { background: #d0d8d5; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(7) { background: #d4d9d5; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(8) { background: #d8d3d2; }
+
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button > span,
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button > i {
+  color: #406b60;
+}
+
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:hover,
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:focus-visible,
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button[aria-pressed="true"] {
+  border-color: #496652;
+  filter: brightness(.94);
+}
+
+html[data-landing-theme="light"] .landing-home .impact-visual .impact-landscape {
+  filter: saturate(.68) brightness(1.22) contrast(.92);
+}
+
+html[data-landing-theme="light"] .landing-home .impact-direction,
+html[data-landing-theme="light"] .landing-home .impact-image-credit {
+  color: #204d44;
+  text-shadow: 0 1px 2px #fff;
+}
+
+html[data-landing-theme="light"] .landing-home .impact-direction span:nth-child(2) {
+  border-color: rgba(32, 77, 68, .5);
+}
+
+html[data-landing-theme="light"] .landing-home .impact-info {
+  color: #2b332e;
+  border-color: #c7cbc0;
+  background: rgba(235, 235, 227, .97);
+  box-shadow: 0 12px 30px rgba(24, 65, 53, .14);
+}
+
+html[data-landing-theme="light"] .landing-home .impact-info h3,
+html[data-landing-theme="light"] .landing-home .impact-info > .impact-benefits-label,
+html[data-landing-theme="light"] .landing-home .impact-info summary {
+  color: #2b332e;
+}
+
+html[data-landing-theme="light"] .landing-home .impact-info-kicker,
+html[data-landing-theme="light"] .landing-home .impact-info-close {
+  color: #496652;
+}
+
+html[data-landing-theme="light"] .landing-home .impact-info-feature p:last-child,
+html[data-landing-theme="light"] .landing-home .impact-info details p {
+  color: #5a655c;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-assessment-page {
+  color: #2b332e;
+  border-color: #c7cbc0;
+  background: #e4e5dd;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-assessment-copy h2,
+html[data-landing-theme="light"] .landing-home .landing-assessment-question h3,
+html[data-landing-theme="light"] .landing-home .landing-assessment-link {
+  color: #2b332e;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-assessment-copy h2 span {
+  color: #728477;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-assessment-summary,
+html[data-landing-theme="light"] .landing-home .landing-assessment-question p {
+  color: #5a655c;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-assessment-question {
+  border-color: #c7cbc0;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-assessment-number,
+html[data-landing-theme="light"] .landing-home .landing-assessment-link > span:first-child,
+html[data-landing-theme="light"] .landing-home .landing-assessment-link:hover,
+html[data-landing-theme="light"] .landing-home .landing-assessment-link:focus-visible {
+  color: #496652;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-contact-page {
+  color: #2b332e;
+  border-color: #c7cbc0;
+  background: #deddd6;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-contact-copy .landing-section-kicker,
+html[data-landing-theme="light"] .landing-home .landing-footer-links a:hover,
+html[data-landing-theme="light"] .landing-home .landing-footer-links a:focus-visible {
+  color: #496652;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-contact-copy h2,
+html[data-landing-theme="light"] .landing-home .landing-contact-form label,
+html[data-landing-theme="light"] .landing-home .landing-footer-brand {
+  color: #2b332e;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-contact-copy > p:last-child,
+html[data-landing-theme="light"] .landing-home .landing-contact-form > p,
+html[data-landing-theme="light"] .landing-home .landing-contact-form > p a,
+html[data-landing-theme="light"] .landing-home .landing-footer-links a {
+  color: #5a655c;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-contact-form input,
+html[data-landing-theme="light"] .landing-home .landing-contact-form textarea {
+  color: #2b332e;
+  border-color: #b7c0b4;
+  background: #eceee7;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-contact-form input::placeholder {
+  color: #6d887c;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-contact-form input:focus,
+html[data-landing-theme="light"] .landing-home .landing-contact-form textarea:focus {
+  border-color: #496652;
+  box-shadow: 0 0 0 1px #496652;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-contact-form button {
+  color: #fff;
+  border-color: #3d5848;
+  background: #3d5848;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-contact-form button:hover,
+html[data-landing-theme="light"] .landing-home .landing-contact-form button:focus-visible {
+  background: #2c4536;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-contact-form .landing-contact-status {
+  color: #184b40;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-contact-footer {
+  border-color: #c7cbc0;
+  background: #d8d9d1;
+}
+
+/* NbS Knowledge Hub-inspired light theme: charcoal, clear blue, quiet white. */
+html[data-landing-theme="light"] .landing-home {
+  --landing-bg: #f7f8fa;
+  --landing-ink: #242b38;
+  --landing-muted: #596576;
+  --landing-accent: #146b91;
+  --landing-line: #dce1e8;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-header {
+  background: rgba(30, 39, 49, .72);
+  border-bottom-color: rgba(255, 255, 255, .16);
+  --landing-ink: #fff;
+  --landing-accent: #8bd1e8;
+}
+
+html[data-landing-theme="light"] .landing-home .landing-hero {
+  --landing-ink: #fff;
+  --landing-accent: #8bd1e8;
+  --landing-line: rgba(255, 255, 255, .28);
+  background: #27323d;
+  color: #fff;
+}
+html[data-landing-theme="light"] .landing-home .hero-map {
+  background-image:
+    linear-gradient(90deg, rgba(30, 39, 49, .9) 0%, rgba(30, 39, 49, .83) 27%, rgba(30, 39, 49, .55) 45%, rgba(30, 39, 49, .18) 70%, rgba(30, 39, 49, .12) 100%),
+    url("../images/hero-oahu-landsat.jpg");
+  background-position: center, 68% center;
+  background-size: cover;
+  filter: saturate(1.04) contrast(1.03);
+}
+html[data-landing-theme="light"] .landing-home .landing-summary,
+html[data-landing-theme="light"] .landing-home .hero-partners-label,
+html[data-landing-theme="light"] .landing-home .hero-partner small { color: #d6dce3; }
+html[data-landing-theme="light"] .landing-home .hero-coordinate { color: rgba(255, 255, 255, .82); text-shadow: 0 1px 3px #243341; }
+html[data-landing-theme="light"] .landing-home .landing-hero-footer {
+  background: rgba(30, 39, 49, .72);
+  border-top-color: rgba(255, 255, 255, .28);
+}
+html[data-landing-theme="light"] .landing-home .landing-button-primary,
+html[data-landing-theme="light"] .landing-home .landing-contact-form button {
+  color: #fff; border-color: #146b91; background: #146b91;
+}
+html[data-landing-theme="light"] .landing-home .landing-button-primary:hover,
+html[data-landing-theme="light"] .landing-home .landing-contact-form button:hover { background: #0d526f; }
+html[data-landing-theme="light"] .landing-home .landing-button-secondary {
+  color: #fff; border-color: rgba(255, 255, 255, .65); background: rgba(30, 39, 49, .28);
+}
+html[data-landing-theme="light"] .landing-home .landing-button-secondary:hover { color: #fff; background: #146b91; border-color: #146b91; }
+
+html[data-landing-theme="light"] .landing-home .landing-topics,
+html[data-landing-theme="light"] .landing-home .landing-contact-footer { background: #f1f4f7; border-color: #dce1e8; }
+html[data-landing-theme="light"] .landing-home .landing-topics h2 { color: #242b38; }
+html[data-landing-theme="light"] .landing-home .landing-topics-heading > p { color: #596576; }
+html[data-landing-theme="light"] .landing-home .topic-card,
+html[data-landing-theme="light"] .landing-home .landing-story-reference h2,
+html[data-landing-theme="light"] .landing-home .landing-assessment-copy h2,
+html[data-landing-theme="light"] .landing-home .landing-assessment-question h3,
+html[data-landing-theme="light"] .landing-home .landing-contact-copy h2 { color: #30353b; }
+html[data-landing-theme="light"] .landing-home .topic-number,
+html[data-landing-theme="light"] .landing-home .topic-description,
+html[data-landing-theme="light"] .landing-home .landing-story-summary,
+html[data-landing-theme="light"] .landing-home .landing-assessment-summary,
+html[data-landing-theme="light"] .landing-home .landing-assessment-question p,
+html[data-landing-theme="light"] .landing-home .landing-contact-copy > p:last-child { color: #59636d; }
+html[data-landing-theme="light"] .landing-home .landing-story-reference,
+html[data-landing-theme="light"] .landing-home .landing-contact-page { background: #fff; border-color: #dce1e8; color: #242b38; }
+html[data-landing-theme="light"] .landing-home .landing-assessment-page { background: #f7f8fa; border-color: #dce1e8; color: #242b38; }
+html[data-landing-theme="light"] .landing-home .landing-topics-heading .landing-section-kicker,
+html[data-landing-theme="light"] .landing-home .landing-story-reference .landing-section-kicker,
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-group-label,
+html[data-landing-theme="light"] .landing-home .landing-assessment-number,
+html[data-landing-theme="light"] .landing-home .landing-contact-copy .landing-section-kicker { color: #146b91; }
+html[data-landing-theme="light"] .landing-home .landing-story-reference h2 span,
+html[data-landing-theme="light"] .landing-home .landing-assessment-copy h2 span { color: #6786c0; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(1) { --topic-color: #dce7f9; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(2) { --topic-color: #e2e4f5; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(3) { --topic-color: #dcecf0; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(4) { --topic-color: #d8e7ec; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(5) { --topic-color: #e7eaf3; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(6) { --topic-color: #e1e9f4; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(7) { --topic-color: #e0e9ed; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(8) { --topic-color: #e5e4f0; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(1),
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(2) { background: #dce7f9; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(3),
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(4) { background: #e1e9f4; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(5),
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(6) { background: #dcecf0; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(7),
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(8) { background: #e5e4f0; }
+html[data-landing-theme="light"] .landing-home .impact-visual .impact-landscape { filter: saturate(.88) brightness(1.03) contrast(1.03); }
+html[data-landing-theme="light"] .landing-home .impact-info { background: rgba(255, 255, 255, .97); border-color: #d8dde4; }
+html[data-landing-theme="light"] .landing-home .landing-contact-form input,
+html[data-landing-theme="light"] .landing-home .landing-contact-form textarea { background: #f5f6f7; border-color: #c4ccd7; }
+html[data-landing-theme="light"] .landing-home .landing-contact-form input:focus,
+html[data-landing-theme="light"] .landing-home .landing-contact-form textarea:focus { border-color: #146b91; box-shadow: 0 0 0 1px #146b91; }
+
+/* Warm, readable interactive surfaces in light mode. */
+html[data-landing-theme="light"] .landing-home .landing-button-primary,
+html[data-landing-theme="light"] .landing-home .landing-contact-form button {
+  color: #292e32;
+  border-color: #e9b66f;
+  background: #e9b66f;
+}
+html[data-landing-theme="light"] .landing-home .landing-button-primary:hover,
+html[data-landing-theme="light"] .landing-home .landing-button-primary:focus-visible,
+html[data-landing-theme="light"] .landing-home .landing-contact-form button:hover,
+html[data-landing-theme="light"] .landing-home .landing-contact-form button:focus-visible {
+  color: #24282c;
+  border-color: #f2c98d;
+  background: #f2c98d;
+}
+html[data-landing-theme="light"] .landing-home .landing-button-secondary {
+  color: #292e32;
+  border-color: #e7d6bf;
+  background: #efe5d7;
+}
+html[data-landing-theme="light"] .landing-home .landing-button-secondary:hover,
+html[data-landing-theme="light"] .landing-home .landing-button-secondary:focus-visible {
+  color: #24282c;
+  border-color: #e6c596;
+  background: #f4dfc2;
+}
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(1) { --topic-color: #e8c8ab; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(2) { --topic-color: #e6d3ac; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(3) { --topic-color: #d9c9ad; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(4) { --topic-color: #e6c9ba; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(5) { --topic-color: #e3bfae; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(6) { --topic-color: #e6d6b8; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(7) { --topic-color: #d8ccb7; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(8) { --topic-color: #dec6bb; }
+html[data-landing-theme="light"] .landing-home .topic-card { color: #272c31; }
+html[data-landing-theme="light"] .landing-home .topic-number,
+html[data-landing-theme="light"] .landing-home .topic-description,
+html[data-landing-theme="light"] .landing-home .topic-arrow { color: #394148; }
+html[data-landing-theme="light"] .landing-home .topic-card:hover,
+html[data-landing-theme="light"] .landing-home .topic-card:focus-visible { filter: brightness(1.035); }
+html[data-landing-theme="light"] .landing-home .topic-card:focus-visible { outline-color: #b57938; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(1),
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(2) { background: #e5d1b7; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(3),
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(4) { background: #e2c8ac; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(5),
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(6) { background: #dec8b8; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(7),
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(8) { background: #e3d2bd; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button,
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:hover,
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:focus-visible,
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button[aria-pressed="true"],
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button > span,
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button > i { color: #292e32; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:hover,
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:focus-visible,
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button[aria-pressed="true"] {
+  border-color: #b57938;
+  background: #f1d7b4;
+  filter: none;
+}
+
+/* A quieter warm-gray finish, distinct from the white content sections. */
+html[data-landing-theme="light"] .landing-home .landing-contact-page {
+  background: #e8e6e3;
+  border-color: #d1cfcb;
+}
+html[data-landing-theme="light"] .landing-home .landing-contact-footer {
+  background: #dcdad6;
+  border-color: #c9c7c3;
+}
+html[data-landing-theme="light"] .landing-home .landing-contact-form input,
+html[data-landing-theme="light"] .landing-home .landing-contact-form textarea {
+  background: #f9f8f6;
+  border-color: #babcb9;
+  color: #242b38;
+}
+html[data-landing-theme="light"] .landing-home .landing-contact-copy h2,
+html[data-landing-theme="light"] .landing-home .landing-contact-form label { color: #242b38; }
+html[data-landing-theme="light"] .landing-home .landing-contact-copy > p:last-child,
+html[data-landing-theme="light"] .landing-home .landing-contact-form > p { color: #4d5964; }
+
+@media (max-width: 620px) {
+  html[data-landing-theme="light"] .landing-home .hero-map {
+    background-image: linear-gradient(180deg, rgba(30, 39, 49, .48), #27323d 72%), url("../images/hero-oahu-landsat.jpg");
+    background-position: center, 62% top;
+    background-size: cover, auto 62%;
+    background-repeat: no-repeat;
+  }
+}
