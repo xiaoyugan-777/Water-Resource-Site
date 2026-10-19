@@ -6,6 +6,9 @@
   const logoURL = new URL("../images/oleson-lab-logo.png", scriptURL).href;
   const dataURLs = {
     coast: new URL("../data/hawaii-coast.geojson", scriptURL),
+    rainfallOverlay: new URL("../data/rainfall-overlay.png", scriptURL),
+    rainfallValues: new URL("../data/rainfall-values.png", scriptURL),
+    rainfallMetadata: new URL("../data/rainfall-metadata.json", scriptURL),
     areas: new URL("../data/nbs-areas.geojson", scriptURL),
     region: new URL("../data/nbs-map-region.geojson", scriptURL),
     areaIdMap: new URL("../data/nbs-area-id-map.json", scriptURL),
