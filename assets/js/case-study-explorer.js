@@ -82,6 +82,10 @@
         <div class="hx-canvas" aria-label="Interactive map of Hawaiʻi islands and NbS study areas"></div>
         <div class="hx-legend">
           <strong>Map layers</strong>
+          <label class="hx-rainfall-toggle">
+            <input type="checkbox" data-rainfall-toggle />
+            Rainfall · Sep 2026
+          </label>
           <span><i class="hx-case-island-key"></i> Island · clickable</span>
           <span><i class="hx-case-area-key"></i> Area · clickable</span>
           <span><i class="hx-case-region-key"></i> Region · clickable</span>
@@ -159,6 +163,16 @@
     [[18.849, -159.816], [22.269, -154.668]],
     { opacity: 0.65, interactive: false }
   );
+
+  const rainfallToggle = $("[data-rainfall-toggle]");
+  
+  rainfallToggle.addEventListener("change", () => {
+    if (rainfallToggle.checked) {
+      rainfallLayer.addTo(map);
+    } else {
+      map.removeLayer(rainfallLayer);
+    }
+  });
 
   L.tileLayer(
     "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
