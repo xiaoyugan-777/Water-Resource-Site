@@ -153,11 +153,19 @@
   });
   L.control.zoom({ position: "topright" }).addTo(map);
   L.control.scale({ imperial: true, metric: true }).addTo(map);
+  
   const rainfallLayer = L.imageOverlay(
     dataURLs.rainfallOverlay.href,
-    [[18.75, -160.5], [22.45, -154.65]],
+    [[18.849, -159.816], [22.269, -154.668]],
     { opacity: 0.65, interactive: false }
   );
+  
+  L.control.layers(
+    {},
+    { "Rainfall · Sep 2026 (mm)": rainfallLayer },
+    { position: "topright", collapsed: false }
+  ).addTo(map);
+
   L.tileLayer(
     "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
     { maxZoom: 14, attribution: "Tiles © Esri, Maxar, Earthstar Geographics" },
