@@ -651,7 +651,10 @@
   });
 
   Promise.all(
-    Object.values(dataURLs).map((url) =>
+    Object.entries(dataURLs)
+      .filter(([key]) => !["rainfallOverlay", "rainfallValues", "rainfallMetadata"].includes(key))
+      .map(([, url]) =>
+
       fetch(url).then((response) => {
         if (!response.ok) throw new Error(`Unable to load ${url.pathname}`);
         return response.json();
