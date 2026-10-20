@@ -12,6 +12,7 @@ import re
 import shutil
 import sys
 import tempfile
+import time
 from datetime import datetime
 from pathlib import Path
 from urllib.error import HTTPError, URLError
@@ -42,25 +43,27 @@ def months_back(start, count):
             year, month = year - 1, 12
 
 
-def fetch_raster(month, token, timeout=90):
+def fetch_raster(month, token, timeout=120, retries=2):
     params = {"datatype": "rainfall", "production": "new", "period": "month",
               "date": month, "extent": "statewide"}
     request = Request(f"{API}?{urlencode(params)}",
                       headers={"Authorization": f"Bearer {token}", "Accept": "image/tiff"})
-    try:
-        with urlopen(request, timeout=timeout) as response:
-            data = response.read(150_000_001)
-            if len(data) > 150_000_000:
-                raise ValueError("HCDP response exceeds 150 MB")
-            if not data:
+    for attempt in range(retries + 1):
+        try:
+            with urlopen(request, timeout=timeout) as response:
+                data = response.read(150_000_001)
+                if len(data) > 150_000_000:
+                    raise ValueError("HCDP response exceeds 150 MB")
+                return data or None
+        except HTTPError as error:
+            if error.code in (204, 404):
                 return None
-            return data
-    except HTTPError as error:
-        if error.code in (204, 404):
-            return None
-        raise RuntimeError(f"HCDP HTTP {error.code} for {month}") from None
-    except URLError as error:
-        raise RuntimeError(f"HCDP request failed for {month}: {error.reason}") from None
+            if error.code not in (429, 500, 502, 503, 504) or attempt == retries:
+                raise RuntimeError(f"HCDP HTTP {error.code} for {month}") from None
+        except (URLError, TimeoutError) as error:
+            if attempt == retries:
+                raise RuntimeError(f"HCDP request failed for {month}: {type(error).__name__}") from None
+        time.sleep(min(2 ** attempt, 4))
 
 
 def convert_raster(tiff_bytes, month, output):
@@ -163,6 +166,8 @@ def main(argv=None):
     parser.add_argument("--lookback", type=int, default=24, help="Months to probe (default: 24)")
     parser.add_argument("--output-dir", type=Path,
                         default=Path(__file__).resolve().parents[1] / "assets/data")
+    parser.add_argument("--require-data", action="store_true",
+                        help="Fail if the requested month is unpublished (for isolated verification)")
     args = parser.parse_args(argv)
     if args.month and not re.fullmatch(r"\d{4}-(0[1-9]|1[0-2])", args.month):
         parser.error("--month must be YYYY-MM")
@@ -191,6 +196,8 @@ def main(argv=None):
         print(f"Updated rainfall to {month}: {metadata['validPixels']} valid cells")
         return 0
     print("No newer published, valid monthly raster; existing files retained")
+    if args.require_data:
+        raise RuntimeError("No published raster found for the requested month")
     return 0
 
 

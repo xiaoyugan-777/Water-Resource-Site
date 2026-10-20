@@ -5,6 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
+from urllib.error import HTTPError, URLError
 
 import numpy as np
 import rasterio
@@ -30,6 +31,25 @@ def fixture_raster():
 
 
 class RainfallUpdaterTests(unittest.TestCase):
+    def test_transient_api_failure_retries_without_exposing_token(self):
+        response = unittest.mock.MagicMock()
+        response.__enter__.return_value.read.return_value = fixture_raster()
+        with patch.object(updater, "urlopen", side_effect=[URLError("private detail"), response]) as open_mock, patch.object(updater.time, "sleep"):
+            self.assertEqual(updater.fetch_raster("2026-09", "test-token"), fixture_raster())
+        self.assertEqual(open_mock.call_count, 2)
+
+    def test_unpublished_month_is_not_retried(self):
+        with patch.object(updater, "urlopen", side_effect=HTTPError("url", 404, "Not Found", {}, None)) as open_mock:
+            self.assertIsNone(updater.fetch_raster("2026-09", "test-token"))
+        self.assertEqual(open_mock.call_count, 1)
+
+    def test_isolated_verification_requires_published_data(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with patch.dict(os.environ, {"HCDP_API_TOKEN": "test-token"}), patch.object(updater, "fetch_raster", return_value=None):
+                with self.assertRaisesRegex(RuntimeError, "No published raster"):
+                    updater.main(["--month", "2026-09", "--require-data", "--output-dir", directory])
+            self.assertEqual(list(Path(directory).iterdir()), [])
+
     def test_conversion_preserves_encoding_bounds_and_missing_cells(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory)

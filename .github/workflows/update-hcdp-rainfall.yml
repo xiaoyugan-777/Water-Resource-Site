@@ -9,6 +9,10 @@ on:
       month:
         description: 'Optional YYYY-MM month to check (blank = latest available)'
         required: false
+      verify_only:
+        description: 'Validate an API download in isolation; do not change website files or open a PR'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -31,13 +35,31 @@ jobs:
         env:
           HCDP_API_TOKEN: ${{ secrets.HCDP_API_TOKEN }}
           REQUESTED_MONTH: ${{ inputs.month }}
+          VERIFY_ONLY: ${{ inputs.verify_only }}
+          RUNNER_TEMP: ${{ runner.temp }}
         run: |
-          if [ -n "$REQUESTED_MONTH" ]; then
+          if [ "$VERIFY_ONLY" = "true" ]; then
+            if [ -z "$REQUESTED_MONTH" ]; then
+              echo 'Verification requires a YYYY-MM month.' >&2
+              exit 1
+            fi
+            mkdir -p "$RUNNER_TEMP/hcdp-rainfall-verified"
+            python scripts/update_hcdp_rainfall.py --month "$REQUESTED_MONTH" --require-data --output-dir "$RUNNER_TEMP/hcdp-rainfall-verified"
+          elif [ -n "$REQUESTED_MONTH" ]; then
             python scripts/update_hcdp_rainfall.py --month "$REQUESTED_MONTH"
           else
             python scripts/update_hcdp_rainfall.py
           fi
+      - name: Upload isolated validated files
+        if: ${{ inputs.verify_only == true }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: hcdp-rainfall-verified
+          path: ${{ runner.temp }}/hcdp-rainfall-verified/rainfall-*
+          retention-days: 1
+          if-no-files-found: error
       - name: Open review PR for validated data
+        if: ${{ inputs.verify_only != true }}
         uses: peter-evans/create-pull-request@v7
         with:
           branch: codex/hcdp-monthly-rainfall-data
