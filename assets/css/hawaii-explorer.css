@@ -599,6 +599,32 @@
 .hx-cases .hx-matrix-circle:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 .hx-cases .hx-matrix-empty { padding: 30px 18px; color: #d0decf; }
 
+/* Keep the existing matrix geometry and interactions; only refine its dark presentation. */
+html:not([data-landing-theme="light"]) .hx-cases .hx-analytics { background: #11171c; border-top-color: #35434a; color: #edf1ef; }
+html:not([data-landing-theme="light"]) .hx-cases .hx-analytics-heading .hx-eyebrow,
+html:not([data-landing-theme="light"]) .hx-cases .hx-analytics-steps label { color: #b8c8c6; }
+html:not([data-landing-theme="light"]) .hx-cases .hx-analytics-heading p:last-child,
+html:not([data-landing-theme="light"]) .hx-cases .hx-analytics-note { color: #aebdc2; }
+html:not([data-landing-theme="light"]) .hx-cases .hx-analytics-steps select { background: #202d31; border-color: #4e6a65; }
+html:not([data-landing-theme="light"]) .hx-cases .hx-analytics-steps select:hover { background: #293a3b; border-color: #92b5a0; }
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix-scroll { background: #141d22; border-color: #425056; scrollbar-color: #697a7f #141d22; }
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix th,
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix td { border-bottom-color: #2c3a40; }
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix thead th,
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix th:first-child { background: #202d33; color: #e4ebea; }
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix tbody tr:nth-child(even) td { background: #19252a; }
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix tbody tr:hover td { background: #27363a; }
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix tbody tr:hover th:first-child { background: #304147; }
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix tfoot th,
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix tfoot td,
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix tfoot th:first-child { background: #2b3a3d; }
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix thead th { height: 168px; font-size: 12px; font-weight: 650; }
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix thead th span { width: 285px; line-height: 1.3; text-overflow: clip; transform: translate(32px, -50px) rotate(-48deg); }
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix tbody th:first-child { font-size: 12.5px; font-weight: 650; line-height: 1.5; padding-top: 9px; padding-bottom: 9px; }
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix-circle { background: var(--matrix-fill); color: var(--matrix-ink); border-color: rgba(255, 238, 195, .65); transition: transform .16s ease, filter .16s ease, box-shadow .16s ease; }
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix-circle:hover { background: var(--matrix-fill); filter: brightness(1.09); box-shadow: 0 0 0 4px rgba(238, 199, 105, .22); }
+html:not([data-landing-theme="light"]) .hx-cases .hx-matrix-circle.is-selected { background: var(--matrix-fill); border-color: #fff7dd; box-shadow: 0 0 0 3px #141d22, 0 0 0 5px #efc76c; }
+
 @media (max-width: 760px) {
   .hx-cases .hx-analytics-heading { display: block; }
   .hx-cases .hx-analytics-heading p:last-child { margin-top: 12px; }

@@ -432,6 +432,16 @@
 
   function renderMatrix(baseIDs) {
     matrixView = buildMatrix(baseIDs);
+    const largestCell = Math.max(1, ...Array.from(matrixView.cells.values(), (ids) => ids.size));
+    const matrixTone = (count) => {
+      const stops = [[249, 233, 186], [238, 199, 105], [204, 137, 48], [123, 70, 30]];
+      const position = largestCell === 1 ? 0 : (count - 1) / (largestCell - 1) * (stops.length - 1);
+      const start = Math.min(stops.length - 2, Math.floor(position));
+      const fraction = position - start;
+      const rgb = stops[start].map((value, index) => Math.round(value + (stops[start + 1][index] - value) * fraction));
+      const luminance = (rgb[0] * 0.2126 + rgb[1] * 0.7152 + rgb[2] * 0.0722) / 255;
+      return `--matrix-fill:rgb(${rgb.join(",")});--matrix-ink:${luminance < 0.55 ? "#fff9eb" : "#30210e"}`;
+    };
     syncScopeControl();
     $("[data-matrix-summary]").textContent = `${scopeLabel()} · ${baseIDs.size} papers after current filters · ${matrixView.represented.size} with both selected attributes`;
     const columns = matrixView.columns;
@@ -443,7 +453,7 @@
         const count = matrixView.cells.get(matrixKey(row, column))?.size || 0;
         if (!count) return "<td></td>";
         const selected = matrixCell?.row === row && matrixCell?.column === column;
-        return `<td><button type="button" class="hx-matrix-circle${selected ? " is-selected" : ""}" data-matrix-cell="${rowIndex}:${columnIndex}" aria-label="${escapeHTML(`${row} × ${column}: ${count} paper${count === 1 ? "" : "s"}`)}" aria-pressed="${selected}">${count}</button></td>`;
+        return `<td><button type="button" class="hx-matrix-circle${selected ? " is-selected" : ""}" style="${matrixTone(count)}" data-matrix-cell="${rowIndex}:${columnIndex}" aria-label="${escapeHTML(`${row} × ${column}: ${count} paper${count === 1 ? "" : "s"}`)}" aria-pressed="${selected}">${count}</button></td>`;
       }).join("");
       return `<tr><th scope="row">${escapeHTML(row)}</th>${cells}<td class="hx-matrix-total">${matrixView.rowTotals.get(row).size}</td></tr>`;
     }).join("");

@@ -6746,6 +6746,45 @@ html[data-landing-theme="light"] .hx-cases .hx-sidebar { background: #fff; color
 html[data-landing-theme="light"] .hx-cases .hx-paper-card h4,
 html[data-landing-theme="light"] .hx-cases .hx-paper-card dd { color: #242b38; }
 
+/* Dark-mode surface palette shared by the landing and explorer pages. */
+html:not([data-landing-theme="light"]) {
+  --header: #0d1418;
+  --header-card: #172126;
+  --bg: #10171b;
+  --panel: #192329;
+  --text: #edf1ef;
+  --muted: #aebdc2;
+  background: #10171b;
+}
+html:not([data-landing-theme="light"]) body,
+html:not([data-landing-theme="light"]) .page-shell,
+html:not([data-landing-theme="light"]) .content { background: #10171b; color: #edf1ef; }
+html:not([data-landing-theme="light"]) .landing-home {
+  --landing-bg: #10171b;
+  --landing-ink: #edf1ef;
+  --landing-muted: #aebdc2;
+  --landing-line: rgba(157, 185, 191, .22);
+}
+html:not([data-landing-theme="light"]) .hero-map {
+  background-image:
+    linear-gradient(90deg, #10171b 0%, rgba(16, 23, 27, .96) 25%, rgba(16, 23, 27, .65) 54%, rgba(16, 23, 27, .18) 100%),
+    linear-gradient(0deg, rgba(10, 16, 20, .72) 0%, transparent 33%),
+    url("../images/hero-oahu-landsat.jpg");
+}
+html:not([data-landing-theme="light"]) .landing-hero::after {
+  background: radial-gradient(circle at 76% 38%, transparent 0 12%, rgba(12, 19, 23, .15) 44%, rgba(12, 19, 23, .48) 100%);
+}
+html:not([data-landing-theme="light"]) .site-header,
+html:not([data-landing-theme="light"]) .page-shell > .site-header,
+html:not([data-landing-theme="light"]) .site-footer { background: #0d1418; border-color: rgba(157, 185, 191, .22); }
+html:not([data-landing-theme="light"]) .page-shell > .site-header .dropdown-menu { background: #1a272d; border-color: rgba(157, 185, 191, .25); }
+html:not([data-landing-theme="light"]) .landing-community { background: radial-gradient(circle at 82% 18%, rgba(183, 233, 120, .06), transparent 28%), #141e23; border-color: rgba(157, 185, 191, .22); }
+html:not([data-landing-theme="light"]) .landing-contact-page { background: #10171b; border-color: rgba(157, 185, 191, .22); }
+html:not([data-landing-theme="light"]) .island-map-page { background: #10171b; color: #edf1ef; }
+html:not([data-landing-theme="light"]) .island-map-nav { background: #0d1418; border-color: rgba(157, 185, 191, .22); }
+html:not([data-landing-theme="light"]) .island-map-intro > p:last-child { color: #aebdc2; }
+html:not([data-landing-theme="light"]) .island-map-page .hx { border-color: rgba(157, 185, 191, .25); }
+
 @media (max-width: 620px) {
   .site-theme-toggle { font-size: 0; padding: 6px 8px; }
   .site-theme-toggle .landing-theme-icon { font-size: 19px; }
