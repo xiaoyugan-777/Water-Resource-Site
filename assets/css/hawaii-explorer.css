@@ -704,6 +704,54 @@ html[data-landing-theme="light"] .hx-cases .hx-case-panel-head .hx-eyebrow { col
 html[data-landing-theme="light"] .hx-cases .hx-empty { background: #e9efeb; color: #435960; }
 html[data-landing-theme="light"] .hx-cases .hx-no-geometry { background: #f3e8d8; color: #755526; }
 
+/* Climate modes reuse the existing map and sidebar surfaces. */
+.hx-cases [hidden] { display: none !important; }
+.hx-cases .hx-climate-conditions { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--geo-line); }
+.hx-cases .hx-climate-conditions h4 { margin: 0 0 8px; color: #e7eef0; font-size: 15px; }
+.hx-cases .hx-climate-conditions p,
+.hx-cases .hx-climate-condition small,
+.hx-cases .hx-climate-source,
+.hx-cases .hx-climate-status { color: #adc0c7; font-size: 12px; line-height: 1.55; }
+.hx-cases .hx-climate-condition { margin-top: 16px; }
+.hx-cases .hx-climate-condition h5 { margin: 0 0 8px; color: #dce8e9; font-size: 12px; }
+.hx-cases .hx-climate-condition fieldset { margin: 0 0 7px; padding: 0; border: 0; opacity: .5; }
+.hx-cases .hx-climate-condition fieldset label { display: block; margin: 7px 0; }
+.hx-cases .hx-climate-condition input,
+.hx-cases .hx-climate-condition select { width: 100%; }
+.hx-cases .hx-climate-coverage { margin-top: 18px; }
+.hx-cases .hx-climate-status { margin: 0 0 20px; padding: 11px 12px; border-left: 3px solid var(--geo-cyan); background: rgba(70,216,255,.07); }
+.hx-cases [data-climate-filters] input,
+.hx-cases [data-climate-filters] select { width: 100%; min-height: 38px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--case-filter-line); border-radius: 4px; background: var(--case-filter-bg); color: var(--case-filter-ink); font: inherit; }
+.hx-cases .hx-climate-dual { display: grid; gap: 4px; margin: 12px 0; }
+.hx-cases .hx-climate-dual input { min-height: 24px; margin: 0; padding: 0; accent-color: var(--geo-cyan); }
+.hx-cases .hx-climate-disabled-track { margin: 10px 0; padding: 12px; border: 1px dashed var(--case-filter-line); color: #adc0c7; font-size: 11px; text-align: center; }
+.hx-cases .hx-climate-number-pair { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+.hx-cases .hx-climate-number-pair label { color: #aebbc0; font-size: 11px; }
+.hx-cases .hx-climate-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin: 22px 0 8px; color: #dbe7ea; font-size: 11px; }
+.hx-cases .hx-climate-legend i { display: block; flex: 1; min-width: 45px; height: 10px; background: linear-gradient(90deg,#f8fafc,#b3ddeb,#44a6c4,#226097,#fcbb59,#bc3832); }
+.hx-cases .hx-climate-legend small { flex-basis: 100%; line-height: 1.5; }
+.hx-cases .hx-climate-download { width: 100%; min-height: 42px; margin-top: 10px; padding: 9px; border: 1px solid var(--geo-cyan); border-radius: 4px; background: var(--geo-cyan); color: #07131d; font-size: 11px; font-weight: 700; }
+.hx-cases .hx-climate-download:disabled { border-color: var(--geo-line); background: transparent; color: #81949a; cursor: not-allowed; }
+.hx-cases[data-map-mode="rainfall"] .hx-case-panel-scroll,
+.hx-cases[data-map-mode="temperature"] .hx-case-panel-scroll { height: 100%; }
+.hx-cases[data-map-mode="rainfall"] .hx-map-summary,
+.hx-cases[data-map-mode="temperature"] .hx-map-summary { z-index: 500; }
+html[data-landing-theme="light"] .hx-cases .hx-climate-conditions h4,
+html[data-landing-theme="light"] .hx-cases .hx-climate-condition h5 { color: #26343a; }
+html[data-landing-theme="light"] .hx-cases .hx-climate-conditions p,
+html[data-landing-theme="light"] .hx-cases .hx-climate-condition small,
+html[data-landing-theme="light"] .hx-cases .hx-climate-status,
+html[data-landing-theme="light"] .hx-cases .hx-climate-source,
+html[data-landing-theme="light"] .hx-cases .hx-climate-number-pair label,
+html[data-landing-theme="light"] .hx-cases .hx-climate-legend { color: #405960; }
+html[data-landing-theme="light"] .hx-cases .hx-climate-status { background: #e8f2f2; }
+html[data-landing-theme="light"] .hx-cases .hx-climate-disabled-track { color: #405960; }
+@media (max-width: 680px) {
+  .hx-cases .hx-case-nav { height: auto; min-height: 68px; }
+  .hx-cases .hx-case-nav nav { flex-wrap: wrap; }
+  .hx-cases .hx-case-nav nav button { flex: 1 1 40%; min-height: 42px; }
+}
+
 @media (max-width: 760px) {
   .hx-cases .hx-matrix-guide { align-items: flex-start; }
   .hx-cases .hx-matrix-scale { font-size: 10px; }

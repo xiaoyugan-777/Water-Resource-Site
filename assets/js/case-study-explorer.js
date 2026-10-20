@@ -15,6 +15,10 @@
     geoUnits: new URL("../data/nbs-geo-units.json", scriptURL),
     members: new URL("../data/nbs-geo-unit-members.json", scriptURL),
   };
+  // Keep the catalogue and its location links on the same release in browsers
+  // that retain older static assets from the former 50-paper version.
+  ["papers", "locations", "paperLocations", "geoUnits", "members"].forEach((key) =>
+    dataURLs[key].searchParams.set("v", "161"));
   const rainfallURLs = {
     values: new URL("../data/rainfall-values.png", scriptURL),
     metadata: new URL("../data/rainfall-metadata.json", scriptURL),
@@ -74,6 +78,8 @@
         <nav>
           <button type="button" class="is-active" data-main-islands><span>01</span>Main Hawaiian Islands</button>
           <button type="button" data-nwhi><span>02</span>Northwestern Region</button>
+          <button type="button" data-climate-nav="rainfall"><span>03</span>Rainfall Map</button>
+          <button type="button" data-climate-nav="temperature"><span>04</span>Temperature Map</button>
         </nav>
         <div class="hx-case-nav-total"><strong data-total-papers>—</strong><span>research papers</span></div>
       </aside>
@@ -106,6 +112,7 @@
         </div>
         <div class="hx-case-panel-scroll">
           <div data-panel="filters">
+            <div data-nbs-filters>
             <div class="hx-case-panel-head">
               <div><p class="hx-eyebrow">REFINE RESULTS</p><h3>Filter Papers</h3></div>
             </div>
@@ -123,12 +130,32 @@
                 </div>
               </div>
               <div class="hx-filter-field"><span class="hx-filter-label">Ecosystem Type</span><div class="hx-multi-options hx-ecosystem-options" data-filter-ecosystem><button type="button" class="is-active" data-ecosystem-option="" aria-pressed="true">All ecosystem types</button></div></div>
+              <section class="hx-climate-conditions" aria-label="Climate Conditions">
+                <h4>Climate Conditions</h4>
+                <p>Case-level climate filtering requires verified site or area matching. No matching index is available yet; existing paper results remain unchanged.</p>
+                <div class="hx-climate-condition" data-case-climate="rainfall"></div>
+                <div class="hx-climate-condition" data-case-climate="temperature"></div>
+                <p class="hx-climate-coverage" data-case-climate-coverage>161 papers available without climate conditions · 0 climate-matchable · 161 without verified climate matches.</p>
+              </section>
             </section>
             <div class="hx-case-filter-actions">
               <button type="button" class="hx-case-reset" data-reset>Reset</button>
               <button type="button" class="hx-case-apply" data-apply-filters>Apply filters</button>
             </div>
             <p class="hx-case-hint">Select filters, then use Data View to inspect papers. Island, area and region polygons are clickable.</p>
+            </div>
+            <div data-climate-filters hidden>
+              <div class="hx-case-panel-head"><div><p class="hx-eyebrow">HCDP CLIMATE DATA</p><h3 data-climate-title>Rainfall Data Filters</h3></div></div>
+              <p class="hx-climate-status" data-climate-status role="status"></p>
+              <div class="hx-filter-field"><label class="hx-filter-label" for="hx-climate-period">Time scale</label><select id="hx-climate-period" data-climate-period><option value="month">Monthly</option><option value="day">Daily</option></select></div>
+              <div class="hx-filter-field"><label class="hx-filter-label" for="hx-climate-date">Month</label><input id="hx-climate-date" data-climate-date type="month"></div>
+              <div class="hx-climate-range" data-climate-range hidden></div>
+              <p class="hx-climate-legend" data-climate-legend hidden></p>
+              <p class="hx-climate-source" data-climate-source></p>
+              <button type="button" class="hx-case-reset" data-climate-reset>Reset climate map filters</button>
+              <button type="button" class="hx-climate-download" data-climate-download disabled>Download filtered rainfall CSV</button>
+              <p class="hx-climate-source" data-climate-download-help></p>
+            </div>
           </div>
           <div data-panel="results" hidden>
             <section class="hx-detail" data-selection aria-live="polite"></section>
@@ -295,8 +322,252 @@
   let matrixView = { rows: [], columns: [], cells: new Map() };
   let mapActivated = false;
   let appliedFilters = { islands: [], nbs: [], ecosystems: [] };
+  let mapMode = "nbs";
+  let activeCaseNav = "main";
+  let climateOverlay = null;
+  let climateRaster = null;
+  let climateRenderID = 0;
+  let rainfallMax = 0;
+  let lastCasePanel = "filters";
+  let caseMapView = null;
+  const climateMapState = {
+    rainfall: { period: "month", date: "2026-09", min: null, max: null },
+    temperature: { period: "month", date: "", min: null, max: null },
+  };
+
+  function caseClimateMarkup(label, unit) {
+    return `<h5>${label} Range</h5><fieldset disabled><label>Time scale<select><option>Monthly</option><option>Daily</option></select></label><label>Date<input type="month"></label><div class="hx-climate-disabled-track">Range unavailable until verified case-level climate matches exist</div><div class="hx-climate-number-pair"><label>Minimum<input type="number" placeholder="Unavailable"></label><label>Maximum<input type="number" placeholder="Unavailable"></label></div></fieldset><small>${unit} · Unavailable: verified paper-to-climate matching index not yet prepared.</small>`;
+  }
+  $("[data-case-climate='rainfall']").innerHTML = caseClimateMarkup("Rainfall", "mm/day or mm/month");
+  $("[data-case-climate='temperature']").innerHTML = caseClimateMarkup("Mean Temperature", "°C");
+
+  const rainfallReady = () => climateRaster && climateMapState.rainfall.period === "month"
+    && climateMapState.rainfall.date === climateRaster.metadata.period;
+
+  function paintClimateRange() {
+    if (mapMode !== "rainfall" || !rainfallReady()) return;
+    const renderID = ++climateRenderID;
+    const { metadata, pixels } = climateRaster;
+    const { min, max } = climateMapState.rainfall;
+    const canvas = document.createElement("canvas");
+    canvas.width = metadata.width;
+    canvas.height = metadata.height;
+    const context = canvas.getContext("2d");
+    const image = context.createImageData(metadata.width, metadata.height);
+    const stops = [[248, 250, 252], [179, 221, 235], [68, 166, 196], [34, 96, 151], [252, 187, 89], [188, 56, 50]];
+    let selected = 0;
+    for (let offset = 0; offset < pixels.length; offset += 4) {
+      const value = window.HCDPRainfall.decodeRGB(pixels[offset], pixels[offset + 1], pixels[offset + 2]);
+      if (value === null || value < min || value > max) continue;
+      selected++;
+      const scaled = Math.min(5, value / 1000 * 5);
+      const low = Math.min(4, Math.floor(scaled));
+      const fraction = scaled - low;
+      for (let channel = 0; channel < 3; channel++) {
+        image.data[offset + channel] = Math.round(stops[low][channel] * (1 - fraction) + stops[low + 1][channel] * fraction);
+      }
+      image.data[offset + 3] = 205;
+    }
+    if (renderID !== climateRenderID || mapMode !== "rainfall") return;
+    context.putImageData(image, 0, 0);
+    const bounds = L.latLngBounds(metadata.bounds);
+    if (climateOverlay) map.removeLayer(climateOverlay);
+    climateOverlay = L.imageOverlay(canvas.toDataURL("image/png"), bounds, { opacity: 0.9, interactive: false }).addTo(map);
+    $("[data-climate-status]").textContent = `${selected.toLocaleString()} of ${metadata.validPixels.toLocaleString()} valid raster cells shown in the selected range. Outside-range cells are hidden.`;
+  }
+
+  function updateClimateControls() {
+    const mode = mapMode;
+    const filters = climateMapState[mode];
+    const available = mode === "rainfall" && rainfallReady();
+    $("[data-climate-title]").textContent = mode === "rainfall" ? "Rainfall Data Filters" : "Temperature Data Filters";
+    $("[data-climate-period]").value = filters.period;
+    const dateInput = $("[data-climate-date]");
+    dateInput.type = filters.period === "day" ? "date" : "month";
+    dateInput.value = filters.date;
+    dateInput.previousElementSibling.textContent = filters.period === "day" ? "Date" : "Month";
+    dateInput.disabled = false;
+    $("[data-climate-range]").hidden = !available;
+    if (mode === "rainfall" && climateRaster && !$("[data-climate-min-slider]")) setupClimateRange(rainfallMax);
+    if (mode === "temperature") {
+      $("[data-climate-range]").hidden = false;
+      $("[data-climate-range]").innerHTML = `<span class="hx-filter-label">Mean Temperature Range · °C</span><div class="hx-climate-disabled-track" aria-label="Temperature range unavailable">Range unavailable until a verified mean-temperature raster is loaded</div><div class="hx-climate-number-pair"><label>Minimum · °C<input type="number" placeholder="Unavailable" disabled></label><label>Maximum · °C<input type="number" placeholder="Unavailable" disabled></label></div>`;
+    }
+    $("[data-climate-legend]").hidden = !available;
+    if (mode === "temperature") {
+      $("[data-climate-legend]").hidden = false;
+      $("[data-climate-legend]").textContent = "Temperature legend unavailable until a verified mean-temperature raster is loaded.";
+    }
+    $("[data-climate-download]").disabled = !available;
+    $("[data-climate-download]").textContent = mode === "rainfall" ? "Download filtered rainfall CSV" : "Download temperature data · unavailable";
+    $("[data-climate-download-help]").textContent = mode === "rainfall"
+      ? "CSV contains valid raster cell centers within the current map view and selected range, with time, units, source and raster metadata. Outside-range cells are hidden on the map, not counted as papers."
+      : "Download unavailable until a verified HCDP mean-temperature dataset and its reuse terms are confirmed.";
+    if (available) {
+      const { min, max } = filters;
+      $("[data-climate-legend]").innerHTML = `<span>Lower rainfall</span><i aria-hidden="true"></i><span>Higher rainfall</span><small>Raster colors show monthly cumulative rainfall; ${min.toFixed(1)}–${max.toFixed(1)} mm/month is displayed.</small>`;
+      $("[data-climate-source]").textContent = `${formatRainfallPeriod(climateRaster.metadata.period)} · ${climateRaster.metadata.dataset} · ${climateRaster.metadata.status || "status not specified"} · ${climateRaster.metadata.source}. Only this month is currently available in the website.`;
+      paintClimateRange();
+      $("[data-map-summary]").textContent = `HCDP statewide rainfall · ${formatRainfallPeriod(climateRaster.metadata.period)} · monthly total (mm)`;
+    } else {
+      if (climateOverlay) { map.removeLayer(climateOverlay); climateOverlay = null; }
+      $("[data-climate-status]").textContent = mode === "temperature"
+        ? "Unavailable: verified HCDP mean-temperature raster has not been integrated. No temperature values are displayed."
+        : `Unavailable: the website currently contains only the ${climateRaster?.metadata.period || "loaded"} statewide monthly rainfall raster. Daily rainfall and other months are not loaded.`;
+      $("[data-climate-source]").textContent = mode === "temperature"
+        ? "Target variable: mean air temperature (°C). Daily and monthly products require authenticated verification."
+        : `Available period: ${formatRainfallPeriod(climateRaster?.metadata.period)} · monthly cumulative rainfall (mm/month) · HCDP.`;
+      $("[data-map-summary]").textContent = `${mode === "rainfall" ? "Rainfall" : "Mean temperature"} map · data unavailable for this selection`;
+    }
+  }
+
+  async function activateMapMode(mode) {
+    if (mapMode === "nbs" && mode !== "nbs") {
+      caseMapView = { center: map.getCenter(), zoom: map.getZoom() };
+    }
+    mapMode = mode;
+    root.dataset.mapMode = mode;
+    $("[data-nbs-filters]").hidden = mode !== "nbs";
+    $("[data-climate-filters]").hidden = mode === "nbs";
+    $(".hx-case-tabs").hidden = mode !== "nbs";
+    $(".hx-legend").hidden = mode !== "nbs";
+    $("[data-analytics]").hidden = mode !== "nbs";
+    $("[data-panel='results']").hidden = mode !== "nbs";
+    $("[data-panel='filters']").hidden = false;
+    root.querySelectorAll(".hx-case-nav nav button").forEach((button) => {
+      const active = mode === "nbs"
+        ? (activeCaseNav === "nwhi" ? button.hasAttribute("data-nwhi") : button.hasAttribute("data-main-islands"))
+        : button.dataset.climateNav === mode;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+    if (mode === "nbs") {
+      if (climateOverlay) { map.removeLayer(climateOverlay); climateOverlay = null; }
+      render();
+      if (caseMapView) map.setView(caseMapView.center, caseMapView.zoom, { animate: false });
+      showPanel(lastCasePanel);
+    } else {
+      islandGroup.clearLayers(); areaGroup.clearLayers(); regionGroup.clearLayers(); siteGroup.clearLayers();
+      $("[data-map-summary]").textContent = mode === "rainfall" ? "HCDP rainfall map · loading verified monthly data…" : "HCDP mean temperature map · data unavailable";
+      if (mode === "rainfall" && !climateRaster) {
+        try {
+          climateRaster = await rainfallQuery.getRaster();
+          if (!/^\d{4}-\d{2}$/.test(climateRaster.metadata.period)) throw new Error("Invalid rainfall period");
+          climateMapState.rainfall.date = climateRaster.metadata.period;
+          let max = 0;
+          const pixels = climateRaster.pixels;
+          for (let i = 0; i < pixels.length; i += 4) {
+            const value = window.HCDPRainfall.decodeRGB(pixels[i], pixels[i + 1], pixels[i + 2]);
+            if (value !== null && value > max) max = value;
+          }
+          rainfallMax = max;
+          climateMapState.rainfall.min ??= 0;
+          climateMapState.rainfall.max ??= Math.ceil(max);
+          setupClimateRange(max);
+        } catch (caught) {
+          console.error("Climate rainfall map could not load", caught);
+          updateClimateControls();
+          $("[data-climate-status]").textContent = "Rainfall data could not load. Existing case-study rainfall lookup is unchanged.";
+          return;
+        }
+      }
+      if (mapMode !== mode) return;
+      updateClimateControls();
+      $("[data-map-summary]").textContent = mode === "rainfall" && rainfallReady()
+        ? `HCDP statewide rainfall · ${formatRainfallPeriod(climateRaster.metadata.period)} · monthly total (mm)`
+        : `${mode === "rainfall" ? "Rainfall" : "Mean temperature"} map · data unavailable for this selection`;
+      if (mode === "rainfall" && rainfallReady()) map.fitBounds(climateRaster.metadata.bounds, { padding: [16, 16], animate: false });
+    }
+    requestAnimationFrame(() => map.invalidateSize({ pan: false }));
+  }
+
+  function setupClimateRange(maximum) {
+    const ceiling = Math.max(1, Math.ceil(maximum));
+    const host = $("[data-climate-range]");
+    host.innerHTML = `<span class="hx-filter-label">Rainfall range · mm/month</span>
+      <div class="hx-climate-dual"><input type="range" min="0" max="${ceiling}" step="0.1" data-climate-min-slider aria-label="Minimum rainfall"><input type="range" min="0" max="${ceiling}" step="0.1" data-climate-max-slider aria-label="Maximum rainfall"></div>
+      <div class="hx-climate-number-pair"><label>Minimum · mm/month<input type="number" min="0" max="${ceiling}" step="0.1" data-climate-min-number></label><label>Maximum · mm/month<input type="number" min="0" max="${ceiling}" step="0.1" data-climate-max-number></label></div>`;
+    const controls = ["min", "max"].flatMap((key) => [host.querySelector(`[data-climate-${key}-slider]`), host.querySelector(`[data-climate-${key}-number]`)]);
+    const sync = () => {
+      const values = climateMapState.rainfall;
+      controls[0].value = controls[1].value = values.min;
+      controls[2].value = controls[3].value = values.max;
+    };
+    controls.forEach((control, index) => control.addEventListener("input", () => {
+      const key = index < 2 ? "min" : "max";
+      const raw = Number(control.value);
+      if (!Number.isFinite(raw)) return;
+      const values = climateMapState.rainfall;
+      values[key] = Math.max(0, Math.min(ceiling, raw));
+      if (values.min > values.max) values[index < 2 ? "max" : "min"] = values[key];
+      sync();
+      updateClimateControls();
+    }));
+    sync();
+  }
+
+  function downloadClimateCSV() {
+    if (mapMode !== "rainfall" || !rainfallReady()) return;
+    const { metadata, pixels } = climateRaster;
+    const selected = climateMapState.rainfall;
+    const [[south, west], [north, east]] = metadata.bounds;
+    const view = map.getBounds();
+    const lines = ["latitude,longitude,period,variable,value,unit,source,status,raster_width,raster_height,cell_width_degrees,cell_height_degrees,bounds_west,bounds_south,bounds_east,bounds_north,nodata_rule"];
+    const source = `"${String(metadata.source).replaceAll('"', '""')}"`;
+    for (let y = 0; y < metadata.height; y++) {
+      const lat = north - (y + 0.5) * (north - south) / metadata.height;
+      if (lat < view.getSouth() || lat > view.getNorth()) continue;
+      for (let x = 0; x < metadata.width; x++) {
+        const lng = west + (x + 0.5) * (east - west) / metadata.width;
+        if (lng < view.getWest() || lng > view.getEast()) continue;
+        const offset = (y * metadata.width + x) * 4;
+        const value = window.HCDPRainfall.decodeRGB(pixels[offset], pixels[offset + 1], pixels[offset + 2]);
+        if (value === null || value < selected.min || value > selected.max) continue;
+        lines.push(`${lat.toFixed(6)},${lng.toFixed(6)},${metadata.period},monthly cumulative rainfall,${value.toFixed(1)},mm/month,${source},${metadata.status || "unspecified"},${metadata.width},${metadata.height},${((east - west) / metadata.width).toFixed(8)},${((north - south) / metadata.height).toFixed(8)},${west},${south},${east},${north},"encoded 0 means missing; omitted from CSV"`);
+      }
+    }
+    const csv = lines.join("\r\n");
+    const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `hcdp-rainfall-${metadata.period}-visible-range.csv`;
+    document.body.append(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  $("[data-climate-period]").addEventListener("change", (event) => {
+    const values = climateMapState[mapMode];
+    values.period = event.target.value;
+    values.date = values.period === "month" && mapMode === "rainfall" ? climateRaster?.metadata.period || "" : "";
+    updateClimateControls();
+  });
+  $("[data-climate-date]").addEventListener("change", (event) => {
+    climateMapState[mapMode].date = event.target.value;
+    updateClimateControls();
+  });
+  $("[data-climate-reset]").addEventListener("click", () => {
+    const values = climateMapState[mapMode];
+    values.period = "month";
+    values.date = mapMode === "rainfall" ? climateRaster?.metadata.period || "" : "";
+    if (mapMode === "rainfall" && climateRaster) {
+      values.min = 0;
+      let max = 0;
+      const pixels = climateRaster.pixels;
+      for (let i = 0; i < pixels.length; i += 4) {
+        const v = window.HCDPRainfall.decodeRGB(pixels[i], pixels[i + 1], pixels[i + 2]);
+        if (v !== null && v > max) max = v;
+      }
+      values.max = Math.ceil(max);
+      setupClimateRange(max);
+    }
+    updateClimateControls();
+  });
+  $("[data-climate-download]").addEventListener("click", downloadClimateCSV);
 
   function showPanel(name) {
+    if (mapMode === "nbs") lastCasePanel = name;
     root.querySelectorAll("[data-panel]").forEach((panel) => {
       panel.hidden = panel.dataset.panel !== name;
     });
@@ -840,7 +1111,7 @@
   }
 
   function render() {
-    if (!state) return;
+    if (!state || mapMode !== "nbs") return;
     const filteredIDs = filteredPaperIds();
     const baseIDs = focusPaperIds(filteredIDs);
     renderMatrix(baseIDs);
@@ -871,6 +1142,16 @@
   }
 
   map.on("click", (event) => {
+    if (mapMode !== "nbs") {
+      if (mapMode === "rainfall" && rainfallReady()) {
+        rainfallQuery.getRainfallAt(event.latlng.lat, event.latlng.lng).then((result) => {
+          if (mapMode !== "rainfall") return;
+          const value = result.status === "ok" ? `${result.value.toFixed(1)} mm/month` : "No data at this location";
+          $("[data-climate-source]").textContent = `${value} · ${formatRainfallPeriod(climateRaster.metadata.period)} · ${climateRaster.metadata.source} · ${event.latlng.lat.toFixed(4)}, ${event.latlng.lng.toFixed(4)}. The selected range controls visibility; this query reports the underlying value.`;
+        });
+      }
+      return;
+    }
     if (focus || matrixCell) {
       focus = null;
       matrixCell = null;
@@ -978,6 +1259,7 @@
       };
 
       $("[data-total-papers]").textContent = papers.length;
+      $("[data-case-climate-coverage]").textContent = `${papers.length} papers available without climate conditions · 0 climate-matchable · ${papers.length} without verified climate matches.`;
 
       const scopeSelect = $("[data-matrix-scope]");
       scopeSelect.add(new Option("All islands", ""));
@@ -1118,6 +1400,12 @@
         render();
       });
       $("[data-main-islands]").addEventListener("click", () => {
+        if (mapMode !== "nbs" && activeCaseNav === "main") {
+          activateMapMode("nbs");
+          return;
+        }
+        activeCaseNav = "main";
+        if (mapMode !== "nbs") activateMapMode("nbs");
         focus = null;
         matrixCell = null;
         mapActivated = false;
@@ -1127,6 +1415,12 @@
         render();
       });
       $("[data-nwhi]").addEventListener("click", () => {
+        if (mapMode !== "nbs" && activeCaseNav === "nwhi") {
+          activateMapMode("nbs");
+          return;
+        }
+        activeCaseNav = "nwhi";
+        if (mapMode !== "nbs") activateMapMode("nbs");
         mapActivated = true;
         clearSidebarIslands();
         matrixCell = null;
@@ -1141,6 +1435,9 @@
         }
         render();
         showPanel("results");
+      });
+      root.querySelectorAll("[data-climate-nav]").forEach((button) => {
+        button.addEventListener("click", () => activateMapMode(button.dataset.climateNav));
       });
       $("[data-reset]").addEventListener("click", () => {
         root.querySelectorAll(".hx-case-filters select").forEach((select) => {

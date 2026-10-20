@@ -131,7 +131,9 @@
       }
     };
 
-    return Object.freeze({ getMetadata, getRainfallAt });
+    // Expose the already decoded, validated raster for the climate map. The
+    // returned pixels retain the same lossless encoding used for point lookup.
+    return Object.freeze({ getMetadata, getRainfallAt, getRaster: loadRaster });
   }
 
   window.HCDPRainfall = Object.freeze({
