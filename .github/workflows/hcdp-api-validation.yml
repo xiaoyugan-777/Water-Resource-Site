@@ -1,0 +1,65 @@
+name: HCDP API validation (one-time)
+
+on:
+  push:
+    branches:
+      - codex/hcdp-monthly-rainfall
+    paths:
+      - .github/workflows/hcdp-api-validation.yml
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the rainfall feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: codex/hcdp-monthly-rainfall
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install conversion dependencies
+        run: python -m pip install -r scripts/requirements-hcdp.txt
+      - name: Download and validate September 2026 in temporary storage
+        env:
+          HCDP_API_TOKEN: ${{ secrets.HCDP_API_TOKEN }}
+        run: |
+          python - <<'PY'
+          import importlib.util
+          import os
+          import sys
+          from pathlib import Path
+
+          token = os.environ.get("HCDP_API_TOKEN")
+          if not token:
+              sys.exit("HCDP_API_TOKEN secret is not configured")
+          spec = importlib.util.spec_from_file_location("rainfall", "scripts/update_hcdp_rainfall.py")
+          rainfall = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(rainfall)
+          output = Path(os.environ["RUNNER_TEMP"]) / "hcdp-2026-09"
+          output.mkdir(parents=True, exist_ok=True)
+          try:
+              raster = rainfall.fetch_raster("2026-09", token)
+              if raster is None:
+                  sys.exit("HCDP raster for 2026-09 is unpublished or empty (HTTP 204/404)")
+              metadata = rainfall.convert_raster(raster, "2026-09", output)
+              rainfall.validate_assets(output)
+          except Exception as error:
+              sys.exit(f"HCDP 2026-09 validation failed: {error}")
+          print(f"Validated HCDP 2026-09: {metadata['validPixels']} cells; website files untouched")
+          PY
+      - name: Upload validated outputs only
+        uses: actions/upload-artifact@v4
+        with:
+          name: hcdp-validated-2026-09
+          path: |
+            ${{ runner.temp }}/hcdp-2026-09/rainfall-values.png
+            ${{ runner.temp }}/hcdp-2026-09/rainfall-overlay.png
+            ${{ runner.temp }}/hcdp-2026-09/rainfall-metadata.json
+          if-no-files-found: error
+          retention-days: 1
