@@ -6,9 +6,6 @@
   const logoURL = new URL("../images/oleson-lab-logo.png", scriptURL).href;
   const dataURLs = {
     coast: new URL("../data/hawaii-coast.geojson", scriptURL),
-    rainfallOverlay: new URL("../data/rainfall-overlay.png", scriptURL),
-    rainfallValues: new URL("../data/rainfall-values.png", scriptURL),
-    rainfallMetadata: new URL("../data/rainfall-metadata.json", scriptURL),
     areas: new URL("../data/nbs-areas.geojson", scriptURL),
     region: new URL("../data/nbs-map-region.geojson", scriptURL),
     areaIdMap: new URL("../data/nbs-area-id-map.json", scriptURL),
@@ -17,6 +14,10 @@
     paperLocations: new URL("../data/nbs-paper-locations.json", scriptURL),
     geoUnits: new URL("../data/nbs-geo-units.json", scriptURL),
     members: new URL("../data/nbs-geo-unit-members.json", scriptURL),
+  };
+  const rainfallURLs = {
+    values: new URL("../data/rainfall-values.png", scriptURL),
+    metadata: new URL("../data/rainfall-metadata.json", scriptURL),
   };
 
   const ISLE_TO_GEO = {
@@ -82,16 +83,18 @@
         <div class="hx-canvas" aria-label="Interactive map of Hawaiʻi islands and NbS study areas"></div>
         <div class="hx-legend">
           <strong>Map layers</strong>
-          <label class="hx-rainfall-toggle">
-            <input type="checkbox" data-rainfall-toggle />
-            Rainfall · Sep 2026
-          </label>
           <span><i class="hx-case-island-key"></i> Island · clickable</span>
           <span><i class="hx-case-area-key"></i> Area · clickable</span>
           <span><i class="hx-case-region-key"></i> Region · clickable</span>
           <span><i class="hx-case-site-key"></i> Study site · reference only</span>
           <span><i class="hx-case-schematic-key"></i> Schematic placement</span>
           <small>Only geography related to the filtered papers is shown.</small>
+          <section class="hx-rainfall-info" data-rainfall-info aria-live="polite">
+            <h3>Rainfall</h3>
+            <p data-rainfall-location>Select a location</p>
+            <b data-rainfall-value hidden></b>
+            <small data-rainfall-meta>Loading monthly estimate…</small>
+          </section>
         </div>
         <p class="hx-error" data-error hidden role="alert"></p>
       </div>
@@ -137,7 +140,17 @@
           </div>
         </div>
       </aside>
-    </div>`;
+    </div>
+    <section class="hx-analytics" data-analytics aria-label="Research Evidence Matrix">
+      <div class="hx-analytics-heading"><div><p class="hx-eyebrow">RESEARCH EVIDENCE / HAWAIʻI</p><h2>Evidence at a glance</h2></div><p data-matrix-summary></p></div>
+      <div class="hx-analytics-steps">
+        <label><span>Geographic scope</span><select data-matrix-scope aria-label="Geographic scope"></select></label>
+        <label><span>Rows</span><select data-matrix-rows aria-label="Matrix rows"></select></label>
+        <label><span>Columns</span><select data-matrix-columns aria-label="Matrix columns"></select></label>
+      </div>
+      <p class="hx-analytics-note">Unique papers at each intersection. Select a count to inspect its papers and mapped locations.</p>
+      <div class="hx-matrix-scroll" data-matrix-grid></div>
+    </section>`;
 
   const $ = (selector) => root.querySelector(selector);
   const error = $("[data-error]");
@@ -157,21 +170,77 @@
   });
   L.control.zoom({ position: "topright" }).addTo(map);
   L.control.scale({ imperial: true, metric: true }).addTo(map);
-  
-  const rainfallLayer = L.imageOverlay(
-    dataURLs.rainfallOverlay.href,
-    [[18.849, -159.816], [22.269, -154.668]],
-    { opacity: 0.65, interactive: false }
-  );
 
-  const rainfallToggle = $("[data-rainfall-toggle]");
-  
-  rainfallToggle.addEventListener("change", () => {
-    if (rainfallToggle.checked) {
-      rainfallLayer.addTo(map);
-    } else {
-      map.removeLayer(rainfallLayer);
+  const rainfallLocation = $("[data-rainfall-location]");
+  const rainfallValue = $("[data-rainfall-value]");
+  const rainfallMeta = $("[data-rainfall-meta]");
+  const rainfallQuery = window.HCDPRainfall?.createRainfallQuery({
+    metadataURL: rainfallURLs.metadata.href,
+    rasterURL: rainfallURLs.values.href,
+  });
+  let rainfallSelectionID = 0;
+
+  const formatRainfallPeriod = (period) => {
+    const match = /^(\d{4})-(\d{2})$/.exec(String(period || ""));
+    if (!match) return period || "Monthly rainfall";
+    return new Intl.DateTimeFormat("en-US", {
+      month: "long",
+      year: "numeric",
+      timeZone: "UTC",
+    }).format(new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, 1)));
+  };
+
+  const updateRainfallMetadata = (metadata) => {
+    const status = metadata.status ? ` · ${metadata.status}` : "";
+    rainfallMeta.textContent = `${formatRainfallPeriod(metadata.period)} · HCDP · monthly estimate${status}, not real-time`;
+  };
+
+  rainfallQuery?.getMetadata()
+    .then(updateRainfallMetadata)
+    .catch(() => {
+      rainfallMeta.textContent = "HCDP monthly estimate · metadata unavailable";
+    });
+
+  async function selectRainfallLocation({ lat, lng, label, approximate = false }) {
+    const selectionID = ++rainfallSelectionID;
+    rainfallValue.hidden = false;
+
+    if (approximate) {
+      rainfallLocation.textContent = label ? `Selected site: ${label}` : "Selected approximate site";
+      rainfallValue.textContent = "Rainfall unavailable for approximate Study Site location";
+      return;
     }
+
+    const latitude = Number(lat);
+    const longitude = Number(lng);
+    const coordinateLabel = `${Math.abs(latitude).toFixed(2)}°${latitude >= 0 ? "N" : "S"}, ${Math.abs(longitude).toFixed(2)}°${longitude >= 0 ? "E" : "W"}`;
+    rainfallLocation.textContent = label
+      ? `Selected location: ${label} · ${coordinateLabel}`
+      : `Selected location: ${coordinateLabel}`;
+    rainfallValue.textContent = "Loading rainfall…";
+
+    if (!rainfallQuery) {
+      rainfallValue.textContent = "Rainfall data could not be loaded";
+      return;
+    }
+
+    const result = await rainfallQuery.getRainfallAt(latitude, longitude);
+    if (selectionID !== rainfallSelectionID) return;
+    if (result.metadata) updateRainfallMetadata(result.metadata);
+    if (result.status === "ok") {
+      rainfallValue.textContent = `${result.value.toFixed(1)} ${result.metadata.unit}`;
+    } else if (result.status === "out-of-bounds" || result.status === "no-data") {
+      rainfallValue.textContent = "No rainfall data available";
+    } else {
+      console.error("Rainfall query failed", result.error);
+      rainfallValue.textContent = "Rainfall data could not be loaded";
+    }
+  }
+
+  // Shared interface for map clicks, Study Sites, and future filter controls.
+  root.rainfall = Object.freeze({
+    getRainfallAt: (lat, lng) => rainfallQuery?.getRainfallAt(lat, lng),
+    selectRainfallLocation,
   });
 
   L.tileLayer(
@@ -212,12 +281,18 @@
   map.getPane("caseRegions").style.zIndex = 415;
   map.createPane("caseAreas");
   map.getPane("caseAreas").style.zIndex = 420;
+  map.createPane("caseSites");
+  map.getPane("caseSites").style.zIndex = 430;
   const islandGroup = L.layerGroup().addTo(map);
   const areaGroup = L.layerGroup().addTo(map);
   const regionGroup = L.layerGroup().addTo(map);
   const siteGroup = L.layerGroup().addTo(map);
   let state = null;
   let focus = null;
+  let matrixCell = null;
+  let matrixRows = "nbs";
+  let matrixColumns = "ecosystem";
+  let matrixView = { rows: [], columns: [], cells: new Map() };
   let mapActivated = false;
   let appliedFilters = { islands: [], nbs: [], ecosystems: [] };
 
@@ -292,6 +367,88 @@
     return related;
   }
 
+  const MATRIX_AXES = {
+    nbs: { label: "NbS Type", values: (paper) => paper["NbS Type"] ? [paper["NbS Type"]] : [] },
+    ecosystem: { label: "Ecosystem", values: (paper) => splitValues(paper.Ecosystem) },
+    year: { label: "Publication Year", values: (paper) => paper.Year ? [String(paper.Year)] : [] },
+  };
+  const matrixKey = (row, column) => `${row}\u0000${column}`;
+  const axisValues = (paper, axis) => unique(MATRIX_AXES[axis].values(paper));
+
+  function buildMatrix(baseIDs) {
+    const rows = new Set();
+    const columns = new Set();
+    const cells = new Map();
+    const rowTotals = new Map();
+    const columnTotals = new Map();
+    const represented = new Set();
+    state.papers.forEach((paper) => {
+      const id = String(paper.paper_id);
+      if (!baseIDs.has(id)) return;
+      const rowValues = axisValues(paper, matrixRows);
+      const columnValues = axisValues(paper, matrixColumns);
+      if (!rowValues.length || !columnValues.length) return;
+      represented.add(id);
+      rowValues.forEach((row) => {
+        rows.add(row);
+        if (!rowTotals.has(row)) rowTotals.set(row, new Set());
+        rowTotals.get(row).add(id);
+        columnValues.forEach((column) => {
+          columns.add(column);
+          if (!columnTotals.has(column)) columnTotals.set(column, new Set());
+          columnTotals.get(column).add(id);
+          const key = matrixKey(row, column);
+          if (!cells.has(key)) cells.set(key, new Set());
+          cells.get(key).add(id);
+        });
+      });
+    });
+    return {
+      rows: [...rows].sort((a, b) => a.localeCompare(b)),
+      columns: [...columns].sort((a, b) => a.localeCompare(b)),
+      cells, rowTotals, columnTotals, represented,
+    };
+  }
+
+  function scopeLabel() {
+    if (focus) return focus.label;
+    if (appliedFilters.islands.length) return appliedFilters.islands
+      .map((id) => geoDisplayName(id, state.geoUnitById.get(id)?.geo_unit_name)).join(" + ");
+    return "All islands";
+  }
+
+  function syncScopeControl() {
+    const select = $("[data-matrix-scope]");
+    const value = focus ? `${focus.type}:${focus.id}`
+      : appliedFilters.islands.length === 1 ? `geo:${appliedFilters.islands[0]}`
+        : appliedFilters.islands.length > 1 ? "sidebar" : "";
+    select.querySelector('[value="sidebar"]')?.remove();
+    if (value === "sidebar") select.add(new Option(scopeLabel(), "sidebar"));
+    select.value = value;
+  }
+
+  function renderMatrix(baseIDs) {
+    matrixView = buildMatrix(baseIDs);
+    syncScopeControl();
+    $("[data-matrix-summary]").textContent = `${scopeLabel()} · ${baseIDs.size} papers after current filters · ${matrixView.represented.size} with both selected attributes`;
+    const columns = matrixView.columns;
+    const rows = matrixView.rows;
+    const header = columns.map((column) => `<th scope="col" title="${escapeHTML(column)}"><span>${escapeHTML(column)}</span></th>`).join("");
+    const totals = columns.map((column) => `<td class="hx-matrix-total">${matrixView.columnTotals.get(column).size}</td>`).join("");
+    const body = rows.map((row, rowIndex) => {
+      const cells = columns.map((column, columnIndex) => {
+        const count = matrixView.cells.get(matrixKey(row, column))?.size || 0;
+        if (!count) return "<td></td>";
+        const selected = matrixCell?.row === row && matrixCell?.column === column;
+        return `<td><button type="button" class="hx-matrix-circle${selected ? " is-selected" : ""}" data-matrix-cell="${rowIndex}:${columnIndex}" aria-label="${escapeHTML(`${row} × ${column}: ${count} paper${count === 1 ? "" : "s"}`)}" aria-pressed="${selected}">${count}</button></td>`;
+      }).join("");
+      return `<tr><th scope="row">${escapeHTML(row)}</th>${cells}<td class="hx-matrix-total">${matrixView.rowTotals.get(row).size}</td></tr>`;
+    }).join("");
+    $("[data-matrix-grid]").innerHTML = rows.length && columns.length
+      ? `<table class="hx-matrix"><thead><tr><th scope="col">${escapeHTML(MATRIX_AXES[matrixRows].label)} / ${escapeHTML(MATRIX_AXES[matrixColumns].label)}</th>${header}<th scope="col">Total</th></tr></thead><tbody>${body}</tbody><tfoot><tr><th scope="row">Unique papers</th>${totals}<td class="hx-matrix-total">${matrixView.represented.size}</td></tr></tfoot></table>`
+      : '<p class="hx-matrix-empty">No papers have both selected attributes under these filters.</p>';
+  }
+
   function islandStyle(selected = false) {
     return {
       color: selected ? "#b9f5ff" : "#46d8ff",
@@ -322,9 +479,20 @@
     };
   }
 
+  function clearSidebarIslands() {
+    appliedFilters.islands = [];
+    $("[data-filter-islands]").querySelectorAll("[data-island-option]").forEach((button) => {
+      const active = !button.dataset.islandOption;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+  }
+
   function selectGeography(type, id, label, layer) {
     mapActivated = true;
+    if (appliedFilters.islands.length) clearSidebarIslands();
     focus = { type, id, label };
+    matrixCell = null;
     if (layer?.getBounds) {
       const bounds = layer.getBounds();
       if (bounds.isValid()) map.fitBounds(bounds, { padding: [45, 45], maxZoom: 10 });
@@ -340,12 +508,14 @@
       appliedFilters.islands.includes(geoID) || (focus?.type === "geo" && focus.id === geoID);
     const layer = L.geoJSON(feature, {
       pane: "caseIslands",
+      bubblingMouseEvents: false,
       style: islandStyle(isSelected()),
     });
     layer.bindTooltip(label);
     layer.on("click", (event) => {
-      L.DomEvent.stopPropagation(event);
+      L.DomEvent.stopPropagation(event.originalEvent);
       selectGeography("geo", geoID, label, layer);
+      selectRainfallLocation({ lat: event.latlng.lat, lng: event.latlng.lng, label });
     });
     layer.on("mouseover", () => layer.setStyle(islandStyle(true)));
     layer.on("mouseout", () =>
@@ -367,12 +537,14 @@
   function drawAreaFeature(feature, newAreaID, areaName) {
     const layer = L.geoJSON(feature, {
       pane: "caseAreas",
+      bubblingMouseEvents: false,
       style: areaStyle(focus?.type === "area" && focus.id === newAreaID),
     });
     layer.bindTooltip(areaName);
     layer.on("click", (event) => {
-      L.DomEvent.stopPropagation(event);
+      L.DomEvent.stopPropagation(event.originalEvent);
       selectGeography("area", newAreaID, areaName, layer);
+      selectRainfallLocation({ lat: event.latlng.lat, lng: event.latlng.lng, label: areaName });
     });
     layer.on("mouseover", () => {
       layer.setStyle(areaHoverStyle());
@@ -390,12 +562,14 @@
       appliedFilters.islands.includes(geoID) || (focus?.type === "geo" && focus.id === geoID);
     const layer = L.geoJSON(feature, {
       pane: "caseRegions",
+      bubblingMouseEvents: false,
       style: regionStyle(isSelected()),
     });
     layer.bindTooltip(label);
     layer.on("click", (event) => {
-      L.DomEvent.stopPropagation(event);
+      L.DomEvent.stopPropagation(event.originalEvent);
       selectGeography("geo", geoID, label, layer);
+      selectRainfallLocation({ lat: event.latlng.lat, lng: event.latlng.lng, label });
     });
     layer.on("mouseover", () => layer.setStyle(regionStyle(true)));
     layer.on("mouseout", () =>
@@ -422,10 +596,13 @@
   // shared locations get one marker with a popup listing every paper there.
   function drawPoint(lat, lng, items) {
     const first = items[0].row;
-    const schematic = String(first.coordinate_precision || "").includes("Schematic");
+    const coordinatePrecisions = items.map(({ row }) => String(row.coordinate_precision || ""));
+    const schematic = coordinatePrecisions.some((precision) => precision.includes("Schematic"));
+    const precise = coordinatePrecisions.every((precision) =>
+      /^Paper-reported (study|field-site|site) coordinate$/.test(precision));
     const marker = L.circleMarker([lat, lng], schematic
-      ? { radius: 5, color: "#f0bc60", weight: 2, dashArray: "3 2", fillColor: "#fff", fillOpacity: 0.9 }
-      : { radius: 4, color: "#fff", weight: 1.5, fillColor: "#f0bc60", fillOpacity: 0.95 });
+      ? { pane: "caseSites", radius: 5, color: "#f0bc60", weight: 2, dashArray: "3 2", fillColor: "#fff", fillOpacity: 0.9 }
+      : { pane: "caseSites", radius: 4, color: "#fff", weight: 1.5, fillColor: "#f0bc60", fillOpacity: 0.95 });
     const tipLabel = first.site_name || first.area_name || geoDisplayName(first.geo_unit_id, first.geo_unit_name);
     if (tipLabel) marker.bindTooltip(schematic ? `${tipLabel} (schematic)` : tipLabel);
     const paperRows = items.map(({ paper }) =>
@@ -437,7 +614,16 @@
         <p class="hx-point-coords">${lat.toFixed(5)}, ${lng.toFixed(5)}${schematic ? " · schematic placement" : ""}</p>
         <ul>${paperRows}</ul>
       </div>`);
-    marker.on("click", (event) => L.DomEvent.stopPropagation(event));
+    marker.on("click", (event) => {
+      L.DomEvent.stopPropagation(event.originalEvent);
+      selectRainfallLocation({
+        lat,
+        lng,
+        label: tipLabel || undefined,
+        source: "study-site",
+        approximate: !precise,
+      });
+    });
     marker.addTo(siteGroup);
   }
 
@@ -607,15 +793,20 @@
     URL.revokeObjectURL(url);
   }
 
-  function renderResults(filteredIDs) {
-    const shownIDs = focusPaperIds(filteredIDs);
+  function renderResults(shownIDs) {
     const papers = state.papers.filter((paper) => shownIDs.has(String(paper.paper_id)));
     const selection = $("[data-selection]");
-    selection.innerHTML = focus
+    selection.innerHTML = matrixCell
+      ? `<p class="hx-eyebrow">SELECTED MATRIX CELL</p><h3>${escapeHTML(matrixCell.row)} × ${escapeHTML(matrixCell.column)}</h3><p>${papers.length} matching paper${papers.length === 1 ? "" : "s"} · ${escapeHTML(scopeLabel())}</p><button type="button" data-clear-matrix-cell>Clear matrix cell</button><button type="button" class="hx-download-csv" data-download-csv>Download CSV</button>`
+      : focus
       ? `<p class="hx-eyebrow">SELECTED ${focus.type.toUpperCase()}</p><h3>${escapeHTML(focus.label)}</h3><p>${papers.length} related paper${papers.length === 1 ? "" : "s"} under the current filters.</p><button type="button" data-clear-selection>Show all filtered papers</button><button type="button" class="hx-download-csv" data-download-csv>Download CSV</button>`
       : `<p class="hx-eyebrow">MAP &amp; RESULTS</p><h3>All matching case studies</h3><p>Click an island, area or region polygon to focus these results. Papers without mappable geometry remain listed below.</p><button type="button" class="hx-download-csv" data-download-csv>Download CSV</button>`;
     selection.querySelector("[data-clear-selection]")?.addEventListener("click", () => {
       focus = null;
+      render();
+    });
+    selection.querySelector("[data-clear-matrix-cell]")?.addEventListener("click", () => {
+      matrixCell = null;
       render();
     });
     selection.querySelector("[data-download-csv]")?.addEventListener("click", () => downloadCSV(papers));
@@ -628,17 +819,21 @@
   function render() {
     if (!state) return;
     const filteredIDs = filteredPaperIds();
-    const mappedIDs = focus ? focusPaperIds(filteredIDs) : filteredIDs;
+    const baseIDs = focusPaperIds(filteredIDs);
+    renderMatrix(baseIDs);
+    const mappedIDs = matrixCell
+      ? matrixView.cells.get(matrixKey(matrixCell.row, matrixCell.column)) || new Set()
+      : baseIDs;
     const hasActiveFilters = [
       appliedFilters.islands.length,
       appliedFilters.nbs.length,
       appliedFilters.ecosystems.length,
     ].some(Boolean);
-    const showResearchLayers = mapActivated || Boolean(focus) || hasActiveFilters;
+    const showResearchLayers = mapActivated || Boolean(focus) || Boolean(matrixCell) || hasActiveFilters;
     if (showResearchLayers) renderMap(mappedIDs);
     else renderInitialMap();
-    renderResults(filteredIDs);
-    const selected = focusPaperIds(filteredIDs);
+    renderResults(mappedIDs);
+    const selected = mappedIDs;
     const islandLabel = appliedFilters.islands
       .map((islandID) => geoDisplayName(islandID, state.geoUnitById.get(islandID)?.geo_unit_name))
       .join(" + ");
@@ -648,21 +843,25 @@
       appliedFilters.ecosystems.join(" + "),
     ].filter(Boolean);
     $(`[data-map-summary]`).innerHTML = showResearchLayers
-      ? `<strong>${selected.size}</strong> paper${selected.size === 1 ? "" : "s"}${focus ? ` in ${escapeHTML(focus.label)}` : ""}${filters.length ? ` · ${escapeHTML(filters.join(" · "))}` : ""}`
+      ? `<strong>${selected.size}</strong> paper${selected.size === 1 ? "" : "s"}${matrixCell ? ` · ${escapeHTML(matrixCell.row)} × ${escapeHTML(matrixCell.column)}` : focus ? ` in ${escapeHTML(focus.label)}` : ""}${filters.length ? ` · ${escapeHTML(filters.join(" · "))}` : ""}`
       : `<strong>8</strong> main Hawaiian islands · select a place or filter to explore`;
   }
 
-  map.on("click", () => {
-    if (!focus) return;
-    focus = null;
-    render();
+  map.on("click", (event) => {
+    if (focus || matrixCell) {
+      focus = null;
+      matrixCell = null;
+      render();
+    }
+    selectRainfallLocation({
+      lat: event.latlng.lat,
+      lng: event.latlng.lng,
+      source: "map",
+    });
   });
 
   Promise.all(
-    Object.entries(dataURLs)
-      .filter(([key]) => !["rainfallOverlay", "rainfallValues", "rainfallMetadata"].includes(key))
-      .map(([, url]) =>
-
+    Object.values(dataURLs).map((url) =>
       fetch(url).then((response) => {
         if (!response.ok) throw new Error(`Unable to load ${url.pathname}`);
         return response.json();
@@ -724,6 +923,12 @@
         if (!rowsByPaper.has(pid)) rowsByPaper.set(pid, []);
         rowsByPaper.get(pid).push(row);
       });
+      const areaNameById = new Map();
+      joinedLocations.forEach((row) => {
+        if (row.area_id && areaGeomsByNewId.has(row.area_id) && !areaNameById.has(row.area_id)) {
+          areaNameById.set(row.area_id, row.area_name || row.area_id);
+        }
+      });
 
       const coversByPaper = new Map();
       rowsByPaper.forEach((rows, pid) => {
@@ -745,10 +950,68 @@
         membersByGroup,
         islandFeatureByGeo,
         areaGeomsByNewId,
+        areaNameById,
         regionFeatureByGeo,
       };
 
       $("[data-total-papers]").textContent = papers.length;
+
+      const scopeSelect = $("[data-matrix-scope]");
+      scopeSelect.add(new Option("All islands", ""));
+      ISLAND_FILTER_ORDER.filter((id) => geoUnitById.has(id)).forEach((id) =>
+        scopeSelect.add(new Option(geoDisplayName(id, geoUnitById.get(id).geo_unit_name), `geo:${id}`)));
+      [...regionFeatureByGeo.keys()].filter((id) => !ISLAND_FILTER_ORDER.includes(id)).forEach((id) =>
+        scopeSelect.add(new Option(geoDisplayName(id, geoUnitById.get(id)?.geo_unit_name), `geo:${id}`)));
+      [...areaNameById].sort((a, b) => a[1].localeCompare(b[1])).forEach(([id, name]) =>
+        scopeSelect.add(new Option(`Area · ${name}`, `area:${id}`)));
+      scopeSelect.addEventListener("change", () => {
+        clearSidebarIslands();
+        matrixCell = null;
+        if (!scopeSelect.value || scopeSelect.value === "sidebar") {
+          focus = null;
+          mapActivated = true;
+          fitMainHawaiianIslands();
+          render();
+          return;
+        }
+        const [type, id] = scopeSelect.value.split(":");
+        const feature = type === "area" ? areaGeomsByNewId.get(id)
+          : regionFeatureByGeo.get(id) || islandFeatureByGeo.get(id);
+        const label = type === "area" ? areaNameById.get(id)
+          : geoDisplayName(id, geoUnitById.get(id)?.geo_unit_name);
+        const geometry = type === "area" && feature
+          ? { type: "FeatureCollection", features: feature } : feature;
+        selectGeography(type, id, label, geometry ? L.geoJSON(geometry) : null);
+      });
+      for (const [key, axis] of Object.entries(MATRIX_AXES)) {
+        $("[data-matrix-rows]").add(new Option(axis.label, key));
+        $("[data-matrix-columns]").add(new Option(axis.label, key));
+      }
+      $("[data-matrix-rows]").value = matrixRows;
+      $("[data-matrix-columns]").value = matrixColumns;
+      ["rows", "columns"].forEach((side) => {
+        $(`[data-matrix-${side}]`).addEventListener("change", (event) => {
+          if (side === "rows") matrixRows = event.target.value;
+          else matrixColumns = event.target.value;
+          if (matrixRows === matrixColumns) {
+            const other = Object.keys(MATRIX_AXES).find((key) => key !== event.target.value);
+            if (side === "rows") matrixColumns = other;
+            else matrixRows = other;
+            $("[data-matrix-rows]").value = matrixRows;
+            $("[data-matrix-columns]").value = matrixColumns;
+          }
+          matrixCell = null;
+          render();
+        });
+      });
+      $("[data-matrix-grid]").addEventListener("click", (event) => {
+        const button = event.target.closest("[data-matrix-cell]");
+        if (!button) return;
+        const [rowIndex, columnIndex] = button.dataset.matrixCell.split(":").map(Number);
+        matrixCell = { row: matrixView.rows[rowIndex], column: matrixView.columns[columnIndex] };
+        render();
+        showPanel("results");
+      });
 
       const islandOptions = $("[data-filter-islands]");
       ISLAND_FILTER_ORDER.filter((geoID) => geoUnitById.has(geoID)).forEach((geoID) => {
@@ -818,6 +1081,7 @@
         };
         const islandChanged = nextFilters.islands.join("|") !== appliedFilters.islands.join("|");
         appliedFilters = nextFilters;
+        matrixCell = null;
         // Clicking Apply is an explicit request to show research layers, even
         // when every dropdown is set to its "All" option.
         mapActivated = true;
@@ -832,6 +1096,7 @@
       });
       $("[data-main-islands]").addEventListener("click", () => {
         focus = null;
+        matrixCell = null;
         mapActivated = false;
         root.querySelectorAll(".hx-case-nav nav button").forEach((button) => button.classList.remove("is-active"));
         $("[data-main-islands]").classList.add("is-active");
@@ -840,6 +1105,8 @@
       });
       $("[data-nwhi]").addEventListener("click", () => {
         mapActivated = true;
+        clearSidebarIslands();
+        matrixCell = null;
         const feature = regionFeatureByGeo.get("geo_nwhi");
         const label = geoUnitById.get("geo_nwhi")?.geo_unit_name || "Northwestern Hawaiian Islands";
         focus = { type: "geo", id: "geo_nwhi", label };
@@ -868,6 +1135,7 @@
         });
         ecosystemOptions.querySelectorAll("[data-ecosystem-option]").forEach((option) => { const active = !option.dataset.ecosystemOption; option.classList.toggle("is-active", active); option.setAttribute("aria-pressed", String(active)); });
         appliedFilters = { islands: [], nbs: [], ecosystems: [] };
+        matrixCell = null;
         $("[data-apply-filters]").classList.remove("is-pending");
         focus = null;
         mapActivated = false;
