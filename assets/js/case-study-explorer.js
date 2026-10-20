@@ -148,7 +148,7 @@
         <label><span>Rows</span><select data-matrix-rows aria-label="Matrix rows"></select></label>
         <label><span>Columns</span><select data-matrix-columns aria-label="Matrix columns"></select></label>
       </div>
-      <p class="hx-analytics-note">Unique papers at each intersection. Select a count to inspect its papers and mapped locations.</p>
+      <div class="hx-matrix-guide"><p class="hx-analytics-note">Unique papers at each intersection. Select a count to inspect its papers and mapped locations.</p><div class="hx-matrix-scale" aria-label="Circle color: lighter means fewer papers; darker means more papers"><span>Fewer papers</span><i aria-hidden="true"></i><span>More papers</span></div></div>
       <div class="hx-matrix-scroll" data-matrix-grid></div>
     </section>`;
 
@@ -439,14 +439,22 @@
       const start = Math.min(stops.length - 2, Math.floor(position));
       const fraction = position - start;
       const rgb = stops[start].map((value, index) => Math.round(value + (stops[start + 1][index] - value) * fraction));
-      const luminance = (rgb[0] * 0.2126 + rgb[1] * 0.7152 + rgb[2] * 0.0722) / 255;
-      return `--matrix-fill:rgb(${rgb.join(",")});--matrix-ink:${luminance < 0.55 ? "#fff9eb" : "#30210e"}`;
+      const luminance = (color) => color.map((value) => {
+        const channel = value / 255;
+        return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+      }).reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
+      const fillLightness = luminance(rgb);
+      const darkInk = luminance([9, 7, 5]);
+      const lightInk = luminance([255, 249, 235]);
+      const darkContrast = (fillLightness + 0.05) / (darkInk + 0.05);
+      const lightContrast = (lightInk + 0.05) / (fillLightness + 0.05);
+      return `--matrix-fill:rgb(${rgb.join(",")});--matrix-ink:${lightContrast > darkContrast ? "#fff9eb" : "#090705"}`;
     };
     syncScopeControl();
     $("[data-matrix-summary]").textContent = `${scopeLabel()} · ${baseIDs.size} papers after current filters · ${matrixView.represented.size} with both selected attributes`;
     const columns = matrixView.columns;
     const rows = matrixView.rows;
-    const header = columns.map((column) => `<th scope="col" title="${escapeHTML(column)}"><span>${escapeHTML(column)}</span></th>`).join("");
+    const header = columns.map((column, index) => `<th scope="col" title="${escapeHTML(column)}" style="z-index:${columns.length - index + 4}"><span>${escapeHTML(column)}</span></th>`).join("");
     const totals = columns.map((column) => `<td class="hx-matrix-total">${matrixView.columnTotals.get(column).size}</td>`).join("");
     const body = rows.map((row, rowIndex) => {
       const cells = columns.map((column, columnIndex) => {

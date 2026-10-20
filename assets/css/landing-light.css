@@ -366,11 +366,11 @@ html[data-landing-theme="light"] .landing-home .landing-contact-footer {
 
 /* NbS Knowledge Hub-inspired light theme: charcoal, clear blue, quiet white. */
 html[data-landing-theme="light"] .landing-home {
-  --landing-bg: #f7f8fa;
-  --landing-ink: #242b38;
-  --landing-muted: #596576;
-  --landing-accent: #146b91;
-  --landing-line: #dce1e8;
+  --landing-bg: var(--ui-page);
+  --landing-ink: var(--ui-ink);
+  --landing-muted: var(--ui-muted);
+  --landing-accent: var(--ui-accent);
+  --landing-line: var(--ui-line);
 }
 
 html[data-landing-theme="light"] .landing-home .landing-header {
@@ -415,28 +415,28 @@ html[data-landing-theme="light"] .landing-home .landing-button-secondary {
 html[data-landing-theme="light"] .landing-home .landing-button-secondary:hover { color: #fff; background: #146b91; border-color: #146b91; }
 
 html[data-landing-theme="light"] .landing-home .landing-topics,
-html[data-landing-theme="light"] .landing-home .landing-contact-footer { background: #f1f4f7; border-color: #dce1e8; }
-html[data-landing-theme="light"] .landing-home .landing-topics h2 { color: #242b38; }
-html[data-landing-theme="light"] .landing-home .landing-topics-heading > p { color: #596576; }
+html[data-landing-theme="light"] .landing-home .landing-contact-footer { background: #eaece6; border-color: #d3ddd9; }
+html[data-landing-theme="light"] .landing-home .landing-topics h2 { color: #26343a; }
+html[data-landing-theme="light"] .landing-home .landing-topics-heading > p { color: #53646b; }
 html[data-landing-theme="light"] .landing-home .topic-card,
 html[data-landing-theme="light"] .landing-home .landing-story-reference h2,
 html[data-landing-theme="light"] .landing-home .landing-assessment-copy h2,
 html[data-landing-theme="light"] .landing-home .landing-assessment-question h3,
-html[data-landing-theme="light"] .landing-home .landing-contact-copy h2 { color: #30353b; }
+html[data-landing-theme="light"] .landing-home .landing-contact-copy h2 { color: #26343a; }
 html[data-landing-theme="light"] .landing-home .topic-number,
 html[data-landing-theme="light"] .landing-home .topic-description,
 html[data-landing-theme="light"] .landing-home .landing-story-summary,
 html[data-landing-theme="light"] .landing-home .landing-assessment-summary,
 html[data-landing-theme="light"] .landing-home .landing-assessment-question p,
-html[data-landing-theme="light"] .landing-home .landing-contact-copy > p:last-child { color: #59636d; }
+html[data-landing-theme="light"] .landing-home .landing-contact-copy > p:last-child { color: #53646b; }
 html[data-landing-theme="light"] .landing-home .landing-story-reference,
-html[data-landing-theme="light"] .landing-home .landing-contact-page { background: #fff; border-color: #dce1e8; color: #242b38; }
-html[data-landing-theme="light"] .landing-home .landing-assessment-page { background: #f7f8fa; border-color: #dce1e8; color: #242b38; }
+html[data-landing-theme="light"] .landing-home .landing-contact-page { background: #faf9f5; border-color: #d3ddd9; color: #26343a; }
+html[data-landing-theme="light"] .landing-home .landing-assessment-page { background: #f3f2ec; border-color: #d3ddd9; color: #26343a; }
 html[data-landing-theme="light"] .landing-home .landing-topics-heading .landing-section-kicker,
 html[data-landing-theme="light"] .landing-home .landing-story-reference .landing-section-kicker,
 html[data-landing-theme="light"] .landing-home .impact-copy .impact-group-label,
 html[data-landing-theme="light"] .landing-home .landing-assessment-number,
-html[data-landing-theme="light"] .landing-home .landing-contact-copy .landing-section-kicker { color: #146b91; }
+html[data-landing-theme="light"] .landing-home .landing-contact-copy .landing-section-kicker { color: #286653; }
 html[data-landing-theme="light"] .landing-home .landing-story-reference h2 span,
 html[data-landing-theme="light"] .landing-home .landing-assessment-copy h2 span { color: #6786c0; }
 html[data-landing-theme="light"] .landing-home .topic-card:nth-child(1) { --topic-color: #dce7f9; }
