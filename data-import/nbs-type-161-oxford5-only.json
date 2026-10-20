@@ -1,0 +1,1443 @@
+{
+  "taxonomy": [
+    "Protection",
+    "Restoration",
+    "Management",
+    "Created habitats",
+    "Food production"
+  ],
+  "source": "Excel all worksheet, column G (2.1 Primary NbS Type)",
+  "method": "Provisional keyword-based mapping from original column G; not independently validated against all papers. Empty intervention_types indicates unresolved classification.",
+  "integration": "Patch only NbS Type-related fields by paper_id; preserve all other website fields and filters.",
+  "summary": {
+    "total": 161,
+    "classified_provisionally": 156,
+    "unmapped": 5,
+    "unmapped_ids": [
+      "53",
+      "63",
+      "94",
+      "123",
+      "135"
+    ],
+    "category_counts": {
+      "Protection": 41,
+      "Restoration": 99,
+      "Management": 93,
+      "Food production": 50,
+      "Created habitats": 5
+    }
+  },
+  "records": [
+    {
+      "paper_id": "1",
+      "primary_nbs_type_original": "Multiple — managed rangelands; rotational grazing; silvopasture/native-tree restoration; firebreaks; watershed conservation",
+      "intervention_types": [
+        "Protection",
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "2",
+      "primary_nbs_type_original": "Upland forest protection / watershed conservation",
+      "intervention_types": [
+        "Protection",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "3",
+      "primary_nbs_type_original": "Upland forest restoration — historical native and hybrid biocultural forest scenarios",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "4",
+      "primary_nbs_type_original": "Marine protected area / ecosystem-based marine management",
+      "intervention_types": [
+        "Protection",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "5",
+      "primary_nbs_type_original": "Loʻi kalo / wetland agroecology; agroforestry; ridge-to-reef biocultural restoration",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "6",
+      "primary_nbs_type_original": "Upland/dry forest restoration and watershed management",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "7",
+      "primary_nbs_type_original": "Ridge-to-reef management; community-led marine closures / MPA; coastal watershed management",
+      "intervention_types": [
+        "Protection",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "8",
+      "primary_nbs_type_original": "Biocultural stewardship / community land trust / land rematriation",
+      "intervention_types": [
+        "Protection",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "9",
+      "primary_nbs_type_original": "Dry forest restoration — invasive-grass suppression and native outplanting",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "10",
+      "primary_nbs_type_original": "Forest protection / watershed restoration through ungulate exclusion and native forest stewardship",
+      "intervention_types": [
+        "Protection",
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "11",
+      "primary_nbs_type_original": "Marine protected area / herbivore management area",
+      "intervention_types": [
+        "Protection",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "12",
+      "primary_nbs_type_original": "Multiple — urban loʻi kalo; agroforestry; urban forestry; stream/land restoration; biocultural stewardship",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "13",
+      "primary_nbs_type_original": "Upland forest restoration — koa outplanting and invasive-grass control",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "14",
+      "primary_nbs_type_original": "Dry forest restoration — fencing, invasive-grass suppression, and native outplanting",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "15",
+      "primary_nbs_type_original": "Agroforestry / koa silvopasture",
+      "intervention_types": [
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "16",
+      "primary_nbs_type_original": "Loko iʻa / Indigenous aquaculture and coastal biocultural stewardship",
+      "intervention_types": [
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "17",
+      "primary_nbs_type_original": "Post-fire mesic forest restoration — weed control and native outplanting",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "18",
+      "primary_nbs_type_original": "Dry forest conservation/restoration through ungulate exclusion and invasive-grass removal",
+      "intervention_types": [
+        "Protection",
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "19",
+      "primary_nbs_type_original": "Climate-adapted montane forest restoration / assisted provenance movement",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "20",
+      "primary_nbs_type_original": "Multiple — forest protection; ungulate/weed management; native and hybrid restoration; biocultural ahupuaʻa stewardship",
+      "intervention_types": [
+        "Protection",
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "21",
+      "primary_nbs_type_original": "Biocultural forest stewardship — customary sustainable harvest with adaptive invasive-species weeding",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "22",
+      "primary_nbs_type_original": "Marine protected areas and community-based coastal co-management",
+      "intervention_types": [
+        "Protection",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "23",
+      "primary_nbs_type_original": "Dynamic area-based marine conservation / species-habitat decision support",
+      "intervention_types": [
+        "Protection"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "24",
+      "primary_nbs_type_original": "Loko iʻa restoration with UAV-based climate-vulnerability monitoring",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "25",
+      "primary_nbs_type_original": "Coral nursery restoration / assisted coral propagation",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "26",
+      "primary_nbs_type_original": "Forested-watershed conservation and restoration",
+      "intervention_types": [
+        "Protection",
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "27",
+      "primary_nbs_type_original": "Forested-watershed conservation — reforestation, fire control, and ungulate exclusion",
+      "intervention_types": [
+        "Protection",
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "28",
+      "primary_nbs_type_original": "Marine protected areas / Marine Life Conservation Districts",
+      "intervention_types": [
+        "Protection"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "29",
+      "primary_nbs_type_original": "Restored loko iʻa / Indigenous aquaculture and water-flow stewardship",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "30",
+      "primary_nbs_type_original": "Historical loʻi kalo, irrigation canals, terraces, and valley agroforestry",
+      "intervention_types": [
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "31",
+      "primary_nbs_type_original": "Ungulate exclusion/removal as ecological restoration",
+      "intervention_types": [
+        "Protection",
+        "Restoration",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "32",
+      "primary_nbs_type_original": "Ungulate exclusion / passive forest restoration",
+      "intervention_types": [
+        "Protection",
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "33",
+      "primary_nbs_type_original": "Ridge-to-reef watershed restoration — grazer exclusion, habitat engineering, and native replanting",
+      "intervention_types": [
+        "Protection",
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "34",
+      "primary_nbs_type_original": "Coastal wetland/pond restoration with managed hydrology",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "35",
+      "primary_nbs_type_original": "Biocultural Hawaiian dry-forest restoration and native-species regeneration",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "36",
+      "primary_nbs_type_original": "Native koa reforestation using nurse-crop facilitation",
+      "intervention_types": [
+        "Restoration",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "37",
+      "primary_nbs_type_original": "Biocultural Hawaiian dry-forest restoration — weed control, native outplanting, and descendant/community stewardship",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "38",
+      "primary_nbs_type_original": "Historical Indigenous agroforestry and arboriculture",
+      "intervention_types": [
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "39",
+      "primary_nbs_type_original": "Native koa reforestation with invasive-grass suppression",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "40",
+      "primary_nbs_type_original": "Revitalized Indigenous aquaculture — loko iʻa, Palauan fish traps, clam gardens, and intertidal harvesting systems",
+      "intervention_types": [
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "41",
+      "primary_nbs_type_original": "Post-fire native woodland restoration through direct seeding",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "42",
+      "primary_nbs_type_original": "Biocultural watershed governance and loʻi kalo stewardship",
+      "intervention_types": [
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "43",
+      "primary_nbs_type_original": "Biocultural protection and restoration of groundwater-dependent coastal ecosystems",
+      "intervention_types": [
+        "Protection",
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "44",
+      "primary_nbs_type_original": "University-led habitat restoration and long-term stewardship",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "45",
+      "primary_nbs_type_original": "Urban biocultural stewardship and place-based practitioner training",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "46",
+      "primary_nbs_type_original": "Multiple — urban loʻi kalo; agroforestry; urban forestry; stream/land restoration; biocultural stewardship",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "47",
+      "primary_nbs_type_original": "Active dryland restoration through weed control, seeding, and native outplanting",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "48",
+      "primary_nbs_type_original": "Community-led ahupuaʻa watershed restoration with swales and revegetation",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "49",
+      "primary_nbs_type_original": "Place-based Indigenous stewardship and customary resource-management practices",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "50",
+      "primary_nbs_type_original": "Active native-vegetation restoration within ungulate exclosures",
+      "intervention_types": [
+        "Protection",
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "51",
+      "primary_nbs_type_original": "Native dry-forest restoration through broadcast seeding and grass suppression",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "52",
+      "primary_nbs_type_original": "Customary agroforestry, nearshore management, and biocultural resource governance",
+      "intervention_types": [
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "53",
+      "primary_nbs_type_original": "Mangrove blue-carbon and shoreline-accretion function in a novel ecosystem",
+      "intervention_types": [],
+      "classification_status": "unmapped_needs_review"
+    },
+    {
+      "paper_id": "54",
+      "primary_nbs_type_original": "Marine protected areas / spatial fisheries protection",
+      "intervention_types": [
+        "Protection",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "55",
+      "primary_nbs_type_original": "Coral-reef protection decision support for wastewater management — enabling, not itself NbS",
+      "intervention_types": [
+        "Protection",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "56",
+      "primary_nbs_type_original": "Native forest watershed protection and restoration",
+      "intervention_types": [
+        "Protection",
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "57",
+      "primary_nbs_type_original": "Active lowland wet-forest restoration with invasive removal and native/functional outplanting",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "58",
+      "primary_nbs_type_original": "Coastal wetland restoration and creation",
+      "intervention_types": [
+        "Restoration",
+        "Created habitats"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "59",
+      "primary_nbs_type_original": "Proposed loʻi kalo and coastal-wetland restoration",
+      "intervention_types": [
+        "Restoration",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "60",
+      "primary_nbs_type_original": "Post-fire native dry-forest restoration through broadcast seeding and long-term weed management",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "61",
+      "primary_nbs_type_original": "Loko iʻa / Indigenous aquaculture / fishpond restoration or management",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "62",
+      "primary_nbs_type_original": "Rangeland / pasture restoration and native-tree integration",
+      "intervention_types": [
+        "Restoration",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "63",
+      "primary_nbs_type_original": "Biocultural sustainability framework (conceptual)",
+      "intervention_types": [],
+      "classification_status": "unmapped_needs_review"
+    },
+    {
+      "paper_id": "64",
+      "primary_nbs_type_original": "Loko iʻa / Indigenous aquaculture / fishpond restoration or management",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "65",
+      "primary_nbs_type_original": "Dry-forest restoration through invasive-grass removal / ecohydrological restoration",
+      "intervention_types": [
+        "Restoration",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "66",
+      "primary_nbs_type_original": "Rangeland / pasture restoration and native-tree integration",
+      "intervention_types": [
+        "Restoration",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "67",
+      "primary_nbs_type_original": "Breadfruit agroforestry / biocultural food-system restoration",
+      "intervention_types": [
+        "Restoration",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "68",
+      "primary_nbs_type_original": "Native forest / woodland restoration and protection",
+      "intervention_types": [
+        "Protection",
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "69",
+      "primary_nbs_type_original": "Loko iʻa restoration — fishpond wall repair, sluice-gate restoration, mangrove removal",
+      "intervention_types": [
+        "Restoration",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "70",
+      "primary_nbs_type_original": "Loko iʻa",
+      "intervention_types": [
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "71",
+      "primary_nbs_type_original": "Native forest / woodland restoration and protection",
+      "intervention_types": [
+        "Protection",
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "72",
+      "primary_nbs_type_original": "Native forest / woodland restoration and protection",
+      "intervention_types": [
+        "Protection",
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "73",
+      "primary_nbs_type_original": "Native forest / woodland restoration and protection",
+      "intervention_types": [
+        "Protection",
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "74",
+      "primary_nbs_type_original": "Loko iʻa / Indigenous aquaculture / fishpond restoration or management",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "75",
+      "primary_nbs_type_original": "Agroforestry / Indigenous agriculture / productive landscape restoration",
+      "intervention_types": [
+        "Restoration",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "76",
+      "primary_nbs_type_original": "Loko iʻa / Indigenous aquaculture / fishpond restoration or management",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "77",
+      "primary_nbs_type_original": "Native forest species restoration / maile population restoration",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "78",
+      "primary_nbs_type_original": "Marine protected area / fisheries management",
+      "intervention_types": [
+        "Protection",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "79",
+      "primary_nbs_type_original": "Seabird restoration through social attraction and translocation",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "80",
+      "primary_nbs_type_original": "Watershed / coastal restoration governance (conceptual)",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "81",
+      "primary_nbs_type_original": "Native forest / woodland restoration and protection",
+      "intervention_types": [
+        "Protection",
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "82",
+      "primary_nbs_type_original": "Historical Indigenous agroforestry / pākukui swidden system",
+      "intervention_types": [
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "83",
+      "primary_nbs_type_original": "Community-based fisheries / biocultural marine management",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "84",
+      "primary_nbs_type_original": "Native forest / woodland restoration and protection",
+      "intervention_types": [
+        "Protection",
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "85",
+      "primary_nbs_type_original": "Marine sanctuary / ecosystem-based marine management",
+      "intervention_types": [
+        "Protection",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "86",
+      "primary_nbs_type_original": "Loko iʻa / Indigenous fishpond restoration and sediment retention",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "87",
+      "primary_nbs_type_original": "Digital tools supporting rain-garden adoption and monitoring",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "88",
+      "primary_nbs_type_original": "Island invasive-vertebrate eradication for ecosystem restoration",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "89",
+      "primary_nbs_type_original": "Community-based fisheries / biocultural marine management",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "90",
+      "primary_nbs_type_original": "Integrated island / ridge-to-reef management",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "91",
+      "primary_nbs_type_original": "Flood-risk NbS / watershed and green-infrastructure management",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "92",
+      "primary_nbs_type_original": "Integrated coastal/watershed restoration planning",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "93",
+      "primary_nbs_type_original": "Place-based water resilience / community watershed stewardship",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "94",
+      "primary_nbs_type_original": "Climate adaptation interventions affecting Pacific Island health (review)",
+      "intervention_types": [],
+      "classification_status": "unmapped_needs_review"
+    },
+    {
+      "paper_id": "95",
+      "primary_nbs_type_original": "Place-based equity for local food producers (supporting policy evidence)",
+      "intervention_types": [
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "96",
+      "primary_nbs_type_original": "Urban community green-space / biocultural restoration",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "97",
+      "primary_nbs_type_original": "Green stormwater infrastructure — rain gardens, bioretention, wetlands, trees",
+      "intervention_types": [
+        "Created habitats"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "98",
+      "primary_nbs_type_original": "Loko iʻa / Alakoko fishpond biocultural restoration",
+      "intervention_types": [
+        "Restoration",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "99",
+      "primary_nbs_type_original": "Dry-forest restoration monitoring using Landsat",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "100",
+      "primary_nbs_type_original": "Native forest restoration / functional-trait-based restoration",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "101",
+      "primary_nbs_type_original": "Rangeland / pasture restoration and native-tree integration",
+      "intervention_types": [
+        "Restoration",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "102",
+      "primary_nbs_type_original": "Native forest / woodland restoration and protection",
+      "intervention_types": [
+        "Protection",
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "103",
+      "primary_nbs_type_original": "Active coral reef restoration / coral micro-fragmentation",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "104",
+      "primary_nbs_type_original": "Reef herbivore management for coral-reef resilience",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "105",
+      "primary_nbs_type_original": "Native forest / woodland restoration and protection",
+      "intervention_types": [
+        "Protection",
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "106",
+      "primary_nbs_type_original": "Community-based fisheries governance / Indigenous rights and environmental justice",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "107",
+      "primary_nbs_type_original": "Indigenous fisheries monitoring and intergenerational knowledge co-production",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "108",
+      "primary_nbs_type_original": "Agroforestry transition / carbon restoration",
+      "intervention_types": [
+        "Restoration",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "109",
+      "primary_nbs_type_original": "Coastal wetland habitat restoration and endangered waterbird management",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "110",
+      "primary_nbs_type_original": "Coral-reef fisheries management under multiple land/sea stressors",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "111",
+      "primary_nbs_type_original": "Watershed partnership governance / ecosystem management",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "112",
+      "primary_nbs_type_original": "Watershed and groundwater-dependent ecosystem management",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "113",
+      "primary_nbs_type_original": "Coral-reef invasive-algae removal with native herbivore biocontrol",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "114",
+      "primary_nbs_type_original": "Community-based/artisanal coral-reef fisheries monitoring",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "115",
+      "primary_nbs_type_original": "Wetland habitat protection / predator-exclusion management for waterbirds",
+      "intervention_types": [
+        "Protection",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "116",
+      "primary_nbs_type_original": "Native plant reintroduction/restoration optimized with demographic-economic analysis",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "117",
+      "primary_nbs_type_original": "Marine protected area / fisheries management",
+      "intervention_types": [
+        "Protection",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "118",
+      "primary_nbs_type_original": "Coral reef conservation / historical recovery reconstruction",
+      "intervention_types": [
+        "Protection",
+        "Restoration",
+        "Created habitats"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "119",
+      "primary_nbs_type_original": "Ridge-to-reef environmental monitoring network (enabling technology)",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "120",
+      "primary_nbs_type_original": "Ridge-to-reef watershed restoration / sediment management",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "121",
+      "primary_nbs_type_original": "Native forest / woodland restoration and protection",
+      "intervention_types": [
+        "Protection",
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "122",
+      "primary_nbs_type_original": "Marine protected area / fisheries management",
+      "intervention_types": [
+        "Protection",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "123",
+      "primary_nbs_type_original": "Marine debris / pollution removal through multiagency partnership",
+      "intervention_types": [],
+      "classification_status": "unmapped_needs_review"
+    },
+    {
+      "paper_id": "124",
+      "primary_nbs_type_original": "Rare native-tree conservation planning using population genomics",
+      "intervention_types": [
+        "Protection"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "125",
+      "primary_nbs_type_original": "Native forest / woodland restoration and protection",
+      "intervention_types": [
+        "Protection",
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "126",
+      "primary_nbs_type_original": "Native forest / woodland restoration and protection",
+      "intervention_types": [
+        "Protection",
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "127",
+      "primary_nbs_type_original": "Indigenous knowledge and restoration-monitoring education",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "128",
+      "primary_nbs_type_original": "Loko iʻa restoration policy / permitting reform",
+      "intervention_types": [
+        "Restoration",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "129",
+      "primary_nbs_type_original": "Dryland forest / grassland restoration for wildfire resilience",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "130",
+      "primary_nbs_type_original": "ʻĀina maloʻo / Indigenous dryland agricultural restoration",
+      "intervention_types": [
+        "Restoration",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "131",
+      "primary_nbs_type_original": "Dryland forest / grassland restoration for wildfire resilience",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "132",
+      "primary_nbs_type_original": "Dryland forest / grassland restoration for wildfire resilience",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "133",
+      "primary_nbs_type_original": "Integrated landscape / dryland resource management plan",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "134",
+      "primary_nbs_type_original": "Community-led dryland biocultural restoration and stewardship",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "135",
+      "primary_nbs_type_original": "Multiple island NbS (global compendium)",
+      "intervention_types": [],
+      "classification_status": "unmapped_needs_review"
+    },
+    {
+      "paper_id": "136",
+      "primary_nbs_type_original": "Loʻi kalo restoration / Land Back and biocultural governance",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "137",
+      "primary_nbs_type_original": "Loʻi kalo restoration / Hoʻokuaʻāina biocultural stewardship",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "138",
+      "primary_nbs_type_original": "Loʻi kalo restoration / Hoʻokuaʻāina biocultural stewardship",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "139",
+      "primary_nbs_type_original": "Loko iʻa restoration as interspecies care / community stewardship",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "140",
+      "primary_nbs_type_original": "Loko iʻa fisheries dynamics under biocultural restoration and climate change",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "141",
+      "primary_nbs_type_original": "Native-forest protection plus agroforestry/silvopasture landscape transitions",
+      "intervention_types": [
+        "Protection",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "142",
+      "primary_nbs_type_original": "Multiple — loʻi kalo/wetland agroecology; loko iʻa; agroforestry; forest management; habitat engineering; ahupuaʻa/moku ridge-to-reef management; coastal and aquatic resource management",
+      "intervention_types": [
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "143",
+      "primary_nbs_type_original": "Coastal watershed management / partial streamflow restoration",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "144",
+      "primary_nbs_type_original": "Large-scale ʻāina stewardship / institutional biocultural restoration",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "145",
+      "primary_nbs_type_original": "Moku-based biocultural resource governance",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "146",
+      "primary_nbs_type_original": "Indigenous crop restoration — kalo, ʻuala, kō, ʻawa",
+      "intervention_types": [
+        "Restoration",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "147",
+      "primary_nbs_type_original": "Nā Kilo ʻĀina community-based biocultural monitoring/restoration",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "148",
+      "primary_nbs_type_original": "Hālau ʻŌhiʻa cultural/ecological training and stewardship capacity",
+      "intervention_types": [
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "149",
+      "primary_nbs_type_original": "Community-based fisheries management / Kahana biocultural stewardship",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "150",
+      "primary_nbs_type_original": "Loko iʻa restoration and management for climate resilience",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "151",
+      "primary_nbs_type_original": "Loko iʻa restoration and management guidance / implementation",
+      "intervention_types": [
+        "Restoration",
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "152",
+      "primary_nbs_type_original": "Installed rain gardens / green stormwater infrastructure",
+      "intervention_types": [
+        "Created habitats"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "153",
+      "primary_nbs_type_original": "Residential rain gardens / green stormwater infrastructure guidance",
+      "intervention_types": [
+        "Created habitats"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "154",
+      "primary_nbs_type_original": "Loko iʻa practitioner network and policy/governance reform",
+      "intervention_types": [
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "155",
+      "primary_nbs_type_original": "Community-based watershed restoration in Heʻeia ahupuaʻa",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "156",
+      "primary_nbs_type_original": "Ahupuaʻa / watershed biocultural restoration at Waipā",
+      "intervention_types": [
+        "Restoration",
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "157",
+      "primary_nbs_type_original": "Fisheries and aquaculture food-system resilience",
+      "intervention_types": [
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "158",
+      "primary_nbs_type_original": "Loʻi kalo / wetland taro production",
+      "intervention_types": [
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "159",
+      "primary_nbs_type_original": "Loʻi kalo agroecosystem / wetland habitat stewardship",
+      "intervention_types": [
+        "Management",
+        "Food production"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "160",
+      "primary_nbs_type_original": "Proposed flood-management / watershed interventions in Hanalei",
+      "intervention_types": [
+        "Management"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    },
+    {
+      "paper_id": "161",
+      "primary_nbs_type_original": "Biocultural restoration at Limahuli Valley",
+      "intervention_types": [
+        "Restoration"
+      ],
+      "classification_status": "rule_based_from_excel_g"
+    }
+  ]
+}

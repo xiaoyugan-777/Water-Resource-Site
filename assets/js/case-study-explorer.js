@@ -122,7 +122,7 @@
                   <button type="button" class="is-active" data-nbs-option="" aria-pressed="true">All NbS types</button>
                 </div>
               </div>
-              <div class="hx-filter-field"><span class="hx-filter-label">Ecosystem</span><div class="hx-multi-options hx-ecosystem-options" data-filter-ecosystem><button type="button" class="is-active" data-ecosystem-option="" aria-pressed="true">All ecosystems</button></div></div>
+              <div class="hx-filter-field"><span class="hx-filter-label">Ecosystem Type</span><div class="hx-multi-options hx-ecosystem-options" data-filter-ecosystem><button type="button" class="is-active" data-ecosystem-option="" aria-pressed="true">All ecosystem types</button></div></div>
             </section>
             <div class="hx-case-filter-actions">
               <button type="button" class="hx-case-reset" data-reset>Reset</button>
@@ -319,8 +319,11 @@
       .replaceAll('"', "&quot;")
       .replaceAll("'", "&#039;");
   const unique = (values) => [...new Set(values.filter(Boolean))];
-  const splitValues = (value) =>
-    String(value || "").split(";").map((part) => part.trim()).filter(Boolean);
+  const OXFORD_NBS_TYPES = ["Protection", "Restoration", "Management", "Created habitats", "Food production"];
+  const interventionTypes = (paper) => Array.isArray(paper.intervention_types)
+    ? unique(paper.intervention_types) : [];
+  const ecosystemTypes = (paper) => Array.isArray(paper.ecosystem_types)
+    ? unique(paper.ecosystem_types) : [];
 
   function addOptions(select, values, sort = true) {
     const options = sort
@@ -343,8 +346,8 @@
           const covers = paperCovers(paper.paper_id);
           return (
             (!islandIDs.length || islandIDs.some((islandID) => covers.has(islandID))) &&
-            (!nbsTypes.length || nbsTypes.includes(paper["NbS Type"])) &&
-            (!ecosystems.length || ecosystems.some((value) => splitValues(paper.Ecosystem).includes(value)))
+            (!nbsTypes.length || nbsTypes.some((value) => interventionTypes(paper).includes(value))) &&
+            (!ecosystems.length || ecosystems.some((value) => ecosystemTypes(paper).includes(value)))
           );
         })
         .map((paper) => String(paper.paper_id)),
@@ -368,8 +371,8 @@
   }
 
   const MATRIX_AXES = {
-    nbs: { label: "NbS Type", values: (paper) => paper["NbS Type"] ? [paper["NbS Type"]] : [] },
-    ecosystem: { label: "Ecosystem", values: (paper) => splitValues(paper.Ecosystem) },
+    nbs: { label: "NbS Type", values: interventionTypes },
+    ecosystem: { label: "Ecosystem Type", values: ecosystemTypes },
     year: { label: "Publication Year", values: (paper) => paper.Year ? [String(paper.Year)] : [] },
   };
   const matrixKey = (row, column) => `${row}\u0000${column}`;
@@ -746,8 +749,10 @@
         <p class="hx-paper-meta">${escapeHTML(paper.Year || "Year unavailable")}${identifierMarkup ? ` · ${identifierMarkup}` : ""}</p>
         <h4>${escapeHTML(paper.Title || "Untitled paper")}</h4>
         <dl>
-          <dt>NbS Type</dt><dd>${escapeHTML(paper["NbS Type"] || "—")}</dd>
-          <dt>Ecosystem</dt><dd>${escapeHTML(paper.Ecosystem || "—")}</dd>
+          <dt>NbS Type</dt><dd>${escapeHTML(interventionTypes(paper).join("; ") || "Unclassified")}</dd>
+          <dt>Original NbS Type</dt><dd>${escapeHTML(paper["NbS Type"] || "—")}</dd>
+          <dt>Ecosystem Type</dt><dd>${escapeHTML(ecosystemTypes(paper).join("; ") || "—")}</dd>
+          <dt>Original Ecosystem</dt><dd>${escapeHTML(paper.Ecosystem || "—")}</dd>
           <dt>Place</dt><dd>${escapeHTML(placeLabels.join("; ") || "Not specified")}</dd>
           ${areaLabels.length ? `<dt>Area</dt><dd>${escapeHTML(areaLabels.join("; "))}${nullAreas.length ? ' <span class="hx-no-geometry">No area polygon</span>' : ""}</dd>` : ""}
           ${siteLabels.length ? `<dt>Study site</dt><dd>${escapeHTML(siteLabels.join("; "))}${schematic ? ' <span class="hx-no-geometry">Schematic placement</span>' : ""}</dd>` : ""}
@@ -1021,11 +1026,11 @@
         );
       });
       const nbsOptions = $("[data-filter-nbs]");
-      unique(papers.map((paper) => paper["NbS Type"])).sort().forEach((value) => {
+      OXFORD_NBS_TYPES.forEach((value) => {
         nbsOptions.insertAdjacentHTML("beforeend", `<button type="button" data-nbs-option="${escapeHTML(value)}" aria-pressed="false">${escapeHTML(value)}</button>`);
       });
       const ecosystemOptions = $("[data-filter-ecosystem]");
-      unique(papers.flatMap((paper) => splitValues(paper.Ecosystem))).sort().forEach((value) => ecosystemOptions.insertAdjacentHTML("beforeend", `<button type="button" data-ecosystem-option="${escapeHTML(value)}" aria-pressed="false">${escapeHTML(value)}</button>`));
+      unique(papers.flatMap(ecosystemTypes)).sort().forEach((value) => ecosystemOptions.insertAdjacentHTML("beforeend", `<button type="button" data-ecosystem-option="${escapeHTML(value)}" aria-pressed="false">${escapeHTML(value)}</button>`));
       islandOptions.addEventListener("click", (event) => {
         const button = event.target.closest("[data-island-option]");
         if (!button) return;

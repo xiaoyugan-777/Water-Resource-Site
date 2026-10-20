@@ -1,0 +1,2882 @@
+{
+  "taxonomy": [
+    "Created forest",
+    "Montane/Alpine",
+    "Temperate forests",
+    "Created grassland",
+    "Streams, rivers, riparian",
+    "Tropical and subtropical grasslands",
+    "Tropical and subtropical forests",
+    "Temperate grasslands",
+    "Created other",
+    "Mediterranean shrubs and Forests",
+    "Wetlands",
+    "Boreal forests and taiga",
+    "Mangroves",
+    "Coastal",
+    "Created wetland",
+    "Saltmarsh",
+    "Coral reefs",
+    "Deltas and estuaries",
+    "Ecosystem not specified",
+    "Deserts and xeric shrublands",
+    "Other ecosystem type",
+    "Temperate oceans",
+    "Ponds and lakes",
+    "Seagrass",
+    "Peatland",
+    "Tropical oceans"
+  ],
+  "summary": {
+    "papers": 161,
+    "taxonomy_labels": 26,
+    "status_counts": {
+      "source_supported_prior_review": 6,
+      "provisional_from_excel": 92,
+      "direct_from_excel": 63
+    },
+    "not_specified_count": 10,
+    "tag_counts": {
+      "Tropical and subtropical grasslands": 6,
+      "Tropical and subtropical forests": 80,
+      "Coral reefs": 9,
+      "Coastal": 65,
+      "Tropical oceans": 46,
+      "Wetlands": 39,
+      "Deltas and estuaries": 6,
+      "Montane/Alpine": 5,
+      "Ponds and lakes": 1,
+      "Ecosystem not specified": 10,
+      "Mangroves": 1,
+      "Created other": 1
+    }
+  },
+  "instructions": "Patch ONLY ecosystem_types on nbs-papers.json by paper_id; preserve all other fields. The source is original Excel all/2.3 Ecosystem Setting; no claims of full-text verification. Caveats and statuses are audit metadata, not validated paper metadata.",
+  "records": [
+    {
+      "paper_id": "1",
+      "doi_or_id": "10.3390/land10070764",
+      "title": "Maintaining the Many Societal Benefits of Rangelands: The Case of Hawai'i",
+      "original_ecosystem": "Agricultural; Upland-forest; Freshwater-watershed",
+      "ecosystem_types": [
+        "Tropical and subtropical grasslands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Previously checked external source: https://www.mdpi.com/2073-445X/10/7/764"
+      ],
+      "review_status": "source_supported_prior_review",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": "https://www.mdpi.com/2073-445X/10/7/764"
+    },
+    {
+      "paper_id": "2",
+      "doi_or_id": "10.1016/j.scitotenv.2019.06.220",
+      "title": "Contributions of native forest protection to local water supplies in East Maui",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "3",
+      "doi_or_id": "10.1111/conl.12606",
+      "title": "Restoring to the future: Environmental, cultural, and management trade-offs in historical versus hybrid restoration of a highly modified ecosystem",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "4",
+      "doi_or_id": "10.1016/j.marpol.2009.06.007",
+      "title": "Commercial fishing, conservation and compatibility in the Northwestern Hawaiian Islands",
+      "original_ecosystem": "Coastal / marine; Coral reef",
+      "ecosystem_types": [
+        "Coral reefs",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coral reef",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "5",
+      "doi_or_id": "10.3390/su10124502",
+      "title": "Biocultural Restoration of Traditional Agriculture: Cultural, Environmental, and Economic Outcomes of Lo\"i Kalo Restoration in He\"eia, O\"ahu",
+      "original_ecosystem": "Freshwater-watershed; Wetland; Agricultural; Coastal connection",
+      "ecosystem_types": [
+        "Wetlands",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "6",
+      "doi_or_id": "10.2984/71.4.2",
+      "title": "Estimating Cost-Effectiveness of Hawaiian Dry Forest Restoration Using Spatial Changes in Water Yield and Landscape Flammability under Climate Change",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "7",
+      "doi_or_id": "10.1002/eap.1891",
+      "title": "Place-based management can reduce human impacts on coral reefs in a changing climate",
+      "original_ecosystem": "Coastal; Coral reef; Freshwater-watershed",
+      "ecosystem_types": [
+        "Coral reefs",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coral reef",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "8",
+      "doi_or_id": "10.3389/frsus.2024.1461787",
+      "title": "Kipuka Kuleana: restoring relationships to place and strengthening climate adaptation through a community-based land trust",
+      "original_ecosystem": "Multiple — coastal, agricultural, and community landscapes",
+      "ecosystem_types": [
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "9",
+      "doi_or_id": "10.1111/j.1654-109X.2012.01208.x",
+      "title": "Restoration of native plant communities in a Hawaiian dry lowland ecosystem dominated by the invasive grass Megathyrsus maximus",
+      "original_ecosystem": "Upland-forest / lowland dry forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "10",
+      "doi_or_id": "10.1007/s10530-021-02494-8",
+      "title": "Landscape level effects of invasive plants and animals on water infiltration through Hawaiian tropical forests",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "11",
+      "doi_or_id": "10.3389/fmars.2019.00098",
+      "title": "Building Coral Reef Resilience Through Spatial Herbivore Management",
+      "original_ecosystem": "Coastal; Coral reef",
+      "ecosystem_types": [
+        "Coral reefs",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coral reef",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "12",
+      "doi_or_id": "10.3390/su15139937",
+      "title": "Urban Modified Letter Turned CommaAina: An Indigenous, Biocultural Pathway to Transforming Urban Spaces",
+      "original_ecosystem": "Urban; Agricultural; Freshwater-watershed; Wetland",
+      "ecosystem_types": [
+        "Wetlands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "13",
+      "doi_or_id": "10.1002/eap.2841",
+      "title": "Crossing the threshold: Invasive grasses inhibit forest restoration on Hawaiian islands",
+      "original_ecosystem": "Upland-forest / former pasture",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "14",
+      "doi_or_id": "10.2984/71.4.6",
+      "title": "Toward Cost-Effective Restoration: Scaling up Restoration in Ecosystems Degraded by Nonnative Invasive Grass and Ungulates",
+      "original_ecosystem": "Upland-forest / lowland dry forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "15",
+      "doi_or_id": "10.1080/21683565.2022.2089940",
+      "title": "Agronomic qualities of Pennisetum clandestinum in association with Acacia koa for the mitigation of the effects of ranching and promotion of conservation in a silvopastoral context on the island of Maui, Hawaii",
+      "original_ecosystem": "Agricultural; Upland-forest / rangeland",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Tropical and subtropical grasslands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies grassland/rangeland/pasture"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "16",
+      "doi_or_id": "10.1371/journal.pone.0187951",
+      "title": "Large-scale climatic effects on traditional Hawaiian fishpond aquaculture",
+      "original_ecosystem": "Coastal estuary; Fishpond; Freshwater-marine interface",
+      "ecosystem_types": [
+        "Deltas and estuaries",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies estuary",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Traditional fishpond: coastal/estuary/pond distinctions may require article evidence"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "17",
+      "doi_or_id": "10.1016/j.foreco.2018.01.005",
+      "title": "Active restoration enhances recovery of a Hawaiian mesic forest after fire",
+      "original_ecosystem": "Upland-forest / mesic forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "18",
+      "doi_or_id": "10.2984/64.4.533",
+      "title": "Native Species Regeneration Following Ungulate Exclusion and Nonnative Grass Removal in a Remnant Hawaiian Dry Forest",
+      "original_ecosystem": "Upland-forest / lowland dry forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "19",
+      "doi_or_id": "10.1371/journal.pone.0218516",
+      "title": "Facilitating adaptation to climate change while restoring a montane plant community",
+      "original_ecosystem": "Upland-forest / montane parkland",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Montane/Alpine"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies montane/alpine"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "20",
+      "doi_or_id": "10.1016/j.ppees.2021.125631",
+      "title": "Hawai'i forest review: Synthesizing the ecology, evolution, and conservation of a model system",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed; Agricultural interfaces",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "21",
+      "doi_or_id": "10.1017/S0376892906003158",
+      "title": "Traditional gathering of native hula plants in alien-invaded Hawaiian forests:: adaptive practices, impacts on alien invasive species and conservation implications",
+      "original_ecosystem": "Upland forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "22",
+      "doi_or_id": "10.1016/B978-0-12-800214-8.00005-0",
+      "title": "Understanding the Scale of Marine Protection in Hawai'i: From Community-Based Management to the Remote Northwestern Hawaiian Islands",
+      "original_ecosystem": "Coastal / marine; Coral reef",
+      "ecosystem_types": [
+        "Coral reefs",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coral reef",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "23",
+      "doi_or_id": "10.1111/fog.12092",
+      "title": "Enhancing the TurtleWatch product for leatherback sea turtles, a dynamic habitat model for ecosystem-based management",
+      "original_ecosystem": "Open-ocean marine",
+      "ecosystem_types": [
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "24",
+      "doi_or_id": "10.3390/rs16122239",
+      "title": "Highlighting the Use of UAV to Increase the Resilience of Native Hawaiian Coastal Cultural Heritage",
+      "original_ecosystem": "Coastal wetland / estuary; Traditional fishpond",
+      "ecosystem_types": [
+        "Deltas and estuaries",
+        "Wetlands",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies estuary",
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Traditional fishpond: coastal/estuary/pond distinctions may require article evidence"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "25",
+      "doi_or_id": "10.7717/peerj.13112",
+      "title": "Growth and survival among Hawaiian corals outplanted from tanks to an ocean nursery are driven by individual genotype and species differences rather than preconditioning to thermal stress",
+      "original_ecosystem": "Coastal / Coral reef; Ocean nursery",
+      "ecosystem_types": [
+        "Coral reefs",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coral reef",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "26",
+      "doi_or_id": "10.2495/978-1-84564-091-0",
+      "title": "The economic value of watershed conservation",
+      "original_ecosystem": "Upland forest; Freshwater watershed; Ridge-to-reef connection",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "27",
+      "doi_or_id": "10.1007/s10021-014-9754-8",
+      "title": "Watershed Conservation in the Long Run",
+      "original_ecosystem": "Upland forest; Freshwater watershed",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "28",
+      "doi_or_id": "10.3354/meps07112",
+      "title": "Defining reef fish habitat utilization patterns in Hawaii: comparisons between marine protected areas and areas open to fishing",
+      "original_ecosystem": "Coastal / Coral reef",
+      "ecosystem_types": [
+        "Coral reefs",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coral reef",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "29",
+      "doi_or_id": "10.3389/fmars.2022.1049744",
+      "title": "Assessment of CO2 and O2 spatial variability in an indigenous aquaculture system for restoration impacts",
+      "original_ecosystem": "Coastal estuary / Traditional fishpond",
+      "ecosystem_types": [
+        "Deltas and estuaries",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies estuary",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Traditional fishpond: coastal/estuary/pond distinctions may require article evidence"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "30",
+      "doi_or_id": "10.1002/arco.70017",
+      "title": "Development, Intensification and Sustainability of the Hālawa Valley Agroecosystem, Moloka'i, Hawaiian Islands, AD 1200-1850",
+      "original_ecosystem": "Freshwater wetland agriculture; Valley agroforestry",
+      "ecosystem_types": [
+        "Wetlands",
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "31",
+      "doi_or_id": "10.1007/s10533-024-01120-8",
+      "title": "Inconsistent recovery of nitrogen cycling after feral ungulate removal across three tropical island ecosystems",
+      "original_ecosystem": "Montane wet forest; Dry forest; Dry shrubland",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Montane/Alpine"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies montane/alpine"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "32",
+      "doi_or_id": "10.1111/j.1526-100X.2009.00635.x",
+      "title": "Alien Plant Invasions, Introduced Ungulates, and Alternative States in a Mesic Forest in Hawaii",
+      "original_ecosystem": "Upland mesic forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "33",
+      "doi_or_id": "10.1007/s11852-013-0247-2",
+      "title": "Terrigenous sediment impact on coral recruitment and growth affects the use of coral habitat by recruit parrotfishes (F. Scaridae)",
+      "original_ecosystem": "Upland watershed to coastal coral reef",
+      "ecosystem_types": [
+        "Coral reefs",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coral reef",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "34",
+      "doi_or_id": "10.1007/s10750-017-3401-2",
+      "title": "Interactions of water levels with water quality, endemic waterbirds, and invasive species in a shallow, tropical pond",
+      "original_ecosystem": "Shallow coastal wetland / managed pond",
+      "ecosystem_types": [
+        "Wetlands",
+        "Ponds and lakes",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies pond/lake/anchialine pool; confirm saline ecology if relevant",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "35",
+      "doi_or_id": "10.3390/su14031159",
+      "title": "A Hawaiian Tropical Dry Forest Regenerates: Natural Regeneration of Endangered Species under Biocultural Restoration",
+      "original_ecosystem": "Tropical dry forest / Upland forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "36",
+      "doi_or_id": "10.1016/S0378-1127(98)00374-0",
+      "title": "Potential significance of frost, topographic relief, and Acacia koa stands to restoration of mesic Hawaiian forests on abandoned rangeland",
+      "original_ecosystem": "Montane mesic forest / Abandoned rangeland",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Tropical and subtropical grasslands",
+        "Montane/Alpine"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies grassland/rangeland/pasture",
+        "Original Ecosystem Setting explicitly identifies montane/alpine"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "37",
+      "doi_or_id": "10.1071/PC20084",
+      "title": "Biocultural restoration of Hawaiian tropical dry forests",
+      "original_ecosystem": "Tropical dry forest / Upland forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "38",
+      "doi_or_id": "10.1007/s10745-023-00471-4",
+      "title": "Agroforestry Distribution and Contributions in Ancient Hawaiian Agriculture",
+      "original_ecosystem": "Agroforestry; Agricultural and forest mosaics",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "39",
+      "doi_or_id": "10.1007/s11056-015-9492-6",
+      "title": "Stocktype and grass suppression accelerate the restoration trajectory of Acacia koa in Hawaiian montane ecosystems",
+      "original_ecosystem": "Montane forest / Former pasture",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Montane/Alpine"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies montane/alpine"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "40",
+      "doi_or_id": "10.48336/T0YE-B102",
+      "title": "Reawakening Ancestral Ocean Technologies, Healing Communities, and Ensuring Intergenerational Food Sovereignty: Lessons from Indigenous Aquaculture.",
+      "original_ecosystem": "Coastal, intertidal, estuarine, and traditional aquaculture systems",
+      "ecosystem_types": [
+        "Deltas and estuaries",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies estuary",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "41",
+      "doi_or_id": "10.1002/2688-8319.12280",
+      "title": "Elevation, canopy cover and grass cover structure patterns of seedling establishment in a subtropical post‐fire restoration.",
+      "original_ecosystem": "Subtropical montane woodland / Post-fire landscape",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Montane/Alpine"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies montane/alpine"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "42",
+      "doi_or_id": "10.5070/L541262535",
+      "title": "Aia i Waiʻoli ke Aloha ʻĀina: Re-centering ʻĀina and Indigenous Knowledge for Restorative Environmental Justice.",
+      "original_ecosystem": "Freshwater watershed; Wetland agriculture / Loʻi kalo",
+      "ecosystem_types": [
+        "Wetlands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "43",
+      "doi_or_id": "10.5751/ES-13432-270318",
+      "title": "Biocultural values of groundwater dependent ecosystems in Kona, Hawaiʻi.",
+      "original_ecosystem": "Anchialine pools; Loko iʻa; Coastal springs; Estuary and nearshore reef",
+      "ecosystem_types": [
+        "Deltas and estuaries",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies estuary",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Traditional fishpond: coastal/estuary/pond distinctions may require article evidence"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "44",
+      "doi_or_id": "10.1111/rec.14337",
+      "title": "Sustainable restoration: addressing critical challenges through university‐led projects.",
+      "original_ecosystem": "Campus / Urban-peri-urban habitat",
+      "ecosystem_types": [
+        "Ecosystem not specified"
+      ],
+      "classification_basis": [
+        "No Oxford habitat is unambiguously identifiable from original Ecosystem Setting alone"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "45",
+      "doi_or_id": "10.5751/ES-11386-250209",
+      "title": "Biocultural stewardship, Indigenous and local ecological knowledge, and the urban crucible.",
+      "original_ecosystem": "Urban forests, parks, and stewardship networks",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "46",
+      "doi_or_id": "10.3390/su15139937",
+      "title": "Urban ʻĀina: An Indigenous, Biocultural Pathway to Transforming Urban Spaces.",
+      "original_ecosystem": "Urban; Agricultural; Freshwater-watershed; Wetland",
+      "ecosystem_types": [
+        "Wetlands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "47",
+      "doi_or_id": "10.3390/su14095421",
+      "title": "Shifting Limitations to Restoration across Dryland Ecosystems in Hawaiʻi.",
+      "original_ecosystem": "Lowland dry forest; Dry forest/woodland; Dry shrubland",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "48",
+      "doi_or_id": "rayyan-542462808",
+      "title": "Ahupuaʻa restoration in Molokai offers potential flooding remedy",
+      "original_ecosystem": "Mauka-to-makai watershed; Dry agricultural and coastal receiving systems",
+      "ecosystem_types": [
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "49",
+      "doi_or_id": "10.1007/s10113-016-1032-1",
+      "title": "The future is behind us: traditional ecological knowledge and resilience over time on Hawai'i Island.",
+      "original_ecosystem": "Multiple social-ecological systems — forest, agriculture, coast, and community landscapes",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "50",
+      "doi_or_id": "10.1111/1365-2664.13952",
+      "title": "Moisture availability and ecological restoration limit fine fuels and modelled wildfire intensity following non‐native ungulate removal in Hawaii.",
+      "original_ecosystem": "Dry, mesic, and wet forest / Grass-invaded landscapes",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "51",
+      "doi_or_id": "10.3368/er.27.3.300",
+      "title": "Broadcast Seeding as a Potential Tool to Reestablish Native Species in Degraded Dry Forest Ecosystems in Hawaii.",
+      "original_ecosystem": "Lowland dry forest / Invasive grassland",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Tropical and subtropical grasslands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies grassland/rangeland/pasture"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "52",
+      "doi_or_id": "10.5751/ES-06937-190444",
+      "title": "Small islands, valuable insights: systems of customary resource use and resilience to climate change in the Pacific.",
+      "original_ecosystem": "Agroforests; Coastal and nearshore fisheries; Island social-ecological systems",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "53",
+      "doi_or_id": "10.1111/gcb.14813",
+      "title": "Non‐native mangroves support carbon storage, sediment carbon burial, and accretion of coastal ecosystems.",
+      "original_ecosystem": "Coastal mangrove forest / Intertidal mudflat",
+      "ecosystem_types": [
+        "Mangroves",
+        "Tropical and subtropical forests",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies mangrove",
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "54",
+      "doi_or_id": "10.1002/aqc.3043",
+      "title": "Characteristics of effective marine protected areas in Hawaiʻi.",
+      "original_ecosystem": "Coral reef and nearshore marine",
+      "ecosystem_types": [
+        "Coral reefs",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coral reef",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "55",
+      "doi_or_id": "10.1016/j.marpolbul.2019.07.045",
+      "title": "Decision analysis to support wastewater management in coral reef priority area.",
+      "original_ecosystem": "Coastal aquifer, nearshore water, and coral reef",
+      "ecosystem_types": [
+        "Coral reefs",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coral reef",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "56",
+      "doi_or_id": "10.1016/j.ecolecon.2016.09.013",
+      "title": "Benefit-cost analysis of watershed conservation on Hawai'i Island.",
+      "original_ecosystem": "Upland forest / Drinking-water watersheds",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "57",
+      "doi_or_id": "10.1111/rec.12321",
+      "title": "Quandaries of a decade-long restoration experiment trying to reduce invasive species: beat them, join them, give up, or start over?",
+      "original_ecosystem": "Tropical lowland wet forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "58",
+      "doi_or_id": "10.1672/08-127.1",
+      "title": "A COMPARISON OF THE VEGETATION AND SOILS OF NATURAL, RESTORED, AND CREATED COASTAL LOWLAND WETLANDS IN HAWAI'I.",
+      "original_ecosystem": "Fresh, brackish, and saline coastal wetlands",
+      "ecosystem_types": [
+        "Wetlands",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "59",
+      "doi_or_id": "10.3390/hydrology7040086",
+      "title": "Impact of Coastal Wetland Restoration Plan on the Water Balance Components of Heeia Watershed, Hawaii",
+      "original_ecosystem": "Freshwater watershed; Coastal wetland; Loʻi kalo; Downstream loko iʻa",
+      "ecosystem_types": [
+        "Wetlands",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Traditional fishpond: coastal/estuary/pond distinctions may require article evidence",
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "60",
+      "doi_or_id": "rayyan-542462973",
+      "title": "Success Of Post-fire Broadcast Seeding As A Tool For Restoration Of A Hawaiʻi Dry Forest",
+      "original_ecosystem": "Lowland dry forest / Post-fire invasive grassland",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Tropical and subtropical grasslands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies grassland/rangeland/pasture"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "61",
+      "doi_or_id": "10.3390/su11010161",
+      "title": "Kū Hou Kuapā: Cultural Restoration Improves Water Budget and Water Quality Dynamics in Heʻeia Fishpond.",
+      "original_ecosystem": "Freshwater-watershed; Agricultural; Wetland; Coastal / marine",
+      "ecosystem_types": [
+        "Wetlands",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "62",
+      "doi_or_id": "rayyan-542463006",
+      "title": "Soil Carbon In Hawaiian Rangelands: Evaluation Of Extent, Controls, And Options For Management",
+      "original_ecosystem": "Upland-forest; Agricultural",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "63",
+      "doi_or_id": "10.3390/su13052984",
+      "title": "Reflections on Sustainability Concepts: Aloha ʻĀina and the Circular Economy.",
+      "original_ecosystem": "Agricultural; Wetland; Urban",
+      "ecosystem_types": [
+        "Wetlands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "64",
+      "doi_or_id": "rayyan-542463016",
+      "title": "From archipelago to loko iʻa: Understanding cryptofauna communities, crabbing, and place-based management",
+      "original_ecosystem": "Wetland; Coastal / marine",
+      "ecosystem_types": [
+        "Wetlands",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "65",
+      "doi_or_id": "rayyan-542463018",
+      "title": "Ecohydrology of change: Dynamics of climatological, hydrological, and ecological change across Hawaiʻi's landscapes",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "66",
+      "doi_or_id": "10.1016/j.agrformet.2020.108105",
+      "title": "Canopy openness affects microclimate and performance of underplanted trees in restoration of high-elevation tropical pasturelands.",
+      "original_ecosystem": "Upland-forest; Agricultural",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "67",
+      "doi_or_id": "10.3390/su10113965",
+      "title": "The Role of Breadfruit in Biocultural Restoration and Sustainability in Hawai'i.",
+      "original_ecosystem": "Upland-forest; Agricultural",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "68",
+      "doi_or_id": "rayyan-542463030",
+      "title": "Restoration of Hawaiian Tropical Dry Forests: A Biocultural Approach",
+      "original_ecosystem": "Upland-forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "69",
+      "doi_or_id": "rayyan-542463031",
+      "title": "Kū Hou Kuapā: Increase of Water Exchange Rates and Changes in Microbial Source Tracking Markers Resulting from Restoration Regimes at He‘eia Fishpond",
+      "original_ecosystem": "Wetland; Coastal / marine",
+      "ecosystem_types": [
+        "Wetlands",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "70",
+      "doi_or_id": "rayyan-542463039",
+      "title": "Predatory Fish Population Dynamics And Diet In A Traditional Hawaiian Fishpond",
+      "original_ecosystem": "Coastal",
+      "ecosystem_types": [
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "71",
+      "doi_or_id": "10.1111/ddi.12723",
+      "title": "Predicting effects of large‐scale reforestation on native and exotic birds",
+      "original_ecosystem": "Upland-forest; Agricultural",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "72",
+      "doi_or_id": "10.1016/j.foreco.2019.117592",
+      "title": "Establishment and heteroblasty of Acacia koa in canopy gaps.",
+      "original_ecosystem": "Upland-forest; Coastal / marine",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "73",
+      "doi_or_id": "10.1016/j.geoderma.2016.05.021",
+      "title": "Soil and hydrological responses to wild pig (Sus scofa) exclusion from native and strawberry guava (Psidium cattleianum)-invaded tropical montane wet forests",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed; Urban",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "74",
+      "doi_or_id": "10.1016/j.aqrep.2016.12.001",
+      "title": "Economic feasibility of producing oysters using a small-scale Hawaiian fishpond model",
+      "original_ecosystem": "Wetland",
+      "ecosystem_types": [
+        "Wetlands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "75",
+      "doi_or_id": "rayyan-542463075",
+      "title": "Development of a native plant agroforestry system to restore the understory of a lowland wet forest in Hawaiʻi",
+      "original_ecosystem": "Upland-forest; Agricultural",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "76",
+      "doi_or_id": "rayyan-542463076",
+      "title": "Lend a hand to restore historic Loko Ea Fishpond",
+      "original_ecosystem": "Wetland",
+      "ecosystem_types": [
+        "Wetlands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "77",
+      "doi_or_id": "rayyan-542463086",
+      "title": "The curious case of maile: lessons in ecotypes, population viability and restoration",
+      "original_ecosystem": "Agricultural",
+      "ecosystem_types": [
+        "Ecosystem not specified"
+      ],
+      "classification_basis": [
+        "No Oxford habitat is unambiguously identifiable from original Ecosystem Setting alone"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "78",
+      "doi_or_id": "10.1016/j.fishres.2012.09.016",
+      "title": "A seascape approach to investigating fish spillover across a marine protected area boundary in Hawai‘i",
+      "original_ecosystem": "Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "79",
+      "doi_or_id": "10.1016/B978-0-323-88539-3.00009-1",
+      "title": "Chapter 19 - Restoration: Social attraction and translocation",
+      "original_ecosystem": "Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "80",
+      "doi_or_id": "10.1016/B978-0-12-374711-2.01004-4",
+      "title": "10.04 - Integration of Social and Cultural Aspects in Designing Ecohydrology and Restoration Solutions",
+      "original_ecosystem": "Freshwater-watershed; Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "81",
+      "doi_or_id": "10.1016/j.foreco.2013.05.027",
+      "title": "Passive restoration augments active restoration in deforested landscapes: The role of root suckering adjacent to planted stands of Acacia koa",
+      "original_ecosystem": "Upland-forest; Agricultural",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "82",
+      "doi_or_id": "10.1016/j.agsy.2020.102808",
+      "title": "Agroforestry form and ecological adaptation in ancient Hawai'i: Extent of the pākukui swidden system of Hāmākua, Hawai'i Island",
+      "original_ecosystem": "Upland-forest; Agricultural",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "83",
+      "doi_or_id": "10.1016/j.marpol.2015.07.005",
+      "title": "Hana Pa'a: Challenges and lessons for early phases of co-management",
+      "original_ecosystem": "Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "84",
+      "doi_or_id": "10.1016/j.fooweb.2020.e00171",
+      "title": "Linking plant and animal functional diversity with an experimental community restoration in a Hawaiian lowland wet forest",
+      "original_ecosystem": "Upland-forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "85",
+      "doi_or_id": "10.1016/j.ocecoaman.2019.104987",
+      "title": "Whale sanctuaries – An analysis of their contribution to marine ecosystem-based management",
+      "original_ecosystem": "Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "86",
+      "doi_or_id": "10.1016/j.seares.2026.102671",
+      "title": "Indigenous fishponds are sediment traps for terrigenous sediment on the southern coast of Moloka'i, Hawaii",
+      "original_ecosystem": "Freshwater-watershed; Agricultural; Wetland; Coastal / marine",
+      "ecosystem_types": [
+        "Wetlands",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "87",
+      "doi_or_id": "rayyan-542464181",
+      "title": "Digital Tools for Making and Monitoring of Hawaiian Seed Gardens",
+      "original_ecosystem": "Urban; Freshwater-watershed / stormwater",
+      "ecosystem_types": [
+        "Ecosystem not specified"
+      ],
+      "classification_basis": [
+        "No Oxford habitat is unambiguously identifiable from original Ecosystem Setting alone"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "88",
+      "doi_or_id": "rayyan-542464290",
+      "title": "Invasive vertebrate eradications on islands as a tool for implementing global Sustainable Development Goals",
+      "original_ecosystem": "Freshwater-watershed; Agricultural; Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "89",
+      "doi_or_id": "rayyan-542464303",
+      "title": "KaʻApuni Ka Imu: Traditional Hawaiian Fish Houses as Indigenous Managed Underwater Structures for Nearshore Fisheries Enhancement",
+      "original_ecosystem": "Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "90",
+      "doi_or_id": "rayyan-542464315",
+      "title": "Principles for integrated island management in the tropical Pacific",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed; Coastal / marine",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "91",
+      "doi_or_id": "rayyan-542464577",
+      "title": "Collaborative relationships and nature-based solutions: Two flood management cases in Hawaiʻi",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed; Agricultural; Wetland",
+      "ecosystem_types": [
+        "Wetlands",
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "92",
+      "doi_or_id": "rayyan-542464581",
+      "title": "Waialeʻe Lako Pono Conceptual Master Plan",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed; Agricultural; Wetland; Coastal / marine",
+      "ecosystem_types": [
+        "Wetlands",
+        "Tropical and subtropical forests",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "93",
+      "doi_or_id": "rayyan-542464583",
+      "title": "Stories of water, stories of resilience: community voices of Hāmākualoa",
+      "original_ecosystem": "Freshwater-watershed; Agricultural; Wetland; Urban",
+      "ecosystem_types": [
+        "Wetlands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "94",
+      "doi_or_id": "rayyan-542464587",
+      "title": "Do Climate Change Interventions Impact the Determinants of Health for Pacific Island Peoples? A Literature Review",
+      "original_ecosystem": "Upland-forest; Agricultural; Coastal / marine",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "95",
+      "doi_or_id": "rayyan-542464590",
+      "title": "Place-Based Equity for Hawaiʻi's Local Producers",
+      "original_ecosystem": "Upland-forest; Agricultural; Wetland",
+      "ecosystem_types": [
+        "Wetlands",
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "96",
+      "doi_or_id": "rayyan-542464592",
+      "title": "A Collaborative Approach for the Future of A Community Urban Green Space in Kāneʻohe, Hawaiʻi",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed; Agricultural; Wetland; Urban",
+      "ecosystem_types": [
+        "Wetlands",
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "97",
+      "doi_or_id": "rayyan-542464598",
+      "title": "Green Infrastructure Practices for Hawaii",
+      "original_ecosystem": "Urban; Freshwater-watershed; Coastal receiving waters",
+      "ecosystem_types": [
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "98",
+      "doi_or_id": "rayyan-542464602",
+      "title": "Reimagining evaluation of resilience benefits from biocultural restoration as nature-based solutions: A case study of Alakoko fishpond, Kauai",
+      "original_ecosystem": "Coastal wetland / estuary; Traditional fishpond",
+      "ecosystem_types": [
+        "Deltas and estuaries",
+        "Wetlands",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies estuary",
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Traditional fishpond: coastal/estuary/pond distinctions may require article evidence"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "99",
+      "doi_or_id": "10.1016/j.ecoinf.2024.102821",
+      "title": "Monitoring native, non-native, and restored tropical dry forest with Landsat: A case study from the Hawaiian Islands",
+      "original_ecosystem": "Upland-forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "100",
+      "doi_or_id": "10.2984/72.1.10",
+      "title": "Enhancing Aboveground Carbon Storage and Invasion Resistance through Restoration: Early Results from a Functional Trait-Based Experiment",
+      "original_ecosystem": "Upland-forest; Agricultural",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "101",
+      "doi_or_id": "10.1111/j.1526-100X.2005.00047.x",
+      "title": "Experimental restoration of an indigenous Hawaiian grassland after invasion by Buffel grass (Cenchrus ciliaris)",
+      "original_ecosystem": "Agricultural",
+      "ecosystem_types": [
+        "Tropical and subtropical grasslands"
+      ],
+      "classification_basis": [
+        "Previously source-supported classification: https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1526-100X.2005.00047.x",
+        "Previously checked external source: https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1526-100X.2005.00047.x"
+      ],
+      "review_status": "source_supported_prior_review",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": "https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1526-100X.2005.00047.x"
+    },
+    {
+      "paper_id": "102",
+      "doi_or_id": "10.1016/j.gecco.2026.e04094",
+      "title": "Hakalau's moving castle: How climate change and restoration are shifting an island fortress for forest birds",
+      "original_ecosystem": "Upland-forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "103",
+      "doi_or_id": "10.7717/peerj.13653",
+      "title": "Coral micro-fragmentation assays for optimizing active reef restoration efforts.",
+      "original_ecosystem": "Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "104",
+      "doi_or_id": "10.1098/rspb.2023.2101",
+      "title": "Evidence for managing herbivores for reef resilience.",
+      "original_ecosystem": "Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "105",
+      "doi_or_id": "10.1002/eap.2894",
+      "title": "Functional trait-based restoration alters nutrient cycling and invasion rates in Hawaiian lowland wet forest.",
+      "original_ecosystem": "Upland-forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "106",
+      "doi_or_id": "10.1007/s00267-013-0021-0",
+      "title": "Incorporating indigenous rights and environmental justice into fishery management: comparing policy challenges and potentials from Alaska and Hawai'i.",
+      "original_ecosystem": "Freshwater-watershed; Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "107",
+      "doi_or_id": "10.1098/rspb.2025.2028",
+      "title": "Co-creating intergenerational knowledge about Hawaiian moi (Polydactylus sexfilis) reproductive cycles in a changing climate.",
+      "original_ecosystem": "Agricultural; Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "108",
+      "doi_or_id": "10.1038/s41598-025-87891-y",
+      "title": "Carbon benefits through agroforestry transitions on unmanaged fallow agricultural land in Hawai'i.",
+      "original_ecosystem": "Upland-forest; Agricultural",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "109",
+      "doi_or_id": "10.1371/journal.pone.0067872",
+      "title": "Managing conservation reliant species: Hawai'i's endangered endemic waterbirds.",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed; Agricultural; Wetland; Coastal / marine",
+      "ecosystem_types": [
+        "Wetlands",
+        "Tropical and subtropical forests",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "110",
+      "doi_or_id": "10.1002/eap.2213",
+      "title": "Impacts of pollution, fishing pressure, and reef rugosity on resource fish biomass in West Hawaii.",
+      "original_ecosystem": "Freshwater-watershed; Coastal / marine; Urban",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "111",
+      "doi_or_id": "10.1016/j.jenvman.2005.01.015",
+      "title": "Science in the public process of ecosystem management: lessons from Hawaii, Southeast Asia, Africa and the US Mainland.",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed; Coastal / marine",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "112",
+      "doi_or_id": "10.1016/j.jenvman.2020.110723",
+      "title": "Optimal multi-instrument management of interrelated resources and a groundwater dependent ecosystem.",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed; Coastal / marine",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "113",
+      "doi_or_id": "10.7717/peerj.5332",
+      "title": "Herbivore biocontrol and manual removal successfully reduce invasive macroalgae on coral reefs.",
+      "original_ecosystem": "Freshwater-watershed; Agricultural; Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "114",
+      "doi_or_id": "10.7717/peerj.4089",
+      "title": "Patterns in artisanal coral reef fisheries revealed through local monitoring efforts.",
+      "original_ecosystem": "Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "115",
+      "doi_or_id": "10.7717/peerj.10722",
+      "title": "Mammal-exclusion fencing improves the nesting success of an endangered native Hawaiian waterbird.",
+      "original_ecosystem": "Wetland",
+      "ecosystem_types": [
+        "Wetlands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "116",
+      "doi_or_id": "10.1038/s41598-018-20178-7",
+      "title": "Using Transfer Function Analysis to develop biologically and economically efficient restoration strategies.",
+      "original_ecosystem": "Upland-forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "117",
+      "doi_or_id": "10.1890/06-0536",
+      "title": "Coupling ecology and GIS to evaluate efficacy of marine protected areas in Hawaii.",
+      "original_ecosystem": "Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "118",
+      "doi_or_id": "10.1371/journal.pone.0025460",
+      "title": "Historical reconstruction reveals recovery in Hawaiian coral reefs.",
+      "original_ecosystem": "Agricultural; Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "119",
+      "doi_or_id": "10.1007/s00267-008-9164-9",
+      "title": "Integration of wireless sensor networks into cyberinfrastructure for monitoring Hawaiian \"mountain-to-sea\" environments.",
+      "original_ecosystem": "Freshwater-watershed; Agricultural; Wetland",
+      "ecosystem_types": [
+        "Wetlands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "120",
+      "doi_or_id": "10.7717/peerj.300",
+      "title": "Thirty years of coral reef change in relation to coastal construction and increased sedimentation at Pelekane Bay, Hawai'i.",
+      "original_ecosystem": "Freshwater-watershed; Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "121",
+      "doi_or_id": "10.1093/conphys/cou016",
+      "title": "Native trees show conservative water use relative to invasive trees: results from a removal experiment in a Hawaiian wet forest.",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed; Coastal / marine",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "122",
+      "doi_or_id": "10.1371/journal.pone.0159100",
+      "title": "Responses of Herbivorous Fishes and Benthos to 6 Years of Protection at the Kahekili Herbivore Fisheries Management Area, Maui.",
+      "original_ecosystem": "Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "123",
+      "doi_or_id": "10.1016/S0025-326X(02)00256-4",
+      "title": "How multiagency partnerships can successfully address large-scale pollution problems: a Hawaii case study.",
+      "original_ecosystem": "Other / not specified",
+      "ecosystem_types": [
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Previously source-supported classification: https://pubmed.ncbi.nlm.nih.gov/12787578/",
+        "Previously checked external source: https://pubmed.ncbi.nlm.nih.gov/12787578/"
+      ],
+      "review_status": "source_supported_prior_review",
+      "caveats": [],
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/12787578/"
+    },
+    {
+      "paper_id": "124",
+      "doi_or_id": "10.1002/ece3.73104",
+      "title": "Population Genomics Informs Conservation Strategies for Critically Endangered Kokia Species in Hawai'i.",
+      "original_ecosystem": "Native forest / endangered plant conservation",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "125",
+      "doi_or_id": "10.1002/ece3.1294",
+      "title": "Evaluating nurse plants for restoring native woody species to degraded subtropical woodlands.",
+      "original_ecosystem": "Upland-forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "126",
+      "doi_or_id": "10.1002/eap.2477",
+      "title": "Can the impact of canopy trees on soil and understory be altered using litter additions?",
+      "original_ecosystem": "Upland-forest; Agricultural",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "127",
+      "doi_or_id": "rayyan-542465757",
+      "title": "The Trees Act Not as Individuals'--Learning to See the Whole Picture in Biology Education and Remote Sensing Research",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "128",
+      "doi_or_id": "rayyan-542465879",
+      "title": "Updated permitting process leads to Hawaii fishpond restoration growth",
+      "original_ecosystem": "Freshwater-watershed; Wetland",
+      "ecosystem_types": [
+        "Wetlands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "129",
+      "doi_or_id": "10.1111/rec.12263",
+      "title": "Restoration impacts on fuels and fire potential in a dryland tropical ecosystem dominated by the invasive grass Megathyrsus maximus.",
+      "original_ecosystem": "Upland-forest; Agricultural; Urban",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "130",
+      "doi_or_id": "10.3390/su10113985",
+      "title": "Restoration of 'Āina Malo'o on Hawai'i Island: Expanding Biocultural Relationships.",
+      "original_ecosystem": "Dryland agricultural / agroforestry landscape",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "131",
+      "doi_or_id": "rayyan-542465977",
+      "title": "Modeling fuels and wildfire behavior in Hawaiian ecosystems",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "132",
+      "doi_or_id": "rayyan-542466090",
+      "title": "Burning Issues.",
+      "original_ecosystem": "Urban",
+      "ecosystem_types": [
+        "Ecosystem not specified"
+      ],
+      "classification_basis": [
+        "No Oxford habitat is unambiguously identifiable from original Ecosystem Setting alone"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "133",
+      "doi_or_id": "rayyan-542501443",
+      "title": "Management Plan for the Ahupuaʻa of Puʻu Waʻa Waʻa",
+      "original_ecosystem": "Upland-forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "134",
+      "doi_or_id": "10.1016/j.foreco.2021.119949",
+      "title": "Kōkua aku, Kōkua mai: an indigenous consensus-driven and place-based approach to community led dryland restoration and stewardship",
+      "original_ecosystem": "Upland-forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "135",
+      "doi_or_id": "10.1038/s41597-025-06476-6",
+      "title": "A Global Compendium of Nature-based Solutions in Small-Medium Islands",
+      "original_ecosystem": "Other / not specified",
+      "ecosystem_types": [
+        "Ecosystem not specified"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly says not specified"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "136",
+      "doi_or_id": "rayyan-542501517",
+      "title": "Traditional and Contemporary Hawaiian Social-Ecological Systems: Informing Governance Arrangements for loʻi Kalo Restoration and Land Back",
+      "original_ecosystem": "Agricultural",
+      "ecosystem_types": [
+        "Ecosystem not specified"
+      ],
+      "classification_basis": [
+        "No Oxford habitat is unambiguously identifiable from original Ecosystem Setting alone"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "137",
+      "doi_or_id": "rayyan-542501518",
+      "title": "Lessons from the Loʻi: Hoʻokuaʻāina and Biocultural Stewardship",
+      "original_ecosystem": "Upland-forest; Agricultural",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "138",
+      "doi_or_id": "rayyan-542501519",
+      "title": "Lessons from the Loʻi: Hoʻokuaʻāina and Biocultural Restoration",
+      "original_ecosystem": "Upland-forest; Agricultural",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "139",
+      "doi_or_id": "rayyan-542501520",
+      "title": "Care for the Land: Restoration as Interspecies Care Labor and Emergent Activism at the Hawaiian Fishpond-scape",
+      "original_ecosystem": "Wetland",
+      "ecosystem_types": [
+        "Wetlands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "140",
+      "doi_or_id": "rayyan-542501522",
+      "title": "Where People Meet the Sea: Climate Change, Resource Management, and Biocultural Restoration Drive Fish Population and Fisheries Dynamics in HawaiʻI",
+      "original_ecosystem": "Freshwater-watershed; Wetland; Coastal / marine",
+      "ecosystem_types": [
+        "Wetlands",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "141",
+      "doi_or_id": "10.1038/s44183-024-00090-6",
+      "title": "Scaling biocultural initiatives can support nature, food, and culture from summit to sea",
+      "original_ecosystem": "Upland-forest; Agricultural; Coastal / marine",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "142",
+      "doi_or_id": "10.5751/ES-11539-250226",
+      "title": "Ecology and Society: Ecomimicry in Indigenous resource management: optimizing ecosystem services to achieve resource abundance, with examples from Hawaiʻi",
+      "original_ecosystem": "Freshwater-watershed; Upland-forest; Agricultural; Coastal",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies coastal setting"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "143",
+      "doi_or_id": "rayyan-542501530",
+      "title": "Coastal Watershed Management",
+      "original_ecosystem": "Freshwater-watershed; Agricultural; Wetland; Coastal / marine; Urban",
+      "ecosystem_types": [
+        "Wetlands",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "144",
+      "doi_or_id": "10.3390/su10113975",
+      "title": "‘Āina Kaumaha: The Maintenance of Ancestral Principles for 21st Century Indigenous Resource Management",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed; Agricultural; Wetland; Coastal / marine",
+      "ecosystem_types": [
+        "Wetlands",
+        "Tropical and subtropical forests",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "145",
+      "doi_or_id": "10.3390/su10103554",
+      "title": "The Moku System: Managing Biocultural Resources for Abundance within Social-Ecological Regions in Hawaiʻi",
+      "original_ecosystem": "Other / not specified",
+      "ecosystem_types": [
+        "Tropical and subtropical forests",
+        "Coastal"
+      ],
+      "classification_basis": [
+        "Previously source-supported classification: https://www.mdpi.com/2071-1050/10/10/3554",
+        "Previously checked external source: https://www.mdpi.com/2071-1050/10/10/3554"
+      ],
+      "review_status": "source_supported_prior_review",
+      "caveats": [],
+      "source_url": "https://www.mdpi.com/2071-1050/10/10/3554"
+    },
+    {
+      "paper_id": "146",
+      "doi_or_id": "10.3390/su10124607",
+      "title": "I Ke Ēwe ʻĀina o Ke Kupuna: Hawaiian Ancestral Crops in Perspective",
+      "original_ecosystem": "Agricultural",
+      "ecosystem_types": [
+        "Ecosystem not specified"
+      ],
+      "classification_basis": [
+        "No Oxford habitat is unambiguously identifiable from original Ecosystem Setting alone"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "147",
+      "doi_or_id": "10.3390/su10103368",
+      "title": "Nā Kilo ʻĀina: Visions of Biocultural Restoration through Indigenous Relationships between People and Place",
+      "original_ecosystem": "Coastal / marine",
+      "ecosystem_types": [
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "148",
+      "doi_or_id": "10.3390/su10103478",
+      "title": "Ritual + Sustainability Science? A Portal into the Science of Aloha",
+      "original_ecosystem": "Other / not specified",
+      "ecosystem_types": [
+        "Ecosystem not specified"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly says not specified"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "149",
+      "doi_or_id": "10.3390/su10103799",
+      "title": "Ma Kahana ka ‘Ike: Lessons for Community-Based Fisheries Management",
+      "original_ecosystem": "Agricultural; Wetland; Coastal / marine",
+      "ecosystem_types": [
+        "Wetlands",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "150",
+      "doi_or_id": "10.1038/s44183-025-00152-3",
+      "title": "Restoration and management of an Indigenous aquaculture system helps mitigate climate change impacts to estuarine fisheries",
+      "original_ecosystem": "Wetland; Coastal / marine",
+      "ecosystem_types": [
+        "Wetlands",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    },
+    {
+      "paper_id": "151",
+      "doi_or_id": "rayyan-542501609",
+      "title": "Loko i\\ʻa: A Manual on Hawaiian Fishpond Restoration and Management",
+      "original_ecosystem": "Freshwater-watershed; Wetland",
+      "ecosystem_types": [
+        "Wetlands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "152",
+      "doi_or_id": "rayyan-542501611",
+      "title": "Rain Garden",
+      "original_ecosystem": "Freshwater-watershed; Urban",
+      "ecosystem_types": [
+        "Ecosystem not specified"
+      ],
+      "classification_basis": [
+        "No Oxford habitat is unambiguously identifiable from original Ecosystem Setting alone"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "153",
+      "doi_or_id": "rayyan-542501612",
+      "title": "Hawaiʻi Residential Rain Garden Manual",
+      "original_ecosystem": "Freshwater-watershed; Urban",
+      "ecosystem_types": [
+        "Created other"
+      ],
+      "classification_basis": [
+        "Previously source-supported classification: https://www.huihawaii.org/resources.html",
+        "Previously checked external source: https://www.huihawaii.org/resources.html"
+      ],
+      "review_status": "source_supported_prior_review",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": "https://www.huihawaii.org/resources.html"
+    },
+    {
+      "paper_id": "154",
+      "doi_or_id": "rayyan-542501613",
+      "title": "Lessons Learned From Loko I ‘a Culture: How Hawaiian Ecological Knowledge Influences Environmental Policies",
+      "original_ecosystem": "Freshwater-watershed; Wetland",
+      "ecosystem_types": [
+        "Wetlands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "155",
+      "doi_or_id": "10.1525/cse.2017.sc.450585",
+      "title": "Community-Based Watershed Restoration in He‘eia (He‘eia ahupua‘a), O‘ahu, Hawaiian Islands",
+      "original_ecosystem": "Upland-forest; Freshwater-watershed; Agricultural; Wetland",
+      "ecosystem_types": [
+        "Wetlands",
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "156",
+      "doi_or_id": "10.5751/ES-13555-270421",
+      "title": "Hālana ka manaʻo: place-based connection as a source of long-term resilience",
+      "original_ecosystem": "Freshwater-watershed; Agricultural",
+      "ecosystem_types": [
+        "Ecosystem not specified"
+      ],
+      "classification_basis": [
+        "Previously source-supported classification: https://ecologyandsociety.org/vol27/iss4/art21/",
+        "Previously checked external source: https://ecologyandsociety.org/vol27/iss4/art21/"
+      ],
+      "review_status": "source_supported_prior_review",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": "https://ecologyandsociety.org/vol27/iss4/art21/"
+    },
+    {
+      "paper_id": "157",
+      "doi_or_id": "10.1016/j.marpol.2018.04.025",
+      "title": "State of the plate: Assessing present and future contribution of fisheries and aquaculture to Hawai‘i’s food security",
+      "original_ecosystem": "Freshwater-watershed; Wetland; Coastal / marine",
+      "ecosystem_types": [
+        "Wetlands",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "158",
+      "doi_or_id": "rayyan-542501668",
+      "title": "The Economics of Wetland Taro Production in Hawaii",
+      "original_ecosystem": "Agricultural; Wetland",
+      "ecosystem_types": [
+        "Wetlands"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "159",
+      "doi_or_id": "rayyan-542501670",
+      "title": "Ethnoecology of taro farmers and their management of Hawaiian wetlands and endangered waterbirds in taro agroecosystems",
+      "original_ecosystem": "Upland-forest; Agricultural; Wetland",
+      "ecosystem_types": [
+        "Wetlands",
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "160",
+      "doi_or_id": "rayyan-542501671",
+      "title": "Hanalei Watershed Flood Study",
+      "original_ecosystem": "Freshwater-watershed; Agricultural; Wetland; Coastal / marine",
+      "ecosystem_types": [
+        "Wetlands",
+        "Coastal",
+        "Tropical oceans"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies wetland",
+        "Original Ecosystem Setting explicitly identifies coastal setting",
+        "Original Ecosystem Setting explicitly identifies Hawaiian marine/ocean habitat"
+      ],
+      "review_status": "provisional_from_excel",
+      "caveats": [
+        "Land use or watershed context does not alone identify an Oxford ecosystem"
+      ],
+      "source_url": ""
+    },
+    {
+      "paper_id": "161",
+      "doi_or_id": "10.5751/ES-11388-250126",
+      "title": "Biocultural restoration in Hawaiʻi also achieves core conservation goals",
+      "original_ecosystem": "Upland-forest",
+      "ecosystem_types": [
+        "Tropical and subtropical forests"
+      ],
+      "classification_basis": [
+        "Original Ecosystem Setting explicitly identifies Hawaiian forest"
+      ],
+      "review_status": "direct_from_excel",
+      "caveats": [],
+      "source_url": ""
+    }
+  ]
+}

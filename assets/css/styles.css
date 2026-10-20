@@ -6749,4 +6749,18 @@ html[data-landing-theme="light"] .hx-cases .hx-paper-card dd { color: #242b38; }
 @media (max-width: 620px) {
   .site-theme-toggle { font-size: 0; padding: 6px 8px; }
   .site-theme-toggle .landing-theme-icon { font-size: 19px; }
+  .page-shell > .site-header .brand-text span { display: none; }
+}
+
+@media (max-width: 380px) {
+  .page-shell .landing-contact-page { overflow-x: clip; }
+  .page-shell .landing-contact-main,
+  .page-shell .landing-contact-footer { max-width: 100%; }
+  .page-shell > .site-header .header-top,
+  .page-shell > .site-header .header-controls { gap: 8px; }
+  .page-shell > .site-header .brand-text strong {
+    max-width: 76px;
+    white-space: normal;
+    font-size: 14px;
+  }
 }
