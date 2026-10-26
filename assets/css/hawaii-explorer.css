@@ -729,6 +729,7 @@ html[data-landing-theme="light"] .hx-cases .hx-no-geometry { background: #f3e8d8
 .hx-cases .hx-climate-number-pair label { color: #aebbc0; font-size: 11px; }
 .hx-cases .hx-climate-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin: 22px 0 8px; color: #dbe7ea; font-size: 11px; }
 .hx-cases .hx-climate-legend i { display: block; flex: 1; min-width: 45px; height: 10px; background: linear-gradient(90deg,#f8fafc,#b3ddeb,#44a6c4,#226097,#fcbb59,#bc3832); }
+.hx-cases[data-map-mode="temperature"] .hx-climate-legend i { background: linear-gradient(90deg,#305991,#5499b9,#ccdfcd,#f8c770,#da7947,#9a3d36); }
 .hx-cases .hx-climate-legend small { flex-basis: 100%; line-height: 1.5; }
 .hx-cases .hx-climate-download { width: 100%; min-height: 42px; margin-top: 10px; padding: 9px; border: 1px solid var(--geo-cyan); border-radius: 4px; background: var(--geo-cyan); color: #07131d; font-size: 11px; font-weight: 700; }
 .hx-cases .hx-climate-download:disabled { border-color: var(--geo-line); background: transparent; color: #81949a; cursor: not-allowed; }

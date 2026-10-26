@@ -1,0 +1,74 @@
+name: Update HCDP monthly mean temperature
+
+on:
+  push:
+    branches:
+      - codex/hcdp-mean-temperature
+    paths:
+      - .github/workflows/update-hcdp-temperature.yml
+      - scripts/sync_hcdp_temperature_history.py
+      - tests/test_hcdp_temperature.py
+  schedule:
+    - cron: '41 19 * * 1'
+  workflow_dispatch:
+    inputs:
+      verify_only:
+        description: 'Verify September 2026 in isolation; do not change website files or open a PR'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: scripts/requirements-hcdp.txt
+      - run: python -m pip install -r scripts/requirements-hcdp.txt
+      - name: Test temperature conversion and archive safety
+        run: python -m unittest discover -s tests -p 'test_hcdp_temperature.py' -v
+      - name: Download and validate monthly mean temperature
+        env:
+          HCDP_API_TOKEN: ${{ secrets.HCDP_API_TOKEN }}
+          VERIFY_ONLY: ${{ inputs.verify_only }}
+          RUNNER_TEMP: ${{ runner.temp }}
+          BRANCH_NAME: ${{ github.ref_name }}
+        run: |
+          if [ "$VERIFY_ONLY" = "true" ] || [ "$BRANCH_NAME" = "codex/hcdp-mean-temperature" ]; then
+            mkdir -p "$RUNNER_TEMP/hcdp-temperature-verified"
+            python scripts/sync_hcdp_temperature_history.py --month 2026-09 --output-dir "$RUNNER_TEMP/hcdp-temperature-verified"
+          else
+            python scripts/sync_hcdp_temperature_history.py --months 24
+          fi
+      - name: Upload isolated validated files
+        if: ${{ inputs.verify_only == true || github.ref_name == 'codex/hcdp-mean-temperature' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: hcdp-temperature-verified
+          path: |
+            ${{ runner.temp }}/hcdp-temperature-verified/temperature-months.json
+            ${{ runner.temp }}/hcdp-temperature-verified/temperature-monthly/
+          if-no-files-found: error
+          retention-days: 1
+      - name: Open review PR for validated data
+        if: ${{ inputs.verify_only != true && github.ref_name != 'codex/hcdp-mean-temperature' }}
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: codex/hcdp-monthly-temperature-data
+          delete-branch: true
+          add-paths: |
+            assets/data/temperature-months.json
+            assets/data/temperature-monthly/
+          commit-message: Update validated HCDP monthly mean temperature
+          title: Update HCDP monthly mean temperature data
+          body: |
+            Automated HCDP statewide monthly mean-air-temperature update.
+            All proposed rasters and website assets passed conversion checks.
+            Review the periods, units, map and metadata before merging.
