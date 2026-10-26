@@ -1,0 +1,23 @@
+{
+  "dataset": "HCDP statewide monthly rainfall",
+  "period": "2026-08",
+  "unit": "mm",
+  "status": "preliminary",
+  "source": "Hawaiʻi Climate Data Portal (HCDP), API /raster; rainfall/new/month/statewide",
+  "bounds": [
+    [
+      18.849,
+      -159.816
+    ],
+    [
+      22.269,
+      -154.668
+    ]
+  ],
+  "width": 2288,
+  "height": 1520,
+  "valueEncoding": "RGB 24-bit integer, 0 = no data, rainfall_mm = (integer - 1) / 10",
+  "colorScale": "Visual overlay colors only; sample from rainfall-values.png",
+  "validPixels": 287983,
+  "note": "Monthly cumulative rainfall estimate, not realtime rainfall. Preliminary until HCDP confirms final status. Schematic site coordinates must not be interpreted as measured locations."
+}
