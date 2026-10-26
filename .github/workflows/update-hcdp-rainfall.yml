@@ -2,12 +2,12 @@ name: Update HCDP monthly rainfall
 
 on:
   schedule:
-    # Allow time for HCDP to publish the previous month's statewide raster.
-    - cron: '23 18 15 * *'
+    # Retry weekly so a month published after the 15th is not missed.
+    - cron: '23 18 * * 1'
   workflow_dispatch:
     inputs:
       month:
-        description: 'Optional YYYY-MM month to check (blank = latest available)'
+        description: 'YYYY-MM month for isolated verify_only test; leave blank for archive sync'
         required: false
       verify_only:
         description: 'Validate an API download in isolation; do not change website files or open a PR'
@@ -29,8 +29,8 @@ jobs:
           cache: pip
           cache-dependency-path: scripts/requirements-hcdp.txt
       - run: python -m pip install -r scripts/requirements-hcdp.txt
-      - name: Test raster conversion and no-op safety
-        run: python -m unittest discover -s tests -p test_update_hcdp_rainfall.py -v
+      - name: Test raster conversion and archive safety
+        run: python -m unittest discover -s tests -p 'test_*hcdp_rainfall*.py' -v
       - name: Download and validate HCDP rainfall
         env:
           HCDP_API_TOKEN: ${{ secrets.HCDP_API_TOKEN }}
@@ -45,10 +45,12 @@ jobs:
             fi
             mkdir -p "$RUNNER_TEMP/hcdp-rainfall-verified"
             python scripts/update_hcdp_rainfall.py --month "$REQUESTED_MONTH" --require-data --output-dir "$RUNNER_TEMP/hcdp-rainfall-verified"
-          elif [ -n "$REQUESTED_MONTH" ]; then
-            python scripts/update_hcdp_rainfall.py --month "$REQUESTED_MONTH"
           else
-            python scripts/update_hcdp_rainfall.py
+            if [ -n "$REQUESTED_MONTH" ]; then
+              echo 'The month input is only for isolated verify_only tests.' >&2
+              exit 1
+            fi
+            python scripts/sync_hcdp_rainfall_history.py --months 24
           fi
       - name: Upload isolated validated files
         if: ${{ inputs.verify_only == true }}
@@ -68,6 +70,8 @@ jobs:
             assets/data/rainfall-values.png
             assets/data/rainfall-overlay.png
             assets/data/rainfall-metadata.json
+            assets/data/rainfall-months.json
+            assets/data/rainfall-monthly/
           commit-message: Update validated HCDP monthly rainfall
           title: Update HCDP monthly rainfall data
           body: |

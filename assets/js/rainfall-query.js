@@ -38,7 +38,7 @@
 
     const getMetadata = () => {
       if (!metadataPromise) {
-        metadataPromise = fetch(metadataURL).then((response) => {
+        metadataPromise = fetch(metadataURL, { cache: "no-store" }).then((response) => {
           if (!response.ok) throw new Error("Unable to load rainfall metadata");
           return response.json();
         }).then((metadata) => {
@@ -60,7 +60,7 @@
       if (!rasterPromise) {
         rasterPromise = Promise.all([
           getMetadata(),
-          fetch(rasterURL).then((response) => {
+          fetch(rasterURL, { cache: "no-store" }).then((response) => {
             if (!response.ok) throw new Error("Unable to load rainfall raster");
             return response.blob();
           }),
