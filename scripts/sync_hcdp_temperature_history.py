@@ -9,6 +9,8 @@ import json
 import os
 import re
 import shutil
+import socket
+import ssl
 import sys
 import tempfile
 from datetime import datetime
@@ -31,6 +33,20 @@ INDEX = "temperature-months.json"
 OFFSET = 100.0
 
 
+def network_error_category(error):
+    """Return a credential-safe network diagnosis for CI logs."""
+    reason = error.reason if isinstance(error, URLError) else error
+    if isinstance(reason, (socket.timeout, TimeoutError)):
+        return "timeout"
+    if isinstance(reason, socket.gaierror):
+        return "DNS resolution failure"
+    if isinstance(reason, ssl.SSLError):
+        return "TLS failure"
+    if isinstance(reason, ConnectionError):
+        return "connection failure"
+    return type(reason).__name__
+
+
 def fetch_raster(month, token, timeout=120, retries=2):
     params = {"datatype": "temperature", "aggregation": "mean", "period": "month",
               "date": month, "extent": "statewide"}
@@ -50,7 +66,8 @@ def fetch_raster(month, token, timeout=120, retries=2):
                 raise RuntimeError(f"HCDP temperature HTTP {error.code} for {month}") from None
         except (URLError, TimeoutError) as error:
             if attempt == retries:
-                raise RuntimeError(f"HCDP temperature request failed for {month}: {type(error).__name__}") from None
+                category = network_error_category(error)
+                raise RuntimeError(f"HCDP temperature request failed for {month}: {category} after {attempt + 1} attempts") from None
         import time
         time.sleep(min(2 ** attempt, 4))
 

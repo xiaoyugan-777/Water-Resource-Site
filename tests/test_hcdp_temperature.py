@@ -1,10 +1,12 @@
 import json
+import socket
 import sys
 import tempfile
 import unittest
 from datetime import datetime
 from pathlib import Path
 from unittest.mock import patch
+from urllib.error import URLError
 
 import numpy as np
 import rasterio
@@ -30,6 +32,10 @@ def fixture_tiff():
 
 
 class TemperatureTests(unittest.TestCase):
+    def test_network_errors_are_classified_without_leaking_details(self):
+        self.assertEqual(temperature.network_error_category(URLError(socket.timeout("private detail"))), "timeout")
+        self.assertEqual(temperature.network_error_category(URLError(socket.gaierror(-2, "private detail"))), "DNS resolution failure")
+
     def test_conversion_preserves_negative_zero_missing_and_metadata(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
