@@ -1,0 +1,26 @@
+{
+  "dataset": "HCDP statewide monthly mean air temperature",
+  "variable": "monthly mean air temperature",
+  "aggregation": "mean",
+  "period": "2026-07",
+  "unit": "°C",
+  "status": "not specified by API",
+  "source": "Hawaiʻi Climate Data Portal (HCDP), API /raster; temperature/mean/month/statewide",
+  "bounds": [
+    [
+      18.849,
+      -159.816
+    ],
+    [
+      22.269,
+      -154.66800000000003
+    ]
+  ],
+  "width": 2288,
+  "height": 1520,
+  "valueEncoding": "RGB 24-bit integer, 0 = no data, temperature_C = (integer - 1) / 10 - 100",
+  "valueOffset": 100.0,
+  "validPixels": 287117,
+  "colorScale": "Visual overlay colors only; sample from temperature-values.png",
+  "note": "Monthly mean air temperature, not daily minimum or maximum. Missing cells are not zero."
+}
