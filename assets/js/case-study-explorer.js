@@ -65,13 +65,6 @@
   root.innerHTML = `
     <header class="hx-fullscreen-bar">
       <div><span class="hx-eyebrow">HAWAIʻI • NATURE-BASED SOLUTIONS</span><h2>Case Study Explorer</h2></div>
-      <button type="button" class="hx-expand-btn hx-bar-expand" data-expand-map aria-label="Expand map to fullscreen" title="Expand map">
-        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9"/></svg>
-        <span>Expand map</span>
-      </button>
-      <button type="button" class="hx-fullscreen-exit" data-exit-map aria-label="Exit fullscreen">
-        <span aria-hidden="true">✕</span> Back to page
-      </button>
     </header>
     <div class="hx-case-layout">
       <aside class="hx-case-nav" aria-label="Map regions">
@@ -217,6 +210,7 @@
     const nav = root.querySelector('.hx-case-nav');
     nav.querySelectorAll('.hx-case-brand,.hx-case-nav-kicker,.hx-case-nav-copy,.hx-case-nav-total,h2').forEach(el=>el.hidden=true);
     nav.insertAdjacentHTML('afterbegin', '<a class="map-rail-brand" href="../index.html" aria-label="Hawaiʻi NbS Hub home">HAWAIʻI<br>NBS<br>HUB</a>');
+    root.classList.toggle('case-panel-hidden', window.matchMedia('(max-width: 760px)').matches);
     const panel = root.querySelector('.hx-case-panel');
     const close = document.createElement('button');close.type='button';close.className='case-panel-close';close.textContent='×';close.setAttribute('aria-label','Close filters and results');
     panel.prepend(close);close.onclick=()=>{root.classList.add('case-panel-hidden');root.querySelector('.case-panel-reopen').focus();};
@@ -245,7 +239,7 @@
     zoomDelta: 0.5,
     zoomControl: false,
   });
-  L.control.zoom({ position: "bottomright" }).addTo(map);
+  L.control.zoom({ position: "topright" }).addTo(map);
   L.control.scale({ imperial: true, metric: true }).addTo(map);
 
   const rainfallLocation = $("[data-rainfall-location]");
@@ -1759,41 +1753,6 @@
         fitMainHawaiianIslands();
         render();
       });
-      // Fullscreen toggle for the map explorer. The button lives in the page
-      // header (outside the explorer), so query the document.
-      const expandBtn = document.querySelector("[data-expand-map]");
-      const exitBtn = root.querySelector("[data-exit-map]");
-      const expandLabel = expandBtn ? expandBtn.querySelector("span") : null;
-      const updateExpandBtn = () => {
-        if (!expandBtn) return;
-        const isFull = document.fullscreenElement === root;
-        if (expandLabel) expandLabel.textContent = isFull ? "Exit fullscreen" : "Expand map";
-        expandBtn.setAttribute("aria-label", isFull ? "Exit fullscreen" : "Expand map to fullscreen");
-        expandBtn.setAttribute("title", isFull ? "Exit fullscreen" : "Expand map");
-      };
-      if (expandBtn) {
-        expandBtn.addEventListener("click", () => {
-          if (document.fullscreenElement === root) {
-            document.exitFullscreen();
-          } else if (root.requestFullscreen) {
-            root.requestFullscreen();
-          }
-        });
-      }
-      exitBtn?.addEventListener("click", () => {
-        if (document.fullscreenElement === root) document.exitFullscreen();
-      });
-      document.addEventListener("fullscreenchange", () => {
-        updateExpandBtn();
-        // Leaflet needs to recalculate after the container resizes.
-        requestAnimationFrame(() => map.invalidateSize({ pan: true, animate: false }));
-        setTimeout(() => {
-          map.invalidateSize({ pan: true, animate: false });
-          if (!focus) {
-            fitSelectedIslands(appliedFilters.islands, false);
-          }
-        }, 180);
-      });
       new ResizeObserver(() => map.invalidateSize({ pan: true, animate: false })).observe($(".hx-stage"));
       const syncCaseTheme = () => {
         if(evidenceOnly)return;
@@ -1806,7 +1765,10 @@
       render();
       if (!evidenceOnly) {
         const requestedView = directoryQuery.get("view");
-        if (requestedView === "rainfall" || requestedView === "temperature") activateMapMode(requestedView);
+        if (requestedView === "rainfall" || requestedView === "temperature") {
+          root.classList.remove("case-panel-hidden");
+          activateMapMode(requestedView);
+        }
         else if (Object.values(appliedFilters).some(values => values.length)) showPanel("results");
       }
       // Reframe once the dashboard has reached its final size so the full main

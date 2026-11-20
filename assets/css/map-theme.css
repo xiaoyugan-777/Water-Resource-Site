@@ -120,3 +120,36 @@ html body.case-studies-page .case-rail-bottom { padding-top:6px; }
 @media(max-width:760px) {
  html body:is(.island-map-page,.case-studies-page) .map-rail-brand { font-size:15px; height:76px; }
 }
+
+/* Keep zoom controls legible against both satellite imagery and the light basemap. */
+.hx .hx-canvas .leaflet-control-zoom {
+  overflow: hidden;
+  border: 1px solid #a8afb4 !important;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px #0004 !important;
+}
+.hx .hx-canvas .leaflet-control-zoom a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: white !important;
+  color: #303438 !important;
+  border-color: #cbd0d3 !important;
+  font: bold 28px/1 Arial, sans-serif;
+}
+.hx .hx-canvas .leaflet-control-zoom a:is(:hover, :focus-visible) {
+  background: #eef3f6 !important;
+}
+.hx .hx-canvas .leaflet-control-zoom a:focus-visible {
+  outline: 2px solid #176d9c;
+  outline-offset: -3px;
+}
+.hx .hx-canvas .leaflet-control-zoom a.leaflet-disabled {
+  color: #888 !important;
+}
+html[data-landing-theme] body.case-studies-page .hx-stage .hx-map-summary {
+  right: 68px;
+  max-width: calc(100% - 80px);
+}
+.case-studies-page .hx-canvas .leaflet-top.leaflet-right { top: 0; }
