@@ -553,3 +553,96 @@ html[data-landing-theme="light"] .landing-home .landing-contact-form > p { color
     background-repeat: no-repeat;
   }
 }
+
+/* Premium monochrome light theme. */
+html[data-landing-theme="light"] .landing-home {
+  --landing-bg: #f3f3f1;
+  --landing-ink: #111;
+  --landing-muted: #62625e;
+  --landing-accent: #111;
+  --landing-line: rgba(17, 17, 17, .14);
+  color-scheme: light;
+  color: #111;
+  background: #f3f3f1;
+}
+html[data-landing-theme="light"] .landing-home .landing-header {
+  color: #f7f7f5;
+  border-color: rgba(255, 255, 255, .14);
+  background: rgba(8, 8, 8, .94);
+  backdrop-filter: blur(18px);
+}
+html[data-landing-theme="light"] .landing-home .landing-brand-name,
+html[data-landing-theme="light"] .landing-home .landing-brand-name > span,
+html[data-landing-theme="light"] .landing-home .landing-nav-link,
+html[data-landing-theme="light"] .landing-home .landing-theme-toggle,
+html[data-landing-theme="light"] .landing-home .landing-explore summary { color: #f7f7f5; }
+html[data-landing-theme="light"] .landing-home .explore-menu,
+html[data-landing-theme="light"] .landing-home .dropdown-menu,
+html[data-landing-theme="light"] .landing-home .partners-submenu {
+  color: #f7f7f5;
+  border-color: #333;
+  border-radius: 20px;
+  background: #151515;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .3);
+}
+html[data-landing-theme="light"] .landing-home .explore-menu a,
+html[data-landing-theme="light"] .landing-home .dropdown-menu a,
+html[data-landing-theme="light"] .landing-home .partners-submenu a { color: #f7f7f5; }
+html[data-landing-theme="light"] .landing-home .hero,
+html[data-landing-theme="light"] .landing-home .landing-intro,
+html[data-landing-theme="light"] .landing-home .landing-story-reference,
+html[data-landing-theme="light"] .landing-home .landing-community { background: #f3f3f1; }
+html[data-landing-theme="light"] .landing-home .hero-map {
+  background-image: linear-gradient(90deg, #111 0%, rgba(17,17,17,.95) 28%, rgba(17,17,17,.54) 58%, rgba(17,17,17,.12) 100%), linear-gradient(0deg, rgba(0,0,0,.62), transparent 38%), url("../images/hero-oahu-landsat.jpg");
+  filter: grayscale(.72) contrast(1.06);
+}
+html[data-landing-theme="light"] .landing-home .landing-button-primary,
+html[data-landing-theme="light"] .landing-home .landing-signup button,
+html[data-landing-theme="light"] .landing-home .landing-contact-form button {
+  color: #fff;
+  border-color: #111;
+  border-radius: 999px;
+  background: #111;
+}
+html[data-landing-theme="light"] .landing-home .landing-button-primary:hover,
+html[data-landing-theme="light"] .landing-home .landing-button-primary:focus-visible,
+html[data-landing-theme="light"] .landing-home .landing-signup button:hover,
+html[data-landing-theme="light"] .landing-home .landing-contact-form button:hover { color: #fff; border-color: #333; background: #333; }
+html[data-landing-theme="light"] .landing-home .landing-button-secondary {
+  color: #111;
+  border-color: #111;
+  border-radius: 999px;
+  background: transparent;
+}
+html[data-landing-theme="light"] .landing-home .landing-button-secondary:hover,
+html[data-landing-theme="light"] .landing-home .landing-button-secondary:focus-visible { color: #fff; background: #111; }
+html[data-landing-theme="light"] .landing-home .landing-topics { background: #e9e9e6; }
+html[data-landing-theme="light"] .landing-home .topic-card:nth-child(n) {
+  --topic-color: #fff;
+  color: #151515;
+  border: 1px solid #d0d0cc;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .05);
+}
+html[data-landing-theme="light"] .landing-home .topic-number,
+html[data-landing-theme="light"] .landing-home .topic-description,
+html[data-landing-theme="light"] .landing-home .topic-arrow { color: #555550; }
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:nth-of-type(n) {
+  color: #222;
+  border-color: #cacac6;
+  border-radius: 14px;
+  background: #fff;
+}
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:hover,
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button:focus-visible,
+html[data-landing-theme="light"] .landing-home .impact-copy .impact-selector button[aria-pressed="true"] { color: #fff; border-color: #111; background: #111; }
+html[data-landing-theme="light"] .landing-home .landing-contact-page { background: #e9e9e6; border-color: #ccccca; }
+html[data-landing-theme="light"] .landing-home .landing-contact-footer { background: #ddddda; border-color: #c7c7c3; }
+html[data-landing-theme="light"] .landing-home .landing-contact-form input,
+html[data-landing-theme="light"] .landing-home .landing-contact-form textarea {
+  color: #111;
+  border-color: #bdbdb8;
+  border-radius: 14px;
+  background: #fff;
+}

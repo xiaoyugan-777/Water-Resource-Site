@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research Evidence | Hawaiʻi NbS Hub</title>
+    <link rel="icon" type="image/png" href="../assets/images/oleson-lab-logo.png" />
+    <meta
+      name="description"
+      content="Explore patterns in Hawaiʻi nature-based solutions research."
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css?v=67" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="../assets/css/hawaii-explorer.css?v=50">
+    <link rel="stylesheet" href="../assets/css/map-site-chrome.css?v=1" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;family=Playfair+Display:wght@700&amp;display=swap">
+<link rel="stylesheet" href="../assets/css/evidence-matrix.css?v=13" />
+  <link rel="stylesheet" href="../assets/css/partners.css?v=4" />
+  </head>
+  <body class="research-evidence-page">
+    <div class="page-shell">
+    <div class="nature-landing map-site-chrome">
+      <header class="landing-header">
+        <a class="landing-brand" href="../index.html" aria-label="Hawaiʻi NbS Hub home">
+          <img class="brand-logo-image landing-brand-logo" src="../assets/images/oleson-lab-logo.png" alt="" />
+          <span class="landing-brand-name">
+            <strong>Hawaiʻi NbS Hub</strong>
+            <span>Oleson Lab · University of Hawaiʻi</span>
+          </span>
+        </a>
+
+      </header>
+
+      <nav class="nature-navigation" aria-label="Main navigation">
+        <div class="nature-navigation-inner">
+          <div class="nature-navigation-links">
+            <a href="./explore-hawaii.html">Map</a>
+            <details class="nature-nav-dropdown">
+              <summary>Case Studies <span aria-hidden="true">⌄</span></summary>
+              <div class="nature-nav-panel">
+                <a href="./case-studies.html">Case Study Explorer</a>
+                <a href="./research-evidence.html">Research Evidence</a>
+              </div>
+            </details>
+            <details class="nature-nav-dropdown">
+              <summary>Tools <span aria-hidden="true">⌄</span></summary>
+              <div class="nature-nav-panel">
+                <a href="./get-started.html">Monitoring &amp; Evaluation</a>
+                <a href="./tutorials.html">Tutorials</a>
+                <a href="./evaluate.html">Evaluate · InEvalTool</a>
+                <a href="./tool.html">NbS Assistant</a>
+                <a href="./evidence-tool.html">CIROH-NbS InEvalTool · Overview</a>
+              </div>
+            </details>
+            <details class="nature-nav-dropdown">
+              <summary>About <span aria-hidden="true">⌄</span></summary>
+              <div class="nature-nav-panel">
+                <a href="./about.html">About the initiative</a>
+                <a href="./team.html">Our team</a>
+                <div class="partner-nav-item">
+                  <a href="./partners.html">Partners</a>
+                  <button type="button" class="partner-nav-toggle" aria-label="Partner categories" aria-controls="partner-categories" aria-expanded="false"><span aria-hidden="true">›</span></button>
+                  <div class="partner-nav-links" id="partner-categories" hidden>
+                    <a href="./partners.html#strategic-partners">Strategic partners</a>
+                    <a href="./partners.html#technical-partners">Technical partners</a>
+                    <a href="./partners.html#aina-group">ʻĀina group</a>
+                  </div>
+                </div>
+                <a href="./join-us.html">Join us</a>
+              </div>
+            </details>
+            <a href="./news.html">News</a>
+            <details class="nature-nav-dropdown">
+              <summary>Resources <span aria-hidden="true">⌄</span></summary>
+              <div class="nature-nav-panel">
+                <a href="./knowledge-hub.html">Knowledge hub</a>
+                <a href="./nbs-guidelines.html">NbS guidelines</a>
+                <a href="./outputs.html">Reports &amp; outputs</a>
+                <a href="./bibliography.html">Bibliography</a>
+                <a href="./education.html">Education</a>
+                <a href="./conferences.html">Conferences</a>
+                <a href="./support.html">Project support</a>
+              </div>
+            </details>
+          </div>
+          <a class="nature-nav-contact" href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+
+
+    </div>
+      <section class="research-evidence-hero" aria-labelledby="research-evidence-title"><h1 id="research-evidence-title">Research Evidence</h1></section>
+      <main class="content research-evidence-main">
+        <section id="research-evidence" class="hx hx-cases" data-case-study-explorer data-evidence-only aria-label="Research evidence matrix"></section>
+        <section class="evidence-methods" id="evidence-methods" aria-labelledby="evidence-methods-title">
+          <h2 id="evidence-methods-title">About this data</h2>
+          <p>The explorer counts unique papers in the Hawaiʻi NbS Hub case-study collection. Choose a place and two study attributes to explore their intersections; select a count to read the papers behind it.</p>
+          <p>A paper may belong to several categories, so totals are not additive. Papers without both selected attributes remain in the collection but are not represented in that matrix view. NbS and ecosystem labels include provisional classifications; consult the original studies for context.</p>
+        </section>
+      </main>
+
+
+    </div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="../assets/js/main.js?v=22"></script>
+    <script src="../assets/js/rainfall-query.js?v=3"></script>
+    <script src="../assets/js/case-study-explorer.js?v=67"></script>
+    <script src="../assets/js/evidence-workspace.js?v=2"></script>
+  </body>
+</html>

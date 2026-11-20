@@ -6842,3 +6842,264 @@ html:not([data-landing-theme="light"]) .island-map-page .hx { border-color: rgba
     font-size: 14px;
   }
 }
+
+/* Premium monochrome design system — shared across the project. */
+:root {
+  --ui-page: #0a0a0a;
+  --ui-surface: #151515;
+  --ui-elevated: #202020;
+  --ui-line: #353535;
+  --ui-ink: #f7f7f5;
+  --ui-muted: #a7a7a2;
+  --ui-link: #ffffff;
+  --ui-accent: #ffffff;
+  --ui-focus: #bdbdb8;
+  --ui-radius: 20px;
+  --header: #080808;
+  --header-card: #161616;
+  --bg: #0a0a0a;
+  --panel: #161616;
+  --text: #f7f7f5;
+  --muted: #a7a7a2;
+  --white: #ffffff;
+  --green: #ffffff;
+  --green-soft: #d8d8d4;
+}
+
+.landing-home {
+  --landing-bg: #0a0a0a;
+  --landing-ink: #f7f7f5;
+  --landing-muted: #aaa9a4;
+  --landing-accent: #ffffff;
+  --landing-line: rgba(255, 255, 255, .16);
+}
+
+html:not([data-landing-theme="light"]),
+html:not([data-landing-theme="light"]) body,
+html:not([data-landing-theme="light"]) .page-shell,
+html:not([data-landing-theme="light"]) .content {
+  background: #0a0a0a;
+  color: #f7f7f5;
+}
+
+html:not([data-landing-theme="light"]) .site-header,
+html:not([data-landing-theme="light"]) .page-shell > .site-header,
+html:not([data-landing-theme="light"]) .site-footer,
+.landing-header {
+  border-color: rgba(255, 255, 255, .15);
+  background: rgba(8, 8, 8, .94);
+  backdrop-filter: blur(18px);
+}
+
+html:not([data-landing-theme="light"]) .hero-map {
+  background-image:
+    linear-gradient(90deg, #0a0a0a 0%, rgba(10, 10, 10, .96) 28%, rgba(10, 10, 10, .58) 58%, rgba(10, 10, 10, .14) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, .7), transparent 38%),
+    url("../images/hero-oahu-landsat.jpg");
+  filter: grayscale(.68) contrast(1.08);
+}
+
+.landing-button,
+.landing-signup button,
+.landing-contact-form button,
+.evaluate-submit-button,
+.evaluate-ready-button,
+.menu-toggle,
+.site-theme-toggle,
+.persona-confirm,
+.flood-panel button {
+  border-radius: 999px;
+}
+
+.landing-button-primary,
+.landing-signup button,
+.landing-contact-form button,
+.evaluate-submit-button,
+.evaluate-ready-button {
+  color: #0a0a0a;
+  border-color: #ffffff;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .2);
+}
+
+.landing-button-primary:hover,
+.landing-button-primary:focus-visible,
+.landing-signup button:hover,
+.landing-signup button:focus-visible,
+.landing-contact-form button:hover,
+.landing-contact-form button:focus-visible,
+.evaluate-submit-button:hover,
+.evaluate-submit-button:focus-visible,
+.evaluate-ready-button:hover,
+.evaluate-ready-button:focus-visible {
+  color: #ffffff;
+  border-color: #2a2a2a;
+  background: #2a2a2a;
+}
+
+.landing-button-secondary {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, .4);
+  background: rgba(255, 255, 255, .06);
+}
+
+.landing-button-secondary:hover,
+.landing-button-secondary:focus-visible {
+  color: #0a0a0a;
+  border-color: #ffffff;
+  background: #ffffff;
+}
+
+.search-shell,
+.landing-signup,
+.landing-contact-form input,
+.landing-contact-form textarea,
+input,
+select,
+textarea {
+  border-radius: 14px;
+}
+
+.search-shell {
+  overflow: hidden;
+  border-color: rgba(255, 255, 255, .25);
+  background: rgba(255, 255, 255, .07);
+}
+
+.explore-menu,
+.dropdown-menu,
+.partners-submenu,
+.persona-modal-panel {
+  overflow: hidden;
+  border-radius: 20px;
+  border-color: rgba(255, 255, 255, .18);
+  background: #151515;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .36);
+}
+
+.topic-card,
+.persona-card,
+.placeholder-panel,
+.partners-page .partner-detail-card,
+.partners-page .partner-name-card,
+.microcard,
+.tool-status-card,
+.tool-panel,
+.reference-card,
+.tool-architecture-card,
+.hero-card,
+.flood-map-shell,
+.flood-panel,
+.evaluate-shell,
+.evaluate-metric-card,
+.evaluate-intake-shell,
+.evaluate-check-card,
+.evaluate-summary-card,
+.evaluate-steps-shell,
+.evaluate-ready-panel,
+.evaluate-cases-shell,
+.evaluate-case-placeholder-card,
+.evaluate-record-card,
+.evaluate-results-intro-card {
+  border-radius: 20px;
+}
+
+.topic-card,
+.persona-card,
+.microcard,
+.tool-status-card,
+.tool-panel,
+.reference-card,
+.tool-architecture-card,
+.evaluate-metric-card,
+.evaluate-check-card,
+.evaluate-summary-card,
+.evaluate-record-card,
+.evaluate-results-intro-card {
+  border-color: #343434;
+  background: #171717;
+}
+
+.topic-card:nth-child(n),
+.microcard-sage,
+.microcard-sand,
+.microcard-sky,
+.evaluate-metric-card-sage,
+.evaluate-metric-card-sand,
+.evaluate-metric-card-sky,
+.evaluate-step-badge-mint,
+.evaluate-step-badge-lime,
+.evaluate-step-badge-sky,
+.evaluate-step-badge-lavender {
+  --topic-color: #1b1b1b;
+  color: inherit;
+  background: #1b1b1b;
+}
+
+.evaluate-record-tag,
+.chat-badge,
+.landing-story-reference .impact-copy .impact-selector button:nth-of-type(n) {
+  color: #f5f5f3;
+  border-color: #414141;
+  background: #232323;
+}
+
+.landing-story-reference .impact-copy .impact-selector button:hover,
+.landing-story-reference .impact-copy .impact-selector button:focus-visible,
+.landing-story-reference .impact-copy .impact-selector button[aria-pressed="true"] {
+  color: #0a0a0a;
+  border-color: #ffffff;
+  background: #ffffff;
+}
+
+.brand-logo-image,
+.landing-brand-logo {
+  filter: grayscale(.2) drop-shadow(0 8px 20px rgba(0, 0, 0, .24));
+}
+
+/* Remove remaining legacy green accents from shared editorial and tool pages. */
+.landing-assessment-copy h2 span,
+.landing-assessment-number,
+.landing-assessment-link > span:first-child,
+.landing-assessment-link:hover,
+.landing-assessment-link:focus-visible,
+.page-shell > .site-header .brand-text span,
+.page-shell > .site-header .nav-group a:hover,
+.page-shell > .site-header .nav-group a:focus-visible,
+.article-eyebrow,
+.section-eyebrow,
+.evaluate-metric-value,
+.evaluate-metric-value-green,
+.evaluate-metric-value-blue {
+  color: #bdbdb8;
+}
+
+.landing-assessment-page { border-color: #303030; background: #0d0d0d; }
+.landing-assessment-copy h2,
+.landing-assessment-question h3,
+.landing-assessment-link { color: #f7f7f5; }
+.landing-assessment-summary,
+.landing-assessment-question p { color: #aaa9a4; }
+.landing-assessment-question { border-color: #343434; }
+
+.evaluate-action-primary,
+.evaluate-shell .evaluate-action-primary,
+.evaluate-shell .evaluate-ready-button,
+.evaluate-shell .evaluate-submit-button {
+  color: #111111;
+  border-color: #ffffff;
+  border-radius: 999px;
+  background: #ffffff;
+}
+.evaluate-action-primary:hover,
+.evaluate-action-primary:focus-visible,
+.evaluate-shell .evaluate-action-primary:hover,
+.evaluate-shell .evaluate-action-primary:focus-visible {
+  color: #ffffff;
+  border-color: #353535;
+  background: #353535;
+}
+
+.page-shell > .site-header .nav-group a[href$="support.html"] {
+  border-color: rgba(255, 255, 255, .35);
+}

@@ -119,3 +119,18 @@
     justify-content: center;
   }
 }
+
+/* Premium monochrome frame for the standalone explorer. */
+.island-map-page { color: #f7f7f5; background: #0a0a0a; }
+.island-map-nav {
+  border-color: rgba(255, 255, 255, .14);
+  background: rgba(8, 8, 8, .94);
+  backdrop-filter: blur(18px);
+}
+.island-map-intro > p:first-child { color: #d0d0cc; }
+.island-map-intro > p:last-child { color: #a7a7a2; }
+.island-map-page .hx {
+  border-color: #333;
+  border-radius: 22px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, .28);
+}

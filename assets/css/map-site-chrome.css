@@ -1,0 +1,987 @@
+@import url("landing-nature.css?v=39");
+/* Reference-inspired homepage. Scoped to preserve standalone tools and maps. */
+html .nature-landing { --landing-accent: #a3bd43; }
+html .nature-landing .landing-header {
+  position: relative; width: 100%; min-height: 108px; padding: 8px 24px;
+  background: #f7fbd9; color: #25352f; border: 1px solid #c3d16f;
+  --landing-ink: #25352f; --landing-muted: #627169;
+  border-bottom: 0; backdrop-filter: none;
+}
+html .nature-landing .landing-brand-name strong { color: #25352f; font-size: 21px; letter-spacing: -.035em; }
+html .nature-landing .landing-brand-name > span { color: #627169; font-size: 11px; }
+html .nature-landing .landing-brand-logo { width: 52px; height: 52px; filter: none; }
+html .nature-landing .landing-theme-toggle { display: none; }
+html .nature-landing .explore-toggle { color: #25352f; border: 0; background: none; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+html .nature-landing .nature-nav-link { color: #344a35; text-decoration: none; font-size: 13px; padding: 12px 20px; border: 1px solid #d4ddc5; border-radius: 2px; }
+html .nature-landing .explore-menu { background: #fff; color: #25352f; --landing-ink: #25352f; --landing-muted: #627169; box-shadow: 0 18px 45px #10231c26; }
+html .nature-landing .explore-menu a, html .nature-landing .explore-menu button { color: #25352f; }
+html .nature-landing .explore-menu > a, html .nature-landing .explore-partners-row { border-color: #dbe2d5; }
+html .nature-landing .landing-hero { min-height: min(760px, 88svh); overflow: visible; background: #163e3d; color: #fff; }
+html .nature-landing .hero-map {
+  background-image: linear-gradient(90deg, rgba(8,35,32,.76), rgba(8,35,32,.34) 58%, rgba(8,35,32,.08)), url('../images/oahu-aster-satellite.jpg');
+  background-position: center, 65% center; background-size: cover; filter: saturate(.9); transform: none;
+}
+html .nature-landing .landing-hero::after { background: linear-gradient(0deg, #0929239c, transparent 40%); }
+html .nature-landing .landing-hero-content { width: min(100%, 1050px); margin: 0; padding: 88px clamp(24px, 6vw, 96px) 155px; }
+html .nature-landing .landing-kicker { color: #e0edb9; font-size: 11px; letter-spacing: .16em; margin-bottom: 27px; }
+html .nature-landing .landing-hero h1.landing-title-wide { max-width: 950px; color: white; font-size: clamp(44px, 5.8vw, 84px); line-height: 1.1; letter-spacing: -.035em; font-weight: 400; text-wrap: initial; }
+html .nature-landing .landing-summary { color: #f0f4ed; font-size: clamp(17px, 1.5vw, 21px); max-width: 580px; margin-top: 27px; line-height: 1.65; }
+html .nature-landing .landing-actions { align-items: center; gap: 26px; margin-top: 32px; }
+html .nature-landing .landing-button-primary { min-height: 50px; background: #a6c348; color: #183023; border: 1px solid #a6c348; border-radius: 2px; padding: 14px 24px; box-shadow: none; font-size: 14px; }
+html .nature-landing .landing-button-primary:hover { background: #bed66f; border-color: #bed66f; }
+html .nature-landing .nature-secondary-link { color: white; text-decoration: none; font-size: 14px; padding: 12px 0; border-bottom: 1px solid #ffffff80; }
+html .nature-landing .nature-secondary-link span { margin-left: 12px; }
+html .nature-landing .hero-coordinate { display: none; }
+html .nature-landing .landing-hero-footer { min-height: 100px; border-color: #ffffff40; left: 6vw; right: 6vw; grid-template-columns: auto 1fr auto; gap: 35px; }
+html .nature-landing .hero-partners-label, html .nature-landing .hero-partner small { color: #d4e0d5; }
+html .nature-landing .hero-partner strong { color: #fff; }
+html .nature-landing .hero-scroll-link { color: #fff; }
+html .nature-landing .hero-scroll-link svg { width: 19px; height: 23px; }
+html .nature-landing .landing-topics { background: #fff; color: #27382e; padding: 85px 6vw; gap: 36px; border: none; }
+html .nature-landing .landing-topics h2 { color: #27382e; font-size: clamp(30px, 3vw, 44px); font-weight: 400; letter-spacing: -.035em; }
+html .nature-landing .landing-topics-heading > p { color: #647269; font-size: 15px; line-height: 1.65; }
+html .nature-landing .topic-grid { gap: 18px; }
+html .nature-landing .topic-card:nth-child(n) { background: #f3f5ef; color: #293e30; min-height: 215px; border: 1px solid #e4e9df; border-top: 3px solid #a3bd43; padding: 24px; border-radius: 0; }
+html .nature-landing .topic-card strong { font-weight: 400; font-size: 23px; }
+html .nature-landing .topic-number { color: #65764a; }
+html .nature-landing .topic-description { color: #637164; line-height: 1.6; }
+html .nature-landing .topic-arrow { color: #607f26; }
+html .nature-landing .topic-card:hover { background: #eaf0df; filter: none; }
+html .nature-landing a:focus-visible, html .nature-landing button:focus-visible { outline: 3px solid #819e35; outline-offset: 5px; }
+@media (max-width: 900px) {
+  html .nature-landing .hero-partners-label { display: none; }
+  html .nature-landing .landing-hero-footer { grid-template-columns: 1fr auto; }
+  html .nature-landing .hero-partner span { display: none; }
+  html .nature-landing .hero-partners { display: flex; gap: 26px; }
+  html .nature-landing .topic-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 600px) {
+  html .nature-landing .landing-header { min-height: 90px; padding: 8px 16px; }
+  html .nature-landing .landing-brand { gap: 10px; }
+  html .nature-landing .landing-brand-logo { width: 38px; height: 38px; }
+  html .nature-landing .landing-brand-name strong { font-size: 17px; }
+  html .nature-landing .landing-brand-name > span { font-size: 9px; }
+  html .nature-landing .nature-nav-link { display: none; }
+  html .nature-landing .landing-hero { min-height: 690px; }
+  html .nature-landing .landing-hero-content { padding: 65px 24px 150px; }
+  html .nature-landing .landing-hero h1.landing-title-wide { font-size: clamp(37px, 9vw, 54px); }
+  html .nature-landing .hero-map { background-position: center, 58% center; }
+  html .nature-landing .landing-kicker { font-size: 9px; line-height: 1.6; }
+  html .nature-landing .landing-actions { gap: 15px; }
+  html .nature-landing .landing-hero-footer { left: 24px; right: 24px; min-height: 100px; gap: 15px; }
+  html .nature-landing .hero-partners { gap: 18px; }
+  html .nature-landing .landing-topics { padding: 58px 24px; }
+  html .nature-landing .landing-topics-heading { align-items: start; flex-direction: column; gap: 16px; }
+  html .nature-landing .topic-card:nth-child(n) { min-height: 220px; padding: 17px; }
+  html .nature-landing .topic-card strong { font-size: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:has(.nature-landing) { scroll-behavior: auto; }
+  html .nature-landing .topic-card { transition: none; }
+}
+
+/* White secondary navigation, with a projecting green brand tile. */
+html .nature-landing .nature-navigation { position: relative; z-index: 25; background: #fff; border-bottom: 1px solid #e5e5df; color: #555; }
+html .nature-landing .nature-navigation-inner { width: min(1100px, calc(100% - 48px)); min-height: 56px; margin-inline: auto; display: flex; align-items: stretch; gap: 28px; }
+html .nature-landing .nature-nav-brand { position: relative; z-index: 2; flex: 0 0 76px; height: 76px; margin-bottom: -20px; padding: 10px; background: #97be32; color: #fff; font-size: 17px; font-weight: 800; line-height: 1.08; letter-spacing: -.05em; text-decoration: none; }
+html .nature-landing .nature-navigation-links { display: flex; align-items: stretch; gap: 28px; flex: 1; }
+html .nature-landing .nature-navigation-links > a,
+html .nature-landing .nature-nav-dropdown > summary,
+html .nature-landing .nature-nav-contact { display: flex; align-items: center; gap: 8px; min-height: 56px; color: #555; font-size: 13px; font-weight: 400; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; }
+html .nature-landing .nature-nav-dropdown { position: relative; }
+html .nature-landing .nature-nav-dropdown > summary { list-style: none; }
+html .nature-landing .nature-nav-dropdown > summary::-webkit-details-marker { display: none; }
+html .nature-landing .nature-nav-dropdown > summary span { font-size: 19px; line-height: 1; }
+html .nature-landing .nature-nav-dropdown[open] > summary { color: #61831c; }
+html .nature-landing .nature-nav-panel { position: absolute; top: 100%; left: -18px; min-width: 240px; padding: 10px 0; background: #fff; border-top: 3px solid #97be32; box-shadow: 0 8px 24px #15231c26; }
+html .nature-landing .nature-nav-panel a { display: block; padding: 12px 18px; color: #555; font-size: 14px; text-decoration: none; }
+html .nature-landing .nature-nav-panel a:hover { background: #f7fbd9; }
+html .nature-landing .nature-nav-contact { border-left: 1px solid #e5e5df; padding-left: 28px; }
+html .nature-landing .nature-navigation a:hover,
+html .nature-landing .nature-nav-dropdown summary:hover { color: #61831c; }
+html .nature-landing .nature-nav-brand:hover { color: #fff; background: #87ac28; }
+@media (max-width: 900px) {
+  html .nature-landing .nature-navigation-inner { gap: 18px; }
+  html .nature-landing .nature-navigation-links { gap: 18px; flex-wrap: wrap; }
+  html .nature-landing .nature-nav-contact { padding-left: 16px; }
+}
+@media (max-width: 700px) {
+  html .nature-landing .nature-navigation-inner { width: calc(100% - 32px); gap: 16px; }
+  html .nature-landing .nature-navigation-links { gap: 0 18px; padding-block: 6px; }
+  html .nature-landing .nature-navigation-links > a,
+  html .nature-landing .nature-nav-dropdown > summary { min-height: 36px; font-size: 11px; }
+  html .nature-landing .nature-nav-contact { display: none; }
+  html .nature-landing .nature-nav-panel { position: absolute; left: auto; right: 0; min-width: 205px; }
+  html .nature-landing .nature-nav-brand { margin-bottom: 0; align-self: flex-start; }
+}
+
+/* Cool white and blue identity for the Hawaiʻi hub. */
+html .nature-landing { --landing-accent: #277eaf; }
+html .nature-landing .landing-header {
+  background: #f5f9fd;
+  border: 0;
+  border-bottom: 1px solid #cbdce9;
+  --landing-ink: #20394b;
+  --landing-muted: #647b8c;
+}
+html .nature-landing .landing-brand-name strong { color: #20394b; }
+html .nature-landing .landing-brand-name > span { color: #647b8c; }
+html .nature-landing .nature-navigation { background: #fff; border-bottom-color: #dbe5ed; }
+html .nature-landing .nature-nav-brand { background: #287fae; }
+html .nature-landing .nature-nav-brand:hover { background: #1c658f; }
+html .nature-landing .nature-nav-dropdown[open] > summary,
+html .nature-landing .nature-navigation a:hover,
+html .nature-landing .nature-nav-dropdown summary:hover { color: #216c99; }
+html .nature-landing .nature-navigation .nature-nav-brand:hover { color: #fff; }
+html .nature-landing .nature-nav-panel { border-top-color: #287fae; }
+html .nature-landing .nature-nav-panel a:hover { background: #edf5fb; }
+html .nature-landing .nature-nav-contact { border-left-color: #dbe5ed; }
+html .nature-landing .landing-kicker { color: #cde9fa; }
+html .nature-landing .landing-button-primary { background: #2179ac; border-color: #2179ac; color: #fff; }
+html .nature-landing .landing-button-primary:hover { background: #185f8a; border-color: #185f8a; }
+html .nature-landing .landing-topics { color: #20394b; }
+html .nature-landing .landing-topics h2 { color: #20394b; }
+html .nature-landing .landing-topics-heading > p { color: #647b8c; }
+html .nature-landing .topic-card:nth-child(n) { background: #f3f8fc; border-color: #dce7f0; border-top-color: #398bb8; color: #20394b; }
+html .nature-landing .topic-number,
+html .nature-landing .topic-arrow { color: #287ba8; }
+html .nature-landing .topic-description { color: #617989; }
+html .nature-landing .topic-card:hover { background: #e7f2fa; }
+html .nature-landing a:focus-visible,
+html .nature-landing button:focus-visible,
+html .nature-landing summary:focus-visible { outline: 3px solid #398bb8; outline-offset: 5px; }
+
+/* Compact hero with one restrained blue overlay; keep the source image intact. */
+html .nature-landing .landing-hero {
+  min-height: 560px;
+  background: #173c59;
+}
+html .nature-landing .hero-map {
+  background-image: linear-gradient(90deg, rgba(12, 37, 65, .62), rgba(12, 37, 65, .25) 62%, rgba(12, 37, 65, .08)), url('../images/oahu-aster-satellite.jpg');
+  background-position: center, center 52%;
+  background-size: cover;
+  filter: none;
+  transform: none;
+}
+html .nature-landing .landing-hero::after { background: none; }
+html .nature-landing .landing-hero-content {
+  width: min(1100px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 64px 0 135px;
+}
+html .nature-landing .landing-hero h1.landing-title-wide {
+  font-size: clamp(38px, 4.1vw, 58px);
+  max-width: 820px;
+  line-height: 1.14;
+}
+html .nature-landing .landing-kicker { margin-bottom: 20px; }
+html .nature-landing .landing-summary {
+  max-width: 640px;
+  font-size: 17px;
+  line-height: 1.65;
+  margin-top: 22px;
+  color: #f4f8fc;
+}
+html .nature-landing .landing-actions { margin-top: 25px; }
+html .nature-landing .landing-hero-footer {
+  width: min(1100px, calc(100% - 48px));
+  left: 50%; right: auto; transform: translateX(-50%);
+  min-height: 84px;
+}
+html .nature-landing .hero-partners-label,
+html .nature-landing .hero-partner small { color: #ddeaf5; }
+@media (max-width: 600px) {
+  html .nature-landing .landing-hero { min-height: 590px; }
+  html .nature-landing .landing-hero-content { width: calc(100% - 48px); padding: 56px 0 130px; }
+  html .nature-landing .landing-hero h1.landing-title-wide { font-size: clamp(34px, 8vw, 46px); }
+  html .nature-landing .landing-summary { font-size: 16px; }
+  html .nature-landing .landing-hero-footer { width: calc(100% - 48px); left: 50%; right: auto; }
+}
+
+
+/* Partners occupy their own full-width row below the satellite hero. */
+html .nature-landing .nature-partner-strip { background: #f5f9fd; border-bottom: 1px solid #dbe5ed; }
+html .nature-landing .nature-partner-strip .landing-hero-footer {
+  position: relative; inset: auto; transform: none;
+  width: min(1100px, calc(100% - 48px)); margin: 0 auto;
+  min-height: 110px; padding-block: 18px; border-top: 0;
+}
+html .nature-landing .nature-partner-strip .hero-partners-label { color: #647b8c; }
+html .nature-landing .nature-partner-strip .hero-partner strong { color: #20394b; }
+html .nature-landing .nature-partner-strip .hero-partner small { color: #647b8c; }
+html .nature-landing .nature-partner-strip .hero-scroll-link { color: #287ba8; }
+html .nature-landing .landing-hero-content { padding-bottom: 64px; }
+@media (max-width: 600px) {
+  html .nature-landing .nature-partner-strip .landing-hero-footer { min-height: 98px; }
+  html .nature-landing .landing-hero-content { padding-bottom: 56px; }
+}
+
+
+/* Shared blue-white palette throughout the landing page, independent of saved tool theme. */
+html[data-landing-theme] .map-site-chrome.nature-landing { --landing-bg:#fff; --landing-ink:#20394b; --landing-muted:#647b8c; --landing-accent:#287fae; --landing-line:#dbe5ed; color-scheme:light; background:#fff; color:#20394b; }
+html[data-landing-theme] .map-site-chrome.nature-landing .page-shell { background:#fff; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference { background:#f5f9fd; color:#20394b; border-color:#dbe5ed; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference h2 { color:#20394b; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference h2 span { color:#287fae; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-section-kicker,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-group-label { color:#287fae; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-summary,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-group-label small { color:#647b8c; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-group-label-makai { border-color:#dbe5ed; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button:nth-of-type(n) { background:#eaf3fa; color:#20394b; border-color:#d1e2ef; filter:none; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button > span,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button > i { color:#287fae; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button:hover,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button[aria-pressed="true"] { background:#d7eaf7; border-color:#287fae; color:#174f73; filter:none; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-visual .impact-landscape { filter:none; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-direction,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-image-credit { color:#20394b; text-shadow:0 1px 3px #fff; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-direction span:nth-child(2) { border-color:#8eb8d3; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker { background:#287fae; border-color:#fff; box-shadow:0 0 0 3px #287fae40; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker:hover,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker[aria-pressed="true"] { background:#174f73; box-shadow:0 0 0 5px #287fae50; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-visual .impact-info { background:#fff; color:#20394b; border-color:#d1e2ef; box-shadow:0 12px 30px #20394b20; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-info h3,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-info > .impact-benefits-label,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-info summary { color:#20394b; border-color:#dbe5ed; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-info details { border-color:#dbe5ed; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-info-kicker,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-info-close,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-info summary span { color:#287fae; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-info-feature p:last-child,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-info details p { color:#647b8c; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-assessment-page { background:#fff; color:#20394b; border-color:#dbe5ed; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-assessment-copy h2,
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-assessment-question h3 { color:#20394b; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-assessment-copy h2 span,
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-assessment-number,
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-assessment-link,
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-assessment-link > span:first-child { color:#287fae; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-assessment-summary,
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-assessment-question p { color:#647b8c; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-assessment-question { border-color:#dbe5ed; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-page { background:#f5f9fd; color:#20394b; border-color:#dbe5ed; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-copy h2,
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-form label,
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-footer-brand,
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-footer-brand-copy strong { color:#20394b; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-copy > p:last-child,
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-form > p,
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-footer-links a { color:#647b8c; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-form > p a,
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-footer-links a:hover,
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-copy .landing-section-kicker { color:#216c99; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-form input,
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-form textarea { background:#fff; color:#20394b; border-color:#bdcfdd; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-form input::placeholder,
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-form textarea::placeholder { color:#6a8090; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-form input:focus,
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-form textarea:focus { border-color:#287fae; box-shadow:0 0 0 3px #287fae20; outline:none; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-form button { background:#2179ac; color:#fff; border-color:#2179ac; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-form button:hover { background:#185f8a; border-color:#185f8a; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-form .landing-contact-status { color:#216c99; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-contact-footer { background:#edf4fa; border-color:#dbe5ed; }
+
+
+/* Editorial watershed section: quiet directory and a flat conceptual diagram. */
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference h2 { font-size:clamp(34px,3.5vw,52px); font-weight:400; letter-spacing:-.035em; line-height:1.1; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-summary { font-size:16px; line-height:1.65; max-width:30ch; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button:nth-of-type(n) { background:transparent; border:0; border-bottom:1px solid #dbe5ed; border-radius:0; padding:14px 4px; box-shadow:none; font-size:15px; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button:hover,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button[aria-pressed="true"] { background:#e7f1f8; color:#174f73; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button > i { font-style:normal; font-size:16px; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-map-system .impact-visual .impact-landscape { background:transparent url('./../images/watershed-diagram.svg') center / 100% 100% no-repeat; height:auto; aspect-ratio:1000 / 600; border-radius:0; filter:none; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-landscape::after { display:none; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-info-thumbnail { display:none; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-info-feature { grid-template-columns:1fr; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker { width:14px; height:14px; box-shadow:0 0 0 3px #fff; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-direction { top:5%; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-image-credit { bottom:-16px; font-size:10px; color:#647b8c; }
+
+
+/* Balanced editorial spread; original mountain-to-sea content retained. */
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference { padding:0; background:#f5f9fd; min-height:0; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-explorer { display:grid; grid-template-columns:1fr 1fr; gap:0; max-width:1280px; margin:0 auto; min-height:0; align-items:stretch; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-copy { padding:64px 48px; border:0; display:flex; flex-direction:column; justify-content:center; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .landing-story-intro { padding:0; margin-bottom:32px; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference h2 { font-size:clamp(32px,3vw,44px); line-height:1.18; font-weight:400; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .landing-section-kicker { margin-bottom:24px; font-size:11px; letter-spacing:.12em; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .landing-story-summary { max-width:40ch; font-size:17px; line-height:1.8; margin-top:24px; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:repeat(5,auto); grid-auto-flow:column; gap:0 24px; padding:0; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-group-label { margin:0; padding:0 0 12px; border:0; font-size:11px; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button:nth-of-type(n) { min-height:52px; padding:12px 0; font-size:13px; line-height:1.5; gap:8px; text-align:left; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button > span { font-size:10px; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button > i { display:none; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-map-system { display:flex; align-items:center; max-width:none; width:100%; margin:0; padding:40px 24px; background:#eaf2f8; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-visual { width:100%; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-map-system .impact-visual .impact-landscape { background:transparent url('../images/mauka-makai-landscape-transparent.png') center / 100% 100% no-repeat; height:auto; aspect-ratio:1000 / 600; filter:none; border-radius:0; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-direction { top:-28px; font-size:12px; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-image-credit { bottom:-32px; font-size:10px; }
+@media(max-width:1000px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-copy { padding:48px 28px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector { gap:0 16px; }
+}
+@media(max-width:760px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-explorer { grid-template-columns:1fr; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-copy { padding:48px 24px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-map-system { padding:64px 24px; }
+}
+
+/* Full-height image column, flush with the section's top and bottom. */
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-map-system {
+  align-self: stretch;
+  align-items: stretch;
+  padding: 0;
+  overflow: hidden;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-visual {
+  display: flex;
+  align-items: stretch;
+  min-height: 100%;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-map-system .impact-visual .impact-landscape {
+  flex: 1;
+  height: auto;
+  min-height: 100%;
+  aspect-ratio: auto;
+  background-size: cover;
+  background-position: center;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-direction { top: 24px; left: 24px; right: 24px; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-image-credit { bottom: 16px; right: 16px; max-width: calc(100% - 32px); padding: 4px 8px; background: #f5f9fde6; }
+@media (max-width: 760px) {
+  html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-map-system { padding: 0; min-height: 400px; }
+}
+
+
+/* Real Kahana landscape photograph, full bleed in the right column. */
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-map-system .impact-visual .impact-landscape { background:none; position:relative; overflow:hidden; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-real-photo { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; object-position:48% center; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-image-credit { z-index:2; font-size:9px; line-height:1.5; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-image-credit a { color:#20394b; text-decoration:none; }
+@media(max-width:760px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-visual { min-height:400px; }
+}
+
+
+/* Coastal aerial with conceptual interventions; retain full image width. */
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-real-photo { object-position:center; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker { z-index:3; width:26px; height:26px; border:2px solid white; color:white; background:#216c99; font-size:10px; font-weight:700; display:grid; place-items:center; padding:0; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker[aria-pressed="true"] { background:#103d5b; transform:translate(-50%,-50%) scale(1.2); }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-image-credit { left:12px; right:12px; bottom:12px; }
+
+
+/* Quiet photo markers: neutral dots with a larger invisible hit area. */
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker {
+  width:32px; height:32px; padding:0; border:0; border-radius:50%;
+  background:transparent; box-shadow:none; color:transparent;
+  transform:translate(-50%,-50%); cursor:pointer;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker::before {
+  content:""; position:absolute; width:7px; height:7px; border-radius:50%;
+  background:#fff; border:1px solid rgba(30,43,47,.35);
+  box-shadow:0 1px 4px rgba(0,0,0,.4);
+  transition:box-shadow 160ms ease;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker::after {
+  content:""; position:absolute; inset:7px; border:1px solid rgba(255,255,255,.65);
+  border-radius:50%; background:transparent; opacity:0;
+  transition:opacity 160ms ease;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker:hover,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker[aria-pressed="true"] {
+  background:transparent; box-shadow:none; transform:translate(-50%,-50%);
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker:hover::after,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker[aria-pressed="true"]::after { opacity:1; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker:focus-visible { outline:1px solid #fff; outline-offset:0; }
+@media(prefers-reduced-motion:reduce) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker::before,
+ html[data-landing-theme] .map-site-chrome.nature-landing .impact-marker::after { transition:none; }
+}
+
+/* Editorial typography and quiet text navigation beside the landscape. */
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-copy {
+  padding:64px 56px;
+  justify-content:center;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .landing-section-kicker {
+  font-size:10px; font-weight:500; letter-spacing:.16em; margin-bottom:22px;
+  color:#6c8291;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference h2 {
+  font-size:clamp(32px,3.1vw,46px); font-weight:400; line-height:1.17;
+  letter-spacing:-.035em; max-width:16ch;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference h2 span { color:#20394b; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .landing-story-summary {
+  font-size:15px; font-weight:400; line-height:1.85; max-width:38ch;
+  color:#6b7f8c; margin-top:22px;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .landing-story-intro { margin-bottom:40px; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector {
+  gap:0 30px;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-group-label {
+  padding-bottom:16px; font-size:10px; font-weight:600; letter-spacing:.12em; color:#355c74;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-group-label small {
+  display:block; margin:6px 0 0; font-size:10px; font-weight:400; letter-spacing:0;
+  color:#7b8c97;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button:nth-of-type(n) {
+  position:relative; min-height:47px; padding:10px 0 10px 12px;
+  border:0; border-left:1px solid #d2dfe8; border-radius:0;
+  background:transparent; box-shadow:none; color:#607583;
+  font-family:inherit; font-size:14px; font-weight:400; line-height:1.45;
+  letter-spacing:0; transition:color 150ms ease, border-color 150ms ease;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button > span,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button > i { display:none; }
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button:hover,
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button[aria-pressed="true"] {
+  color:#174f73; background:transparent; border-left:2px solid #287fae;
+  padding-left:11px; filter:none; transform:none;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector button:focus-visible {
+  outline:2px solid #398bb8; outline-offset:3px;
+}
+@media(max-width:1000px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-copy { padding:48px 30px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .impact-copy .impact-selector { gap:0 20px; }
+}
+@media(max-width:760px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .landing-story-reference .impact-copy { padding:48px 24px; }
+}
+
+
+/* Drag to cover the introduction with the interactive landscape. */
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal { position:relative; max-width:1280px; margin:auto; isolation:isolate; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction { position:absolute; inset:0 0 78px; z-index:0; display:flex; flex-direction:column; justify-content:center; padding:64px clamp(28px,8vw,120px); background:#f5f9fd; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction h2 { font-size:12px; font-weight:500; text-transform:uppercase; letter-spacing:.14em; margin:0 0 28px; color:#52758b; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction p { max-width:820px; margin:0; font-size:clamp(20px,2.3vw,30px); line-height:1.65; font-weight:400; letter-spacing:-.015em; color:#20394b; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-explorer { position:relative; z-index:1; min-height:620px; clip-path:inset(0 0 0 calc(100% - var(--reveal))); background:#f5f9fd; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-copy { padding:48px 36px; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal-control { position:relative; z-index:2; min-height:78px; padding:18px 36px; display:flex; align-items:center; gap:28px; background:#f5f9fd; border-top:1px solid #dbe5ed; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal-control label { white-space:nowrap; font-size:12px; color:#52758b; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal-control input { width:100%; accent-color:#52758b; cursor:ew-resize; }
+@media(max-width:760px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-explorer { min-height:800px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction { padding:36px 24px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal-control { padding:18px 24px; gap:16px; }
+}
+
+
+/* A large clickable panel expands upward to cover the introductory paragraph. */
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction { inset:0 0 130px; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-open-button {
+  position:absolute; bottom:0; left:0; width:100%; min-height:130px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+  padding:36px clamp(28px,8vw,120px); border:0; border-top:1px solid #cbdce9;
+  border-radius:0; background:#e3eff7; color:#20394b; text-align:left;
+  font:inherit; font-size:20px; cursor:pointer; z-index:3;
+  transition:background 180ms ease, opacity 250ms ease;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-open-button > span:last-child { font-size:30px; font-weight:400; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-open-button:hover { background:#d7e8f4; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-explorer {
+  clip-path:inset(100% 0 0 0); min-height:700px;
+  transition:clip-path 850ms cubic-bezier(.22,.68,.18,1);
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal.is-open .impact-explorer { clip-path:inset(0); }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal.is-open .watershed-open-button { opacity:0; visibility:hidden; pointer-events:none; }
+@media(max-width:760px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-explorer { min-height:850px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-open-button { font-size:17px; padding:28px 24px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-explorer,
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-open-button { transition:none; }
+}
+
+
+/* Horizontal reveal, like a directional scroll invitation. */
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal { overflow:hidden; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-explorer {
+  clip-path:none; transform:translateX(100%);
+  transition:transform 850ms cubic-bezier(.22,.68,.18,1);
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal.is-open .impact-explorer { transform:translateX(0); }
+@media(prefers-reduced-motion:reduce) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-explorer { transition:none; }
+}
+
+
+/* Paragraph with a simple triple-chevron invitation at its right. */
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction {
+  inset:0; padding:64px clamp(28px,8vw,120px);
+  padding-right:clamp(140px,16vw,220px);
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction h2 { display:none; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-open-button {
+  top:50%; bottom:auto; left:auto; right:clamp(24px,5vw,70px);
+  transform:translateY(-50%); width:90px; height:72px; min-height:0;
+  padding:8px; border:0; background:transparent; color:#52758b;
+  display:grid; place-items:center;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-open-button svg { display:block; width:80px; height:40px; transition:transform 180ms ease; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-open-button:hover { background:transparent; color:#20394b; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-open-button:hover svg { transform:translateX(5px); }
+@media(max-width:760px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction { padding:40px 100px 40px 24px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-open-button { right:12px; width:76px; padding:6px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-open-button svg { width:64px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-open-button svg { transition:none; }
+}
+
+/* Direct state change: no sliding animation. */
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-explorer {
+  transform:none; clip-path:none; visibility:hidden; transition:none;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal.is-open .impact-explorer { visibility:visible; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal.is-open .watershed-introduction { visibility:hidden; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-open-button,
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-open-button svg { transition:none; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-open-button:hover svg { transform:none; }
+
+
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-back-button {
+  position:absolute; top:18px; left:32px; z-index:6;
+  display:inline-flex; align-items:center; gap:10px; padding:8px 0;
+  border:0; background:transparent; color:#52758b; font:inherit; font-size:12px; cursor:pointer;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-back-button:hover { color:#20394b; }
+@media(max-width:760px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-back-button { top:10px; left:24px; }
+}
+
+
+/* Reference-inspired opening paragraph: light italic Fira Sans and neutral gray. */
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction p {
+  font-family:"Fira Sans", "Helvetica Neue", sans-serif;
+  font-size:20px; font-weight:300; font-style:italic;
+  line-height:1.7; letter-spacing:0; color:#555;
+  max-width:680px; text-align:left;
+}
+@media(max-width:760px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction p { font-size:18px; line-height:1.65; }
+}
+
+
+/* A narrower italic body and a restrained mountain-to-sea heading. */
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction h2 {
+  display:block; margin:0 0 28px; max-width:none;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:22px; font-weight:400; font-style:normal;
+  line-height:1.3; letter-spacing:.015em; text-transform:none; color:#526b7c;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction p {
+  font-family:"Fira Sans Condensed","Fira Sans","Arial Narrow",sans-serif;
+  font-weight:300; font-style:italic; font-size:21px; line-height:1.65;
+  letter-spacing:.01em; color:#555;
+}
+@media(max-width:760px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction h2 { font-size:20px; margin-bottom:22px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction p { font-size:19px; }
+}
+
+
+/* Book-like serif typography, shared by heading and lightly italic body. */
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction h2 {
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:32px; font-weight:400; font-style:normal;
+  line-height:1.2; letter-spacing:-.015em; color:#20394b;
+  margin-bottom:24px; text-transform:none;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction p {
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:21px; font-weight:400; font-style:italic;
+  line-height:1.75; letter-spacing:0; color:#566975;
+  max-width:680px;
+}
+@media(max-width:760px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction h2 { font-size:27px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction p { font-size:18px; line-height:1.7; }
+}
+
+
+/* Exact reference quote metrics: Fira Sans 300 italic, 18/30.6, #555. */
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction p {
+  font-family:"Fira Sans",sans-serif; font-size:18px; font-weight:300;
+  font-style:italic; line-height:30.6px; letter-spacing:normal;
+  color:#555; font-synthesis:none;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction h2 {
+  font-family:"Fira Sans",sans-serif; font-size:22px; font-weight:300;
+  font-style:normal; line-height:1.4; letter-spacing:normal;
+  color:#555; font-synthesis:none;
+}
+
+/* Cooler neutral gray for the top brand bar. */
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-header {
+  background:#edf0f3;
+  border-bottom-color:#cdd5dc;
+}
+
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-introduction h2 {
+  font-size:24px;
+  font-weight:400;
+}
+
+/* Explorer: compact directory, generous photo, shared Fira Sans typography. */
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-explorer {
+  grid-template-columns:250px minmax(0,1fr);
+  min-height:700px;
+  font-family:"Fira Sans",sans-serif;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-copy {
+  padding:82px 26px 36px;
+  justify-content:flex-start;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-copy .impact-selector {
+  display:flex; flex-direction:column; gap:0; width:100%;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-copy .impact-group-label {
+  display:flex; align-items:baseline; gap:10px;
+  padding:0; margin:16px 0 10px;
+  font-family:"Fira Sans",sans-serif; font-weight:400; font-size:11px;
+  letter-spacing:.08em; color:#526b7c;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-copy .impact-group-label small {
+  margin:0; font-weight:300; font-size:11px; color:#7b8c97;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-copy .impact-selector button:nth-of-type(n) {
+  display:block; width:100%; min-height:43px; height:auto;
+  padding:10px 0; border:0; background:transparent; border-radius:0;
+  font-family:"Fira Sans",sans-serif; font-size:14px; font-weight:300;
+  font-style:normal; line-height:1.5; color:#555;
+  white-space:normal; text-align:left; box-shadow:none;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-copy .impact-selector button:hover,
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-copy .impact-selector button[aria-pressed="true"] {
+  color:#216c99; border:0; padding:10px 0;
+  text-decoration:underline; text-underline-offset:5px; text-decoration-thickness:1px;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-back-button {
+  width:auto; height:auto; min-height:36px; min-width:0;
+  right:auto; bottom:auto; top:22px; left:26px;
+  padding:6px 0; border:0; border-radius:0;
+  font-family:"Fira Sans",sans-serif; font-size:12px; font-weight:300;
+  line-height:1.4; outline:none; box-shadow:none;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-back-button:focus-visible {
+  outline:1px solid #52758b; outline-offset:4px;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-map-system { min-width:0; }
+html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-info {
+  font-family:"Fira Sans",sans-serif;
+}
+@media(max-width:760px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-explorer { grid-template-columns:1fr; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-copy { padding:70px 24px 24px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-copy .impact-selector { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:repeat(5,auto); grid-auto-flow:column; gap:0 20px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .watershed-reveal .impact-map-system { min-height:460px; }
+}
+
+/* Explicit section sizing prevents intrinsic shrinkage from the legacy grid. */
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work {
+  display:block; width:100%; min-height:0; padding:0; gap:0;
+  grid-template-columns:none; grid-template-rows:none;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .watershed-reveal {
+  display:block; width:100%; max-width:1280px; min-width:0; margin:0 auto;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .watershed-introduction {
+  box-sizing:border-box; width:100%; min-width:0;
+  left:0; right:0; top:0; bottom:0; max-width:none;
+  padding:64px 180px 64px 80px;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .watershed-introduction p {
+  width:100%; min-width:0; max-width:680px; margin:0;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-explorer {
+  display:grid; width:100%; min-width:0; max-width:none; margin:0;
+  grid-template-columns:250px minmax(0,1fr); grid-template-rows:minmax(700px,auto);
+  align-items:stretch; gap:0;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-copy {
+  grid-column:1; grid-row:1; min-height:0; min-width:0; width:auto;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-map-system {
+  grid-column:2; grid-row:1; display:block; position:relative;
+  width:100%; height:100%; min-height:700px; min-width:0; padding:0;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-visual {
+  display:block; position:relative; width:100%; height:100%; min-height:700px;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-landscape {
+  position:absolute; inset:0; width:100%; height:100%; min-height:0; aspect-ratio:auto;
+}
+@media(max-width:760px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing #our-work .watershed-introduction { padding:40px 100px 40px 24px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-explorer { grid-template-columns:minmax(0,1fr); grid-template-rows:auto 460px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-map-system { grid-column:1; grid-row:2; min-height:460px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-visual { min-height:460px; }
+}
+
+
+/* Match the brand bar; use understated navigation against the photograph. */
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work,
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .watershed-reveal,
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .watershed-introduction,
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-explorer,
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-copy {
+  background:#edf0f3;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .watershed-back-button {
+  top:26px; left:24px; width:80px; height:48px; padding:4px;
+  display:grid; place-items:center; background:transparent; border:0;
+  color:#52758b; border-radius:0; outline:none; box-shadow:none;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .watershed-back-button svg { width:72px; height:36px; }
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .watershed-back-button:focus-visible,
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .watershed-open-button:focus-visible {
+  outline:1px solid #8296a4; outline-offset:3px; border-radius:2px;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-copy { padding:98px 28px 40px; }
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-copy .impact-group-label {
+  color:#59696f; font-size:10px; font-weight:400; letter-spacing:.1em;
+  margin:22px 0 8px;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-copy .impact-group-label small { color:#8b959a; font-size:10px; }
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-copy .impact-selector button:nth-of-type(n) {
+  font-family:"Fira Sans",sans-serif; font-size:14px; font-weight:300;
+  color:#687373; padding:12px 0; min-height:45px;
+  border:0; background:transparent; box-shadow:none; text-decoration:none;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-copy .impact-selector button:hover,
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-copy .impact-selector button[aria-pressed="true"] {
+  color:#273f46; padding:12px 0; border:0; background:transparent;
+  text-decoration:underline; text-decoration-color:#8e9e9f; text-underline-offset:6px;
+  text-decoration-thickness:1px;
+}
+@media(max-width:760px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-copy { padding:88px 24px 28px; }
+}
+
+/* Intervention details share the quiet editorial style of the introduction. */
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-visual .impact-info {
+  background:#edf0f3; color:#555; border:1px solid #d4dbdf;
+  border-radius:0; box-shadow:none; padding:28px;
+  font-family:"Fira Sans",sans-serif; font-weight:300;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info-kicker {
+  color:#7c888d; font-size:10px; font-weight:400; letter-spacing:.1em;
+  margin:0 32px 12px 0;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info h3 {
+  font-family:"Fira Sans",sans-serif; font-size:22px; font-weight:400;
+  line-height:1.3; letter-spacing:0; color:#555; margin:0 0 14px;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info-feature p:last-child,
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info details p {
+  font-family:"Fira Sans",sans-serif; font-size:16px; font-weight:300;
+  font-style:italic; color:#626d72; line-height:1.7; letter-spacing:0;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info > .impact-benefits-label {
+  color:#6d797e; font-size:12px; font-weight:400; letter-spacing:0;
+  border-color:#cfd8de;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info details { border-color:#cfd8de; }
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info summary {
+  color:#555; font-family:"Fira Sans",sans-serif; font-size:15px;
+  font-weight:300; padding:18px 0; line-height:1.5;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info summary span { display:none; }
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info summary::after { color:#7c888d; font-size:16px; }
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info-close {
+  color:#7c888d; background:transparent; border:0; border-radius:0;
+  box-shadow:none; font-weight:300; font-size:24px;
+}
+
+/* Map legend-style intervention panel, following the supplied reference. */
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-visual .impact-info {
+  background:#fff; border:1px solid #ddd; border-radius:0;
+  padding:0; box-shadow:none; overflow:hidden;
+  font-family:"Fira Sans",sans-serif; color:#555;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info-feature { display:block; padding:0; }
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info-kicker {
+  display:block; margin:0; padding:16px 48px 16px 24px;
+  background:#f0f0f0; border-bottom:1px solid #ddd;
+  color:#666; font-size:12px; font-weight:400; letter-spacing:.04em;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info h3 {
+  padding:22px 24px 0; margin:0 0 14px;
+  color:#555; font-size:20px; font-weight:400; line-height:1.4;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info-feature p:last-child {
+  padding:0 24px 22px; margin:0; font-style:normal;
+  font-size:15px; font-weight:400; color:#666; line-height:1.65;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info > .impact-benefits-label {
+  margin:0; padding:16px 24px 10px; border-top:1px solid #e3e3e3;
+  color:#888; font-size:11px; font-weight:400; text-transform:uppercase;
+  letter-spacing:.05em;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info details {
+  margin:0; padding:0 24px; border:0; border-bottom:1px solid #e3e3e3;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info summary {
+  padding:17px 0; color:#555; font-size:16px; font-weight:400;
+  font-style:normal; line-height:1.5;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info summary::after { color:#999; font-size:16px; }
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info details p {
+  padding:0 0 18px; margin:0; color:#666; font-size:15px;
+  font-weight:400; font-style:normal; line-height:1.65;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info-close {
+  top:12px; right:14px; width:28px; height:28px; padding:0;
+  color:#999; font-size:26px; font-weight:300;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #our-work .impact-info-close:hover { color:#555; }
+'''
+)
+p=Path('index.html');p.write_text(p.read_text().replace('landing-nature.css?v=31','landing-nature.css?v=32'))
+s=Path('assets/css/landing-nature.css').read_text();assert s.count('{')==s.count('}')
+print('Verified legend-style white panel, gray header, separators and regular body typography.')
+PY
+/* Large editorial topic carousel inspired by the reference cards. */
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-topics { padding:64px max(24px,calc((100vw - 1100px)/2)); gap:28px; overflow:hidden; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-topics h2 { font-family:"Fira Sans",sans-serif; font-weight:300; font-size:30px; color:#555; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-topics-heading > p { font-family:"Fira Sans",sans-serif; font-weight:300; color:#777; }
+html[data-landing-theme] .map-site-chrome.nature-landing .topic-grid { display:flex; gap:32px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; padding:4px 0; }
+html[data-landing-theme] .map-site-chrome.nature-landing .topic-grid::-webkit-scrollbar { display:none; }
+html[data-landing-theme] .map-site-chrome.nature-landing .topic-card:nth-child(n) {
+  flex:0 0 calc((100% - 32px)/2); min-height:450px; padding:30px;
+  display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start;
+  scroll-snap-align:start; border:0; border-radius:0; background:#f5f5f5;
+  color:#555; box-shadow:none; transform:none; filter:none; overflow:hidden;
+  font-family:"Fira Sans",sans-serif;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .topic-card strong {
+  max-width:100%; min-height:72px; font-size:28px; line-height:1.3;
+  font-weight:300; letter-spacing:0; transform:none;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .topic-card .topic-description {
+  position:static; max-width:100%; margin-top:18px; color:#666; font-size:15px;
+  line-height:1.6; font-weight:400; opacity:1; transform:none; min-height:72px;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .topic-preview {
+  display:block; width:calc(100% + 60px); max-width:none; height:230px;
+  object-fit:cover; margin:24px -30px -30px; opacity:.88;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .topic-cta {
+  position:relative; margin-top:-40px; z-index:1; display:inline-flex; align-items:center;
+  gap:24px; padding:10px 18px; border:1px solid #7c9fb5; border-radius:24px;
+  background:#fff; font-size:12px; text-transform:uppercase; color:#555;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing .topic-card:hover { background:#f0f0f0; transform:none; }
+html[data-landing-theme] .map-site-chrome.nature-landing .topic-card:hover .topic-cta { border-color:#287fae; color:#216c99; }
+html[data-landing-theme] .map-site-chrome.nature-landing .topic-carousel-controls { display:flex; justify-content:center; align-items:center; gap:24px; }
+html[data-landing-theme] .map-site-chrome.nature-landing .topic-carousel-controls > button { width:36px; height:36px; border:1px solid #d4dce2; border-radius:50%; background:white; color:#52758b; cursor:pointer; }
+html[data-landing-theme] .map-site-chrome.nature-landing .topic-carousel-dots { display:flex; align-items:center; gap:10px; }
+html[data-landing-theme] .map-site-chrome.nature-landing .topic-carousel-dots button { width:9px; height:9px; min-height:0; padding:0; border:0; border-radius:50%; background:#d3d6d9; cursor:pointer; }
+html[data-landing-theme] .map-site-chrome.nature-landing .topic-carousel-dots button[aria-current="true"] { background:#287fae; }
+@media(max-width:700px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-card:nth-child(n) { flex-basis:88%; padding:24px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-preview { width:calc(100% + 48px); margin-inline:-24px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-card strong { font-size:25px; }
+}
+
+/* Narrower topic section with more breathing room at either side. */
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-topics {
+  padding-inline:max(24px,calc((100% - 960px)/2));
+}
+
+/* Four topic cards visible per row on desktop. */
+@media(min-width:901px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-grid { gap:20px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-card:nth-child(n) { flex-basis:calc((100% - 60px)/4); min-width:0; padding:20px; min-height:380px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-card strong { font-size:22px; min-height:86px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-card .topic-description { font-size:13px; min-height:104px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-preview { width:calc(100% + 40px); margin-inline:-20px; height:170px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-cta { font-size:10px; padding:9px 13px; gap:14px; }
+}
+
+/* Compact square proportions for the four-card desktop carousel. */
+@media(min-width:901px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-card:nth-child(n) {
+  aspect-ratio:1 / 1.05; min-height:0; height:auto; padding:16px;
+ }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-card strong {
+  font-size:18px; line-height:1.2; min-height:0; flex-shrink:0;
+ }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-card .topic-description {
+  font-size:11px; line-height:1.4; min-height:0; margin-top:10px;
+ }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-preview {
+  position:absolute; left:0; bottom:0; width:100%; height:36%;
+  margin:0; object-fit:cover; opacity:.75;
+ }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-cta {
+  margin-top:auto; margin-bottom:0; padding:7px 11px;
+  font-size:9px; gap:12px;
+ }
+}
+
+/* Broad reference-like cards while retaining four square cards on desktop. */
+@media(min-width:901px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing .landing-topics {
+  padding:64px max(32px,calc((100% - 1480px)/2));
+ }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-grid { gap:24px; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-card:nth-child(n) {
+  flex-basis:calc((100% - 72px)/4); aspect-ratio:1 / 1.05;
+  min-height:0; padding:24px;
+ }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-card strong {
+  font-size:clamp(20px,1.65vw,27px); line-height:1.25;
+ }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-card .topic-description {
+  font-size:14px; line-height:1.55; margin-top:16px;
+ }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-preview { height:38%; }
+ html[data-landing-theme] .map-site-chrome.nature-landing .topic-cta {
+  padding:9px 16px; font-size:11px; gap:18px;
+ }
+}
+
+/* Remove inherited vertical centering and use the available desktop width. */
+html[data-landing-theme] .map-site-chrome.nature-landing #topics {
+  width:100%; max-width:none; min-width:0; min-height:0;
+  align-content:start; grid-template-columns:minmax(0,1fr);
+  grid-template-rows:auto auto auto;
+  padding:28px 28px 36px; gap:24px;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #topics .landing-topics-heading { margin:0; padding:0; }
+html[data-landing-theme] .map-site-chrome.nature-landing #topics .topic-grid { width:100%; min-width:0; margin:0; }
+@media(min-width:901px) {
+ html[data-landing-theme] .map-site-chrome.nature-landing #topics .topic-card:nth-child(n) {
+  flex:0 0 calc((100% - 72px)/4); width:calc((100% - 72px)/4);
+  aspect-ratio:1; min-height:0; padding:26px;
+ }
+ html[data-landing-theme] .map-site-chrome.nature-landing #topics .topic-card strong { font-size:clamp(22px,1.8vw,30px); }
+}
+
+/* Match the page-one Arial/Helvetica typography throughout the topic section. */
+html[data-landing-theme] .map-site-chrome.nature-landing #topics,
+html[data-landing-theme] .map-site-chrome.nature-landing #topics h2,
+html[data-landing-theme] .map-site-chrome.nature-landing #topics .topic-card,
+html[data-landing-theme] .map-site-chrome.nature-landing #topics .topic-card strong,
+html[data-landing-theme] .map-site-chrome.nature-landing #topics .topic-description,
+html[data-landing-theme] .map-site-chrome.nature-landing #topics .topic-cta,
+html[data-landing-theme] .map-site-chrome.nature-landing #topics button {
+  font-family:Arial,Helvetica,sans-serif; font-style:normal;
+}
+html[data-landing-theme] .map-site-chrome.nature-landing #topics h2,
+html[data-landing-theme] .map-site-chrome.nature-landing #topics .topic-card strong { font-weight:400; letter-spacing:-.035em; }
+html[data-landing-theme] .map-site-chrome.nature-landing #topics .topic-description { font-weight:400; }
+
+.map-site-chrome { --landing-ink:#20394b; --landing-muted:#647b8c; --landing-line:#dbe5ed; color:#20394b; font-family:Arial,Helvetica,sans-serif; }
+html[data-landing-theme] .map-site-chrome.nature-landing .landing-header { background:#edf0f3; border-bottom:1px solid #cdd5dc; }
+.map-site-chrome .landing-contact-page { min-height:0; }

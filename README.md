@@ -82,7 +82,7 @@ waterresources/
 │   ├── news.html
 │   ├── outputs.html
 │   ├── privacy-policy.html
-│   ├── research.html
+│   ├── partners.html
 │   ├── strategic-partners.html
 │   ├── support.html
 │   ├── team.html
@@ -96,7 +96,7 @@ waterresources/
 ## Main Pages
 
 - `index.html`: homepage
-- `pages/research.html`: Partners page
+- `pages/partners.html`: Partners page
 - `pages/tool.html`: Tool page
 - `pages/evidence-tool.html`: CIROH-NbS InEvalTool placeholder page
 
@@ -122,7 +122,7 @@ The `Partners` menu includes a dropdown with:
 
 These dropdown items currently jump to sections inside:
 
-- `pages/research.html`
+- `pages/partners.html`
 
 ## Partners Page
 
@@ -132,7 +132,7 @@ The Partners page currently contains three sections:
 - Technical partners
 - aina group
 
-Each section is styled as a simple single-column table so it can later be expanded into a fuller table layout.
+Each section includes an overview, the partners’ roles, and the associated partner list.
 
 ## Tutorial: How to Open and View This Website
 

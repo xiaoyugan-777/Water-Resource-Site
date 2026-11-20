@@ -16,6 +16,8 @@ const personaCloseButtons = document.querySelectorAll("[data-persona-close]");
 const personaConfirmButton = document.querySelector("[data-persona-confirm]");
 const personaOpenButtons = document.querySelectorAll("[data-open-persona-modal]");
 const exploreToggle = document.querySelector("[data-explore-toggle]");
+const primaryMenuNav = document.querySelector(".get-started-primary-nav");
+const primaryMenuDetails = document.querySelectorAll(".get-started-primary-item");
 try {
   document.documentElement.dataset.landingTheme = window.localStorage.getItem("landingTheme") === "light" ? "light" : "dark";
 } catch (_) {
@@ -39,6 +41,24 @@ const partnersToggle = document.querySelector("[data-partners-toggle]");
 const partnersSubmenu = document.querySelector("[data-partners-submenu]");
 const impactExplorer = document.querySelector("[data-impact-explorer]");
 const landingContactForm = document.querySelector(".landing-contact-form");
+
+document.querySelectorAll("[data-start-here]").forEach((link) => {
+  link.addEventListener("keydown", (event) => {
+    if (event.key === " " || event.key === "Spacebar" || event.code === "Space") {
+      event.preventDefault();
+      link.click();
+    }
+  });
+});
+
+const meAgentSearch = document.querySelector("[data-me-agent-search]");
+meAgentSearch?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const status = meAgentSearch.querySelector("[data-me-agent-search-status]");
+  if (!status) return;
+  status.hidden = false;
+  status.textContent = "AI-guided recommendations are not connected yet. Use Start Here to explore the current M&E pathways.";
+});
 
 if (landingThemeToggle) {
   const label = landingThemeToggle.querySelector("[data-landing-theme-label]");
@@ -132,9 +152,32 @@ function closeExploreMenu() {
   }
 }
 
+function closePrimaryMenus(exceptMenu = null) {
+  primaryMenuDetails.forEach((menu) => {
+    if (menu !== exceptMenu) {
+      menu.open = false;
+    }
+  });
+}
+
+primaryMenuDetails.forEach((menu) => {
+  menu.addEventListener("toggle", () => {
+    if (!menu.open) return;
+    closePrimaryMenus(menu);
+    closeExploreMenu();
+  });
+
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => closePrimaryMenus());
+  });
+});
+
 if (exploreToggle && exploreMenu) {
   exploreToggle.addEventListener("click", () => {
     const willOpen = exploreMenu.hidden;
+    if (willOpen) {
+      closePrimaryMenus();
+    }
     exploreMenu.hidden = !willOpen;
     exploreToggle.setAttribute("aria-expanded", String(willOpen));
   });
@@ -151,12 +194,28 @@ if (exploreToggle && exploreMenu) {
     ) {
       closeExploreMenu();
     }
+
+    if (
+      primaryMenuDetails.length &&
+      primaryMenuNav &&
+      !primaryMenuNav.contains(event.target)
+    ) {
+      closePrimaryMenus();
+    }
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !exploreMenu.hidden) {
-      closeExploreMenu();
-      exploreToggle.focus();
+    if (event.key === "Escape") {
+      if (!exploreMenu.hidden) {
+        closeExploreMenu();
+        exploreToggle.focus();
+      } else {
+        const openPrimaryMenu = Array.from(primaryMenuDetails).find((menu) => menu.open);
+        if (openPrimaryMenu) {
+          closePrimaryMenus();
+          openPrimaryMenu.querySelector("summary")?.focus();
+        }
+      }
     }
   });
 }
@@ -522,3 +581,113 @@ if (
     window.setTimeout(() => map.invalidateSize(), 120);
   });
 }
+
+
+const watershedReveal = document.querySelector('[data-watershed-reveal]');
+if (watershedReveal) {
+  const button = watershedReveal.querySelector('[data-watershed-open]');
+  const back = watershedReveal.querySelector('[data-watershed-back]');
+  const content = watershedReveal.querySelector('.impact-explorer');
+  const intro = watershedReveal.querySelector('.watershed-introduction');
+  const setOpen = (open, focus = true) => {
+    watershedReveal.classList.toggle('is-open', open);
+    content.inert = !open;
+    content.setAttribute('aria-hidden', String(!open));
+    intro.inert = open;
+    intro.setAttribute('aria-hidden', String(open));
+    button.setAttribute('aria-expanded', String(open));
+    if (focus) (open ? back : button).focus({ preventScroll: true });
+  };
+  button.addEventListener('click', () => setOpen(true));
+  back.addEventListener('click', () => setOpen(false));
+  setOpen(false, false);
+}
+
+const topicCarousel = document.querySelector('[data-topic-carousel]');
+if (topicCarousel) {
+  const cards = [...topicCarousel.children];
+  const dotsHost = document.querySelector('[data-topic-dots]');
+  let active = 0;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const go = (index) => {
+    const target = Math.max(0, Math.min(cards.length - 1, index));
+    topicCarousel.scrollTo({ left: cards[target].offsetLeft - cards[0].offsetLeft, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+  };
+  cards.forEach((card, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Show ${card.querySelector('strong').textContent}`);
+    dot.addEventListener('click', () => go(i));
+    dotsHost.append(dot);
+  });
+  const syncTopics = () => {
+    const position = topicCarousel.scrollLeft;
+    active = cards.reduce((best, card, i) => Math.abs(card.offsetLeft - cards[0].offsetLeft - position) < Math.abs(cards[best].offsetLeft - cards[0].offsetLeft - position) ? i : best, 0);
+    [...dotsHost.children].forEach((dot, i) => dot.setAttribute('aria-current', String(i === active)));
+    document.querySelector('[data-topic-prev]').disabled = position <= 1;
+    document.querySelector('[data-topic-next]').disabled = position >= topicCarousel.scrollWidth - topicCarousel.clientWidth - 1;
+  };
+  document.querySelector('[data-topic-prev]').addEventListener('click', () => go(active - 1));
+  document.querySelector('[data-topic-next]').addEventListener('click', () => go(active + 1));
+  topicCarousel.addEventListener('scroll', syncTopics, { passive: true });
+  window.addEventListener('resize', syncTopics);
+  syncTopics();
+}
+
+// Shared landing navigation: only one dropdown can be open at a time.
+(() => {
+  const menus = [...document.querySelectorAll('.nature-nav-dropdown')];
+  if (!menus.length) return;
+  const close = except => menus.forEach(menu => { if (menu !== except) menu.open = false; });
+  menus.forEach(menu => {
+    menu.querySelector('summary')?.addEventListener('click', () => close(menu));
+    menu.addEventListener('toggle', () => { if (menu.open) close(menu); });
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => close()));
+  });
+  document.addEventListener('click', event => { if (!menus.some(menu => menu.contains(event.target))) close(); });
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    const opened = menus.find(menu => menu.open);
+    close();
+    opened?.querySelector('summary')?.focus();
+  });
+})();
+
+// The Partners link and its category disclosure are independent controls.
+(() => {
+  const item = document.querySelector('.partner-nav-item');
+  if (!item) return;
+  const toggle = item.querySelector('.partner-nav-toggle');
+  const panel = item.querySelector('.partner-nav-links');
+  const about = item.closest('details');
+  const show = expanded => {
+    panel.hidden = !expanded;
+    toggle.setAttribute('aria-expanded', String(expanded));
+  };
+  let pinned = false;
+  const dismiss = () => {
+    pinned = false;
+    show(false);
+  };
+  item.addEventListener('pointerenter', event => {
+    if (event.pointerType === 'mouse') show(true);
+  });
+  item.addEventListener('pointerleave', event => {
+    if (event.pointerType === 'mouse' && !pinned && !panel.contains(document.activeElement)) dismiss();
+  });
+  toggle.addEventListener('click', () => {
+    pinned = !pinned;
+    show(pinned);
+  });
+  item.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !panel.hidden) {
+      event.stopPropagation();
+      dismiss();
+      toggle.focus();
+    }
+  });
+  item.addEventListener('focusout', event => {
+    if (!item.contains(event.relatedTarget)) dismiss();
+  });
+  about.addEventListener('toggle', () => { if (!about.open) dismiss(); });
+})();

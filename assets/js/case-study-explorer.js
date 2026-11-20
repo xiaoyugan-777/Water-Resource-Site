@@ -80,10 +80,9 @@
         <h2>Case Study<br>Explorer</h2>
         <p class="hx-case-nav-copy">Nature-based solutions research across the Hawaiian archipelago.</p>
         <nav>
-          <button type="button" class="is-active" data-main-islands><span>01</span>Main Hawaiian Islands</button>
-          <button type="button" data-nwhi><span>02</span>Northwestern Region</button>
-          <button type="button" data-climate-nav="rainfall"><span>03</span>Rainfall Map</button>
-          <button type="button" data-climate-nav="temperature"><span>04</span>Temperature Map</button>
+          <button type="button" class="is-active" data-main-islands><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15 9-2 4-4 2 2-4Z"/></svg><span>Hawaiian Islands</span></button>
+          <button type="button" data-climate-nav="rainfall"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 14a4 4 0 1 1 1-8 5 5 0 0 1 9 1 3.5 3.5 0 0 1 0 7M7 17l-1 3M12 17l-1 3M17 17l-1 3"/></svg><span>Rainfall Map</span></button>
+          <button type="button" data-climate-nav="temperature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 14V5a3 3 0 0 1 6 0v9a5 5 0 1 1-6 0Z"/><path d="M12 7v11M18 6h3M18 10h2"/></svg><span>Temperature Map</span></button>
         </nav>
         <div class="hx-case-nav-total"><strong data-total-papers>—</strong><span>research papers</span></div>
       </aside>
@@ -179,10 +178,57 @@
         <label><span>Rows</span><select data-matrix-rows aria-label="Matrix rows"></select></label>
         <label><span>Columns</span><select data-matrix-columns aria-label="Matrix columns"></select></label>
       </div>
-      <div class="hx-matrix-guide"><p class="hx-analytics-note">Unique papers at each intersection. Select a count to inspect its papers and mapped locations.</p><div class="hx-matrix-scale" aria-label="Circle color: lighter means fewer papers; darker means more papers"><span>Fewer papers</span><i aria-hidden="true"></i><span>More papers</span></div></div>
+      <div class="hx-matrix-guide"><p class="hx-analytics-note">Unique papers at each intersection. Select a count to inspect the matching papers.</p><div class="hx-matrix-scale" aria-label="Circle color: lighter means fewer papers; darker means more papers"><span>Fewer papers</span><i aria-hidden="true"></i><span>More papers</span></div></div>
       <div class="hx-matrix-scroll" data-matrix-grid></div>
     </section>`;
 
+  const evidenceOnly = root.hasAttribute('data-evidence-only');
+  root.classList.toggle('hx-evidence-only', evidenceOnly);
+  if (evidenceOnly) {
+    const stage=root.querySelector('.hx-stage');stage.inert=true;stage.setAttribute('aria-hidden','true');
+    root.querySelector('.hx-case-panel').hidden=true;
+    const reset = document.createElement('button');
+    reset.type='button'; reset.className='evidence-reset'; reset.textContent='Reset view';
+    root.querySelector('.hx-analytics-steps').append(reset);
+    const note=document.createElement('p');note.className='evidence-count-note';
+    note.textContent='Counts represent unique papers, not projects or measured benefits. A paper may appear in more than one category, so row and column totals are not additive.';
+    root.querySelector('[data-matrix-grid]').after(note);
+    reset.addEventListener('click',()=>{
+      if(!state)return;
+      focus=null;matrixCell=null;appliedFilters={islands:[],nbs:[],ecosystems:[]};
+      matrixRows='nbs';matrixColumns='ecosystem';
+      root.querySelector('[data-matrix-rows]').value=matrixRows;
+      root.querySelector('[data-matrix-columns]').value=matrixColumns;
+      render();
+    });
+
+  }
+  if (!evidenceOnly) root.querySelector('[data-analytics]').hidden = true;
+  if (!evidenceOnly) {
+    root.querySelector('.hx-climate-conditions').hidden=true;
+    const chrome=document.querySelector('.map-site-chrome');
+    if(chrome) new ResizeObserver(()=>root.style.setProperty('--case-chrome-height',`${chrome.getBoundingClientRect().height}px`)).observe(chrome);
+    const legend = root.querySelector('.hx-legend');
+    const disclosure=document.createElement('details');disclosure.className='case-map-key';
+    const summary=document.createElement('summary');summary.textContent='Map layers';disclosure.append(summary);
+    const legendBody=document.createElement('div');
+    while(legend.firstChild)legendBody.append(legend.firstChild);
+    disclosure.append(legendBody);legend.append(disclosure);
+    const nav = root.querySelector('.hx-case-nav');
+    nav.querySelectorAll('.hx-case-brand,.hx-case-nav-kicker,.hx-case-nav-copy,.hx-case-nav-total,h2').forEach(el=>el.hidden=true);
+    nav.insertAdjacentHTML('afterbegin', '<a class="map-rail-brand" href="../index.html" aria-label="Hawaiʻi NbS Hub home">HAWAIʻI<br>NBS<br>HUB</a>');
+    const panel = root.querySelector('.hx-case-panel');
+    const close = document.createElement('button');close.type='button';close.className='case-panel-close';close.textContent='×';close.setAttribute('aria-label','Close filters and results');
+    panel.prepend(close);close.onclick=()=>{root.classList.add('case-panel-hidden');root.querySelector('.case-panel-reopen').focus();};
+    nav.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>root.classList.remove('case-panel-hidden')));
+    const reopen=document.createElement('button');reopen.type='button';reopen.className='case-panel-reopen';reopen.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="2" fill="currentColor"/><circle cx="16" cy="12" r="2" fill="currentColor"/><circle cx="10" cy="18" r="2" fill="currentColor"/></svg><span>Filters &amp; results</span>';reopen.onclick=()=>root.classList.remove('case-panel-hidden');nav.append(reopen);
+    const bottom=document.createElement('div');bottom.className='case-rail-bottom';
+    const reset=document.createElement('button');reset.type='button';reset.className='case-rail-reset';
+    reset.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10a8 8 0 1 1 2 8M4 4v6h6"/></svg><span>Reset</span>';
+    reset.addEventListener('click',()=>root.querySelector(mapMode==='nbs'?'[data-reset]':'[data-climate-reset]').click());
+    bottom.append(reset);nav.append(bottom);
+
+  }
   const $ = (selector) => root.querySelector(selector);
   const error = $("[data-error]");
   if (!window.L) {
@@ -199,7 +245,7 @@
     zoomDelta: 0.5,
     zoomControl: false,
   });
-  L.control.zoom({ position: "topright" }).addTo(map);
+  L.control.zoom({ position: "bottomright" }).addTo(map);
   L.control.scale({ imperial: true, metric: true }).addTo(map);
 
   const rainfallLocation = $("[data-rainfall-location]");
@@ -274,16 +320,19 @@
     selectRainfallLocation,
   });
 
-  L.tileLayer(
+  const caseSatellite = L.tileLayer(
     "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
     { maxZoom: 14, attribution: "Tiles © Esri, Maxar, Earthstar Geographics" },
   ).addTo(map);
   map.attributionControl.addAttribution(
     '<a href="https://planning.hawaii.gov/gis/">Hawaiʻi Statewide GIS</a>',
   );
+  function workspacePadding() {
+    return !evidenceOnly && !root.classList.contains('case-panel-hidden') ? { paddingTopLeft:[Math.min(350,map.getSize().x * .42),24], paddingBottomRight:[24,24] } : { padding:[24,24] };
+  }
   function fitMainHawaiianIslands() {
-    map.fitBounds(HAWAII_BOUNDS, { padding: [18, 18], animate: false });
-    map.setZoom(Math.min(map.getZoom() + 1.5, 8.5), { animate: false });
+    map.fitBounds(HAWAII_BOUNDS, { ...workspacePadding(), animate: false });
+
   }
   function fitSelectedIslands(islandIDs, animate = true) {
     if (!islandIDs.length || !state) {
@@ -299,7 +348,7 @@
       if (feature) bounds.extend(L.geoJSON(feature).getBounds());
     });
     if (bounds.isValid()) {
-      map.fitBounds(bounds, { padding: [38, 38], maxZoom: islandIDs.length === 1 ? 9 : 8.5, animate });
+      map.fitBounds(bounds, { ...workspacePadding(), maxZoom: islandIDs.length === 1 ? 9 : 8.5, animate });
     } else {
       fitMainHawaiianIslands();
     }
@@ -646,7 +695,7 @@
     $("[data-panel='filters']").hidden = false;
     root.querySelectorAll(".hx-case-nav nav button").forEach((button) => {
       const active = mode === "nbs"
-        ? (activeCaseNav === "nwhi" ? button.hasAttribute("data-nwhi") : button.hasAttribute("data-main-islands"))
+        ? button.hasAttribute("data-main-islands")
         : button.dataset.climateNav === mode;
       button.classList.toggle("is-active", active);
       button.setAttribute("aria-pressed", String(active));
@@ -796,6 +845,8 @@
   $("[data-climate-download]").addEventListener("click", downloadClimateCSV);
 
   function showPanel(name) {
+    if (evidenceOnly) root.querySelector('.hx-case-panel').hidden = name !== 'results';
+    else root.classList.remove('case-panel-hidden');
     if (mapMode === "nbs") lastCasePanel = name;
     root.querySelectorAll("[data-panel]").forEach((panel) => {
       panel.hidden = panel.dataset.panel !== name;
@@ -934,7 +985,7 @@
     matrixView = buildMatrix(baseIDs);
     const largestCell = Math.max(1, ...Array.from(matrixView.cells.values(), (ids) => ids.size));
     const matrixTone = (count) => {
-      const stops = [[249, 233, 186], [238, 199, 105], [204, 137, 48], [123, 70, 30]];
+      const stops = evidenceOnly ? [[255,239,166],[254,196,79],[244,119,45],[190,38,35]] : [[249, 233, 186], [238, 199, 105], [204, 137, 48], [123, 70, 30]];
       const position = largestCell === 1 ? 0 : (count - 1) / (largestCell - 1) * (stops.length - 1);
       const start = Math.min(stops.length - 2, Math.floor(position));
       const fraction = position - start;
@@ -951,7 +1002,7 @@
       return `--matrix-fill:rgb(${rgb.join(",")});--matrix-ink:${lightContrast > darkContrast ? "#fff9eb" : "#090705"}`;
     };
     syncScopeControl();
-    $("[data-matrix-summary]").textContent = `${scopeLabel()} · ${baseIDs.size} papers after current filters · ${matrixView.represented.size} with both selected attributes`;
+    $("[data-matrix-summary]").textContent = evidenceOnly ? `${scopeLabel()} · ${baseIDs.size} papers · ${matrixView.represented.size} represented in this view` : `${scopeLabel()} · ${baseIDs.size} papers after current filters · ${matrixView.represented.size} with both selected attributes`;
     const columns = matrixView.columns;
     const rows = matrixView.rows;
     const header = columns.map((column, index) => `<th scope="col" title="${escapeHTML(column)}" style="z-index:${columns.length - index + 4}"><span>${escapeHTML(column)}</span></th>`).join("");
@@ -971,6 +1022,7 @@
   }
 
   function islandStyle(selected = false) {
+    if(!evidenceOnly && document.documentElement.dataset.mapTheme==='light') return {color:selected?'#287fae':'#8c9eab',weight:selected?2.5:1,fillColor:selected?'#d5e8f4':'#fafbfc',fillOpacity:1};
     return {
       color: selected ? "#b9f5ff" : "#46d8ff",
       weight: selected ? 5.5 : 3.5,
@@ -981,6 +1033,7 @@
   }
 
   function areaStyle(selected = false) {
+    if(!evidenceOnly && document.documentElement.dataset.mapTheme==='light') return {color:'#397ca3',weight:selected?2.5:1.5,fillColor:'#74add0',fillOpacity:selected?.5:.25};
     return {
       color: selected ? "#d4faff" : "#38d6e8",
       weight: selected ? 3 : 1.8,
@@ -990,6 +1043,7 @@
   }
 
   function regionStyle(selected = false) {
+    if(!evidenceOnly && document.documentElement.dataset.mapTheme==='light') return {color:'#547f9b',weight:selected?2.5:1.5,fillColor:'#9cb8cc',fillOpacity:selected?.35:.15,dashArray:'6 4'};
     return {
       color: selected ? "#b9f5ff" : "#5bdcf5",
       weight: selected ? 5 : 1.8,
@@ -1333,6 +1387,7 @@
       render();
     });
     selection.querySelector("[data-download-csv]")?.addEventListener("click", () => downloadCSV(papers));
+    if(evidenceOnly) root.querySelector('.hx-case-results-head h3').textContent='Matching papers';
     $("[data-result-count]").textContent = `${papers.length} of ${state.papers.length} papers`;
     $("[data-paper-results]").innerHTML = papers.length
       ? papers.map(paperCard).join("")
@@ -1353,9 +1408,12 @@
       appliedFilters.ecosystems.length,
     ].some(Boolean);
     const showResearchLayers = mapActivated || Boolean(focus) || Boolean(matrixCell) || hasActiveFilters;
-    if (showResearchLayers) renderMap(mappedIDs);
-    else renderInitialMap();
+    if (!evidenceOnly) { if (showResearchLayers) renderMap(mappedIDs); else renderInitialMap(); }
     renderResults(mappedIDs);
+    if(evidenceOnly) {
+      root.querySelector('.hx-case-panel').hidden=!matrixCell;
+      if(matrixCell) root.querySelector('[data-panel="results"]').hidden=false;
+    }
     const selected = mappedIDs;
     const islandLabel = appliedFilters.islands
       .map((islandID) => geoDisplayName(islandID, state.geoUnitById.get(islandID)?.geo_unit_name))
@@ -1521,7 +1579,8 @@
           : geoDisplayName(id, geoUnitById.get(id)?.geo_unit_name);
         const geometry = type === "area" && feature
           ? { type: "FeatureCollection", features: feature } : feature;
-        selectGeography(type, id, label, geometry ? L.geoJSON(geometry) : null);
+        if(evidenceOnly) { focus={type,id,label}; render(); }
+        else selectGeography(type, id, label, geometry ? L.geoJSON(geometry) : null);
       });
       for (const [key, axis] of Object.entries(MATRIX_AXES)) {
         $("[data-matrix-rows]").add(new Option(axis.label, key));
@@ -1566,6 +1625,29 @@
       });
       const ecosystemOptions = $("[data-filter-ecosystem]");
       unique(papers.flatMap(ecosystemTypes)).sort().forEach((value) => ecosystemOptions.insertAdjacentHTML("beforeend", `<button type="button" data-ecosystem-option="${escapeHTML(value)}" aria-pressed="false">${escapeHTML(value)}</button>`));
+      // Topic-directory links use exactly the same values as the explorer filters.
+      const directoryQuery = new URLSearchParams(window.location.search);
+      if (!evidenceOnly) {
+        const validEcosystems = new Set(papers.flatMap(ecosystemTypes));
+        appliedFilters = {
+          islands: unique(directoryQuery.getAll("island")).filter(value => ISLAND_FILTER_ORDER.includes(value) && geoUnitById.has(value)),
+          nbs: unique(directoryQuery.getAll("nbs")).filter(value => OXFORD_NBS_TYPES.includes(value)),
+          ecosystems: unique(directoryQuery.getAll("ecosystem")).filter(value => validEcosystems.has(value)),
+        };
+        [
+          [islandOptions, "data-island-option", appliedFilters.islands],
+          [nbsOptions, "data-nbs-option", appliedFilters.nbs],
+          [ecosystemOptions, "data-ecosystem-option", appliedFilters.ecosystems],
+        ].forEach(([container, attribute, values]) => {
+          container.querySelectorAll(`[${attribute}]`).forEach(button => {
+            const value = button.getAttribute(attribute);
+            const active = value ? values.includes(value) : !values.length;
+            button.classList.toggle("is-active", active);
+            button.setAttribute("aria-pressed", String(active));
+          });
+        });
+      }
+
       islandOptions.addEventListener("click", (event) => {
         const button = event.target.closest("[data-island-option]");
         if (!button) return;
@@ -1649,28 +1731,6 @@
         fitMainHawaiianIslands();
         render();
       });
-      $("[data-nwhi]").addEventListener("click", () => {
-        if (mapMode !== "nbs" && activeCaseNav === "nwhi") {
-          activateMapMode("nbs");
-          return;
-        }
-        activeCaseNav = "nwhi";
-        if (mapMode !== "nbs") activateMapMode("nbs");
-        mapActivated = true;
-        clearSidebarIslands();
-        matrixCell = null;
-        const feature = regionFeatureByGeo.get("geo_nwhi");
-        const label = geoUnitById.get("geo_nwhi")?.geo_unit_name || "Northwestern Hawaiian Islands";
-        focus = { type: "geo", id: "geo_nwhi", label };
-        root.querySelectorAll(".hx-case-nav nav button").forEach((button) => button.classList.remove("is-active"));
-        $("[data-nwhi]").classList.add("is-active");
-        if (feature) {
-          const bounds = L.geoJSON(feature).getBounds();
-          if (bounds.isValid()) map.fitBounds(bounds, { padding: [28, 28], maxZoom: 7 });
-        }
-        render();
-        showPanel("results");
-      });
       root.querySelectorAll("[data-climate-nav]").forEach((button) => {
         button.addEventListener("click", () => activateMapMode(button.dataset.climateNav));
       });
@@ -1735,18 +1795,32 @@
         }, 180);
       });
       new ResizeObserver(() => map.invalidateSize({ pan: true, animate: false })).observe($(".hx-stage"));
+      const syncCaseTheme = () => {
+        if(evidenceOnly)return;
+        const light=document.documentElement.dataset.mapTheme==='light';
+        if(light)map.removeLayer(caseSatellite);else if(!map.hasLayer(caseSatellite))caseSatellite.addTo(map);
+        render();
+      };
+      document.addEventListener('nbs-map-theme-change', syncCaseTheme);
+      syncCaseTheme();
       render();
+      if (!evidenceOnly) {
+        const requestedView = directoryQuery.get("view");
+        if (requestedView === "rainfall" || requestedView === "temperature") activateMapMode(requestedView);
+        else if (Object.values(appliedFilters).some(values => values.length)) showPanel("results");
+      }
       // Reframe once the dashboard has reached its final size so the full main
       // island chain is prominent and consistently visible on first load.
       requestAnimationFrame(() => {
         map.invalidateSize({ pan: true, animate: false });
-        fitMainHawaiianIslands();
+        fitSelectedIslands(appliedFilters.islands, false);
       });
     })
     .catch((caught) => {
       console.error(caught);
       error.hidden = false;
       error.textContent = "Case-study data could not load. Run the site through a local web server and reload.";
-      $("[data-result-count]").textContent = "Data unavailable";
+      if(evidenceOnly) root.querySelector('.hx-case-results-head h3').textContent='Matching papers';
+    $("[data-result-count]").textContent = "Data unavailable";
     });
 })();

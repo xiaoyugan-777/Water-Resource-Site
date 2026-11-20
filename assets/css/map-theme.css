@@ -1,0 +1,122 @@
+/* A map-only preference shared by Map and Case Studies. */
+.map-theme-switch { display:flex; align-self:center; flex-shrink:0; border:1px solid #cbd5dd; border-radius:3px; overflow:hidden; margin-left:auto; }
+.map-theme-switch button { padding:7px 9px; border:0; background:#fff; color:#687d8c; font:11px Arial,sans-serif; cursor:pointer; white-space:nowrap; }
+.map-theme-switch button span { margin-left:3px; }
+.map-theme-switch button[aria-pressed="true"] { background:#dce8f1; color:#244e6a; }
+.map-theme-switch button:focus-visible { outline:2px solid #287fae; outline-offset:-3px; }
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .hx { --case-filter-bg:#fff; --case-filter-ink:#555; --case-filter-line:#d5dce1; --case-filter-active:#eaf2f7; --case-filter-active-ink:#216c99; }
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .hx-stage,
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .hx-canvas { background:#b9dff2 !important; }
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .hx-canvas .leaflet-overlay-pane path { filter:none; }
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .hx-map-summary,
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .hx-stage .hx-legend { background:#fffffff2; color:#555; border:1px solid #d4dce2; border-radius:0; box-shadow:0 1px 4px #0001; backdrop-filter:none; }
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .hx-stage .hx-legend small { color:#77848e; }
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .hx-label,
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .hx-place-label { color:#456477; text-shadow:0 1px 2px #fff; }
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .hx-ocean { color:#5c899f; }
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .leaflet-control-attribution,
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .leaflet-control-scale-line { background:#ffffffbf; color:#567180; border-color:#8aabbc; text-shadow:none; }
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .leaflet-control-attribution a { color:#346783; }
+html[data-map-theme="dark"] body:is(.island-map-page,.case-studies-page) .hx-sidebar { background:#10232f; color:#dbe5eb; --case-filter-bg:#18313f; --case-filter-ink:#dbe5eb; --case-filter-line:#385360; --case-filter-active:#284b60; --case-filter-active-ink:#e1f4ff; }
+html[data-map-theme="dark"] body:is(.island-map-page,.case-studies-page) .hx-sidebar :is(label,.hx-filter-label,.hx-eyebrow,.hx-detail p,.hx-detail h3,.hx-case-panel-head h3,.hx-case-hint,.hx-disclaimer,.hx-selection-hint) { color:#bdccd5; }
+html[data-map-theme="dark"] body:is(.island-map-page,.case-studies-page) .hx-sidebar :is(select,.hx-results button,[data-reset]) { background:#18313f; color:#dbe5eb; border-color:#385360; }
+html[data-map-theme="dark"] body:is(.island-map-page,.case-studies-page) :is(.hx-panel-tabs,.hx-case-tabs) { background:#142b38; border-color:#385360; }
+html[data-map-theme="dark"] body:is(.island-map-page,.case-studies-page) :is(.hx-panel-tabs,.hx-case-tabs) button { color:#a9becd; background:transparent; }
+html[data-map-theme="dark"] body:is(.island-map-page,.case-studies-page) :is(.hx-panel-tabs,.hx-case-tabs) button:is(.is-active,[aria-pressed="true"]) { color:#ecf6fb; background:#234252; }
+html[data-map-theme="dark"] body:is(.island-map-page,.case-studies-page) .hx-sidebar .hx-paper-card { background:#18313f; border-color:#385360; }
+html[data-map-theme="dark"] body:is(.island-map-page,.case-studies-page) .hx-sidebar .hx-paper-card :is(h4,dd) { color:#dbe5eb; }
+@media(max-width:1000px) { .map-theme-switch button span { display:none; } .map-theme-switch button { padding:7px; } }
+@media(max-width:700px) { .map-theme-switch { margin-left:0; margin-block:8px; } }
+/* Keep shared landing button rules from turning the mode control into a pill. */
+.nature-navigation-inner .map-theme-switch { align-self:center; height:32px; }
+.nature-navigation-inner .map-theme-switch button { min-height:0; height:30px; padding:0 10px; border-radius:0; box-shadow:none; line-height:30px; font-size:11px; }
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .hx .leaflet-control-scale-line { background:#ffffffbf !important; color:#567180 !important; border-color:#8aabbc !important; text-shadow:none !important; }
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .hx .leaflet-bar a { background:#fff; color:#486270; border-color:#d6dfe4; }
+html[data-map-theme="light"] body:is(.island-map-page,.case-studies-page) .hx .hx-ocean { color:#5c899f; text-shadow:none; filter:none; }
+
+/* Map-specific settings belong to the tool rail, outside shared site navigation. */
+:is(.hx-tool-rail,.hx-case-nav) .map-theme-switch { display:flex; flex-direction:column; flex-shrink:0; margin:12px 6px; border:1px solid #cbd5dd; border-radius:3px; overflow:hidden; align-self:stretch; }
+body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-theme-switch button { display:block; width:100%; min-height:34px; height:auto; padding:9px 2px; margin:0; border:0; border-radius:0; background:#f8f9fa; color:#657580; font:10px/1.3 Arial,sans-serif; text-transform:none; box-shadow:none; }
+body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-theme-switch button[aria-pressed="true"] { background:#dce8f1; color:#244e6a; box-shadow:inset 2px 0 #287fae; }
+
+body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-mode-control { position:relative; flex-shrink:0; width:100%; }
+body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-mode-trigger { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; width:100%; min-height:86px; margin:0; padding:16px 4px; border:0; border-radius:0; background:transparent; color:#606060; font:10px/1.3 Arial,sans-serif; text-transform:uppercase; box-shadow:none; cursor:pointer; }
+body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-mode-trigger svg { width:26px; height:26px; }
+body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-mode-trigger span { font:10px/1.3 Arial,sans-serif; }
+body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-mode-trigger[aria-expanded="true"] { color:#287fae; background:#fff; box-shadow:inset 3px 0 #287fae; }
+body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-theme-switch { position:absolute; z-index:600; left:100%; bottom:0; width:180px; margin:0; padding:8px; border:1px solid #ddd; border-radius:0; background:#fff; box-shadow:2px 2px 8px #0002; }
+body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-theme-switch[hidden] { display:none; }
+body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-theme-switch button { text-align:left; padding:13px 16px; font-size:13px; cursor:pointer; }
+/* The persistent rail and its mode menu follow the original blue-black palette. */
+html[data-map-theme="dark"] body.island-map-page .hx-workspace .hx-tool-rail,
+html[data-map-theme="dark"] body.case-studies-page .hx-case-nav {
+  background:#10232f; color:#bdccd5; border-right-color:#385360;
+}
+html[data-map-theme="dark"] body.island-map-page .hx-workspace .hx-tool-rail > button,
+html[data-map-theme="dark"] body.case-studies-page .hx-case-nav nav button,
+html[data-map-theme="dark"] body.case-studies-page .case-panel-reopen,
+html[data-map-theme="dark"] body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-mode-trigger {
+  background:transparent; color:#bdccd5;
+}
+html[data-map-theme="dark"] body.island-map-page .hx-workspace .hx-tool-rail > button:is(:hover,[aria-pressed="true"]),
+html[data-map-theme="dark"] body.case-studies-page .hx-case-nav nav button:is(:hover,.is-active),
+html[data-map-theme="dark"] body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-mode-trigger:is(:hover,[aria-expanded="true"]) {
+  background:#234252; color:#e1f4ff; box-shadow:inset 3px 0 #69bfdc;
+}
+html[data-map-theme="dark"] body.case-studies-page .hx-case-nav nav button span { color:#a9becd; }
+html[data-map-theme="dark"] body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-theme-switch {
+  background:#10232f; border-color:#385360;
+}
+html[data-map-theme="dark"] body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-theme-switch button {
+  background:#18313f; color:#bdccd5;
+}
+html[data-map-theme="dark"] body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-theme-switch button:is(:hover,[aria-pressed="true"]) {
+  background:#284b60; color:#e1f4ff; box-shadow:inset 2px 0 #69bfdc;
+}
+/* Keep map panels within their workspace instead of inheriting form/card sizes. */
+html body.island-map-page .hx-workspace .hx-sidebar .hx-check input[type="checkbox"] {
+  width:16px; height:16px; min-height:0; padding:0; margin:0; flex:0 0 16px;
+}
+html[data-map-theme="dark"] body.island-map-page .hx-workspace .hx-panel-content .hx-legend,
+html[data-map-theme="dark"] body.island-map-page .hx-workspace .hx-panel-content .hx-legend :is(strong,span,small) {
+  color:#bdccd5; border-color:#385360;
+}
+html[data-map-theme="dark"] body.island-map-page .hx-workspace .hx-check { border-color:#385360; }
+html[data-landing-theme] body.case-studies-page .hx-case-layout > .hx-case-panel {
+  height:100%; min-height:0; max-height:100%; bottom:0;
+}
+html[data-map-theme="dark"][data-landing-theme] body.case-studies-page .hx-case-nav nav button.is-active { background:#234252; color:#e1f4ff; box-shadow:inset 3px 0 #69bfdc; }
+
+/* Rail selection must follow map mode, independent of legacy global button rules. */
+html[data-map-theme="dark"] body.case-studies-page .hx-case-nav nav button:is(.is-active,[aria-selected="true"],:hover) {
+  background:#234252; color:#e1f4ff; border-color:transparent; box-shadow:inset 3px 0 #69bfdc;
+}
+html[data-map-theme="dark"] body.case-studies-page .hx-case-nav nav button:is(.is-active,[aria-selected="true"]) span { color:#a9becd; }
+html body.case-studies-page .hx-case-nav button:focus:not(:focus-visible) { outline:none; }
+html body.case-studies-page .hx-case-nav button:focus-visible { outline:2px solid #69bfdc; outline-offset:-3px; }
+/* Shared navigation must sit above Leaflet and its docked panels. */
+body:is(.island-map-page,.case-studies-page) .map-site-chrome { position:relative; z-index:2000; isolation:isolate; }
+/* Rail selection uses a quiet edge indicator rather than a filled tile. */
+html[data-map-theme] body.island-map-page .hx-workspace .hx-tool-rail > button:is(:hover,[aria-pressed="true"]),
+html[data-map-theme] body.case-studies-page .hx-case-nav nav button:is(:hover,.is-active,[aria-selected="true"]),
+html[data-map-theme] body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-mode-trigger:is(:hover,[aria-expanded="true"]) {
+  background:transparent; color:#287fae; box-shadow:inset 3px 0 #287fae;
+}
+html[data-map-theme="dark"] body.island-map-page .hx-workspace .hx-tool-rail > button:is(:hover,[aria-pressed="true"]),
+html[data-map-theme="dark"][data-landing-theme] body.case-studies-page .hx-case-nav nav button:is(:hover,.is-active,[aria-selected="true"]),
+html[data-map-theme="dark"] body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) .map-mode-trigger:is(:hover,[aria-expanded="true"]) {
+  background:transparent; color:#e1f4ff; box-shadow:inset 3px 0 #69bfdc;
+}
+html[data-map-theme] body:is(.island-map-page,.case-studies-page) :is(.hx-panel-tabs,.hx-case-tabs) button:is(.is-active,[aria-pressed="true"]) { background:transparent; }
+
+/* Sidebar-integrated home mark, shared by both map workspaces. */
+html body:is(.island-map-page,.case-studies-page) :is(.hx-tool-rail,.hx-case-nav) { padding-top:0; }
+html body:is(.island-map-page,.case-studies-page) .map-rail-brand { display:flex; align-items:center; justify-content:center; flex:none; width:100%; height:86px; padding:10px 7px; background:#287fae; color:#fff; font:700 18px/1.05 Arial,Helvetica,sans-serif; text-align:left; text-decoration:none; letter-spacing:-.04em; }
+html body:is(.island-map-page,.case-studies-page) .map-rail-brand:hover { background:#216c99; color:#fff; }
+html body:is(.island-map-page,.case-studies-page) .map-rail-brand:focus-visible { outline:2px solid #fff; outline-offset:-4px; }
+html[data-landing-theme] body.case-studies-page .hx-case-nav nav button,
+html body.case-studies-page .hx-case-nav .case-panel-reopen { min-height:58px; padding-block:8px; }
+html body.case-studies-page .case-rail-bottom { padding-top:6px; }
+@media(max-width:760px) {
+ html body:is(.island-map-page,.case-studies-page) .map-rail-brand { font-size:15px; height:76px; }
+}

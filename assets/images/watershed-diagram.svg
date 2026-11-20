@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
+<title>Conceptual watershed from mountains to coast</title>
+<rect width="1000" height="600" fill="#f5f9fd"/>
+<path d="M35 410L190 135L280 255L350 205L490 355L610 385L760 440L965 455V530H35Z" fill="#e3ebee"/>
+<path d="M35 410L190 135L280 255L350 205L490 355L610 385L760 440L965 455" fill="none" stroke="#7895a6" stroke-width="2"/>
+<path d="M190 135L165 282L238 340L305 390L470 425L620 452L780 473" fill="none" stroke="#b6cbd6" stroke-width="2"/>
+<path d="M350 205L327 303L389 361L470 425" fill="none" stroke="#b6cbd6" stroke-width="2"/>
+<path d="M35 444Q195 365 345 415T655 466L780 473V530H35Z" fill="#d2e1e7"/>
+<path d="M227 264Q263 319 323 340T411 393T532 433T660 463L811 486" fill="none" stroke="#f5f9fd" stroke-width="12"/>
+<path d="M227 264Q263 319 323 340T411 393T532 433T660 463L811 486" fill="none" stroke="#619cbd" stroke-width="5"/>
+<path d="M363 308Q350 350 389 374" fill="none" stroke="#619cbd" stroke-width="3"/>
+<path d="M770 442Q746 463 788 482T965 468V530H770Z" fill="#badbe9"/>
+<path d="M800 452Q775 466 824 482T965 487M822 450Q801 463 851 474T965 477" fill="none" stroke="#fff" stroke-width="2"/>
+<g stroke="#92aeba" stroke-width="1.5" fill="none">
+<path d="M418 422l25-19 30 10-24 21ZM458 438l25-20 30 10-24 21ZM504 450l25-19 30 10-24 21Z"/>
+<path d="M613 443h35v14h-35zM658 451h35v14h-35zM703 459h35v14h-35z"/>
+</g>
+<g fill="#526e80" font-family="Arial,sans-serif" font-size="12" letter-spacing="2">
+<text x="110" y="565">UPLAND FOREST</text><text x="415" y="565">WORKING LANDSCAPE</text><text x="790" y="565">COAST &amp; OCEAN</text>
+</g>
+<g stroke="#bdcfd9"><path d="M35 543H965M350 537v12M735 537v12"/></g>
+</svg>

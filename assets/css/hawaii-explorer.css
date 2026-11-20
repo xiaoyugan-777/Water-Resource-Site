@@ -818,3 +818,36 @@ html[data-landing-theme="light"] .hx-cases .hx-climate-disabled-track { color: #
     min-height: 0;
   }
 }
+
+/* Premium monochrome explorer chrome. */
+.hx {
+  --geo-lime: #fff;
+  --geo-lime-soft: #d9d9d5;
+  --geo-teal: #d0d0cc;
+  --geo-line: rgba(255, 255, 255, .16);
+  overflow: hidden;
+  border-radius: 22px;
+  background: #101010;
+}
+.hx:not(.hx-cases) .hx-sidebar,
+.hx:not(.hx-cases) .hx-header { color: #f7f7f5; background: #151515; }
+.hx button,
+.hx input,
+.hx select,
+.hx textarea,
+.hx .hx-field-card,
+.hx .hx-panel,
+.hx .hx-legend,
+.hx .hx-popup,
+.hx .hx-modal { border-radius: 14px; }
+.hx:not(.hx-cases) button,
+.hx:not(.hx-cases) .hx-field-card { border-color: #383838; background: #202020; }
+.hx:not(.hx-cases) button:hover,
+.hx:not(.hx-cases) button:focus-visible,
+.hx:not(.hx-cases) button[aria-pressed="true"],
+.hx:not(.hx-cases) button.is-active { color: #111; border-color: #fff; background: #fff; }
+.hx-cases .hx-case-filter button.is-active { color: #111 !important; border-color: #111 !important; background: #fff !important; }
+.hx-cases .hx-card,
+.hx-cases .hx-panel,
+.hx-cases .hx-case-card,
+.hx-cases .hx-climate-condition { border-radius: 18px; }

@@ -32,18 +32,22 @@
     />
     <meta name="twitter:image" content="https://hawaii-nbs-hub.vercel.app/assets/images/nbs-hawaii-open-graph.jpg" />
     <meta name="twitter:image:alt" content="Nature-Based Solutions in Hawaiʻi overlooking a mountain-to-sea landscape" />
-    <link rel="stylesheet" href="./assets/css/styles.css?v=67" />
-    <link rel="stylesheet" href="./assets/css/landing-light.css?v=15" />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=69" />
+    <link rel="stylesheet" href="./assets/css/landing-light.css?v=16" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;1,300&amp;display=swap" />
+    <link rel="stylesheet" href="./assets/css/landing-nature.css?v=57" />
     <script>
       try {
         if (localStorage.getItem('landingTheme') === 'light') document.documentElement.dataset.landingTheme = 'light';
       } catch (_) {}
     </script>
-</head>
-  <body class="landing-home">
+  <link rel="stylesheet" href="./assets/css/partners.css?v=4" />
+    <link rel="stylesheet" href="./assets/css/landing-contact.css?v=1" />
+  </head>
+  <body class="landing-home nature-landing">
     <div class="page-shell">
       <header class="landing-header">
-        <a class="landing-brand" href="./index.html" aria-label="Nature-based Solutions Initiative home">
+        <a class="landing-brand" href="./index.html" aria-label="Hawaiʻi NbS Hub home">
           <img class="brand-logo-image landing-brand-logo" src="./assets/images/oleson-lab-logo.png" alt="" />
           <span class="landing-brand-name">
             <strong>Hawaiʻi NbS Hub</strong>
@@ -51,46 +55,65 @@
           </span>
         </a>
 
-        <div class="landing-header-actions">
-          <button class="landing-theme-toggle" type="button" data-landing-theme-toggle aria-pressed="false" aria-label="Switch to light mode">
-            <span class="landing-theme-icon" aria-hidden="true">☀</span><span data-landing-theme-label>Light mode</span>
-          </button>
-          <button
-            class="explore-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="explore-menu"
-            data-explore-toggle
-          >
-            Explore <span aria-hidden="true">⌄</span>
-          </button>
-        </div>
-
-        <nav id="explore-menu" class="explore-menu" aria-label="Explore" data-explore-menu hidden>
-          <p class="explore-menu-label">Explore the initiative</p>
-          <a href="./index.html">Home <span aria-hidden="true">01</span></a>
-          <a href="./pages/evaluate.html">InEvalTool <span aria-hidden="true">02</span></a>
-          <a href="./pages/case-studies.html">Case Study Explorer <span aria-hidden="true">03</span></a>
-          <a href="./pages/explore-hawaii.html">Explore Hawaiʻi <span aria-hidden="true">04</span></a>
-          <div class="explore-partners">
-            <div class="explore-partners-row">
-              <a href="./pages/research.html">Partners</a>
-              <button
-                type="button"
-                aria-expanded="false"
-                aria-controls="partners-submenu"
-                aria-label="Show partner categories"
-                data-partners-toggle
-              >+</button>
-            </div>
-            <div id="partners-submenu" class="partners-submenu" data-partners-submenu hidden>
-              <a href="./pages/research.html#strategic-partners-list">Strategic partners</a>
-              <a href="./pages/research.html#technical-partners-list">Technical partners</a>
-              <a href="./pages/research.html#aina-group-list">ʻĀina group</a>
-            </div>
-          </div>
-        </nav>
       </header>
+
+      <nav class="nature-navigation" aria-label="Main navigation">
+        <div class="nature-navigation-inner">
+          <a class="nature-nav-brand" href="./index.html" aria-label="Hawaiʻi NbS Hub home">HAWAIʻI<br />NBS<br />HUB</a>
+          <div class="nature-navigation-links">
+            <a href="./pages/explore-hawaii.html">Map</a>
+            <details class="nature-nav-dropdown">
+              <summary>Case Studies <span aria-hidden="true">⌄</span></summary>
+              <div class="nature-nav-panel">
+                <a href="./pages/case-studies.html">Case Study Explorer</a>
+                <a href="./pages/research-evidence.html">Research Evidence</a>
+              </div>
+            </details>
+            <details class="nature-nav-dropdown">
+              <summary>Tools <span aria-hidden="true">⌄</span></summary>
+              <div class="nature-nav-panel">
+                <a href="./pages/get-started.html">Monitoring &amp; Evaluation</a>
+                <a href="./pages/tutorials.html">Tutorials</a>
+                <a href="./pages/evaluate.html">Evaluate · InEvalTool</a>
+                <a href="./pages/tool.html">NbS Assistant</a>
+                <a href="./pages/evidence-tool.html">CIROH-NbS InEvalTool · Overview</a>
+              </div>
+            </details>
+            <details class="nature-nav-dropdown">
+              <summary>About <span aria-hidden="true">⌄</span></summary>
+              <div class="nature-nav-panel">
+                <a href="./pages/about.html">About the initiative</a>
+                <a href="./pages/team.html">Our team</a>
+                <div class="partner-nav-item">
+                  <a href="./pages/partners.html">Partners</a>
+                  <button type="button" class="partner-nav-toggle" aria-label="Partner categories" aria-controls="partner-categories" aria-expanded="false"><span aria-hidden="true">›</span></button>
+                  <div class="partner-nav-links" id="partner-categories" hidden>
+                    <a href="./pages/partners.html#strategic-partners">Strategic partners</a>
+                    <a href="./pages/partners.html#technical-partners">Technical partners</a>
+                    <a href="./pages/partners.html#aina-group">ʻĀina group</a>
+                  </div>
+                </div>
+                <a href="./pages/join-us.html">Join us</a>
+              </div>
+            </details>
+            <a href="./pages/news.html">News</a>
+            <details class="nature-nav-dropdown">
+              <summary>Resources <span aria-hidden="true">⌄</span></summary>
+              <div class="nature-nav-panel">
+                <a href="./pages/knowledge-hub.html">Knowledge hub</a>
+                <a href="./pages/nbs-guidelines.html">NbS guidelines</a>
+                <a href="./pages/outputs.html">Reports &amp; outputs</a>
+                <a href="./pages/bibliography.html">Bibliography</a>
+                <a href="./pages/education.html">Education</a>
+                <a href="./pages/conferences.html">Conferences</a>
+                <a href="./pages/support.html">Project support</a>
+              </div>
+            </details>
+          </div>
+          <a class="nature-nav-contact" href="#contact">Contact</a>
+        </div>
+      </nav>
+
 
       <main class="landing-main">
         <section class="landing-hero" aria-labelledby="landing-title">
@@ -102,65 +125,36 @@
             <p class="landing-kicker">CIROH / University of Hawaiʻi at Mānoa</p>
           <h1 id="landing-title" class="landing-title-wide">Nature-Based<br />Solutions in Hawaiʻi</h1>
             <p class="landing-summary">
-              Discover research case studies, explore assessment tools, and access resources to
-              support sustainable environmental decisions.
+              Explore the data, discover local projects, and find tools to support healthier watersheds and stronger communities.
             </p>
             <div class="landing-actions">
-              <a class="landing-button landing-button-primary" href="#topics">
-                Start Here <span aria-hidden="true">↗</span>
+              <a class="landing-button landing-button-primary" href="./pages/explore-hawaii.html">
+                Explore Hawaiʻi <span aria-hidden="true">↗</span>
               </a>
+              <a class="nature-secondary-link" href="./pages/case-studies.html">Discover case studies <span aria-hidden="true">→</span></a>
             </div>
           </div>
 
-          <div class="landing-hero-footer">
-            <p class="hero-partners-label">A collaborative project by</p>
-            <div class="hero-partners" aria-label="Project partners">
-              <div class="hero-partner">
-                <img class="hero-partner-logo hero-partner-logo-uh" src="./assets/images/uh-manoa-logo.jpg" alt="University of Hawaiʻi at Mānoa" />
-                <span><strong>University of Hawaiʻi</strong><small>at Mānoa</small></span>
-              </div>
-              <div class="hero-partner">
-                <img class="hero-partner-logo" src="./assets/images/oleson-lab-logo.png" alt="Oleson Lab" />
-                <span><strong>Oleson Lab</strong><small>Ecological Economics</small></span>
-              </div>
-              <div class="hero-partner">
-                <img class="hero-partner-logo hero-partner-logo-ciroh" src="./assets/images/ciroh-logo.png" alt="CIROH" />
-                <span><strong>CIROH</strong><small>Water research consortium</small></span>
-              </div>
-            </div>
-            <a class="hero-scroll-link" href="#topics">Scroll down <svg aria-hidden="true" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 3L12 11L22 3M2 12L12 20L22 12M2 21L12 29L22 21" stroke="currentColor" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter" /></svg></a>
-          </div>
+
         </section>
 
-        <section id="topics" class="landing-topics" aria-labelledby="topics-heading">
-          <div class="landing-topics-heading">
-            <div>
-              <h2 id="topics-heading">Find your path through NbS.</h2>
-            </div>
-            <p>Research, tools, and resources for Hawaiʻi's landscapes and communities.</p>
-          </div>
-          <nav class="topic-grid" aria-label="Nature-based solutions topics">
-            <a class="topic-card" href="#our-work"><span class="topic-number">01 / CONNECT</span><strong>Integration</strong><span class="topic-description">Connect ecological, social, and water outcomes.</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
-            <a class="topic-card" href="./pages/research.html"><span class="topic-number">02 / COLLABORATE</span><strong>Governance</strong><span class="topic-description">Explore partners and place-based decision making.</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
-            <a class="topic-card" href="./pages/explore-hawaii.html"><span class="topic-number">03 / EXPLORE</span><strong>Mapping NbS Opportunities</strong><span class="topic-description">Locate islands, places, and potential approaches.</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
-            <a class="topic-card" href="./pages/evaluate.html"><span class="topic-number">04 / MEASURE</span><strong>Monitoring NbS Outcomes</strong><span class="topic-description">Assess benefits and track outcomes over time.</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
-            <a class="topic-card" href="./pages/case-studies.html"><span class="topic-number">05 / LEARN</span><strong>Case Studies</strong><span class="topic-description">Discover Hawaiʻi projects and research examples.</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
-            <a class="topic-card" href="./pages/support.html"><span class="topic-number">06 / SUPPORT</span><strong>Funding Programmes</strong><span class="topic-description">Find pathways for project support and funding.</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
-            <a class="topic-card" href="./pages/knowledge-hub.html"><span class="topic-number">07 / DISCOVER</span><strong>Information &amp; Guidance</strong><span class="topic-description">Browse practical resources and NbS guidance.</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
-            <a class="topic-card" href="./pages/outputs.html"><span class="topic-number">08 / READ</span><strong>Policy Briefs &amp; Reports</strong><span class="topic-description">Read findings and shareable research outputs.</span><span class="topic-arrow" aria-hidden="true">↗</span></a>
+        <section id="topics" class="landing-topics" aria-label="Explore the toolkit">
+<nav class="topic-grid toolkit-grid" aria-label="Explore the toolkit">
+            <a class="topic-card" href="./pages/explore-hawaii.html"><strong>Explore Hawaiʻi</strong><span class="topic-description">Explore islands, places, and geographic context across Hawaiʻi.</span><img class="topic-preview" src="https://www.nps.gov/common/uploads/structured_data/3C79B6CD-1DD8-B71B-0BB2B4265DD8C023.jpg" alt="Green coastal cliffs and the Pacific Ocean at Kalaupapa, Molokaʻi" title="Kalaupapa · NPS" loading="lazy" width="1280" height="540" /><span class="topic-cta">Explore the map</span></a>
+            <a class="topic-card" href="./pages/case-studies.html"><strong>Discover NbS research</strong><span class="topic-description">Find studies by location, ecosystem, and nature-based intervention.</span><img class="topic-preview" src="https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/Volunteers%20in%20Hakalau%20Forest.jpg" alt="Volunteers planting native trees in Hakalau Forest, Hawaiʻi" title="Hakalau Forest · USGS" loading="lazy" width="1280" height="540" /><span class="topic-cta">Browse studies</span></a>
+            <a class="topic-card" href="./pages/get-started.html"><strong>Monitor &amp; evaluate</strong><span class="topic-description">Explore guidance and tools for planning monitoring and evaluating NbS outcomes.</span><img class="topic-preview" src="https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/full_width/public/thumbnails/image/PIWSC_WaiheeStr_Oahu_collecting_sample.jpg?itok=htn6pxGp" alt="Researchers collecting stream water samples at Waiheʻe Stream, Oʻahu" title="Waiheʻe Stream · USGS" loading="lazy" width="1280" height="540" /><span class="topic-cta">Explore M&amp;E tools</span></a>
           </nav>
         </section>
 
         <section id="our-work" class="landing-story landing-story-reference" aria-labelledby="story-title">
-          <div class="impact-explorer" data-impact-explorer>
+          <div class="watershed-reveal" data-watershed-reveal style="--reveal:0%">
+            <div class="watershed-introduction">
+              <h2 id="story-title">From Mauka to Makai</h2>
+              <p>From mountain forests to the ocean, water connects Hawaiʻi’s landscapes and communities. Forest restoration, stream restoration, agroforestry, and ungulate fencing support the uplands; loʻi kalo, rain gardens, loko iʻa, and coastal restoration extend that care toward the shore. Explore how these approaches work together, from mauka to makai.</p>
+            </div>
+          <div id="watershed-interactive" class="impact-explorer" data-impact-explorer>
+            <button class="watershed-back-button" type="button" data-watershed-back aria-label="Back to mountain-to-sea introduction" title="Back to introduction"><svg viewBox="0 0 84 40" fill="none" aria-hidden="true"><path d="m18 8-12 12 12 12M42 8 30 20l12 12M66 8 54 20l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
           <div class="impact-copy">
-          <div class="landing-story-intro">
-            <p class="landing-section-kicker">Mauka to Makai</p>
-            <h2 id="story-title">Explore a<br />connected<br /><span>landscape.</span></h2>
-            <p class="landing-story-summary">
-              Follow the path from mountain watersheds to the coast. Select an intervention to see where it fits.
-            </p>
-          </div>
             <div class="impact-selector" aria-label="Nature-based interventions">
               <p class="impact-group-label">Mauka <small>Mountains</small></p>
               <button type="button" data-impact="forest" aria-pressed="false"><span aria-hidden="true">01</span>Forest restoration<i aria-hidden="true">↗</i></button>
@@ -177,16 +171,16 @@
           <div class="impact-map-system">
           <div class="impact-visual">
             <div class="impact-landscape" role="group" aria-label="Conceptual mountain-to-sea landscape with illustrative selectable intervention locations">
-              <div class="impact-direction"><span>Mauka</span><span aria-hidden="true">→</span><span>Makai</span></div>
-              <button class="impact-marker" type="button" data-impact="forest" aria-label="Forest restoration illustrative location" aria-pressed="false" style="--x: 27%; --y: 19%"></button>
-              <button class="impact-marker" type="button" data-impact="stream" aria-label="Stream restoration illustrative location" aria-pressed="false" style="--x: 41%; --y: 32%"></button>
-              <button class="impact-marker" type="button" data-impact="agroforestry" aria-label="Agroforestry illustrative location" aria-pressed="false" style="--x: 51%; --y: 43%"></button>
-              <button class="impact-marker" type="button" data-impact="fencing" aria-label="Ungulate fencing illustrative location" aria-pressed="false" style="--x: 34%; --y: 26%"></button>
-              <button class="impact-marker" type="button" data-impact="loi" aria-label="Loʻi kalo restoration illustrative location" aria-pressed="false" style="--x: 63%; --y: 57%"></button>
-              <button class="impact-marker" type="button" data-impact="rain" aria-label="Rain gardens illustrative location" aria-pressed="false" style="--x: 73%; --y: 65%"></button>
-              <button class="impact-marker" type="button" data-impact="loko" aria-label="Loko iʻa restoration illustrative location" aria-pressed="false" style="--x: 85%; --y: 76%"></button>
-              <button class="impact-marker" type="button" data-impact="coast" aria-label="Coastal restoration illustrative location" aria-pressed="false" style="--x: 93%; --y: 83%"></button>
-              <small class="impact-image-credit" data-impact-image-credit>Conceptual Mauka-to-Makai illustration · markers illustrative</small>
+              <img class="impact-real-photo" src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Starr_060228-6483_aerial_photograph_of_Oahu.jpg" alt="Oblique aerial view of Kualoa, Oʻahu, showing forested mountains, lowlands, coastal fishponds and ocean" loading="lazy" width="1944" height="2592" />
+              <button class="impact-marker" type="button" data-impact="forest" aria-label="forest conceptual intervention location" aria-pressed="false" style="--x: 71%; --y: 38%"></button>
+              <button class="impact-marker" type="button" data-impact="stream" aria-label="stream conceptual intervention location" aria-pressed="false" style="--x: 42%; --y: 48%"></button>
+              <button class="impact-marker" type="button" data-impact="agroforestry" aria-label="agroforestry conceptual intervention location" aria-pressed="false" style="--x: 58%; --y: 50%"></button>
+              <button class="impact-marker" type="button" data-impact="fencing" aria-label="fencing conceptual intervention location" aria-pressed="false" style="--x: 82%; --y: 44%"></button>
+              <button class="impact-marker" type="button" data-impact="loi" aria-label="loi conceptual intervention location" aria-pressed="false" style="--x: 32%; --y: 52%"></button>
+              <button class="impact-marker" type="button" data-impact="rain" aria-label="rain conceptual intervention location" aria-pressed="false" style="--x: 76%; --y: 53%"></button>
+              <button class="impact-marker" type="button" data-impact="loko" aria-label="loko conceptual intervention location" aria-pressed="false" style="--x: 40%; --y: 47%"></button>
+              <button class="impact-marker" type="button" data-impact="coast" aria-label="coast conceptual intervention location" aria-pressed="false" style="--x: 56%; --y: 55%"></button>
+              <small class="impact-image-credit"><a href="https://commons.wikimedia.org/wiki/File:Starr_060228-6483_aerial_photograph_of_Oahu.jpg" target="_blank" rel="noopener">Kualoa · Forest &amp; Kim Starr</a> · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> · Cropped; markers show conceptual roles, not actual projects.</small>
             </div>
             <aside class="impact-info" aria-live="polite" hidden>
               <button class="impact-info-close" type="button" aria-label="Close intervention details" data-impact-close>×</button>
@@ -206,6 +200,10 @@
           </div>
           </div>
           </div>
+            <button class="watershed-open-button" type="button" aria-expanded="false" aria-controls="watershed-interactive" aria-label="Explore mountain-to-sea interventions" data-watershed-open>
+              <svg viewBox="0 0 84 40" fill="none" aria-hidden="true"><path d="m6 8 12 12L6 32M30 8l12 12-12 12M54 8l12 12-12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </button>
+          </div>
         </section>
 
         <section class="landing-assessment-page" aria-labelledby="assessment-heading">
@@ -217,32 +215,26 @@
           </header>
           <div class="landing-assessment-questions">
               <article class="landing-assessment-question">
-                <span class="landing-assessment-number">01 / The challenge</span>
                 <h3>What is the problem?</h3>
                 <p>Water, ecosystems, and communities are connected. Decisions are harder when we cannot see how risks and benefits move across that whole landscape.</p>
               </article>
               <article class="landing-assessment-question">
-                <span class="landing-assessment-number">02 / The approach</span>
                 <h3>Why nature-based solutions?</h3>
                 <p>Restoring and working with natural systems may address more than one challenge at once. The question is where an approach fits—and what it can realistically deliver.</p>
               </article>
               <article class="landing-assessment-question">
-                <span class="landing-assessment-number">03 / The value</span>
                 <h3>What counts as value?</h3>
                 <p>Flood reduction is only part of the picture. Ecological health, cultural connections, and community well-being also matter when judging outcomes.</p>
               </article>
               <article class="landing-assessment-question">
-                <span class="landing-assessment-number">04 / The evidence</span>
                 <h3>How can we evaluate it?</h3>
                 <p>We bring together indicators, research, and local context to examine what changes, for whom, and with what degree of confidence.</p>
               </article>
               <article class="landing-assessment-question">
-                <span class="landing-assessment-number">05 / The hub</span>
                 <h3>How does it work?</h3>
                 <p>Explore places and interventions, then connect them to case studies, assessment approaches, and practical guidance.</p>
               </article>
               <article class="landing-assessment-question">
-                <span class="landing-assessment-number">06 / The decision</span>
                 <h3>What can we do with the results?</h3>
                 <p>Use the evidence to ask better questions about planning, investment, stewardship, and long-term monitoring.</p>
                 <a class="landing-assessment-link" href="./pages/explore-hawaii.html"><span aria-hidden="true">→</span><span>Explore the Hawaiian Islands</span></a>
@@ -250,11 +242,11 @@
           </div>
         </section>
 
-        <section class="landing-contact-page" aria-labelledby="community-heading">
+        <section id="contact" class="landing-contact-page" aria-labelledby="community-heading">
           <div class="landing-contact-main">
             <div class="landing-contact-copy">
               <p class="landing-section-kicker">Stay connected</p>
-              <h2 id="community-heading">Join the NbS<br />community.</h2>
+              <h2 id="community-heading">Join the NbS <br />community.</h2>
               <p>Follow new tools, Hawaiʻi research, project updates, and opportunities to take part.</p>
             </div>
 
@@ -269,6 +261,26 @@
               <p class="landing-contact-status" role="status" hidden></p>
             </form>
           </div>
+
+        <div class="nature-partner-strip">
+          <div class="landing-hero-footer">
+            <p class="hero-partners-label">A collaborative project by</p>
+            <div class="hero-partners" aria-label="Project partners">
+              <div class="hero-partner">
+                <img class="hero-partner-logo hero-partner-logo-uh" src="./assets/images/uh-manoa-logo.jpg" alt="University of Hawaiʻi at Mānoa" />
+                <span><strong>University of Hawaiʻi</strong><small>at Mānoa</small></span>
+              </div>
+              <div class="hero-partner">
+                <img class="hero-partner-logo" src="./assets/images/oleson-lab-logo.png" alt="Oleson Lab" />
+                <span><strong>Oleson Lab</strong><small>Ecological Economics</small></span>
+              </div>
+              <div class="hero-partner">
+                <img class="hero-partner-logo hero-partner-logo-ciroh" src="./assets/images/ciroh-logo.png" alt="CIROH" />
+                <span><strong>CIROH</strong><small>Water research consortium</small></span>
+              </div>
+            </div>
+          </div>
+        </div>
 
           <footer class="landing-contact-footer">
             <a class="landing-footer-brand" href="./index.html" aria-label="Nature-Based Solutions Initiative home">
@@ -289,6 +301,6 @@
       </main>
     </div>
 
-    <script src="./assets/js/main.js?v=16"></script>
+    <script src="./assets/js/main.js?v=22"></script>
 </body>
 </html>
