@@ -639,7 +639,43 @@ if (topicCarousel) {
   const menus = [...document.querySelectorAll('.nature-nav-dropdown')];
   if (!menus.length) return;
   const close = except => menus.forEach(menu => { if (menu !== except) menu.open = false; });
+  const nav = menus[0].closest('.nature-navigation');
+  const links = nav.querySelector('.nature-navigation-links');
+  links.id = 'primary-navigation-links';
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'nature-menu-toggle';
+  toggle.textContent = 'Menu';
+  toggle.setAttribute('aria-controls', links.id);
+  const setMenu = expanded => {
+    nav.classList.toggle('menu-expanded', expanded);
+    toggle.setAttribute('aria-expanded', String(expanded));
+    if (!expanded) close();
+  };
+  links.before(toggle);
+  nav.classList.add('has-menu-toggle');
+  setMenu(false);
+  toggle.addEventListener('click', () => setMenu(!nav.classList.contains('menu-expanded')));
+  document.addEventListener('click', event => {
+    if (!nav.contains(event.target) || event.target.closest('a')) setMenu(false);
+  });
+  window.matchMedia('(max-width: 760px)').addEventListener('change', () => setMenu(false));
   menus.forEach(menu => {
+    const search = menu.querySelector('.nav-intro input');
+    search?.addEventListener('input', () => {
+      const term = search.value.trim().toLowerCase();
+      let matches = 0;
+      menu.querySelectorAll('.nav-groups section').forEach(group => {
+        const heading = group.querySelector('h3').textContent.toLowerCase();
+        const items = [...group.querySelectorAll('li')];
+        for (const item of items) {
+          item.hidden = !(heading + ' ' + item.textContent.toLowerCase()).includes(term);
+          if (!item.hidden) matches++;
+        }
+        group.hidden = items.every(item => item.hidden);
+      });
+      menu.querySelector('[role="status"]').hidden = matches > 0;
+    });
     menu.querySelector('summary')?.addEventListener('click', () => close(menu));
     menu.addEventListener('toggle', () => { if (menu.open) close(menu); });
     menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => close()));
@@ -649,7 +685,11 @@ if (topicCarousel) {
     if (event.key !== 'Escape') return;
     const opened = menus.find(menu => menu.open);
     close();
-    opened?.querySelector('summary')?.focus();
+    if (opened) opened.querySelector('summary')?.focus();
+    else if (nav.classList.contains('menu-expanded')) {
+      setMenu(false);
+      toggle.focus();
+    }
   });
 })();
 

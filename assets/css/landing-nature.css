@@ -26,7 +26,7 @@ html .nature-landing .landing-kicker { color: #e0edb9; font-size: 11px; letter-s
 html .nature-landing .landing-hero h1.landing-title-wide { max-width: 950px; color: white; font-size: clamp(44px, 5.8vw, 84px); line-height: 1.1; letter-spacing: -.035em; font-weight: 400; text-wrap: initial; }
 html .nature-landing .landing-summary { color: #f0f4ed; font-size: clamp(17px, 1.5vw, 21px); max-width: 580px; margin-top: 27px; line-height: 1.65; }
 html .nature-landing .landing-actions { align-items: center; gap: 26px; margin-top: 32px; }
-html .nature-landing .landing-button-primary { min-height: 50px; background: #a6c348; color: #183023; border: 1px solid #a6c348; border-radius: 2px; padding: 14px 24px; box-shadow: none; font-size: 14px; }
+html .nature-landing .landing-button-primary { justify-content: center; min-height: 50px; background: #a6c348; color: #183023; border: 1px solid #a6c348; border-radius: 2px; padding: 14px 24px; box-shadow: none; font-size: 14px; }
 html .nature-landing .landing-button-primary:hover { background: #bed66f; border-color: #bed66f; }
 html .nature-landing .nature-secondary-link { color: white; text-decoration: none; font-size: 14px; padding: 12px 0; border-bottom: 1px solid #ffffff80; }
 html .nature-landing .nature-secondary-link span { margin-left: 12px; }
@@ -736,11 +736,12 @@ html[data-landing-theme] body.nature-landing #our-work .impact-copy {
   background:#edf0f3;
 }
 html[data-landing-theme] body.nature-landing #our-work .watershed-back-button {
-  top:26px; left:24px; width:80px; height:48px; padding:4px;
+  position:static; grid-column:1; grid-row:1; place-self:center;
+  width:min(80px, 100%); height:48px; padding:4px;
   display:grid; place-items:center; background:transparent; border:0;
   color:#52758b; border-radius:0; outline:none; box-shadow:none;
 }
-html[data-landing-theme] body.nature-landing #our-work .watershed-back-button svg { width:72px; height:36px; }
+html[data-landing-theme] body.nature-landing #our-work .watershed-back-button svg { width:100%; max-width:72px; height:36px; }
 html[data-landing-theme] body.nature-landing #our-work .watershed-back-button:focus-visible,
 html[data-landing-theme] body.nature-landing #our-work .watershed-open-button:focus-visible {
   outline:1px solid #8296a4; outline-offset:3px; border-radius:2px;
@@ -998,8 +999,8 @@ html[data-landing-theme] body.nature-landing #topics .toolkit-grid .topic-card:f
 }
 @media(max-width:640px) {
  html[data-landing-theme] body.nature-landing #topics { padding:28px 20px 36px; }
- html[data-landing-theme] body.nature-landing #topics .toolkit-grid { grid-template-columns:1fr; gap:24px; }
- html[data-landing-theme] body.nature-landing #topics .toolkit-grid .topic-card:nth-child(n) { aspect-ratio:1; min-height:360px; }
+ html[data-landing-theme] body.nature-landing #topics .toolkit-grid { grid-template-columns:minmax(0,1fr); gap:24px; }
+ html[data-landing-theme] body.nature-landing #topics .toolkit-grid .topic-card:nth-child(n) { aspect-ratio:auto; min-width:0; min-height:360px; }
 }
 /* Give photography a full lower panel instead of sandwiching it between copy and CTA. */
 html[data-landing-theme] body.nature-landing #topics .toolkit-grid .topic-card:nth-child(n) { padding:30px 30px 0; }
@@ -1012,18 +1013,6 @@ html[data-landing-theme] body.nature-landing #topics .toolkit-grid .topic-previe
  html[data-landing-theme] body.nature-landing #topics .toolkit-grid .topic-preview { width:calc(100% + 36px); margin:0 -18px; }
 }
 
-/* Reference card typography and understated outlined actions. */
-html[data-landing-theme] body.nature-landing #topics .toolkit-grid .topic-card strong {
-  font-family:"Fira Sans",sans-serif; font-size:clamp(26px,2.3vw,38px); font-weight:300; letter-spacing:0; line-height:1.25; color:#555;
-}
-html[data-landing-theme] body.nature-landing #topics .toolkit-grid .topic-description {
-  font-family:"Fira Sans",sans-serif; font-weight:400; letter-spacing:0; line-height:1.55; color:#555;
-}
-html[data-landing-theme] body.nature-landing #topics .toolkit-grid .topic-cta {
-  font-family:"Fira Sans",sans-serif; font-size:12px; font-weight:400; line-height:1.2;
-  padding:10px 16px; border:1px solid #287fae; border-radius:7px; background:transparent; color:#286c92; margin-bottom:22px;
-}
-html[data-landing-theme] body.nature-landing #topics .toolkit-grid .topic-card:hover .topic-cta { background:#e3eff6; border-color:#216c99; }
 /* Compact introduction; the interactive landscape retains its working height. */
 html[data-landing-theme] body.nature-landing #our-work .watershed-reveal:not(.is-open) { height:460px; min-height:0; }
 html[data-landing-theme] body.nature-landing #our-work .watershed-reveal:not(.is-open) .impact-explorer { display:none; }
@@ -1047,7 +1036,6 @@ html[data-landing-theme] body.nature-landing #our-work .watershed-introduction {
  html[data-landing-theme] body.nature-landing #our-work .impact-copy .impact-selector button:nth-of-type(n),
  html[data-landing-theme] body.nature-landing #our-work .impact-copy .impact-selector button:hover,
  html[data-landing-theme] body.nature-landing #our-work .impact-copy .impact-selector button[aria-pressed="true"] { min-height:33px; padding:6px 0; }
- html[data-landing-theme] body.nature-landing #our-work .watershed-back-button { top:14px; height:38px; }
 }
 @media(max-width:760px) {
  html[data-landing-theme] body.nature-landing #our-work .impact-explorer { grid-template-rows:auto 320px; min-height:0; }
@@ -1055,25 +1043,8 @@ html[data-landing-theme] body.nature-landing #our-work .watershed-introduction {
  html[data-landing-theme] body.nature-landing #our-work .impact-visual { min-height:320px; height:320px; }
  html[data-landing-theme] body.nature-landing #our-work .impact-copy { padding-top:64px; padding-bottom:18px; }
 }
-/* Center the compact directory and photograph as one unit. */
-@media(min-width:761px) {
- html[data-landing-theme] body.nature-landing #our-work .watershed-reveal.is-open { max-width:1040px; margin-inline:auto; }
- html[data-landing-theme] body.nature-landing #our-work .watershed-reveal.is-open .impact-explorer { grid-template-columns:230px minmax(0,1fr); }
-}
-/* Return control sits beside the directory, leaving the image more compact. */
-@media(min-width:761px) {
- html[data-landing-theme] body.nature-landing #our-work .watershed-reveal.is-open { max-width:1000px; }
- html[data-landing-theme] body.nature-landing #our-work .watershed-reveal.is-open .impact-explorer { grid-template-columns:300px minmax(0,1fr); }
- html[data-landing-theme] body.nature-landing #our-work .watershed-reveal.is-open .impact-copy { padding:24px 18px 20px 100px; }
- html[data-landing-theme] body.nature-landing #our-work .watershed-reveal.is-open .watershed-back-button { left:10px; top:50%; transform:translateY(-50%); width:72px; height:48px; padding:4px; }
-}
-/* Balance the invitation and center the directory/photo independently of back navigation. */
 @media(min-width:761px) {
  html[data-landing-theme] body.nature-landing #our-work .watershed-reveal:not(.is-open) .watershed-open-button { right:130px; }
- html[data-landing-theme] body.nature-landing #our-work .watershed-reveal.is-open { max-width:1000px; overflow:visible; }
- html[data-landing-theme] body.nature-landing #our-work .watershed-reveal.is-open .impact-explorer { grid-template-columns:230px minmax(0,1fr); width:920px; max-width:calc(100% - 80px); margin-inline:auto; }
- html[data-landing-theme] body.nature-landing #our-work .watershed-reveal.is-open .impact-copy { padding:24px 24px 20px 20px; }
- html[data-landing-theme] body.nature-landing #our-work .watershed-reveal.is-open .watershed-back-button { left:-65px; }
 }
 /* Slightly taller landscape and compact details beside, never over, its markers. */
 @media(min-width:761px) {
@@ -1101,12 +1072,29 @@ html[data-landing-theme] body.nature-landing #our-work .impact-image-credit { le
  html[data-landing-theme] body.nature-landing #our-work .impact-visual .impact-info { position:relative; inset:auto; width:100%; max-width:none; max-height:none; }
  html[data-landing-theme] body.nature-landing #our-work .impact-explorer:has(.impact-info:not([hidden])) { grid-template-rows:auto auto; }
 }
-/* Reserve a permanent details column so selection never resizes the photograph. */
+/* The back control has its own lane beside the intervention list. */
 @media(min-width:761px) {
- html[data-landing-theme] body.nature-landing #our-work .watershed-reveal.is-open { max-width:1200px; }
- html[data-landing-theme] body.nature-landing #our-work .watershed-reveal.is-open .impact-explorer { width:1120px; max-width:calc(100% - 80px); grid-template-columns:210px minmax(0,1fr); }
+ html[data-landing-theme] body.nature-landing #our-work .watershed-reveal.is-open { max-width:1280px; }
+ html[data-landing-theme] body.nature-landing #our-work .watershed-reveal.is-open .impact-explorer {
+   --detail-width:clamp(170px, 18vw, 246px);
+   width:min(1200px, calc(100% - 32px)); margin-inline:auto;
+   grid-template-columns:clamp(64px, 7vw, 96px) clamp(156px, 16vw, 210px) minmax(0, 1fr);
+ }
+ html[data-landing-theme] body.nature-landing #our-work .impact-copy { grid-column:2; padding:24px 16px; align-self:center; }
+ html[data-landing-theme] body.nature-landing #our-work .impact-map-system { grid-column:3; }
  html[data-landing-theme] body.nature-landing #our-work .impact-visual .impact-landscape,
- html[data-landing-theme] body.nature-landing #our-work .impact-visual:has(.impact-info:not([hidden])) .impact-landscape { right:246px; width:auto; }
+ html[data-landing-theme] body.nature-landing #our-work .impact-visual:has(.impact-info:not([hidden])) .impact-landscape { right:var(--detail-width, 246px); width:auto; }
+ html[data-landing-theme] body.nature-landing #our-work .impact-visual .impact-info { width:calc(var(--detail-width, 246px) - 12px); }
+}
+@media(max-width:760px) {
+ html[data-landing-theme] body.nature-landing #our-work .impact-explorer {
+   box-sizing:border-box; padding-inline:12px 4px;
+   grid-template-columns:44px minmax(0, 1fr);
+ }
+ html[data-landing-theme] body.nature-landing #our-work .impact-copy { grid-column:2; padding:8px 8px 16px; }
+ html[data-landing-theme] body.nature-landing #our-work .impact-copy .impact-selector { grid-template-columns:repeat(2, minmax(0, 1fr)); column-gap:10px; }
+ html[data-landing-theme] body.nature-landing #our-work .impact-group-label { grid-column:auto; flex-wrap:wrap; }
+ html[data-landing-theme] body.nature-landing #our-work .impact-map-system { grid-column:1 / -1; }
 }
 
 /* Partner acknowledgement belongs with the compact page footer. */

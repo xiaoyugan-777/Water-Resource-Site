@@ -1,0 +1,47 @@
+/* Reference card typography and understated outlined actions. */
+:is(html[data-landing-theme] body.nature-landing #topics .toolkit-grid, .topic-sequence) .topic-card strong {
+  font-family:"Fira Sans",sans-serif; font-size:clamp(26px,2.3vw,38px); font-weight:300; letter-spacing:0; line-height:1.25; color:#555;
+}
+:is(html[data-landing-theme] body.nature-landing #topics .toolkit-grid, .topic-sequence) .topic-description {
+  font-family:"Fira Sans",sans-serif; font-weight:400; letter-spacing:0; line-height:1.55; color:#555;
+}
+:is(html[data-landing-theme] body.nature-landing #topics .toolkit-grid, .topic-sequence) .topic-cta {
+  font-family:"Fira Sans",sans-serif; font-size:12px; font-weight:400; line-height:1.2;
+  padding:10px 16px; border:1px solid #287fae; border-radius:7px; background:transparent; color:#286c92; margin-bottom:22px;
+}
+:is(html[data-landing-theme] body.nature-landing #topics .toolkit-grid, .topic-sequence) .topic-card:hover .topic-cta { background:#e3eff6; border-color:#216c99; }
+
+.toolkit-card-number {
+  display: block;
+  align-self: flex-start;
+  margin-bottom: 12px;
+  border-bottom: 3px solid #8ead38;
+  padding-bottom: 4px;
+  font: 700 15px/1.2 "Fira Sans", sans-serif;
+  color: #34423e;
+}
+
+:is(#topics, #questions.tools-questions) {
+  --card-gap: 28px;
+  --card-inset: 30px;
+  --card-ratio: 1;
+  --card-min-height: 0px;
+}
+html[data-landing-theme] body :is(#topics, #questions.tools-questions) { padding-inline: 28px; }
+html[data-landing-theme] body :is(#topics .toolkit-grid, #questions .topic-sequence) { gap: var(--card-gap); }
+html[data-landing-theme] body :is(#topics .toolkit-grid, #questions .topic-sequence) .topic-card:nth-child(n) {
+  box-sizing: border-box;
+  aspect-ratio: var(--card-ratio);
+  min-height: var(--card-min-height);
+  padding: var(--card-inset) var(--card-inset) 0;
+  overflow: hidden;
+}
+@media (max-width: 900px) {
+  :is(#topics, #questions.tools-questions) { --card-gap: 16px; --card-inset: 18px; --card-ratio: auto; --card-min-height: 360px; }
+  #questions .topic-preview { width: calc(100% + 36px); margin-inline: -18px; }
+}
+@media (max-width: 640px) {
+  :is(#topics, #questions.tools-questions) { --card-gap: 24px; }
+  html[data-landing-theme] body :is(#topics, #questions.tools-questions) { padding-inline: 20px; }
+  #questions .topic-sequence { grid-auto-columns: 100%; }
+}

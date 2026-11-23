@@ -2440,10 +2440,6 @@ html[data-landing-theme="light"] .get-started-page .landing-header .landing-bran
     padding-inline: 24px;
   }
 
-  .get-started-page .landing-brand-name > span {
-    display: none;
-  }
-
   .get-started-primary-nav {
     gap: 13px;
   }

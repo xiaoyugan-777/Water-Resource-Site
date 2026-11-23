@@ -13,9 +13,9 @@ html[data-landing-theme] body.collection-explorer-page > .page-shell { width:100
 .collection-explorer-page .resource-explorer-preview { aspect-ratio:1.48; overflow:hidden; background:#f8fafc; border:1px solid #edf0f4; }
 .collection-explorer-page .resource-explorer-preview img { display:block; width:100%; height:100%; object-fit:cover; }
 .collection-explorer-page .resource-explorer-preview.is-data-preview img { object-fit:contain; }
-.collection-explorer-page .resource-explorer-card h2 { margin:12px 0 10px; color:#1d3d63; font:700 23px/1.25 'Playfair Display',Georgia,serif; letter-spacing:-.01em; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; }
+.collection-explorer-page .resource-explorer-card :is(h2,h3) { margin:12px 0 10px; color:#1d3d63; font:700 23px/1.25 'Playfair Display',Georgia,serif; letter-spacing:-.01em; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; }
 .collection-explorer-page .resource-explorer-card p { margin:0; color:#1d3d63; font:400 16px/1.55 Lato,Arial,sans-serif; }
-.collection-explorer-page .resource-explorer-card:hover h2 { color:#286f9f; }
+.collection-explorer-page .resource-explorer-card:hover :is(h2,h3) { color:#286f9f; }
 .collection-explorer-page .resource-explorer-card:focus-visible { outline:2px solid #287faa; outline-offset:6px; }
 html[data-landing-theme] .collection-explorer-page .landing-contact-footer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; margin:0; min-height:0; padding:20px max(32px,calc((100% - 1100px)/2)); border-top:1px solid #d9e1e9; background:#edf0f3; }
 .collection-explorer-page .landing-contact-footer .landing-brand-logo { width:38px; height:38px; filter:none; }

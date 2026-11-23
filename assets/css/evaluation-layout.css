@@ -1,0 +1,66 @@
+.evaluation-content {
+  width: min(1200px, calc(100% - 48px));
+  margin: auto;
+  padding-block: clamp(28px, 4vw, 56px);
+  color: #203e62;
+}
+.evaluation-page .evaluate-shell,
+.evaluation-page .evaluate-steps-shell,
+.evaluation-page .evaluate-intake-shell {
+  background: white;
+  color: #203e62;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.evaluation-page .evaluate-hero-copy { max-width: 760px; }
+.evaluation-page .evaluate-intro { max-width: 65ch; color: #43586a; letter-spacing: normal; }
+.evaluation-page .evaluate-kicker { color: #496d84; }
+.evaluation-page .evaluate-action-primary,
+.evaluation-page .evaluate-action-secondary {
+  background: #204c6e;
+  border: 1px solid #204c6e;
+  border-radius: 6px;
+  color: white;
+}
+.evaluation-page .evaluate-action-secondary { background: white; color: #204c6e; }
+.evaluation-page .evaluate-metric-card,
+.evaluation-page .evaluate-step-item { background: #f4f7f9; border: 1px solid #d3dfe5; border-radius: 6px; box-shadow: none; }
+.evaluation-page .evaluate-metric-card :is(p,strong),
+.evaluation-page .evaluate-step-copy :is(h2,p) { color: #203e62; }
+.evaluation-page .evaluate-step-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.evaluation-page .evaluate-steps-section { margin-block: 32px; }
+@media (max-width: 720px) {
+  .evaluation-content { width: calc(100% - 32px); }
+  .evaluation-page .evaluate-step-list { grid-template-columns: 1fr; }
+}
+
+.evaluation-banner { background: #0c334c; color: white; }
+.evaluation-banner-inner { max-width: 1440px; margin: auto; display: grid; grid-template-columns: 1.1fr 1fr; }
+.evaluation-banner-copy { padding: clamp(32px, 5vw, 78px); align-self: center; }
+.evaluation-banner-copy h1, .evaluation-process-title { font: 700 clamp(36px, 4vw, 60px)/1.06 Georgia, serif; letter-spacing: -.03em; }
+.evaluation-banner-copy h1 { color: #f6ce66; margin: 14px 0 18px; max-width: 16ch; }
+.evaluation-banner-copy p { margin: 0; color: #eff5f6; font: 400 18px/1.55 Lato, sans-serif; }
+.evaluation-banner-copy p:first-child { color: #c1d8e0; font-size: 14px; }
+.evaluation-banner-inner img { width: 100%; height: 100%; min-height: 260px; object-fit: cover; }
+.evaluation-banner .evaluate-action-primary { color: #12394f; background: white; border-color: white; }
+.evaluation-banner .evaluate-action-secondary { background: transparent; color: white; border-color: #a2b9c9; }
+.evaluation-page .evaluate-metrics { gap: 20px; }
+.evaluation-page .evaluate-metric-card { background: transparent; border: 0; border-left: 2px solid #bdd1db; border-radius: 0; min-height: 0; padding: 0 16px; }
+.evaluation-page .evaluate-metric-copy { max-width: 32ch; }
+.evaluation-process-title { margin: 0; font-size: clamp(30px, 3vw, 42px); }
+.evaluation-page .evaluate-steps-section { margin-top: clamp(40px, 5vw, 72px); }
+.evaluation-page .evaluate-step-item { padding: 22px 8px; background: white; border: 0; border-top: 1px solid #cbd9df; border-radius: 0; grid-template-columns: 38px 1fr; }
+.evaluation-page .evaluate-step-list { gap: 0 40px; }
+.evaluation-page .evaluate-step-badge { width: 36px; height: 36px; background: #e3eff2; color: #225574; font-size: 17px; box-shadow: none; }
+.evaluation-page .evaluate-ready-panel { padding: clamp(24px, 4vw, 48px); background: #133b55; border-radius: 6px; color: white; }
+.evaluation-page .evaluate-ready-panel h3 { max-width: none; color: white; font-family: Georgia, serif; }
+.evaluation-page .evaluate-ready-panel :is(.evaluate-ready-copy,.evaluate-ready-outcome p,.evaluate-ready-outcome strong) { color: #f0f5fa; }
+.evaluation-page .evaluate-ready-outcome { background: transparent; border-color: #587484; }
+.evaluation-page .evaluate-ready-button { background: white; color: #183e57; }
+@media (max-width: 720px) {
+  .evaluation-banner-inner { grid-template-columns: 1fr; }
+  .evaluation-banner-inner img { min-height: 0; height: 160px; }
+  .evaluation-page .evaluate-metrics { grid-template-columns: 1fr; }
+}
